@@ -1,0 +1,136 @@
+.header{
+	padding: 20px 0px;
+	background: #171a21;
+	width: 100%;
+	min-height: 170px;
+	display: flex;
+	align-items: center;
+	&__container{
+		width: 100%;
+	}
+}
+
+.block-auth{
+	display: flex;
+	justify-content: flex-end;
+	margin-bottom: 10px;
+	&__btn{
+		padding: 10px 25px;
+		font-weight: 700;
+		line-height: 20px;
+		border-radius: 8px;
+		transition: all 0.5s ease 0s;
+		position: relative;
+		overflow: hidden;
+		&_reg{
+			background: linear-gradient(180deg, #E2F685 0%, #8AF9AD 100%);
+			margin-right: 15px;
+			&:before{
+				content: "";
+				transition: all 0.5s ease 0s;
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #67ff97;
+			}
+			a{
+				color: #05030E;
+			}
+			@media(min-width: 992px) {
+				&:hover{
+					background: transparent;
+					border-top: 1px solid #E2F685;
+					border-left: 1px solid #8AF9AD;
+					border-right: 1px solid #8AF9AD;
+					border-bottom: 1px solid #8AF9AD;
+					transform: scale(0.9);
+					a{
+						color: #fff;
+					}
+					&:before{
+						opacity: 0;
+					}
+				}
+			}
+		}
+		&_auth{
+			border-top: 1px solid #E2F685;
+			border-left: 1px solid #8AF9AD;
+			border-right: 1px solid #8AF9AD;
+			border-bottom: 1px solid #8AF9AD;
+			a{
+				color: #fff;
+			}
+			@media(min-width: 992px) {
+				&:hover{
+					transform: scale(0.9);
+					background: #8AF9AD;
+					a{
+						color: #05030E;
+					}
+				}
+			}
+		}
+	}
+}
+
+.menu-header{
+	display:  flex;
+	align-items: center;
+	&__logo{
+		position: relative;
+		margin-right: 20px;
+		a{
+			position: relative;
+			z-index: 10;
+			transition: all 0.5s ease 0s;
+			font-weight: bold;
+			font-size: 24px;
+			line-height: 20px;
+			color: #fff;
+			text-shadow: 0px 0px 30px #8AF9AD;
+			@media(min-width: 992px) {
+				&:hover{
+					color: #67ff97;
+				}
+			}
+		}
+	}
+	&__img{
+		position: absolute;
+		transform: rotate(-45deg);
+		top: -40px;
+		left: -15px;
+		width: 45px;
+		height: 45px;
+	}
+	&__list{
+		display: flex;
+		justify-content: center;
+		flex: 1 1 auto;
+		li{
+			margin-right: 15px;
+			&:last-child{
+				margin-right: 0;
+			}
+			a{
+				transition: all 0.5s ease 0s;
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 20px;
+				color: #fff;
+				@media(min-width: 992px) {
+					&:hover{
+						color: #E2F685;
+					}
+				}
+				&.active{
+					color: rgb(202, 148, 0);
+				}
+			}
+		}
+	}
+}
