@@ -2,7 +2,7 @@ import React from "react"
 import Header from "./components/common/header"
 import Footer from "./components/common/footer"
 import { Routes, Route } from "react-router-dom"
-import HomePage from "./components/pages/homePage"
+import Home from "./layots/home"
 
 function App() {
 	return (
@@ -10,7 +10,7 @@ function App() {
 			<Header />
 			<main className="wrapper__content block-content">
 				<Routes>
-					<Route path="/" element={<HomePage />} />
+					<Route path="/" element={<Home />} />
 				</Routes>
 			</main>
 			<Footer />
