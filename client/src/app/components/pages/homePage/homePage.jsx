@@ -9,7 +9,7 @@ const HomePage = () => {
 		<div className="block-content__home home-block">
 			<HomeHead />
 			<HomeCards />
-			<SliderGallery title="Популярное и рекомендуемое" data={configAuxiliary.sliderGalleryGame} globPath="./images/sliderGalleryGame/" />
+			<SliderGallery title="Популярное и рекомендуемое" posters={configAuxiliary.sliderGalleryPostersGame} data={configAuxiliary.sliderGalleryGame} globPath="./images/sliderGalleryGame/" />
 		</div>
 	)
 }
