@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from "react"
 import PropTypes from "prop-types"
-import ScreenSliderGallery from "../ui/screenSliderGallery"
+import ContentSliderGallery from "../ui/contentSliderGallery"
 
 const SliderGallery = ({ title, data, posters, ...rest }) => {
+	const SLIDER_GALLERY_HEIGHT = 512
 	const [currentValue, setCurrentValue] = useState(0)
 	const [elementConfig, setElementConfig] = useState(null)
 	const [screenBodyOffset, setScreenBodyOffset] = useState(0)
-	const [screenBodyTranslate, setScreenBodyTranslate] = useState({ transform: `translateX(${0 + "px"})` })
+	const [screenBodyTranslate, setScreenBodyTranslate] = useState({ transform: "translateX(0px)" })
+	const [contentWrapperTranslate, setContentWrapperTranslate] = useState({ transform: "translateY(0px)" })
 	const refScrinBody = useRef(null)
 	const array = []
 	const currentSlide = data[currentValue]
@@ -14,14 +16,19 @@ const SliderGallery = ({ title, data, posters, ...rest }) => {
 		array.push({ id: i })
 	}
 	const getTranslateStyles = (direction) => {
+		let value
+		let val
 		if (direction === "left") {
-			const value = screenBodyOffset * (currentValue - 1)
-			setScreenBodyTranslate({ transform: `translateX(-${value + "px"})` })
+			value = screenBodyOffset * (currentValue - 1)
+			val = SLIDER_GALLERY_HEIGHT * (currentValue - 1)
 		}
 		if (direction === "right") {
-			const value = screenBodyOffset * (currentValue + 1)
-			setScreenBodyTranslate({ transform: `translateX(-${value + "px"})` })
+			value = screenBodyOffset * (currentValue + 1)
+			val = SLIDER_GALLERY_HEIGHT * (currentValue + 1)
 		}
+
+		setScreenBodyTranslate({ transform: `translateX(-${value}px)` })
+		setContentWrapperTranslate({ transform: `translateY(-${val}px)` })
 	}
 	const handlerUpdateCurrentSlide = (value) => {
 		setElementConfig(null)
@@ -50,7 +57,7 @@ const SliderGallery = ({ title, data, posters, ...rest }) => {
 		if (!elementConfig) {
 			return (
 				<div ref={refScrinBody} style={screenBodyTranslate} className="block-slider-gallery__body">
-					{posters.map((item, index) => <img key={index} src={`${rest.globPath}${item.pathView}`} alt={item.alt} />)}
+					{posters.map((item, index) => <div key={index} className="block-slider-gallery__wrap-img"><img src={`${rest.globPath}${item.pathView}`} alt={item.alt} /></div>)}
 				</div>
 			)
 		}
@@ -81,16 +88,9 @@ const SliderGallery = ({ title, data, posters, ...rest }) => {
 							<img src="./images/icons/double-arrow.svg" alt="Иконка стрелки-контроллера" />
 						</div>
 					</div>
-					<div className="block-slider-gallery__column">
-						<div className="block-slider-gallery__content content-slider-gallery">
-							<h3 className="content-slider-gallery__name">{currentSlide.gallery.title}</h3>
-							<div className="content-slider-gallery__screenshots-row">
-								{currentSlide.gallery.galleryImages.map((screen, i) => <ScreenSliderGallery onScreenOut={handlerMouseOut} onScreenOver={handlerMouseOverScreen} key={i} {...screen} {...rest} />)}
-							</div>
-							<div className="content-slider-gallery__message">{currentSlide.gallery.text}</div>
-							<div className="content-slider-gallery__tags">
-								{currentSlide.gallery.tags.map((el, m) => <div key={m} className="content-slider-gallery__tag">{el}</div>)}
-							</div>
+					<div className="block-slider-gallery__column" style={{ maxHeight: SLIDER_GALLERY_HEIGHT + "px" }}>
+						<div style={contentWrapperTranslate} className="block-slider-gallery__wrapper">
+							{data.map((content, i) => <ContentSliderGallery key={i} rest={rest} onScreenOver={handlerMouseOverScreen} onScreenOut={handlerMouseOut} heightElement={SLIDER_GALLERY_HEIGHT} data={content} />)}
 						</div>
 					</div>
 				</div>

@@ -18,7 +18,8 @@
 		{"pathView": "dyingLight2View.jpg", "alt": "Ближний бой с бандитами"},
 		{"pathView": "dota2View.jpg", "alt": "Иконка Dota2 и падающие кометы"},
 		{"pathView": "gta5View.jpg", "alt": "Постер GTA5"},
-		{"pathView": "witcherView.jpg", "alt": "Ведьмак перед огромной жабой в лесу"}
+		{"pathView": "witcherView.jpg", "alt": "Ведьмак перед огромной жабой в лесу"},
+		{"pathView": "starCraft2View.jpg", "alt": "Королева"}
 	],
 	"sliderGalleryGame": [
 		{
@@ -78,7 +79,17 @@
 				"title": "Ведьмак 3: Дикая Охота",
 				"galleryImages": [{"path": "witcher1.jpg", "alt": "Ведьмак на китайском празднике"}, {"path": "witcher2.jpg", "alt": "Ведьмак"}, {"path": "witcher3.jpg", "alt": "Цири"}, {"path": "witcher4.jpg", "alt": "Йеннифер, Геральд, Трисс"}],
 				"text": "Уже доступно",
-				"tags": ["Открытый мир", "Action/RPG", "Файтинг", "Action-adventure", "Нелинейность"]
+				"tags": ["Открытый мир", "Action/RPG", "Файтинг", "Action-adventure", "Нелинейность", "multi-colophon"]
+			}
+		},
+		{
+			"titleChief": "Окунись в противоборство терранов, протоссов и зергов",
+			"titleButton": "Узнать больше",
+			"gallery": {
+				"title": "Starcraft 2: Legacy of the Void",
+				"galleryImages": [{"path": "starCraft2sc1.jpg", "alt": "Протосы"}, {"path": "starCraft2sc2.jpg", "alt": "Подбитый корабль"}, {"path": "starCraft2sc3.jpg", "alt": "Рубка на космическом корабле"}, {"path": "starCraft2sc4.jpg", "alt": "Протосы"}],
+				"text": "Уже доступно",
+				"tags": ["стратегия", "Action"]
 			}
 		}
 	]
