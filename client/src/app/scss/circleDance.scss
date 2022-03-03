@@ -1,0 +1,76 @@
+@keyframes rotSmall{
+	from {
+		transform: rotate(0deg) translate(100px) rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg) translate(100px) rotate(-360deg);
+	}
+}
+@keyframes rotMiddle{
+	from {
+		transform: rotate(0deg) translate(215px) rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg) translate(215px) rotate(-360deg);
+	}
+}
+@keyframes rotExternal{
+	from {
+		transform: rotate(0deg) translate(430px) rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg) translate(430px) rotate(360deg);
+	}
+}
+@keyframes rotExternal1{
+	from {
+		transform: rotate(0deg) translate(210px) rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg) translate(210px) rotate(360deg);
+	}
+}
+
+.letter-block{
+	&__text{
+		font-size: 57px;
+		font-weight: 600;
+		position: relative;
+	}
+	&__circle{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	&__small-element{
+		position: absolute;
+		top: -10px;
+		left: -35px;
+		animation: rotSmall 3s infinite linear;
+	}
+	&__middle-element{
+		position: absolute;
+		top: -50%;
+		left: -55px;
+		animation: rotMiddle 7s infinite linear;
+	}
+	&__external-element{
+		position: absolute;
+		top: -19px;
+		left: -43px;
+		animation: rotExternal 10s infinite linear;
+	}
+	&__circle-offset{
+		position: absolute;
+		top: 60%;
+		left: 60%;
+		transform: translate(-60%, -60%);
+	}
+	&__external-element-offset{
+		position: absolute;
+		top: -60px;
+		left: -85px;
+		animation: rotExternal1 5s infinite linear;
+	}
+}

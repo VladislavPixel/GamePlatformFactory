@@ -1,8 +1,7 @@
 .slider-gallery{
+	position: relative;
+	z-index: 20;
 	margin-bottom: 80px;
-	&__container{
-
-	}
 	&__title{
 		text-transform: uppercase;
 		color: #fff;
@@ -12,7 +11,6 @@
 	&__pagination{
 		margin-top: 30px;
 		display: flex;
-		justify-content: center;
 		align-items: center;
 		span{
 			transition: all 0.5s ease 0s;
@@ -159,6 +157,7 @@
 		margin-bottom: 15px;
 	}
 	&__column{
+		transition: all 0.5s ease 0s;
 		flex: 0 1 calc(50% - 10px);
 		position: relative;
 		padding: 0px 0px 35% 0px;
@@ -167,6 +166,12 @@
 		&:nth-child(even){
 			flex: 0 1 50%;
 			margin: 0px 0px 10px 0px;
+		}
+		@media(min-width: 992px) {
+			&:hover{
+				opacity: 1;
+				box-shadow: 0px 0px 20px 2px #fff;
+			}
 		}
 	}
 	&__screen-img{

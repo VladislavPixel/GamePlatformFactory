@@ -3,6 +3,7 @@ import HomeHead from "../../ui/homeHead"
 import HomeCards from "../../ui/homeCards"
 import SliderGallery from "../../common/sliderGallery"
 import configAuxiliary from "../../../configAuxiliary.json"
+import WeHave from "../../ui/weHave"
 
 const HomePage = () => {
 	return (
@@ -10,6 +11,7 @@ const HomePage = () => {
 			<HomeHead />
 			<HomeCards />
 			<SliderGallery title="Популярное и рекомендуемое" posters={configAuxiliary.sliderGalleryPostersGame} data={configAuxiliary.sliderGalleryGame} globPath="./images/sliderGalleryGame/" />
+			<WeHave />
 		</div>
 	)
 }
