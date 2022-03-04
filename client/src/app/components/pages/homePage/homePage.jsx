@@ -13,7 +13,7 @@ const HomePage = () => {
 			<HomeCards />
 			<SliderGallery title="Популярное и рекомендуемое" posters={configAuxiliary.sliderGalleryPostersGame} data={configAuxiliary.sliderGalleryGame} globPath="./images/sliderGalleryGame/" />
 			<WeHave />
-			<HomeCategoryBlock title="Возможно Вам будет интересно" categories={configAuxiliary.homeBlockCategory} />
+			<HomeCategoryBlock path="./images/categoryBlockGame/" title="Возможно Вам будет интересно" categories={configAuxiliary.homeBlockCategory} games={configAuxiliary.categoryBlockGames} />
 		</div>
 	)
 }

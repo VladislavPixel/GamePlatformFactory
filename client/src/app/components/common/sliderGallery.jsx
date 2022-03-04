@@ -16,7 +16,6 @@ const SliderGallery = ({ title, data, posters, ...rest }) => {
 		array.push({ id: i })
 	}
 	const getTranslateStyles = (direction, newCurrentValue) => {
-		console.log(newCurrentValue)
 		let value
 		let val
 		if (direction === "left") {
