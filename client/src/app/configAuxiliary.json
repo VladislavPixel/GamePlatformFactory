@@ -1,4 +1,10 @@
 {
+	"homeBlockCategory": [
+		{"_id": "popular-new", "title": "Популярные новинки"},
+		{"_id": "leaders", "title": "Лидеры продаж"},
+		{"_id": "popular-in-the-future", "title": "Популярные будущие продукты"},
+		{"_id": "discounts", "title": "Скидки"}
+	],
 	"weHaveList": [
 		"Эксклюзивные игры на платформе Factory",
 		"Большое количество акций и скидок",

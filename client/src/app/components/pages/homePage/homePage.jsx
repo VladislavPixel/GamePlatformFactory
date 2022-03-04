@@ -4,6 +4,7 @@ import HomeCards from "../../ui/homeCards"
 import SliderGallery from "../../common/sliderGallery"
 import configAuxiliary from "../../../configAuxiliary.json"
 import WeHave from "../../ui/weHave"
+import HomeCategoryBlock from "../../common/homeCategoryBlock"
 
 const HomePage = () => {
 	return (
@@ -12,6 +13,7 @@ const HomePage = () => {
 			<HomeCards />
 			<SliderGallery title="Популярное и рекомендуемое" posters={configAuxiliary.sliderGalleryPostersGame} data={configAuxiliary.sliderGalleryGame} globPath="./images/sliderGalleryGame/" />
 			<WeHave />
+			<HomeCategoryBlock title="Возможно Вам будет интересно" categories={configAuxiliary.homeBlockCategory} />
 		</div>
 	)
 }

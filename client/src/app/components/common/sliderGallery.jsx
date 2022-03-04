@@ -15,16 +15,17 @@ const SliderGallery = ({ title, data, posters, ...rest }) => {
 	for (let i = 0; i < data.length; i++) {
 		array.push({ id: i })
 	}
-	const getTranslateStyles = (direction) => {
+	const getTranslateStyles = (direction, newCurrentValue) => {
+		console.log(newCurrentValue)
 		let value
 		let val
 		if (direction === "left") {
-			value = screenBodyOffset * (currentValue - 1)
-			val = SLIDER_GALLERY_HEIGHT * (currentValue - 1)
+			value = screenBodyOffset * newCurrentValue
+			val = SLIDER_GALLERY_HEIGHT * newCurrentValue
 		}
 		if (direction === "right") {
-			value = screenBodyOffset * (currentValue + 1)
-			val = SLIDER_GALLERY_HEIGHT * (currentValue + 1)
+			value = screenBodyOffset * newCurrentValue
+			val = SLIDER_GALLERY_HEIGHT * newCurrentValue
 		}
 
 		setScreenBodyTranslate({ transform: `translateX(-${value}px)` })
@@ -33,22 +34,24 @@ const SliderGallery = ({ title, data, posters, ...rest }) => {
 	const handlerUpdateCurrentSlide = (value) => {
 		setElementConfig(null)
 		if (currentValue > value) {
-			getTranslateStyles("left")
+			getTranslateStyles("left", value)
 		}
 		if (currentValue < value) {
-			getTranslateStyles("right")
+			getTranslateStyles("right", value)
 		}
 		setCurrentValue(value)
 	}
 	const handlerBtnArrow = (direction) => {
+		let actualValue = currentValue
 		if (direction === "left" && currentValue !== 0) {
-			setCurrentValue((prevState) => prevState - 1)
-			getTranslateStyles("left")
+			actualValue -= 1
+			getTranslateStyles("left", actualValue)
 		}
 		if (direction === "right" && currentValue !== (array.length - 1)) {
-			setCurrentValue((prevState) => prevState + 1)
-			getTranslateStyles("right")
+			actualValue += 1
+			getTranslateStyles("right", actualValue)
 		}
+		setCurrentValue(actualValue)
 		setElementConfig(null)
 	}
 	const handlerMouseOverScreen = (event) => setElementConfig({ alt: event.target.alt, path: event.target.currentSrc })

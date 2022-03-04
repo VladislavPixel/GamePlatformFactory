@@ -1,5 +1,8 @@
 .we-have{
+	margin-bottom: 100px;
 	&__title{
+		position: relative;
+		z-index: 10;
 		color: #ebee39;
 		font-weight: bold;
 		font-size: 24px;
@@ -12,6 +15,10 @@
 	}
 	&__column{
 		flex: 0 1 50%;
+		&:first-child{
+			position: relative;
+			z-index: 10;
+		}
 		&:last-child{
 			display: flex;
 			align-items: center;
