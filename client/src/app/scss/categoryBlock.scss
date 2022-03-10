@@ -19,11 +19,14 @@
 	}
 	&__column{
 		&:first-child{
-			flex: 0 0 70%;
+			flex: 0 0 80%;
 		}
 		&:last-child{
-			flex: 0 0 30%;
+			flex: 0 0 20%;
 		}
+	}
+	&__games-block{
+		height: 100%;
 	}
 }
 
@@ -62,10 +65,18 @@
 }
 
 .card-game{
+	transition: all 0.3s ease 0s;
 	display: flex;
 	padding: 10px;
 	background: rgba(42,71,94,1.0);
 	min-height: 150px;
+	cursor: pointer;
+	&.active{
+		background: #859BAC;
+		.card-game__el-tag,.card-game__price{
+			color: black;
+		}
+	}
 	&__column{
 		&:first-child{
 			flex: 0 1 30%;
@@ -95,8 +106,12 @@
 	}
 	&__content-column{
 		img{
-			width: 23px;
-			height: 23px;
+			width: 30px;
+			height: 30px;
+			margin-right: 10px;
+			&:last-child{
+				margin-right: 0;
+			}
 		}
 	}
 	&__tags{
@@ -114,5 +129,68 @@
 	&__price{
 		font-size: 21px;
 		color: rgb(204, 204, 204);
+		&_through{
+			text-decoration: line-through;
+		}
+	}
+	&__interest{
+		margin-top: 6px;
+		color: #fff;
+		font-size: 18px;
+		span{
+			font-size: 30px;
+			color: #30e469;
+			font-weight: 600;
+			margin-left: 7px;
+		}
+	}
+}
+
+.screens-block-category{
+	background: #859BAC;
+	height: 100%;
+	width: 100%;
+	padding: 20px 10px;
+	box-shadow: 15px 15px 6px rgba(42, 71, 94, 0.849);
+	border-radius: 0px 6px 6px 0px;
+	&__title{
+		text-align: center;
+		font-size: 22px;
+		font-weight: 500;
+		color: #263645;
+		margin-bottom: 15px;
+	}
+	&__tags{
+		display: flex;
+		justify-content: center;
+		color: #fff;
+		flex-wrap: wrap;
+		margin-bottom: 10px;
+		span{
+			background: #263645;
+			padding: 5px;
+			border-radius: 10px;
+			margin: 0px 7px 7px 0px;
+		}
+	}
+	&__screens{
+		display: flex;
+		flex-direction: column;
+	}
+	&__sc-block{
+		flex: 0 1 150px;
+		position: relative;
+		margin-bottom: 15px;
+		img{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+		}
+		&:last-child{
+			margin-bottom: 0;
+		}
 	}
 }
