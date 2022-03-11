@@ -6,12 +6,15 @@ import WeHave from "../../ui/weHave"
 import HomeCategoryBlock from "../../common/homeCategoryBlock"
 import fakeApi from "../../../fakeAPI"
 import Spinner from "../../common/spinner"
+import WideScaleSlider from "../../common/wideScaleSlider"
 
 const HomePage = () => {
 	const [sliderGalleryLoader, setSliderGalleryLoader] = useState(true)
 	const [homeCategoryLoader, setHomeCategoryLoader] = useState(true)
+	const [wideScaleSliderLoader, setWideScaleSliderLoader] = useState(true)
 	const [sliderGalleryData, setSliderGalleryData] = useState(null)
 	const [homeCategoryData, setHomeCategoryData] = useState(null)
+	const [wideScaleSliderData, setWideScaleSliderData] = useState(null)
 	useEffect(() => {
 		Promise.all([
 			fakeApi.getSliderGalleryGameData(),
@@ -22,6 +25,8 @@ const HomePage = () => {
 			fakeApi.getCategoryHomeGames(),
 			fakeApi.getCategoryScreensData()
 		]).then(data => { setHomeCategoryData(data) })
+		fakeApi.getHomeWideScaleSliderData()
+			.then(data => setWideScaleSliderData(data))
 	}, [])
 	useEffect(() => {
 		if (sliderGalleryData) { setSliderGalleryLoader(false) }
@@ -29,6 +34,9 @@ const HomePage = () => {
 	useEffect(() => {
 		if (homeCategoryData) { setHomeCategoryLoader(false) }
 	}, [homeCategoryData])
+	useEffect(() => {
+		if (wideScaleSliderData) { setWideScaleSliderLoader(false) }
+	}, [wideScaleSliderData])
 	return (
 		<div className="block-content__home home-block">
 			<HomeHead />
@@ -41,6 +49,10 @@ const HomePage = () => {
 			{
 				homeCategoryLoader ? <Spinner /> :
 				<HomeCategoryBlock path="./images/categoryBlockGame/" title="Возможно Вам будет интересно" categories={homeCategoryData[0]} games={homeCategoryData[1]} screens={homeCategoryData[2]} />
+			}
+			{
+				wideScaleSliderLoader ? <Spinner /> :
+				<WideScaleSlider pathImages="./images/homeWideScaleSlider/" classWrap="home-block" title="Популярные продукты российских разработчиков" dataSliders={wideScaleSliderData} />
 			}
 		</div>
 	)
