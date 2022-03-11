@@ -14,8 +14,12 @@ const categoryBlockGames = [
 	{_id: "e3", category: "popular-in-the-future", poster: "hyperbolicaPoster.jpg", alt: "Логотип игры. Земля и на ее фоне написано Hyperbolica", title: "HYPERBOLICA", tags: ["Фантастика", "Приключения", "Логическая"], platform: ["windows.svg", "vr.svg"], price: "ОЖИДАНИЕ"},
 	{_id: "e4", category: "popular-in-the-future", poster: "distantWorlds2Poster.jpg", alt: "Космические корабли бороздят космос на фоне огромной планеты", title: "Distant Worlds 2", tags: ["Симулятор", "Стратегия"], platform: ["windows.svg"], price: "ОЖИДАНИЕ"},
 	{_id: "e5", category: "popular-in-the-future", poster: "ruinPoster.jpg", alt: "Логотип RUiN", title: "RUiN", tags: ["MOBA", "Стратегия"], platform: ["windows.svg"], price: "ОЖИДАНИЕ"},
-
-	{_id: "r1", category: "discounts", poster: "warhammerVermintide2Poster.jpg", alt: "Логотип игры warhammerVermintide2", title: "Warhammer: Vermintide 2", tags: ["Шутер", "Экшен"], platform: ["windows.svg"], price: 515, newPrice: 103, interest: 65}
+	{_id: "r1", category: "discounts", poster: "warhammerVermintide2Poster.jpg", alt: "Логотип игры warhammerVermintide2", title: "Warhammer: Vermintide 2", tags: ["Шутер", "Экшен"], platform: ["windows.svg"], price: 515, newPrice: 103, interest: 65},
+	{_id: "r2", category: "discounts", poster: "remnantFromTheAshesPoster.jpg", alt: "Логотип Remnant: From The Ashes. Люди сражаются с монстрами.", title: "Remnant: From The Ashes", tags: ["Шутер", "Экшен", "Приключения"], platform: ["windows.svg", "xboxOne.svg", "playstation.svg"], price: 1297, newPrice: 518, interest: 60},
+	{_id: "r3", category: "discounts", poster: "pathfinderWrathOfTheRighteousPoster.jpg", alt: "Монстры", title: "Pathfinder: Wrath of the Righteous", tags: ["Ролевая игра", "Компьютерная ролевая игра"], platform: ["windows.svg", "apple.svg"], price: 1499, newPrice: 1124, interest: 25},
+	{_id: "r4", category: "discounts", poster: "battleBrothersPoster.jpg", alt: "Battle Brothers воины в битве", title: "Battle Brothers", tags: ["RPG", "Стратегия"], platform: ["windows.svg"], price: 499, newPrice: 164, interest: 67},
+	{_id: "r5", category: "discounts", poster: "gamedecPoster.jpg", alt: "Gamedec", title: "Gamedec", tags: ["RPG", "Приключения"], platform: ["windows.svg"], price: 1249, newPrice: 936, interest: 25},
+	{_id: "r6", category: "discounts", poster: "magicka2Poster.jpg", alt: "magicka2 герои", title: "Magicka 2", tags: ["Приключения", "Экшен"], platform: ["windows.svg", "apple.svg"], price: 349, newPrice: 87, interest: 75}
 ]
 
 function getCategoryHomeGames() {

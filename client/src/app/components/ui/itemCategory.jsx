@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import PropTypes from "prop-types"
 
-const ItemCategory = ({ path, poster, alt, title, platform, price, tags, _id, isTarget, onMouseOver, category, interest }) => {
+const ItemCategory = ({ path, poster, alt, title, platform, price, tags, _id, isTarget, onMouseOver, category, interest, newPrice }) => {
 	const isDiscount = category === "discounts"
 	const cardGameRef = useRef(null)
 	const getValuePrice = (value) => {
@@ -29,7 +29,14 @@ const ItemCategory = ({ path, poster, alt, title, platform, price, tags, _id, is
 				<div className="card-game__tags">
 					{tags.map((tag, index) => <div className="card-game__el-tag" key={index}>{tag}</div>)}
 				</div>
-				{isDiscount && <div className="card-game__interest">Скидка: <span>{interest}%</span></div>}
+				{isDiscount &&
+					<div className="card-game__interest">
+						<div className="card-game__left-interest">
+							Скидка: <span>{interest}%</span>
+						</div>
+						<div className="card-game__new-prise">{newPrice} руб.</div>
+					</div>
+				}
 			</div>
 		</div>
 	)
@@ -50,7 +57,8 @@ ItemCategory.propTypes = {
 	isTarget: PropTypes.bool.isRequired,
 	onMouseOver: PropTypes.func.isRequired,
 	category: PropTypes.string.isRequired,
-	interest: PropTypes.number
+	interest: PropTypes.number,
+	newPrice: PropTypes.number
 }
 
 export default ItemCategory

@@ -146,19 +146,46 @@ const categoryScreensData = [
 	{
 		_id: "r2",
 		images: [
-			{path: "distantWorlds2SC1.jpg", alt: "Связи в космосе между планетами и космическими станциями"}, 
-			{path: "distantWorlds2SC2.jpg", alt: "Информация о планете"},
-			{path: "distantWorlds2SC3.jpg", alt: "Космос"},
-			{path: "distantWorlds2SC4.jpg", alt: "Информация о капитане судна"}
+			{path: "remnantFromTheAshesSC1.jpg", alt: "Заброшенные, ржавые автомобили в городской среде"}, 
+			{path: "remnantFromTheAshesSC2.jpg", alt: "Город-призрак"},
+			{path: "remnantFromTheAshesSC3.jpg", alt: "Монстр-дерево"},
+			{path: "remnantFromTheAshesSC4.jpg", alt: "Чудовище с большим количеством глаз на голове и с крыльями"}
 		]
 	},
 	{
 		_id: "r3",
 		images: [
-			{path: "ruinSC1.jpg", alt: "Бой на арене"}, 
-			{path: "ruinSC2.jpg", alt: "Герой использует способность выбросить щуп на цепи"},
-			{path: "ruinSC3.jpg", alt: "Взрыв на арене"},
-			{path: "ruinSC4.jpg", alt: "Радиус взрыва"}
+			{path: "pathfinderWrathOfTheRighteousSC1.jpg", alt: "Отряд сражается с гигантским пауком"}, 
+			{path: "pathfinderWrathOfTheRighteousSC2.jpg", alt: "Отряд сражается с драконом"},
+			{path: "pathfinderWrathOfTheRighteousSC3.jpg", alt: "Отряд людей в храме"},
+			{path: "pathfinderWrathOfTheRighteousSC4.jpg", alt: "Воины из игры"}
+		]
+	},
+	{
+		_id: "r4",
+		images: [
+			{path: "battleBrothersSC1.jpg", alt: "Отряд на поле битвы сражается, есть убитые"}, 
+			{path: "battleBrothersSC2.jpg", alt: "Карта, где находятся войска"},
+			{path: "battleBrothersSC3.jpg", alt: "Характеристики воина"},
+			{path: "battleBrothersSC4.jpg", alt: "Войско стоит перед началом битвы на поле"}
+		]
+	},
+	{
+		_id: "r5",
+		images: [
+			{path: "gamedecSC1.jpg", alt: "Люди стоят на улице города"}, 
+			{path: "gamedecSC2.jpg", alt: "В баре"},
+			{path: "gamedecSC3.jpg", alt: "Знахарь"},
+			{path: "gamedecSC4.jpg", alt: "Один человек бьет другого на улице"}
+		]
+	},
+	{
+		_id: "r6",
+		images: [
+			{path: "magica2SC1.jpg", alt: "Взрывы на поле битвы. Герои сражаются"}, 
+			{path: "magica2SC2.jpg", alt: "Взрывы, битва"},
+			{path: "magica2SC3.jpg", alt: "Битва героев в пустыне"},
+			{path: "magica2SC4.jpg", alt: "Герои бегут по мосту"}
 		]
 	}
 ]
