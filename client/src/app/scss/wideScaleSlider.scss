@@ -1,3 +1,27 @@
+.control-wide-scale-slider{
+	position: absolute;
+	top: 50%;
+	background: rgb(59, 59, 59);
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.15);
+	transition: all 0.2s ease 0s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	img{
+		width: 23px;
+		height: 23px;
+	}
+	@media(min-width: 992px){
+		&:hover{
+			background: rgb(100, 100, 100);
+			border: 2px solid rgb(59, 59, 59);
+		}
+	}
+}
+
 .wide-scale-slider{
 	padding: 50px 0;
 	&__title{
@@ -8,4 +32,109 @@
 		padding: 0px 10px;
 		margin-bottom: 25px;
 	}
+	&__wrapper{
+		overflow: hidden;
+		height: 700px;
+		position: relative;
+	}
+	&__body{
+		display: flex;
+		height: 100%;
+		transform: translateX(-1197.471px);
+	}
+	&__column{
+		flex: 0 0 80%;
+		position: relative;
+		margin-right: 30px;
+		border-radius: 8px;
+		overflow: hidden;
+		&:last-child{
+			margin-right: 0;
+		}
+		&_first{
+			img{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		&_additional{
+			display: flex;
+			flex-wrap: wrap;
+			align-items: stretch;
+		}
+	}
+	&__block-add{
+		flex: 0 0 50%;
+		position: relative;
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__name{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		color: #fff;
+		z-index: 10;
+		font-size: 75px;
+		font-weight: 600;
+		background: rgba(150, 150, 150, 0.6);
+		padding: 10px;
+		transform: translate(-50%, -50%);
+		text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 8px;
+		text-align: center;
+	}
+	&__content{
+		position: absolute;
+		z-index: 5;
+		right: 20px;
+		bottom: 20px;
+		display: flex;
+		flex-direction: column;
+	}
+	&__text{
+		color: #fff;
+		font-size: 125px;
+		font-weight: 600;
+		text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 8px;
+		margin-bottom: 25px;
+		text-align: right;
+	}
+	&__btn{
+		align-self: flex-end;
+		font-size: 30px;
+		padding: 10px 20px;
+		border: 2px solid rgba(255, 255, 255, 0.15);
+		border-radius: 100px;
+		background: #4579F5;
+		color: #fff;
+		transition: all 0.2s ease 0s;
+		@media(min-width: 992px) {
+			&:hover{
+				transform: scale(0.9);
+				background: #6996ff;
+			}
+		}
+	}
+	&__btn-prev{
+		left: 10%;
+		transform: translate(-50%, -50%);
+		img{
+			transform: rotate(180deg) translateX(20%);
+		}
+	}
+	&__btn-next{
+		right: 10%;
+		transform: translate(100%, -50%);
+	}
 }
+
