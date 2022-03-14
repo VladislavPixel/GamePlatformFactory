@@ -34,13 +34,13 @@
 	}
 	&__wrapper{
 		overflow: hidden;
-		height: 700px;
+		height: 750px;
 		position: relative;
 	}
 	&__body{
 		display: flex;
 		height: 100%;
-		transform: translateX(-1197.471px);
+		transition: all 0.3s ease 0s;
 	}
 	&__column{
 		flex: 0 0 80%;
@@ -48,6 +48,9 @@
 		margin-right: 30px;
 		border-radius: 8px;
 		overflow: hidden;
+		&.active{
+			border: 2px solid rgb(155, 155, 155);
+		}
 		&:last-child{
 			margin-right: 0;
 		}
@@ -134,7 +137,7 @@
 	}
 	&__btn-next{
 		right: 10%;
-		transform: translate(100%, -50%);
+		transform: translate(85%, -50%);
 	}
 }
 
