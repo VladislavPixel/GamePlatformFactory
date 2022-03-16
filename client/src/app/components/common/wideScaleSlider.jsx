@@ -3,8 +3,17 @@ import PropTypes from "prop-types"
 import WideScaleSliderSlide from "../ui/wideScaleSliderSlide"
 
 const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
-	const [currentSlide, setCurrentSlide] = useState(1)
-	const [data, setData] = useState(dataSliders)
+	const [currentSlide, setCurrentSlide] = useState(2)
+	const [duration, setDuration] = useState(0.3)
+	const [clones] = useState({
+		head: [dataSliders[dataSliders.length - 2], dataSliders[dataSliders.length - 1]],
+		tail: [dataSliders[0], dataSliders[1]]
+	})
+	const [correctArray] = useState([
+		...clones.head,
+		...dataSliders,
+		...clones.tail
+	])
 	const [widthColumn, setWidthColumn] = useState(null)
 	const [displacementBody, setDisplacementBody] = useState(null)
 	const [translateConfigBody, setTranslateConfigBody] = useState({value: 0, transform: "translateX(0px)"})
@@ -20,26 +29,36 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 	}
 	const handlerRef = (widthColumnRef) => setWidthColumn(() => widthColumnRef)
 	useEffect(() => {
-		setDisplacementBody(widthColumn - ((widthColumn * 10) / 100) - 15)
-	}, [widthColumn])
+		setDisplacementBody(widthColumn * clones.head.length - ((widthColumn * 10) / 100) + 15)
+	}, [widthColumn, clones.head.length])
 	useEffect(() => {
 		setTranslateConfigBody(prevState => {
 			return {
 				...prevState,
 				value: displacementBody,
+				transitionDuration: duration + "s",
 				transform: (displacementBody > 0 ? `translateX(-${displacementBody}px)` : `translateX(${Math.abs(displacementBody)}px)`)
 			}
 		})
-	}, [displacementBody])
+	}, [displacementBody, duration])
 	useEffect(() => {
-		
-	}, [currentSlide])
+		if (currentSlide === 1) {
+			setTimeout(() => {
+				setDuration(0)
+				setDisplacementBody(prevState => prevState + (widthColumn + 30) * (correctArray.length - clones.tail.length - 2))
+				setCurrentSlide(7)
+				setTimeout(() => {
+					setDuration(0.3)
+				}, 0)
+			}, 350)
+		}
+	}, [currentSlide, clones.tail.length, correctArray.length, widthColumn])
 	return (
 		<div className={`${classWrap}__scale-wide-slider wide-scale-slider`}>
 			<h2 className="wide-scale-slider__title">{title}</h2>
 			<div className="wide-scale-slider__wrapper">
 				<div className="wide-scale-slider__body" style={translateConfigBody}>
-					{data.map((item, index) => <WideScaleSliderSlide currentSlide={currentSlide} id={index} onHandlerRef={handlerRef} {...item} key={index} pathImages={pathImages} />)}
+					{correctArray.map((item, index) => <WideScaleSliderSlide currentSlide={currentSlide} targetSlideIndex={index} onHandlerRef={handlerRef} {...item} key={index} pathImages={pathImages} />)}
 				</div>
 				<button onClick={() => {
 					handlerArrowController("left")

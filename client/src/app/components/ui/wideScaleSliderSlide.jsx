@@ -1,24 +1,25 @@
 import React, { useRef, useEffect } from "react"
 import PropTypes from "prop-types"
 
-const WideScaleSliderSlide = ({ id, pathImages, slides, title, onHandlerRef, currentSlide, addClass }) => {
+const WideScaleSliderSlide = ({ targetSlideIndex, pathImages, slides, title, onHandlerRef, currentSlide }) => {
+	const isEven = ((targetSlideIndex + 1) % 2) === 0
 	const refColumn = useRef(null)
 	useEffect(() => {
-		if (id === 0) {
+		if (targetSlideIndex === 0) {
 			onHandlerRef(refColumn.current.offsetWidth)
 		}
-	}, [id, onHandlerRef])
+	}, [targetSlideIndex, onHandlerRef])
 	return (
-		<>
-			{((id + 1) % 2) !== 0 ? 
-				<div ref={refColumn} className={"wide-scale-slider__column wide-scale-slider__column_first" + (currentSlide === id ? " active" : "")}>
+		<div ref={refColumn} className={`wide-scale-slider__column wide-scale-slider__column_${isEven ? "additional" : "first"} ${currentSlide === targetSlideIndex ? "active" : ""}`}>
+			{!isEven ?
+				<React.Fragment>
 					<img src={pathImages + slides.path} alt={slides.alt} />
 					<div className="wide-scale-slider__content">
 						<h3 className="wide-scale-slider__text">{title}</h3>
 						<button type="button" className="wide-scale-slider__btn">Подробнее</button>
 					</div>
-				</div> :
-				<div className={"wide-scale-slider__column wide-scale-slider__column_additional" + (currentSlide === id ? " active" : "")}>
+				</React.Fragment> :
+				<React.Fragment>
 					{slides.map((el, index) => {
 						return (
 							<div key={index} className="wide-scale-slider__block-add">
@@ -27,9 +28,9 @@ const WideScaleSliderSlide = ({ id, pathImages, slides, title, onHandlerRef, cur
 						)
 					})}
 					<div className="wide-scale-slider__name">{title}</div>
-				</div>
+				</React.Fragment>
 			}
-		</>
+		</div>
 	)
 }
 
@@ -41,7 +42,7 @@ WideScaleSliderSlide.propTypes = {
 	]),
 	title: PropTypes.string.isRequired,
 	onHandlerRef: PropTypes.func,
-	id: PropTypes.number.isRequired,
+	targetSlideIndex: PropTypes.number.isRequired,
 	currentSlide: PropTypes.number.isRequired
 }
 

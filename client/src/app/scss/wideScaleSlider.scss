@@ -40,7 +40,9 @@
 	&__body{
 		display: flex;
 		height: 100%;
-		transition: all 0.3s ease 0s;
+		transition-property: all;
+		transition-timing-function: ease-out;
+		transition-delay: 0s;
 	}
 	&__column{
 		flex: 0 0 80%;
