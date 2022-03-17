@@ -14,6 +14,10 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 		...dataSliders,
 		...clones.tail
 	])
+	const arrayPagination = []
+	for (let m = 0; m < dataSliders.length; m++) {
+		arrayPagination.push({_id: m})
+	}
 	const [widthColumn, setWidthColumn] = useState(null)
 	const [displacementBody, setDisplacementBody] = useState(null)
 	const [translateConfigBody, setTranslateConfigBody] = useState({value: 0, transform: "translateX(0px)"})
@@ -28,6 +32,9 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 		}
 	}
 	const handlerRef = (widthColumnRef) => setWidthColumn(() => widthColumnRef)
+	const handlerPagin = (idPagin) => {
+		setCurrentSlide(idPagin + 2)
+	}
 	useEffect(() => {
 		setDisplacementBody(widthColumn * clones.head.length - ((widthColumn * 10) / 100) + 15)
 	}, [widthColumn, clones.head.length])
@@ -76,6 +83,9 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 				}} type="button" className="wide-scale-slider__btn-next control-wide-scale-slider">
 					<img src="./images/icons/arrow-triangle-white.svg" alt="Иконка треугольной трелки" />
 				</button>
+				<div className="wide-scale-slider__pagination">
+					{arrayPagination.map(pagin => <div onClick={() => handlerPagin(pagin._id)} className={`wide-scale-slider__pagin${pagin._id === currentSlide - clones.head.length ? " active" : ""}`} key={pagin._id}></div>)}
+				</div>
 			</div>
 		</div>
 	)

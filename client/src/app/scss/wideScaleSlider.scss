@@ -104,7 +104,7 @@
 		position: absolute;
 		z-index: 5;
 		right: 20px;
-		bottom: 20px;
+		bottom: 90px;
 		display: flex;
 		flex-direction: column;
 	}
@@ -142,6 +142,39 @@
 	&__btn-next{
 		right: 10%;
 		transform: translate(85%, -50%);
+	}
+	&__pagination{
+		position: absolute;
+		z-index: 1000;
+		left: 50%;
+		bottom: 50px;
+		transform: translate(-50%, -50%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__pagin{
+		transition: all 0.3s ease 0s;
+		flex: 0 0 100px;
+		height: 12px;
+		background: rgb(153, 153, 153);
+		border-radius: 4px;
+		margin-right: 12px;
+		cursor: pointer;
+		&.active{
+			background: #009dff;
+		}
+		&:last-child{
+			margin-right: 0px;
+		}
+		@media(min-width: 992px) {
+			&:hover{
+				background: rgb(207, 207, 207);
+				&.active{
+					background: #0075be;
+				}
+			}
+		}
 	}
 }
 

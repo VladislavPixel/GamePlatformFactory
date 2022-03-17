@@ -18,7 +18,10 @@
 		border-radius: 10px;
 		min-height: 600px;
 		&:first-child{
-			padding-top: 70px;
+			padding: 30px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 		}
 		.head-about-us-block__poster{
 			position: absolute;

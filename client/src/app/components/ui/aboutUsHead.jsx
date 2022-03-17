@@ -4,7 +4,7 @@ import configAuxiliary from "../../configAuxiliary.json"
 const AboutUsHead = () => {
 	return (
 		<div className="about-us-block__head head-about-us-block">
-			<div className="head-about-us-block__container _container">
+			<div className="head-about-us-block__container">
 				<div className="head-about-us-block__row">
 					<div className="head-about-us-block__column">
 						<div className="head-about-us-block__icon">
