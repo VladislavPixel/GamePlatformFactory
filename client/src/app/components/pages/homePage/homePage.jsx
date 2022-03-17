@@ -7,6 +7,7 @@ import HomeCategoryBlock from "../../common/homeCategoryBlock"
 import fakeApi from "../../../fakeAPI"
 import Spinner from "../../common/spinner"
 import WideScaleSlider from "../../common/wideScaleSlider"
+import configAuxiliary from "../../../configAuxiliary.json"
 
 const HomePage = () => {
 	const [sliderGalleryLoader, setSliderGalleryLoader] = useState(true)
@@ -45,7 +46,7 @@ const HomePage = () => {
 				sliderGalleryLoader ? <Spinner /> :
 				<SliderGallery title="Популярное и рекомендуемое" posters={sliderGalleryData[1]} data={sliderGalleryData[0]} globPath="./images/sliderGalleryGame/" />
 			}
-			<WeHave />
+			<WeHave directionCircle="right" isOffsetCircle={true} isList={true} dataList={configAuxiliary.weHaveList} />
 			{
 				homeCategoryLoader ? <Spinner /> :
 				<HomeCategoryBlock path="./images/categoryBlockGame/" title="Возможно Вам будет интересно" categories={homeCategoryData[0]} games={homeCategoryData[1]} screens={homeCategoryData[2]} />
@@ -54,6 +55,7 @@ const HomePage = () => {
 				wideScaleSliderLoader ? <Spinner /> :
 				<WideScaleSlider pathImages="./images/homeWideScaleSlider/" classWrap="home-block" title="Популярные продукты российских разработчиков" dataSliders={wideScaleSliderData} />
 			}
+			<WeHave dataBlocks={configAuxiliary.weHaveBlocksHomePage} themeColors={["#4579F5", "#0044e2 0px 14px 34px", "#4579F5", "#4579F5 0px 14px 34px"]} isBlueCircle={true} isList={false} />
 		</div>
 	)
 }

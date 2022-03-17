@@ -47,12 +47,18 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 				setDuration(0)
 				setDisplacementBody(prevState => prevState + (widthColumn + 30) * (correctArray.length - clones.tail.length - 2))
 				setCurrentSlide(7)
-				setTimeout(() => {
-					setDuration(0.3)
-				}, 0)
-			}, 350)
+				setDuration(0.3)
+			}, 310)
 		}
-	}, [currentSlide, clones.tail.length, correctArray.length, widthColumn])
+		if (currentSlide === 8) {
+			setTimeout(() => {
+				setDuration(0)
+				setDisplacementBody(widthColumn * clones.head.length - ((widthColumn * 10) / 100) + 15)
+				setCurrentSlide(2)
+				setDuration(0.3)
+			}, 310)
+		}
+	}, [currentSlide, clones.tail.length, correctArray.length, widthColumn, clones.head.length])
 	return (
 		<div className={`${classWrap}__scale-wide-slider wide-scale-slider`}>
 			<h2 className="wide-scale-slider__title">{title}</h2>

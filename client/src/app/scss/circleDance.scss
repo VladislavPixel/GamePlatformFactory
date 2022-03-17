@@ -22,6 +22,14 @@
 		transform: rotate(-360deg) translate(430px) rotate(360deg);
 	}
 }
+@keyframes rotation{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
 @keyframes rotExternal1{
 	from {
 		transform: rotate(0deg) translate(210px) rotate(0deg);
@@ -72,5 +80,14 @@
 		top: -60px;
 		left: -85px;
 		animation: rotExternal1 5s infinite linear;
+	}
+	&__wrap-comet{
+		position: absolute;
+		animation: rotExternal 10s infinite linear;
+		top: -3px;
+		left: -3px;
+		img{
+			animation: rotation 2s infinite linear;
+		}
 	}
 }

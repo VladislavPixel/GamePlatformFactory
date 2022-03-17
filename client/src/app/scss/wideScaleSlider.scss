@@ -24,6 +24,8 @@
 
 .wide-scale-slider{
 	padding: 50px 0;
+	position: relative;
+	z-index: 50;
 	&__title{
 		font-size: 27px;
 		color: #fff;
