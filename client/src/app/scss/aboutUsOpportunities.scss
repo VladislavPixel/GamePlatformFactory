@@ -1,10 +1,41 @@
+@keyframes rotation{
+	0%{
+		transform: rotate(0deg);
+	}
+	25%{
+		transform: rotate(-20deg);
+	}
+	50%{
+		transform: rotate(0deg);
+	}
+	75%{
+		transform: rotate(20deg);
+	}
+	100%{
+		transform: rotate(0deg);
+	}
+}
+
 .opportunities-about-us{
 	background: #17191C;
+	padding: 100px 0;
 	&__row{
 		display: flex;
+		margin: 0px -20px 20px -20px;
+		&.even{
+			flex-direction: row-reverse;
+		}
+		&:last-child{
+			margin: 0px -20px 0px -20px;
+		}
 	}
 	&__column{
 		flex: 0 1 50%;
+		padding: 20px;
+		&_content{
+			display: flex;
+			justify-content: flex-end;
+		}
 	}
 	&__title{
 		font-size: 45px;
@@ -19,8 +50,14 @@
 		margin-bottom: 30px;
 	}
 	&__link{
+		transition: all 0.3s ease 0s;
 		color: rgb(0, 76, 218);
 		font-size: 25px;
+		@media(min-width: 992px) {
+			&:hover{
+				color: #2EBFFF;
+			}
+		}
 	}
 	&__poster-block{
 		display: flex;
@@ -30,5 +67,19 @@
 			max-width: 350px;
 			max-height: 350px;
 		}
+		&_rotate-img{
+			img{
+				animation: rotation 40s infinite linear;
+			}
+		}
+	}
+	&__info{
+		max-width: 400px;
+	}
+}
+
+.opportunities-about-us__row.even{
+	.opportunities-about-us__column_content{
+		justify-content: flex-start;
 	}
 }

@@ -11,7 +11,7 @@ const AboutUsHead = () => {
 							<img src="./images/icons/sword.svg" alt="Рыцарский меч игровой" />
 							<h1 className="head-about-us-block__name">Factory.inc</h1>
 						</div>
-						<div className="head-about-us-block__text">Factory - амбициозная платформа для игроков и разработчиков</div>
+						<div className="head-about-us-block__text">Factory - амбициозная, свежая платформа для игроков и разработчиков из России</div>
 						<div className="head-about-us-block__platform">
 							<span>Мы работаем с такими платформами как:</span>
 							<div className="head-about-us-block__platform-list">

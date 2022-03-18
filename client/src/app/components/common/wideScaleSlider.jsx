@@ -32,12 +32,14 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 		}
 	}
 	const handlerRef = (widthColumnRef) => setWidthColumn(() => widthColumnRef)
+	const defaultOffsetBody = widthColumn * clones.head.length - ((widthColumn * 10) / 100) + 15
 	const handlerPagin = (idPagin) => {
 		setCurrentSlide(idPagin + 2)
+		setDisplacementBody(defaultOffsetBody + ((widthColumn + 30) * idPagin))
 	}
 	useEffect(() => {
-		setDisplacementBody(widthColumn * clones.head.length - ((widthColumn * 10) / 100) + 15)
-	}, [widthColumn, clones.head.length])
+		setDisplacementBody(defaultOffsetBody)
+	}, [widthColumn, clones.head.length, defaultOffsetBody])
 	useEffect(() => {
 		setTranslateConfigBody(prevState => {
 			return {
