@@ -9,8 +9,8 @@ const WeHaveBlock = ({ icon, title, text }) => {
 					<img src={`./images/weHaveDots/${icon}`} alt="Иконка Dot" />
 				</div>
 				<div className="blocks-wrap-wehave__info">
-					<div className="blocks-wrap-wehave__title">{title}</div>
-					<div className="blocks-wrap-wehave__text">{text}</div>
+					<h3 className="blocks-wrap-wehave__title">{title}</h3>
+					<p className="blocks-wrap-wehave__text">{text}</p>
 				</div>
 			</div>
 		</div>

@@ -3,13 +3,13 @@
 		transform: rotate(0deg);
 	}
 	25%{
-		transform: rotate(-20deg);
+		transform: rotate(-10deg);
 	}
 	50%{
 		transform: rotate(0deg);
 	}
 	75%{
-		transform: rotate(20deg);
+		transform: rotate(10deg);
 	}
 	100%{
 		transform: rotate(0deg);
@@ -46,16 +46,28 @@
 	&__message{
 		color: #fff;
 		font-size: 17px;
-		line-height: 115%;
+		line-height: 125%;
 		margin-bottom: 30px;
 	}
 	&__link{
+		display: flex;
+		align-items: center;
 		transition: all 0.3s ease 0s;
 		color: rgb(0, 76, 218);
 		font-size: 25px;
+		img{
+			transition: all 0.2s ease 0s;
+			width: 40px;
+			height: 36px;
+			margin-left: 10px;
+			position: relative;
+		}
 		@media(min-width: 992px) {
 			&:hover{
 				color: #2EBFFF;
+				img{
+					margin-left: 20px;
+				}
 			}
 		}
 	}
@@ -69,12 +81,12 @@
 		}
 		&_rotate-img{
 			img{
-				animation: rotation 40s infinite linear;
+				animation: rotation 32s infinite linear;
 			}
 		}
 	}
 	&__info{
-		max-width: 400px;
+		max-width: 450px;
 	}
 }
 

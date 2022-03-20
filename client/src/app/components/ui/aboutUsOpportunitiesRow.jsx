@@ -8,9 +8,12 @@ const AboutUsOpportunitiesRow = ({ title, text, link, icon, alt, indexElement, r
 		<div className={`opportunities-about-us__row${isEven ? " even" : ""}`}>
 			<div className="opportunities-about-us__column opportunities-about-us__column_content">
 				<div className="opportunities-about-us__info">
-					<h2 className="opportunities-about-us__title">{title}</h2>
+					<h3 className="opportunities-about-us__title">{title}</h3>
 					<p className="opportunities-about-us__message">{text}</p>
-					<Link className="opportunities-about-us__link" to="/">{link}</Link>
+					<Link className="opportunities-about-us__link" to="/">
+						{link}
+						<img src="./images/icons/arrow-blue-sky.svg" alt="Голубая стрелка" />
+					</Link>
 				</div>
 			</div>
 			<div className="opportunities-about-us__column">

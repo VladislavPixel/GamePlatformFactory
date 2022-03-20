@@ -14,8 +14,8 @@ const Footer = () => {
 					{configAuxiliary.menuHeaderRoutes.map((item, index) => <li key={index}><NavLink to={item.path}>{item.text}</NavLink></li>)}
 				</ul>
 				<button className="footer__subscription" type="button">Подписаться на рассылку</button>
-				<div className="footer__copyright">© FACTORY, INC., 2022 / Права защищены</div>
-				<div className="footer__sub-copy">Все упомянутые товарные знаки являются собственностью соответствующих владельцев.</div>
+				<p className="footer__copyright">© FACTORY, INC., 2022 / Права защищены</p>
+				<p className="footer__sub-copy">Все упомянутые товарные знаки являются собственностью соответствующих владельцев.</p>
 			</div>
 		</footer>
 	)

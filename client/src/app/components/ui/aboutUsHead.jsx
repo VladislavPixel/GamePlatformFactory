@@ -11,7 +11,7 @@ const AboutUsHead = () => {
 							<img src="./images/icons/sword.svg" alt="Рыцарский меч игровой" />
 							<h1 className="head-about-us-block__name">Factory.inc</h1>
 						</div>
-						<div className="head-about-us-block__text">Factory - амбициозная, свежая платформа для игроков и разработчиков из России</div>
+						<p className="head-about-us-block__text">Factory - амбициозная, свежая платформа для игроков и разработчиков из России</p>
 						<div className="head-about-us-block__platform">
 							<span>Мы работаем с такими платформами как:</span>
 							<div className="head-about-us-block__platform-list">
@@ -20,7 +20,7 @@ const AboutUsHead = () => {
 						</div>
 					</div>
 					<div className="head-about-us-block__column">
-						<img className="head-about-us-block__poster" src="./images/aboutUs/cherno.jpg" alt="Абстрактная фигура, сфера" />
+						<img className="head-about-us-block__poster" src="./images/aboutUs/hydrometry.jpg" alt="Абстрактная фигура" />
 					</div>
 				</div>
 			</div>
