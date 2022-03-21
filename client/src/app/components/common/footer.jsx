@@ -15,7 +15,11 @@ const Footer = () => {
 				</ul>
 				<button className="footer__subscription" type="button">Подписаться на рассылку</button>
 				<p className="footer__copyright">© FACTORY, INC., 2022 / Права защищены</p>
-				<p className="footer__sub-copy">Все упомянутые товарные знаки являются собственностью соответствующих владельцев.</p>
+				<p className="footer__sub-copy">Все упомянутые товарные знаки являются собственностью соответствующих владельцев. Платформа Factory.inc создана с целью централизации сообщества любителей игр, общения людей, доступа к играм и их оценки. Мы не преследуем цель незаконного распространения материалов, поэтому если Вы являетесь правообладателем, сообщите нам о нарушении по указанным здесь контактам.</p>
+				<div className="footer__email-author">
+					<span>Автор платформы: Pixel developer</span>
+					<a href="mailto:pixel.develop@yandex.ru">pixel.develop@yandex.ru</a>
+				</div>
 			</div>
 		</footer>
 	)

@@ -3,6 +3,7 @@ import AboutUsHead from "../../ui/aboutUsHead"
 import AboutUsOpportunities from "../../ui/aboutUsOpportunities"
 import AboutUsActivity from "../../ui/aboutUsActivity"
 import AboutUsValues from "../../ui/aboutUsValues"
+import AboutUsGames from "../../ui/aboutUsGames"
 
 const AboutUsPage = () => {
 	return (
@@ -11,6 +12,7 @@ const AboutUsPage = () => {
 			<AboutUsOpportunities />
 			<AboutUsValues />
 			<AboutUsActivity />
+			<AboutUsGames />
 		</div>
 	)
 }

@@ -1,0 +1,114 @@
+.games-about-us{
+	padding: 70px 0px;
+	position: relative;
+	background: url("../img/lich-min.jpg") 0 0/cover no-repeat fixed;
+	&:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 10;
+	}
+	&__row{
+		position: relative;
+		z-index: 20;
+		display: flex;
+		justify-content: space-between;
+	}
+	&__column{
+		flex: 0 1 35%;
+		display: flex;
+		flex-direction: column;
+		padding: 0px 20px;
+	}
+	&__img-wrap{
+		flex: 0 1 82px;
+		width: 200px;
+		position: relative;
+		box-shadow: 0 0 7px 0px #000;
+		margin-bottom: 25px;
+		&:nth-child(2n+1) {
+			align-self: flex-end;
+			width: 180px;
+			flex: 0 1 67px;
+		}
+		&:nth-child(3n){
+			align-self: center;
+			width: 220px;
+		}
+		&:first-child{
+			width: 270px;
+			flex: 0 1 140px;
+		}
+		&:last-child{
+			width: 260px;
+			flex: 0 1 120px;
+			margin-bottom: 0;
+		}
+		a{
+			width: 100%;
+			height: 100%;
+		}
+		img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__content{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		flex-direction: column;
+		a{
+			width: 100%;
+			transition: all 0.4s ease 0s;
+			font-size: 25px;
+			color: rgb(0, 76, 218);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			span{
+				margin-right: 10px;
+			}
+			img{
+				transition: all 0.4s ease 0s;
+				width: 40px;
+				height: 36px;
+				position: relative;
+			}
+			@media(min-width: 992px) {
+				&:hover{
+					color: #2EBFFF;
+					img{
+						margin-left: 15px;
+					}
+				}
+			}
+		}
+	}
+	&__title{
+		font-size: 45px;
+		color: #fff;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	&__text{
+		color: #fff;
+		font-size: 18px;
+		line-height: 120%;
+		margin-bottom: 25px;
+		max-width: 500px;
+	}
+}
