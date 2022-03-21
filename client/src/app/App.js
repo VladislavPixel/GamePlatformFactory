@@ -4,6 +4,7 @@ import Footer from "./components/common/footer"
 import { Routes, Route } from "react-router-dom"
 import Home from "./layots/home"
 import AboutUs from "./layots/aboutUs"
+import Store from "./layots/store"
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/aboutUs" element={<AboutUs />} />
+					<Route path="/store" element={<Store />} />
 				</Routes>
 			</main>
 			<Footer />

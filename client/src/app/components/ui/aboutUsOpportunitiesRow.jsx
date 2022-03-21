@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 
-const AboutUsOpportunitiesRow = ({ title, text, link, icon, alt, indexElement, rotation }) => {
+const AboutUsOpportunitiesRow = ({ title, text, link, icon, alt, indexElement, path }) => {
 	const isEven = (indexElement % 2) === 0
 	return (
 		<div className={`opportunities-about-us__row${isEven ? " even" : ""}`}>
@@ -10,7 +10,7 @@ const AboutUsOpportunitiesRow = ({ title, text, link, icon, alt, indexElement, r
 				<div className="opportunities-about-us__info">
 					<h3 className="opportunities-about-us__title">{title}</h3>
 					<p className="opportunities-about-us__message">{text}</p>
-					<Link className="opportunities-about-us__link" to="/">
+					<Link className="opportunities-about-us__link" to={path}>
 						{link}
 						<img src="./images/icons/arrow-blue-sky.svg" alt="Голубая стрелка" />
 					</Link>
@@ -32,7 +32,7 @@ AboutUsOpportunitiesRow.propTypes = {
 	icon: PropTypes.string.isRequired,
 	alt: PropTypes.string.isRequired,
 	indexElement: PropTypes.number.isRequired,
-	rotation: PropTypes.bool
+	path: PropTypes.string.isRequired
 }
 
 export default AboutUsOpportunitiesRow

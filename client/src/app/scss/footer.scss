@@ -103,7 +103,13 @@
 			margin-right: 15px;
 		}
 		a{
+			transition: all 0.4s ease 0s;
 			color: #4579F5;
+			@media(min-width: 992px) {
+				&:hover{
+					color: #2EBFFF;
+				}
+			}
 		}
 	}
 }
