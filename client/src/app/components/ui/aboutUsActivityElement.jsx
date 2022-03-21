@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
-const AboutUsActivityElement = ({ title, text, path, alt, link }) => {
+const AboutUsActivityElement = ({ title, text, path, alt, link, linkPath }) => {
 	return (
 		<div className="activity-about-us__column">
 			<div className="activity-about-us__block-activity">
@@ -11,7 +11,7 @@ const AboutUsActivityElement = ({ title, text, path, alt, link }) => {
 				</div>
 				<h3 className="activity-about-us__title">{title}</h3>
 				<p className="activity-about-us__text">{text}</p>
-				{link && <Link className="activity-about-us__link" to="/">{link}</Link>}
+				{linkPath && <Link className="activity-about-us__link" to={linkPath}>{link}</Link>}
 			</div>
 		</div>
 	)
@@ -22,7 +22,8 @@ AboutUsActivityElement.propTypes = {
 	text: PropTypes.string.isRequired,
 	path: PropTypes.string.isRequired,
 	alt: PropTypes.string.isRequired,
-	link: PropTypes.string
+	link: PropTypes.string,
+	linkPath: PropTypes.string
 }
 
 export default AboutUsActivityElement

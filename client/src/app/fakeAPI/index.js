@@ -4,6 +4,7 @@ import getHomeCategory from "./categoryHome"
 import getCategoryHomeGames from "./categoryHomeGames"
 import getCategoryScreensData from "./categoryScreens"
 import getHomeWideScaleSliderData from "./homeWideScaleSlider"
+import getCategoryStore from "./storeCategory"
 
 const fakeApi = {
 	getSliderGalleryGameData,
@@ -11,7 +12,8 @@ const fakeApi = {
 	getHomeCategory,
 	getCategoryHomeGames,
 	getCategoryScreensData,
-	getHomeWideScaleSliderData
+	getHomeWideScaleSliderData,
+	getCategoryStore
 }
 
 export default fakeApi

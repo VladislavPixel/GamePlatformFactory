@@ -26,7 +26,7 @@ const sliderGalleryGame = [
 			title: "Dying Light 2 Stay Human",
 			galleryImages: [{path: "dyingLight2sc1.jpg", alt: "Герой жарит фонарем зомби"}, {path: "dyingLight2sc2.jpg", alt: "Герой смотрит на разрушенный город, охваченный пожаром"}, {path: "dyingLight2sc3.jpg", alt: "Главный герой лежит на полу, а на него замахивается тесаком бандит"}, {path: "dyingLight2sc4.jpg", alt: "Герой стоит на вершине здания с другими людьми"}],
 			text: "Уже доступно",
-			tags: ["action/RPG", "survival horror"]
+			tags: ["action", "RPG", "survival horror"]
 		}
 	},
 	{
@@ -36,7 +36,7 @@ const sliderGalleryGame = [
 			title: "Dota2",
 			galleryImages: [{path: "dota2sc1.jpg", alt: "Герой Разор"}, {path: "dota2sc2.jpg", alt: "Герой рубик"}, {path: "dota2sc3.jpg", alt: "Герой Энигма"}, {path: "dota2sc4.jpg", alt: "Лина"}],
 			text: "Уже доступно",
-			tags: ["MOBA", "Развлечение", "Фэнтези", "Action/RPG", "Спекулятивная фантастика", "Societal"]
+			tags: ["MOBA", "Развлечение", "Фэнтези", "action", "RPG", "Спекулятивная фантастика", "Societal"]
 		}
 	},
 	{
@@ -56,7 +56,7 @@ const sliderGalleryGame = [
 			title: "Ведьмак 3: Дикая Охота",
 			galleryImages: [{path: "witcher1.jpg", alt: "Ведьмак на китайском празднике"}, {path: "witcher2.jpg", alt: "Ведьмак"}, {path: "witcher3.jpg", alt: "Цири"}, {path: "witcher4.jpg", alt: "Йеннифер, Геральд, Трисс"}],
 			text: "Уже доступно",
-			tags: ["Открытый мир", "Action/RPG", "Файтинг", "Action-adventure", "Нелинейность", "multi-colophon"]
+			tags: ["Открытый мир", "action", "RPG", "Файтинг", "Action-adventure", "Нелинейность", "multi-colophon"]
 		}
 	},
 	{
@@ -66,7 +66,7 @@ const sliderGalleryGame = [
 			title: "Starcraft 2: Legacy of the Void",
 			galleryImages: [{path: "starCraft2sc1.jpg", alt: "Протосы"}, {path: "starCraft2sc2.jpg", alt: "Подбитый корабль"}, {path: "starCraft2sc3.jpg", alt: "Рубка на космическом корабле"}, {path: "starCraft2sc4.jpg", alt: "Протосы"}],
 			text: "Уже доступно",
-			tags: ["стратегия", "Action"]
+			tags: ["стратегия", "action"]
 		}
 	}
 ]
