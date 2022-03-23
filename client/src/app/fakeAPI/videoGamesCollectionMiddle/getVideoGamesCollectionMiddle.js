@@ -19,7 +19,7 @@ export const videoGamesCollectionMiddle = [
 		imageMiddle: "dota2Middle.jpg",
 		altImageMiddle: "Пудж (персонаж из игры) в крови",
 		tags: ["MOBA", "Развлечение", "Фэнтези", "action", "RPG", "Спекулятивная фантастика", "Societal"],
-		price: "бесплатно",
+		price: "играй бесплатно",
 		platform: ["windows.svg", "apple.svg"],
 		iconForTitle: "dota2.svg",
 		iconForTitleAlt: "Иконка игры Dota 2",
@@ -54,86 +54,222 @@ export const videoGamesCollectionMiddle = [
 	{
 		_id: "5enlisted8776",
 		title: "Enlisted",
-		rate: 8.0
+		rate: 8.0,
+		imageMiddle: "enlistedMiddle.jpg",
+		altImageMiddle: "Советский солдат целится",
+		tags: ["Шутер", "action", "Симулятор"],
+		price: "играй бесплатно",
+		platform: ["windows.svg", "playstation.svg", "xboxOne.svg"],
+		iconForTitle: "war.svg",
+		iconForTitleAlt: "Советские солдаты устанавливают знамя",
+		subTitle: "Фронт не ждет!"
 	},
 	{
 		_id: "6beholder3lfdg8776",
 		title: "Beholder 3",
-		rate: 8.8
+		rate: 8.8,
+		imageMiddle: "beholder3Middle.jpeg",
+		altImageMiddle: "Персонаж из игры стоит на балконе своего дома",
+		tags: ["стратегия", "Симулятор"],
+		price: 360,
+		platform: ["windows.svg"],
+		iconForTitle: "peoples.svg",
+		iconForTitleAlt: "Иконка на которой изображены 3 политика",
+		subTitle: "Влияние и манипуляция"
 	},
 	{
 		_id: "7lostArk8776",
 		title: "Lost ARK",
-		rate: 8.3
+		rate: 8.3,
+		imageMiddle: "lostArkMiddle.jpg",
+		altImageMiddle: "Персонаж-девушка из игры",
+		tags: ["action", "MMORPG"],
+		price: "играй бесплатно",
+		platform: ["windows.svg"],
+		iconForTitle: "magicStaff.svg",
+		iconForTitleAlt: "Магический посох",
+		subTitle: "Дивный мир"
 	},
 	{
 		_id: "8godOfWar8776",
 		title: "God Of War",
-		rate: 7.1
+		rate: 7.1,
+		imageMiddle: "godOfWarMiddle.jpg",
+		altImageMiddle: "Кратос",
+		tags: ["Action-adventure", "hack and slash"],
+		price: 2500,
+		platform: ["windows.svg"],
+		iconForTitle: "axe.svg",
+		iconForTitleAlt: "Секира Кратоса",
+		subTitle: "Кратос на тропе войны"
 	},
 	{
 		_id: "9dlsh84545",
 		title: "Dying Light 2 Stay Human",
-		rate: 6.4
+		rate: 6.4,
+		imageMiddle: "dyingLight2Middle.jpg",
+		altImageMiddle: "Главный персонаж из игры стоит на кране",
+		tags: ["action", "RPG", "survival horror"],
+		price: 3500,
+		platform: ["windows.svg"],
+		iconForTitle: "zombie.svg",
+		iconForTitleAlt: "Голова зомби",
+		subTitle: "Двигайся!"
 	},
 	{
 		_id: "10gta5jkjh84545",
 		title: "Grand theft auto 5",
-		rate: 8.0
+		rate: 8.0,
+		imageMiddle: "gta5Middle.jpg",
+		altImageMiddle: "3 главных персонажа стоят на горе",
+		tags: ["action-adventure"],
+		price: 1777,
+		platform: ["windows.svg", "apple.svg"],
+		iconForTitle: "gta5.svg",
+		iconForTitleAlt: "Логотип GTA 5",
+		subTitle: "Деньги, как смысл жизни"
 	},
 	{
 		_id: "11theWither5jkjh84545",
 		title: "The Witcher",
-		rate: 9.4
+		rate: 9.4,
+		imageMiddle: "witcherMiddle.jpg",
+		altImageMiddle: "Ведьмак с отрубленными головами монстров",
+		tags: ["Открытый мир", "action", "RPG", "Файтинг", "Action-adventure", "Нелинейность", "multi-colophon"],
+		price: 3400,
+		platform: ["windows.svg", "apple.svg"],
+		iconForTitle: "witcher.svg",
+		iconForTitleAlt: "Голова волка",
+		subTitle: "Освободи земли от демонов"
 	},
 	{
 		_id: "1276853star",
 		title: "Starcraft 2: Legacy of the void",
-		rate: 8.4
+		rate: 8.4,
+		imageMiddle: "starCraftMiddle.jpg",
+		altImageMiddle: "Персонаж из игры на горе в готовности к битве",
+		tags: ["стратегия", "action"],
+		price: 1649,
+		platform: ["windows.svg"],
+		iconForTitle: "nlo.svg",
+		iconForTitleAlt: "Голова инопланетянина",
+		subTitle: "Чувствую битву"
 	},
 	{
 		_id: "1356756",
 		title: "Aperture Desk Job",
-		rate: 6.5
+		rate: 6.5,
+		imageMiddle: "apertureMiddle.jpg",
+		altImageMiddle: "Схема туалета и сам туалет из игры",
+		tags: ["Приключения"],
+		price: "играй бесплатно",
+		platform: ["windows.svg"],
+		iconForTitle: "pipe.svg",
+		iconForTitleAlt: "Трубы",
+		subTitle: "Мастери и помни, главное смекалка"
 	},
 	{
 		_id: "14farChanging43534",
 		title: "FAR: Changing Tides",
-		rate: 6.4
+		rate: 6.4,
+		imageMiddle: "farMiddle.jpeg",
+		altImageMiddle: "Развалины, обломки",
+		tags: ["Приключения"],
+		price: 480,
+		platform: ["windows.svg"],
+		iconForTitle: "ship.svg",
+		iconForTitleAlt: "Штурвал корабля",
+		subTitle: "Приключения зовут"
 	},
 	{
 		_id: "156786878rtyrtfghfhg",
 		title: "Conan Chop Chop",
-		rate: 5.5
+		rate: 5.5,
+		imageMiddle: "conanMiddle.jpeg",
+		altImageMiddle: "Викинг сражается с противником",
+		tags: ["Приключения", "RPG", "action"],
+		price: 520,
+		platform: ["windows.svg"],
+		iconForTitle: "viking.svg",
+		iconForTitleAlt: "Шлем викинга",
+		subTitle: "Время побеждать"
 	},
 	{
 		_id: "16alloda54646mbn",
 		title: "АЛЛОДЫ Онлайн",
-		rate: 9.6
+		rate: 9.6,
+		imageMiddle: "allodsMiddle.jpg",
+		altImageMiddle: "Герои игры передвигаются на летающем корабле",
+		tags: ["Ролевая игра", "RPG", "action"],
+		price: "играй бесплатно",
+		platform: ["windows.svg"],
+		iconForTitle: "luchi.svg",
+		iconForTitleAlt: "Лучи, звездочки",
+		subTitle: "Погрузись в Аллоды"
 	},
 	{
 		_id: "17warface54646mbn",
 		title: "Warface",
-		rate: 9.5
+		rate: 9.5,
+		imageMiddle: "warfaceMiddle.jpg",
+		altImageMiddle: "3 солдата из игры warface",
+		tags: ["Action-adventure", "Шутер", "action", "Приключения"],
+		price: "играй бесплатно",
+		platform: ["windows.svg", "xboxOne.svg", "playstation.svg"],
+		iconForTitle: "gun.svg",
+		iconForTitleAlt: "Пистолет",
+		subTitle: "Вступай в команду Warface"
 	},
 	{
 		_id: "18ill54646mbn",
 		title: "ILL",
-		rate: 9.2
+		rate: 9.2,
+		imageMiddle: "illMiddle.jpg",
+		altImageMiddle: "Персонажа тащат за ноги",
+		tags: ["Хоррор", "Шутер", "action", "Приключения"],
+		price: "ожидание",
+		platform: ["windows.svg"],
+		iconForTitle: "handZombie.svg",
+		iconForTitleAlt: "Рука зомби из земли",
+		subTitle: "Не оборачивайся!!!"
 	},
 	{
 		_id: "19pioner54646mbn",
 		title: "Pioner",
-		rate: 9.4
+		rate: 9.4,
+		imageMiddle: "pionerMiddle.jpeg",
+		altImageMiddle: "Девушка и мужчина сражаются с монстрами",
+		tags: ["Постапокалипсис", "Шутер", "action", "Приключения", "Выживание"],
+		price: "ожидание",
+		platform: ["windows.svg", "xboxOne.svg", "playstation.svg"],
+		iconForTitle: "blowHeadZombie.svg",
+		iconForTitleAlt: "Человек бьет зомби по голове",
+		subTitle: "Мы должны выжить на этой земле"
 	},
 	{
 		_id: "20tbunny567567",
 		title: "Tiny Bunny",
-		rate: 7.6
+		rate: 7.6,
+		imageMiddle: "tinyBunnyMiddle.jpg",
+		altImageMiddle: "Заяц",
+		tags: ["Хоррор", "Приключения"],
+		price: 299,
+		platform: ["windows.svg"],
+		iconForTitle: "hare.svg",
+		iconForTitleAlt: "Голова зайца",
+		subTitle: "Зайчик, зайчик попрыгайчик..."
 	},
 	{
 		_id: "21spark567gfhfg",
 		title: "SPARK in the Dark",
-		rate: 8.8
+		rate: 8.8,
+		imageMiddle: "sparkInTheDarkMiddle.jpg",
+		altImageMiddle: "Логотип игры",
+		tags: ["Action-adventure", "Приключения", "Ролевая игра", "action", "Демоверсии"],
+		price: "бесплатно",
+		platform: ["windows.svg", "apple.svg"],
+		iconForTitle: "spider.svg",
+		iconForTitleAlt: "Паук",
+		subTitle: "Подземелья таят невероятную угрозу"
 	}
 ]
