@@ -22,7 +22,7 @@ const category = [
 		subGenres:[
 			{
 				_id: "role71",
-				titleCategory: "Ролевые игры",
+				subTitleCategory: "Ролевые игры",
 				elements: [
 					{_id: "ww1", name: "Ролевой боевик"},
 					{_id: "ww2", name: "RPG"},
@@ -31,7 +31,7 @@ const category = [
 			},
 			{
 				_id: "adventure71",
-				titleCategory: "Приключенческая казуальная игра",
+				subTitleCategory: "Приключенческая казуальная игра",
 				elements: [
 					{_id: "rr1", name: "Приключения"},
 					{_id: "rr2", name: "Action-adventure"}
@@ -39,14 +39,14 @@ const category = [
 			},
 			{
 				_id: "simulator71",
-				titleCategory: "Симулятор",
+				subTitleCategory: "Симулятор",
 				elements: [
 					{_id: "sim1", name: "Симулятор"}
 				]
 			},
 			{
 				_id: "action71",
-				titleCategory: "Экшен",
+				subTitleCategory: "Экшен",
 				elements: [
 					{_id: "vmn1", name: "hack and slash"},
 					{_id: "vmn2", name: "action"},
@@ -56,7 +56,7 @@ const category = [
 			},
 			{
 				_id: "strategy71",
-				titleCategory: "Стратегия",
+				subTitleCategory: "Стратегия",
 				elements: [
 					{_id: "minimbv1", name: "MOBA"},
 					{_id: "minimbv2", name: "стратегия"}

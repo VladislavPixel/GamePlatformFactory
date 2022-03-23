@@ -18,6 +18,7 @@ $fontFamily: "Montserrat", sans-serif;
 	&__content{
 		flex: 1 1 auto;
 		background: #1B2533;
+		padding-bottom: 2500px;   // УДАЛИТЬ ЭТУ СТРОЧКУ!!!!!!!!!!!!!!!!!!!!!!!!!!
 	}
 }
 
@@ -27,6 +28,29 @@ $fontFamily: "Montserrat", sans-serif;
 	max-width: 1320px;
 	margin: 0 auto;
 	padding: 0px 10px;
+}
+
+// БАЗОВЫЕ СТИЛИ ОБЩИХ КОМПОНЕНТОВ, КОТОРЫЕ МАЛЕНЬКИЕ ПО СОДЕРЖАНИЮ
+.lite-message{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	img{
+		margin-bottom: 10px
+	}
+	&__title{
+		font-size: 17px;
+		margin-bottom: 10px;
+		color: #fff;
+	}
+	&__offer{
+		line-height: 110%;
+		color: rgb(151, 151, 151);
+		font-size: 15px;
+	}
 }
 
 
