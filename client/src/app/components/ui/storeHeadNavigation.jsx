@@ -1,10 +1,11 @@
 import React, { useState } from "react"
+import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import ModalCategoryStore from "./modalCategoryStore"
 import ModalFastAccess from "./modalFastAccessStore"
 import ModalWalletStore from "./modalWalletStore"
 
-const StoreHeadNavigation = () => {
+const StoreHeadNavigation = ({ onHandlerSelectedCategory, selectedElement }) => {
 	const [targetBtnNavigation, setTargetBtnNavigation] = useState("")
 	const handlerBtnNavigation = (message) => {
 		if (targetBtnNavigation === message) {
@@ -23,7 +24,7 @@ const StoreHeadNavigation = () => {
 				<button title="Перейти на страницу самых горячих предложений этого периода" className="navigation-store__sale">
 					<Link to="/store/sale-hot">Весенняя распродажа</Link>
 				</button>
-				<ModalCategoryStore targetBtn={targetBtnNavigation} />
+				<ModalCategoryStore selectedElement={selectedElement} onHandlerSelectedCategory={onHandlerSelectedCategory} targetBtn={targetBtnNavigation} />
 				<ModalFastAccess targetBtn={targetBtnNavigation} />
 			</div>
 			<div className="navigation-store__column">
@@ -43,6 +44,11 @@ const StoreHeadNavigation = () => {
 			</div>
 		</nav>
 	)
+}
+
+StoreHeadNavigation.propTypes = {
+	onHandlerSelectedCategory: PropTypes.func.isRequired,
+	selectedElement: PropTypes.object.isRequired
 }
 
 export default StoreHeadNavigation

@@ -140,11 +140,21 @@
 	}
 	&__list{
 		li{
+			transition: all 0.4s ease 0s;
+			cursor: pointer;
 			color: rgb(155, 155, 155);
 			font-size: 15px;
 			margin-bottom: 7px;
 			&:last-child{
 				margin-bottom: 0;
+			}
+			@media(min-width: 992px) {
+				&:hover{
+					color: #8AF9AD;
+				}
+			}
+			&.active{
+				color: #4579F5;
 			}
 		}
 	}

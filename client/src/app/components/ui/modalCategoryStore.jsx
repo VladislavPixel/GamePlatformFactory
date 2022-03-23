@@ -5,7 +5,7 @@ import LiteMessage from "../common/liteMessage"
 import ListCategoryStore from "./listCategoryStore"
 import fakeApi from "../../fakeAPI"
 
-const ModalCategoryStore = ({ targetBtn }) => {
+const ModalCategoryStore = ({ targetBtn, onHandlerSelectedCategory, selectedElement }) => {
 	const [categoryStore, setCategoryStore] = useState(null)
 	const [isLoadingCategory, setLoadingCategory] = useState(true)
 	useEffect(() => {
@@ -21,7 +21,7 @@ const ModalCategoryStore = ({ targetBtn }) => {
 		<div className={`navigation-store__category-modal modal-category${targetBtn === "category" ? " active" : ""}`}>
 			{
 				(isLoadingCategory && <Spinner />) ||
-				(categoryStore.length && categoryStore.map(item => <ListCategoryStore key={item._id} {...item} />)) ||
+				(categoryStore.length && categoryStore.map(item => <ListCategoryStore selectedElement={selectedElement} onHandlerSelectedCategory={onHandlerSelectedCategory} key={item._id} {...item} />)) ||
 				<LiteMessage title="В настоящее время категории игр недоступны" offer="Вы сможете воспользоваться ими позже" classes="modal-category__message" iconPath="sadIcon.svg" alt="Иконка грустного смайлика" />
 			}
 		</div>
@@ -29,7 +29,9 @@ const ModalCategoryStore = ({ targetBtn }) => {
 }
 
 ModalCategoryStore.propTypes = {
-	targetBtn: PropTypes.string.isRequired
+	targetBtn: PropTypes.string.isRequired,
+	onHandlerSelectedCategory: PropTypes.func.isRequired,
+	selectedElement: PropTypes.object.isRequired
 }
 
 export default ModalCategoryStore
