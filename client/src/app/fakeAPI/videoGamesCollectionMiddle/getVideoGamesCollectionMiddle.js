@@ -2,22 +2,54 @@ export const videoGamesCollectionMiddle = [
 	{
 		_id: "1eldenRingMiddle77",
 		title: "Elden Ring",
-		rate: 9.0
+		rate: 9.0,
+		imageMiddle: "eldenRingMiddle.jpg",
+		altImageMiddle: "Девушка из Elden Ring в рыцарских доспехах сидит на коленках",
+		tags: ["Открытый мир", "RPG", "Ролевой боевик", "Приключения"],
+		price: 3999,
+		platform: ["windows.svg"],
+		iconForTitle: "warriorHelmet.svg",
+		iconForTitleAlt: "Шлем воина",
+		subTitle: "На тропе войны"
 	},
 	{
 		_id: "2dota2lol56",
 		title: "Dota 2",
-		rate: 9.1
+		rate: 9.1,
+		imageMiddle: "dota2Middle.jpg",
+		altImageMiddle: "Пудж (персонаж из игры) в крови",
+		tags: ["MOBA", "Развлечение", "Фэнтези", "action", "RPG", "Спекулятивная фантастика", "Societal"],
+		price: "бесплатно",
+		platform: ["windows.svg", "apple.svg"],
+		iconForTitle: "dota2.svg",
+		iconForTitleAlt: "Иконка игры Dota 2",
+		subTitle: "Сражение - это зрелищно"
 	},
 	{
 		_id: "3atomicHeart564",
 		title: "Atomic Heart",
-		rate: 9.5
+		rate: 9.5,
+		imageMiddle: "atomicHeartMiddle.jpg",
+		altImageMiddle: "Главный герой игры с дубиной на плече",
+		tags: ["Шутер", "action", "RPG", "Файтинг", "Action-adventure", "Приключения"],
+		price: "ожидание",
+		platform: ["windows.svg", "apple.svg"],
+		iconForTitle: "robot.svg",
+		iconForTitleAlt: "Иконка робота",
+		subTitle: "У них есть душа?"
 	},
 	{
 		_id: "4theDayBefore9567",
 		title: "The Day Before",
-		rate: 8.5
+		rate: 8.5,
+		imageMiddle: "theDayBeforeMiddle.jpg",
+		altImageMiddle: "Половина лица главного героя, он стоит с автоматом на плече",
+		tags: ["Шутер", "action", "Action-adventure", "Приключения"],
+		price: "ожидание",
+		platform: ["windows.svg", "apple.svg", "playstation.svg", "xboxOne.svg"],
+		iconForTitle: "survival.svg",
+		iconForTitleAlt: "Иконка черепа в огне",
+		subTitle: "Выжить любой ценой"
 	},
 	{
 		_id: "5enlisted8776",

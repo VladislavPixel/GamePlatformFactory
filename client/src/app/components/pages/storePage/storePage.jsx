@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import StoreHeadNavigation from "../../ui/storeHeadNavigation"
+import StoreGamesBlock from "../../ui/storeGamesBlock"
 
 const StorePage = () => {
 	const [selectedCategory, setSelectedCategory] = useState({})
@@ -8,9 +9,8 @@ const StorePage = () => {
 	}
 	return (
 		<div className="block-content__store store">
-			<div className="store__container _container">
-				<StoreHeadNavigation selectedElement={selectedCategory} onHandlerSelectedCategory={handlerSelectedCategory} />
-			</div>
+			<StoreHeadNavigation selectedElement={selectedCategory} onHandlerSelectedCategory={handlerSelectedCategory} />
+			<StoreGamesBlock />
 		</div>
 	)
 }
