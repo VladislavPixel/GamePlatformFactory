@@ -266,7 +266,7 @@ export const videoGamesCollectionMiddle = [
 		imageMiddle: "sparkInTheDarkMiddle.jpg",
 		altImageMiddle: "Логотип игры",
 		tags: ["Action-adventure", "Приключения", "Ролевая игра", "action", "Демоверсии"],
-		price: "бесплатно",
+		price: "играй бесплатно",
 		platform: ["windows.svg", "apple.svg"],
 		iconForTitle: "spider.svg",
 		iconForTitleAlt: "Паук",
