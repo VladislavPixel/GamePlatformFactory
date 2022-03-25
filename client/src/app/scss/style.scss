@@ -22,7 +22,6 @@ $fontFamily: "Montserrat", sans-serif;
 }
 
 // ОБЩАЯ НАСТРАИВАЕМАЯ СТИЛИСТИКА
-
 ._container{
 	max-width: 1320px;
 	margin: 0 auto;
@@ -30,6 +29,7 @@ $fontFamily: "Montserrat", sans-serif;
 }
 
 // БАЗОВЫЕ СТИЛИ ОБЩИХ КОМПОНЕНТОВ, КОТОРЫЕ МАЛЕНЬКИЕ ПО СОДЕРЖАНИЮ
+// легкое маленькое сообщение (вывожу в незначительных моментах, например если приходящий массив данных пустой)
 .lite-message{
 	width: 100%;
 	display: flex;
@@ -51,7 +51,39 @@ $fontFamily: "Montserrat", sans-serif;
 		font-size: 15px;
 	}
 }
-
+// компонент пагинации
+.pagination-block{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&__list{
+		display: flex;
+	}
+	&__element{
+		transition: all 0.3s ease 0s;
+		width: 50px;
+		height: 50px;
+		background: #1B2533;
+		box-shadow: 0 0 3px 0px #000;
+		color: #8AF9AD;
+		font-size: 22px;
+		font-weight: 600;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		@media(min-width: 992px) {
+			&:hover{
+				background: rgba(107, 107, 107, 0.493);
+			}
+		}
+		&.active{
+			background: #8AF9AD;
+			color: #1B2533;
+		}
+	}
+}
 
 // Imports ФАЙЛОВ ДРУГИХ СУЩНОСТЕЙ ==============================================================================
 @import "spinner";
