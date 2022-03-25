@@ -1,16 +1,13 @@
 import React, { useRef, useEffect } from "react"
+import getValuePrice from "../../utils/getValuePrice"
 import PropTypes from "prop-types"
 
 const ItemCategory = ({ path, poster, alt, title, platform, price, tags, _id, isTarget, onMouseOver, category, interest, newPrice }) => {
 	const isDiscount = category === "discounts"
 	const cardGameRef = useRef(null)
-	const getValuePrice = (value) => {
-		if (typeof value === "number") return `${value} pуб.`
-		return value
-	}
 	useEffect(() => {
 		cardGameRef.current.addEventListener("mouseover", onMouseOver)
-	}, [])
+	}, [onMouseOver])
 	return (
 		<div ref={cardGameRef} data-id={_id} className={"category-block__game-card card-game" + (isTarget ? " active" : "")}>
 			<div className="card-game__column">

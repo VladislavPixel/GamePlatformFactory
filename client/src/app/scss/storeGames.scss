@@ -7,4 +7,123 @@
 		padding: 0px 15px;
 		text-align: center;
 	}
+	&__list{
+		padding: 0px 20px;
+	}
+}
+
+.list-games-store{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px 0px -30px 0px;
+	&__column{
+		flex: 0 0 20%;
+		padding: 0px 15px;
+		margin: 0px 0px 30px 0px;
+	}
+	&__head-block{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		flex: 1 1 auto;
+		margin-bottom: 30px;
+		padding: 10px;
+	}
+	&__footer-block{
+		padding: 10px;
+	}
+	&__price{
+		color: rgb(200, 200, 200);
+		font-size: 17px;
+		font-weight: 600;
+		margin-bottom: 7px;
+	}
+	&__rate{
+		text-align: right;
+		font-size: 25px;
+		color: #8AF9AD;
+	}
+	&__image-wrap{
+		width: 100%;
+		position: relative;
+		padding: 0px 0px 60% 0px;
+		overflow: hidden;
+		img{
+			transition: all 0.5s ease 0s;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+		}
+	}
+	&__card-game{
+		transition: all 0.5s ease 0s;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		background: #23252B;
+		box-shadow: 0 0 3px 0px #000;
+		height: 100%;
+		border-radius: 6px;
+		@media(min-width: 992px) {
+			&:hover{
+				background: #36383f;
+				.list-games-store__image-wrap{
+					img{
+						transform: scale(1.1);
+					}
+				}
+			}
+		}
+	}
+	&__icon{
+		flex: 0 0 55px;
+		width: 55px;
+		height: 55px;
+		margin-bottom: 10px;
+	}
+	&__list-platform{
+		display: flex;
+		img{
+			flex: 0 1 30px;
+			width: 30px;
+			height: 30px;
+			margin-right: 15px;
+			&:last-child{
+				margin-right: 0;
+			}
+		}
+	}
+	&__title{
+		color: rgb(200, 200, 200);
+		font-size: 18px;
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
+	&__text{
+		color: #ffb400;
+		font-size: 15px;
+		margin-bottom: 15px;
+	}
+	&__list-tags{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 15px;
+		span{
+			margin: 0px 7px 7px 0px;
+			font-size: 15px;
+			font-weight: 600;
+			background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			text-fill-color: transparent;
+		}
+	}
 }

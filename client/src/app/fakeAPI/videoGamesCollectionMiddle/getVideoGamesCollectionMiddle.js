@@ -273,3 +273,11 @@ export const videoGamesCollectionMiddle = [
 		subTitle: "Подземелья таят невероятную угрозу"
 	}
 ]
+
+export default function getGamesCollectionMiddle() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(videoGamesCollectionMiddle)
+		}, 1500)
+	})
+}
