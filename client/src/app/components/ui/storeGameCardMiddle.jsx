@@ -21,6 +21,8 @@ const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, p
 					<div className="list-games-store__list-platform">
 						{platform.map((el, index) => <img key={index} src={`./images/platformsIcon/${el}`} alt="Иконка платформы, на которой работает игра" />)}
 					</div>
+					<button className="list-games-store__btn-car  btn-card-game" type="button">в корзину</button>
+					<button className="list-games-store__btn-more btn-card-game" type="button">подробнее</button>
 				</div>
 				<div className="list-games-store__footer-block">
 					<p className="list-games-store__price">{getValuePrice(price)}</p>
