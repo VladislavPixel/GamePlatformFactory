@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import fakeApi from "../fakeAPI"
 
-const DEFAULT_SELECTED_CATEGORY = {_id: "all-124", name: "all"}
+export const DEFAULT_SELECTED_CATEGORY = {_id: "all-124", name: "all"}
 
 const initialState = {
 	entities: [],

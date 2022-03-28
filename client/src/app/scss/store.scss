@@ -5,6 +5,27 @@
 	&__navigation{
 		margin-bottom: 40px;
 	}
+	&__reset-category-wrap{
+		transition: all 0.4s ease 0s;
+		position: fixed;
+		z-index: 1000;
+		top: 50%;
+		padding: 10px;
+		background: #8AF9AD;
+		transform: rotate(90deg);
+		&:hover{
+			background: #58b876;
+			.store__reset-category-btn{
+				color: #fff;
+			}
+		}
+	}
+	&__reset-category-btn{
+		transition: all 0.8s ease 0s;
+		color: #23252B;
+		font-size: 20px;
+		font-weight: 600;
+	}
 }
 
 .navigation-store{

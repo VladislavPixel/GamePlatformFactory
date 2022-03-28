@@ -7,11 +7,11 @@ import { getIsLoadingCategoryStore, fetchAllCategoryStoreData, getCategoryStoreD
 import withLoading from "../HOC/withLoading"
 import withMessage from "../HOC/withMessage"
 
-const ModalCategoryStore = ({ targetBtn }) => {
+const ModalCategoryStore = ({ targetBtn, onHandlerBtnNavigation }) => {
 	const dispatch = useDispatch()
 	const isLoadingCategoryStore = useSelector(getIsLoadingCategoryStore())
 	const categoryStore = useSelector(getCategoryStoreData())
-	const ListCategoryStoreWithMessage = withMessage(<ListCategoryStore data={categoryStore} />, <LiteMessage title="В настоящее время категории игр недоступны" offer="Вы сможете воспользоваться ими позже" classes="modal-category__message" iconPath="sadIcon.svg" alt="Иконка грустного смайлика" />, categoryStore.length)
+	const ListCategoryStoreWithMessage = withMessage(<ListCategoryStore onHandlerBtnNavigation={onHandlerBtnNavigation} data={categoryStore} />, <LiteMessage title="В настоящее время категории игр недоступны" offer="Вы сможете воспользоваться ими позже" classes="modal-category__message" iconPath="sadIcon.svg" alt="Иконка грустного смайлика" />, categoryStore.length)
 	const ListCategoryStoreWithMessageWithLoading = withLoading(ListCategoryStoreWithMessage, isLoadingCategoryStore)
 	useEffect(() => {
 		if (isLoadingCategoryStore) dispatch(fetchAllCategoryStoreData())
@@ -24,7 +24,8 @@ const ModalCategoryStore = ({ targetBtn }) => {
 }
 
 ModalCategoryStore.propTypes = {
-	targetBtn: PropTypes.string.isRequired
+	targetBtn: PropTypes.string.isRequired,
+	onHandlerBtnNavigation: PropTypes.func.isRequired
 }
 
 export default ModalCategoryStore

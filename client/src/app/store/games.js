@@ -1,12 +1,11 @@
-import { createSlice, createAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 import fakeApi from "../fakeAPI"
 
 const initialState = {
 	entities: [],
+	entitiesTop18: [],
 	isLoading: true,
 	error: null,
-	entitiesTop18: [],
-	isLoadingTop18: true
 }
 
 const gamesSlice = createSlice({
@@ -27,7 +26,6 @@ const gamesSlice = createSlice({
 		},
 		gamesTop18Received(state, action) {
 			state.entitiesTop18 = action.payload
-			state.isLoadingTop18 = false
 		}
 	}
 })
@@ -40,34 +38,33 @@ const {
 	gamesTop18Received
 } = actions
 
-// AdditionalActions
-const gamesTop18Requested = createAction("games/gamesTop18Requested")
-const gamesTop18RequestFailed = createAction("games/gamesTop18RequestFailed")
-
 // Actions
 export function fetchAllGamesMiddleData() {
 	return async (dispatch) => {
 		dispatch(gamesRequested())
 		fakeApi.getGamesCollectionMiddle()
-			.then(data => dispatch(gamesReceived(data)))
+			.then(data => {
+				dispatch(gamesReceived(data))
+				const cloneDataMiddleGames = [...data]
+				cloneDataMiddleGames.sort((a, b) => {
+					if (a.rate > b.rate) return -1
+					if (a.rate < b.rate) return 1
+					return 0
+				})
+				let arrayTop18 = null
+				if (cloneDataMiddleGames.length <= 18) {
+					arrayTop18 = cloneDataMiddleGames
+				} else {
+					arrayTop18 = cloneDataMiddleGames.filter((item, index) => index <= 17)
+				}
+				dispatch(gamesTop18Received(arrayTop18))
+			})
 			.catch(err => {
 				const { message } = err
 				dispatch(gamesRequestFailed(message))
 			})
 	}
 }
-export function fetchAllGamesTop18() {
-	return async (dispatch) => {
-		dispatch(gamesTop18Requested())
-		fakeApi.getTopGames()
-			.then(data => dispatch(gamesTop18Received(data)))
-			.catch(err => {
-				const { message } = err
-				dispatch(gamesTop18RequestFailed(message))
-			})
-	}
-}
-
 
 // Selectors
 export const getIsLoadingGamesMiddle = () => {
@@ -78,11 +75,6 @@ export const getIsLoadingGamesMiddle = () => {
 export const getDataGamesMiddle = () => {
 	return (state) => {
 		return state.games.entities
-	}
-}
-export const getIsLoadingTop18Games = () => {
-	return (state) => {
-		return state.games.isLoadingTop18
 	}
 }
 export const getDataTop18Games = () => {

@@ -24,7 +24,7 @@ const StoreHeadNavigation = () => {
 					<button title="Перейти на страницу самых горячих предложений этого периода" className="navigation-store__sale">
 						<Link to="/store/sale-hot">Весенняя распродажа</Link>
 					</button>
-					<ModalCategoryStore targetBtn={targetBtnNavigation} />
+					<ModalCategoryStore onHandlerBtnNavigation={handlerBtnNavigation} targetBtn={targetBtnNavigation} />
 					<ModalFastAccess targetBtn={targetBtnNavigation} />
 				</div>
 				<div className="navigation-store__column">

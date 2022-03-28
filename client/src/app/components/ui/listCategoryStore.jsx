@@ -4,9 +4,12 @@ import ListSubCategoryStore from "./listSubCategoryStore"
 import { useDispatch, useSelector } from "react-redux"
 import { updateCategoryStoreSelected, getSelectedCategoryStore } from "../../store/categoryStore"
 
-const ListCategoryStore = ({ data }) => {
+const ListCategoryStore = ({ data, onHandlerBtnNavigation }) => {
 	const dispatch = useDispatch()
-	const handlerSelectedCategory = (newCategory) => dispatch(updateCategoryStoreSelected(newCategory))
+	const handlerSelectedCategory = (newCategory) => {
+		dispatch(updateCategoryStoreSelected(newCategory))
+		onHandlerBtnNavigation("category")
+	}
 	const selectedElement = useSelector(getSelectedCategoryStore())
 	return (
 		data.map(el => (
@@ -24,7 +27,8 @@ const ListCategoryStore = ({ data }) => {
 }
 
 ListCategoryStore.propTypes = {
-	data: PropTypes.array.isRequired
+	data: PropTypes.array.isRequired,
+	onHandlerBtnNavigation: PropTypes.func.isRequired
 }
 
 export default ListCategoryStore

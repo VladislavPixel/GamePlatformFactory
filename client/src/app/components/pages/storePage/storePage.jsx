@@ -1,22 +1,34 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import StoreHeadNavigation from "../../ui/storeHeadNavigation"
 import StoreGamesBlock from "../../ui/storeGamesBlock"
-import { getIsLoadingGamesMiddle, fetchAllGamesMiddleData, getDataGamesMiddle } from "../../../store/games"
-import Spinner from "../../common/spinner"
+import {
+	getSelectedCategoryStore,
+	updateCategoryStoreSelected,
+	DEFAULT_SELECTED_CATEGORY
+} from "../../../store/categoryStore"
 
 const StorePage = () => {
+	const selectedCategory = useSelector(getSelectedCategoryStore())
+	const [widthWrapResetCategory, setWidthWrapResetCategory] = useState(null)
+	const [stylessResetCategoryWrap, setStylessResetCategoryWrap] = useState({})
+	const refWrapBtnReset = useRef(null)
 	const dispatch = useDispatch()
-	const isLoadingGamesMiddle = useSelector(getIsLoadingGamesMiddle())
-	const dataGamesMiddle = useSelector(getDataGamesMiddle())
+	const handlerBtnReset = () => dispatch(updateCategoryStoreSelected(DEFAULT_SELECTED_CATEGORY))
 	useEffect(() => {
-		if (isLoadingGamesMiddle) dispatch(fetchAllGamesMiddleData())
-	}, [isLoadingGamesMiddle, dispatch])
+		setWidthWrapResetCategory(refWrapBtnReset.current.offsetWidth)
+	}, [])
+	useEffect(() => {
+		if (selectedCategory.name !== "all") setStylessResetCategoryWrap({ left: `-${widthWrapResetCategory / 2 - 20}px` })
+		if (selectedCategory.name === "all") setStylessResetCategoryWrap({ left: "-100%" })
+	}, [selectedCategory])
 	return (
 		<div className="block-content__store store">
 			<StoreHeadNavigation />
-			{isLoadingGamesMiddle ? <Spinner /> : <StoreGamesBlock data={dataGamesMiddle} />}
-			<div className="store__reset-category-wrap"><button type="button">Сброс категории</button></div>
+			<StoreGamesBlock />
+			<div ref={refWrapBtnReset} style={stylessResetCategoryWrap} className="store__reset-category-wrap">
+				<button onClick={handlerBtnReset} className="store__reset-category-btn" type="button">Сброс категории</button>
+			</div>
 		</div>
 	)
 }
