@@ -1,31 +1,24 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
-import Spinner from "../common/spinner"
-import fakeApi from "../../fakeAPI"
 import { Link } from "react-router-dom"
 import LiteMessage from "../common/liteMessage"
+import { useDispatch, useSelector } from "react-redux"
+import { getIsLoadingWalletLinks, fetchAllDataWalletLinks, getDataWalletLinks } from "../../store/walletLinks"
+import withLoading from "../HOC/withLoading"
+import withMessage from "../HOC/withMessage"
 
 const ModalWalletStore = ({ targetBtn }) => {
-	const [walletDataLinks, setWalletDataLinks] = useState(null)
-	const [isLoadingWalletDataLinks, setLoadingWalletDataLinks] = useState(true)
+	const dispatch = useDispatch()
+	const isLoadingWalletDataLinks = useSelector(getIsLoadingWalletLinks())
+	const walletDataLinks = useSelector(getDataWalletLinks())
 	useEffect(() => {
-		fakeApi.getStoreWalletLinks()
-			.then(data => setWalletDataLinks(data))
+		if (isLoadingWalletDataLinks) dispatch(fetchAllDataWalletLinks())
 	}, [])
-	useEffect(() => {
-		if (walletDataLinks) {
-			setLoadingWalletDataLinks(false)
-		}
-	}, [walletDataLinks])
+	const ModalWalletLinksWithMessage = withMessage(<ul className="modal-wallet__list-wallet">{walletDataLinks.map(item => <li key={item._id}><img src={`./images/icons/${item.icon}`} alt={item.altIcon} /><Link to={item.path}>{item.title}</Link></li>)}</ul>, <LiteMessage title="В настоящее время кошелек не доступен" offer="Вы сможете воспользоваться им позже" classes="modal-wallet__message" iconPath="sadIcon.svg" alt="Иконка грустного смайлика" />, walletDataLinks.length)
+	const ModalWalletLinksWithMessageWithLoading = withLoading(ModalWalletLinksWithMessage, isLoadingWalletDataLinks)
 	return (
 		<nav className={`navigation-store__wallet-modal modal-wallet${targetBtn === "wallet" ? " active" : ""}`}>
-			{
-				(isLoadingWalletDataLinks && <Spinner />) ||
-				(walletDataLinks.length && <ul className="modal-wallet__list-wallet">
-					{walletDataLinks.map(item => <li key={item._id}><img src={`./images/icons/${item.icon}`} alt={item.altIcon} /><Link to={item.path}>{item.title}</Link></li>)}
-				</ul>) ||
-				<LiteMessage title="В настоящее время кошелек не доступен" offer="Вы сможете воспользоваться им позже" classes="modal-wallet__message" iconPath="sadIcon.svg" alt="Иконка грустного смайлика" />
-			}
+			<ModalWalletLinksWithMessageWithLoading />
 		</nav>
 	)
 }

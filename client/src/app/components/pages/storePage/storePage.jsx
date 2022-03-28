@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import StoreHeadNavigation from "../../ui/storeHeadNavigation"
 import StoreGamesBlock from "../../ui/storeGamesBlock"
-import { getIsLoadingGamesMiddle, fetchAllGoodsData, getDataGamesMiddle } from "../../../store/games"
+import { getIsLoadingGamesMiddle, fetchAllGamesMiddleData, getDataGamesMiddle } from "../../../store/games"
 import Spinner from "../../common/spinner"
 
 const StorePage = () => {
@@ -12,9 +12,7 @@ const StorePage = () => {
 	const isLoadingGamesMiddle = useSelector(getIsLoadingGamesMiddle())
 	const dataGamesMiddle = useSelector(getDataGamesMiddle())
 	useEffect(() => {
-		if (isLoadingGamesMiddle) {
-			dispatch(fetchAllGoodsData())
-		}
+		if (isLoadingGamesMiddle) dispatch(fetchAllGamesMiddleData())
 	}, [isLoadingGamesMiddle, dispatch])
 	return (
 		<div className="block-content__store store">

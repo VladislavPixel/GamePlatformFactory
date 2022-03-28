@@ -1,33 +1,27 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import Spinner from "../common/spinner"
-import fakeApi from "../../fakeAPI"
 import { Link } from "react-router-dom"
 import LiteMessage from "../common/liteMessage"
+import { getIsLoadingTop18Games, fetchAllGamesTop18, getDataTop18Games } from "../../store/games"
+import { useDispatch, useSelector } from "react-redux"
+import withMessage from "../HOC/withMessage"
+import withLoading from "../HOC/withLoading"
 
 const ModalFastAccessStore = ({ targetBtn }) => {
-	const [isLoadingDataTop18, setLoadingDataTop18] = useState(true)
-	const [dataTop18, setDataTop18] = useState(null)
+	const dispatch = useDispatch()
+	const isLoadingDataTop18 = useSelector(getIsLoadingTop18Games())
+	const dataTop18 = useSelector(getDataTop18Games())
 	useEffect(() => {
-		fakeApi.getTopGames()
-			.then(data => setDataTop18(data))
+		if (isLoadingDataTop18) dispatch(fetchAllGamesTop18())
 	}, [])
-	useEffect(() => {
-		if (dataTop18) {
-			setLoadingDataTop18(false)
-		}
-	}, [dataTop18])
+	const FastAccessListWithMessage = withMessage(<ul className="modal-fast-access__list-wallet">{dataTop18.map(item => <li key={item._id}><Link to="/">{item.title}</Link></li>)}</ul>, <LiteMessage title="В настоящее время быстрый доступ к ТОП - 18 игр недоступен" offer="Вы сможете воспользоваться ими позже" classes="modal-fast-access__message" iconPath="sadIcon.svg" alt="Иконка грустного смайлика" />, dataTop18.length)
+	const FastAccessListWithMessageWithLoading = withLoading(FastAccessListWithMessage, isLoadingDataTop18)
 	return (
 		<div className={`navigation-store__fast-access-modal modal-fast-access${targetBtn === "fastAccess" ? " active" : ""}`}>
 			<h4 className="modal-fast-access__title">Игры</h4>
 			<p className="modal-fast-access__sub-title">Топ - 18 популярных, с высоким рейтингом</p>
-			{
-				(isLoadingDataTop18 && <Spinner />) ||
-				(dataTop18.length && <ul className="modal-fast-access__list-wallet">
-					{dataTop18.map(item => <li key={item._id}><Link to="/">{item.title}</Link></li>)}
-				</ul>) ||
-				<LiteMessage title="В настоящее время быстрый доступ к ТОП - 18 игр недоступен" offer="Вы сможете воспользоваться ими позже" classes="modal-fast-access__message" iconPath="sadIcon.svg" alt="Иконка грустного смайлика" />
-			}
+			<FastAccessListWithMessageWithLoading />
 		</div>
 	)
 }

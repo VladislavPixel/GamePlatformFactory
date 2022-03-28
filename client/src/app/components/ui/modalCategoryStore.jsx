@@ -1,29 +1,24 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
-import Spinner from "../common/spinner"
+import { useSelector, useDispatch } from "react-redux"
 import LiteMessage from "../common/liteMessage"
 import ListCategoryStore from "./listCategoryStore"
-import fakeApi from "../../fakeAPI"
+import { getIsLoadingCategoryStore, fetchAllCategoryStoreData, getCategoryStoreData } from "../../store/categoryStore"
+import withLoading from "../HOC/withLoading"
+import withMessage from "../HOC/withMessage"
 
 const ModalCategoryStore = ({ targetBtn, onHandlerSelectedCategory, selectedElement }) => {
-	const [categoryStore, setCategoryStore] = useState(null)
-	const [isLoadingCategory, setLoadingCategory] = useState(true)
+	const dispatch = useDispatch()
+	const isLoadingCategoryStore = useSelector(getIsLoadingCategoryStore())
+	const categoryStore = useSelector(getCategoryStoreData())
+	const ListCategoryStoreWithMessage = withMessage(<ListCategoryStore data={categoryStore} selectedElement={selectedElement} onHandlerSelectedCategory={onHandlerSelectedCategory} />, <LiteMessage title="В настоящее время категории игр недоступны" offer="Вы сможете воспользоваться ими позже" classes="modal-category__message" iconPath="sadIcon.svg" alt="Иконка грустного смайлика" />, categoryStore.length)
+	const ListCategoryStoreWithMessageWithLoading = withLoading(ListCategoryStoreWithMessage, isLoadingCategoryStore)
 	useEffect(() => {
-		fakeApi.getCategoryStore()
-			.then(data => setCategoryStore(data))
+		if (isLoadingCategoryStore) dispatch(fetchAllCategoryStoreData())
 	}, [])
-	useEffect(() => {
-		if (categoryStore) {
-			setLoadingCategory(false)
-		}
-	}, [categoryStore])
 	return (
 		<div className={`navigation-store__category-modal modal-category${targetBtn === "category" ? " active" : ""}`}>
-			{
-				(isLoadingCategory && <Spinner />) ||
-				(categoryStore.length && categoryStore.map(item => <ListCategoryStore selectedElement={selectedElement} onHandlerSelectedCategory={onHandlerSelectedCategory} key={item._id} {...item} />)) ||
-				<LiteMessage title="В настоящее время категории игр недоступны" offer="Вы сможете воспользоваться ими позже" classes="modal-category__message" iconPath="sadIcon.svg" alt="Иконка грустного смайлика" />
-			}
+			<ListCategoryStoreWithMessageWithLoading />
 		</div>
 	)
 }
