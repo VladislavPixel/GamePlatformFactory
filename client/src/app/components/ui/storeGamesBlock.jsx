@@ -5,6 +5,8 @@ import getArrayByDelimiter from "../../utils/getArrayByDelimiter"
 import { useSelector } from "react-redux"
 import { getSelectedCategoryStore } from "../../store/categoryStore"
 import { getDataGamesMiddle } from "../../store/games"
+import withMessage from "../HOC/withMessage"
+import LiteMessage from "../common/liteMessage"
 
 const StoreGamesBlock = () => {
 	const data = useSelector(getDataGamesMiddle())
@@ -32,13 +34,22 @@ const StoreGamesBlock = () => {
 	} else {
 		correctArrayData = arrayForCurrentPagin
 	}
+	const configMessageComponent = {
+		title: (data.length === 0 ? "В настоящее время библиотека игр Factory.inc не доступна, воспользуйтесь ей позже." : "По выбранной категории нет игр в библиотеке."),
+		offer: (data.length === 0 ? "Приносим свои извинения за доставленные неудобства. Не забывайте, что Вы все также можете посидеть в наших чатах, посмотреть новости, ознакомиться с нашей деятельностью или завести друзей для совместной игры. Наша платформа не ограничивается одной библиотекой игр." : "Попробуйте сменить категорию, возможно игр на такой жанр пока что нет."),
+		iconPath: (data.length === 0 ? "sadIcon.svg" : "vizor.svg"),
+		altIcon: (data.length === 0 ? "Иконка грустного смайлика" : "Визор")
+	}
+	const ListGamesStoreWithMessage = withMessage(
+		<div className="block-games-store__list list-games-store">{correctArrayData.map(item => <StoreGameCardMiddle key={item._id} {...item} />)}</div>,
+		<LiteMessage altIcon={configMessageComponent.altIcon} iconPath={configMessageComponent.iconPath} title={configMessageComponent.title} offer={configMessageComponent.offer} classes="block-games-store__message" />,
+		correctArrayData.length
+	)
 	return (
 		<div className="store__games-block block-games-store">
 			<h2 className="block-games-store__title">Наша игровая библиотека. Начни играть сейчас !</h2>
 			{numberOfPages > 1 && <Pagination onChangePagination={handlerPaginationChange} currentPagin={currentPagin} pagesNumber={numberOfPages} classes="block-games-store" />}
-			<div className="block-games-store__list list-games-store">
-				{correctArrayData.map(item => <StoreGameCardMiddle key={item._id} {...item} />)}
-			</div>
+			<ListGamesStoreWithMessage />
 			{arrayForCurrentPagin.length > TRIGGER_ELEMENTS_FOR_ADDIT_BTN &&
 				<div className="block-games-store__wrap-btn">
 					<button onClick={handlerAdditionalBtn} className={`block-games-store__additional-btn${isActiveAdditionalBtn ? " active" : ""}`} type="button">{isActiveAdditionalBtn ? "Скрыть дополнительные игры" : "Показать еще для этой страницы"}</button>
