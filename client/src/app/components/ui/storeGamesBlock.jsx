@@ -1,26 +1,36 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import StoreGameCardMiddle from "./storeGameCardMiddle"
 import Pagination from "../common/pagination"
 import getArrayByDelimiter from "../../utils/getArrayByDelimiter"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { getSelectedCategoryStore } from "../../store/categoryStore"
 import { getDataGamesMiddle } from "../../store/games"
 import withMessage from "../HOC/withMessage"
 import LiteMessage from "../common/liteMessage"
+import { getValueSearchGamesStore } from "../../store/searchGamesStore"
+import { updateCategoryStoreSelected, DEFAULT_SELECTED_CATEGORY } from "../../store/categoryStore"
 
 const StoreGamesBlock = () => {
+	const dispatch = useDispatch()
+	const valueSearchGamesStore = useSelector(getValueSearchGamesStore())
 	const data = useSelector(getDataGamesMiddle())
 	 // Category game current
 	const selectedCategoryStore = useSelector(getSelectedCategoryStore())
+	useEffect(() => {
+		if (valueSearchGamesStore !== "") dispatch(updateCategoryStoreSelected(DEFAULT_SELECTED_CATEGORY))
+	}, [valueSearchGamesStore, dispatch])
 	const [isActiveAdditionalBtn, setActiveAdditionalBtn] = useState(false)
 	const [currentPagin, setCurrentPagin] = useState(0)
 	const NUMBER_OF_ELEMENTS_ON_PAGE = 15
 	const TRIGGER_ELEMENTS_FOR_ADDIT_BTN = 10
 	// Проводим первичную фильтрацию по категории текущей
-	const filteredDataGamesOnCategory = (selectedCategoryStore.name === "all" ? data : data.filter((element) => {
+	const filteredDataGamesOnCategory = (valueSearchGamesStore !== "" && data.length !== 0 ? data.filter((element) => {
+		if (element.title.toLowerCase().includes(valueSearchGamesStore.toLowerCase())) return element
+		return null
+	}) : selectedCategoryStore.name === "all" ? data : data.filter((element) => {
 		if (element.tags.includes(selectedCategoryStore.name)) return element
 		return null
-	}))
+	})) 
 	// После фильтрации по категории мы корректно определяем количество страниц пагинации
 	const numberOfPages = Math.ceil(filteredDataGamesOnCategory.length / NUMBER_OF_ELEMENTS_ON_PAGE)
 	const handlerPaginationChange = (index) => setCurrentPagin(index)

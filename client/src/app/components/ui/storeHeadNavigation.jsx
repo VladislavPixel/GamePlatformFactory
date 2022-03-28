@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import ModalCategoryStore from "./modalCategoryStore"
 import ModalFastAccess from "./modalFastAccessStore"
 import ModalWalletStore from "./modalWalletStore"
+import SearchHeadNavigationStore from "./searchHeadNavigationStore"
 
 const StoreHeadNavigation = () => {
 	const [targetBtnNavigation, setTargetBtnNavigation] = useState("")
@@ -27,12 +28,7 @@ const StoreHeadNavigation = () => {
 					<ModalCategoryStore onHandlerBtnNavigation={handlerBtnNavigation} targetBtn={targetBtnNavigation} />
 					<ModalFastAccess targetBtn={targetBtnNavigation} />
 				</div>
-				<div className="navigation-store__column">
-					<img src="./images/icons/search.svg" alt="Иконка поиска" />
-					<div className="navigation-store__input-wrap">
-						<input className="navigation-store__input" type="text" placeholder="Поиск по магазину" />
-					</div>
-				</div>
+				<SearchHeadNavigationStore />
 				<div className="navigation-store__column">
 					<button title="Список желаемого для Вас" className="navigation-store__btn-heart">
 						<img src="./images/icons/heartNoArms.svg" alt="Иконка сердца с кардиограммой" />

@@ -3,11 +3,13 @@ import PropTypes from "prop-types"
 import ListSubCategoryStore from "./listSubCategoryStore"
 import { useDispatch, useSelector } from "react-redux"
 import { updateCategoryStoreSelected, getSelectedCategoryStore } from "../../store/categoryStore"
+import { resetSearch } from "../../store/searchGamesStore"
 
 const ListCategoryStore = ({ data, onHandlerBtnNavigation }) => {
 	const dispatch = useDispatch()
 	const handlerSelectedCategory = (newCategory) => {
 		dispatch(updateCategoryStoreSelected(newCategory))
+		dispatch(resetSearch())
 		onHandlerBtnNavigation("category")
 	}
 	const selectedElement = useSelector(getSelectedCategoryStore())
