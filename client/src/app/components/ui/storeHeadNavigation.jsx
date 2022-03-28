@@ -12,9 +12,10 @@ const StoreHeadNavigation = () => {
 			setTargetBtnNavigation("")
 			return
 		}
-		if (message === "fastAccess") { setTargetBtnNavigation(message) }
-		if (message === "category") { setTargetBtnNavigation(message) }
-		if (message === "wallet") { setTargetBtnNavigation(message) }
+		if (message === "fastAccess") setTargetBtnNavigation(message)
+		if (message === "category") setTargetBtnNavigation(message)
+		if (message === "wallet") setTargetBtnNavigation(message)
+		if (message === "") setTargetBtnNavigation("")
 	}
 	return(
 		<div className="store__container _container">
@@ -28,7 +29,7 @@ const StoreHeadNavigation = () => {
 					<ModalCategoryStore onHandlerBtnNavigation={handlerBtnNavigation} targetBtn={targetBtnNavigation} />
 					<ModalFastAccess targetBtn={targetBtnNavigation} />
 				</div>
-				<SearchHeadNavigationStore />
+				<SearchHeadNavigationStore onHandlerBtnNavigation={handlerBtnNavigation} />
 				<div className="navigation-store__column">
 					<button title="Список желаемого для Вас" className="navigation-store__btn-heart">
 						<img src="./images/icons/heartNoArms.svg" alt="Иконка сердца с кардиограммой" />
