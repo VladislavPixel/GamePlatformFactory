@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import StoreHeadNavigation from "../../ui/storeHeadNavigation"
 import StoreGamesBlock from "../../ui/storeGamesBlock"
@@ -7,8 +7,6 @@ import Spinner from "../../common/spinner"
 
 const StorePage = () => {
 	const dispatch = useDispatch()
-	const [selectedCategory, setSelectedCategory] = useState({})
-	const handlerSelectedCategory = (elementSelected) => setSelectedCategory(elementSelected)
 	const isLoadingGamesMiddle = useSelector(getIsLoadingGamesMiddle())
 	const dataGamesMiddle = useSelector(getDataGamesMiddle())
 	useEffect(() => {
@@ -16,8 +14,9 @@ const StorePage = () => {
 	}, [isLoadingGamesMiddle, dispatch])
 	return (
 		<div className="block-content__store store">
-			<StoreHeadNavigation selectedElement={selectedCategory} onHandlerSelectedCategory={handlerSelectedCategory} />
+			<StoreHeadNavigation />
 			{isLoadingGamesMiddle ? <Spinner /> : <StoreGamesBlock data={dataGamesMiddle} />}
+			<div className="store__reset-category-wrap"><button type="button">Сброс категории</button></div>
 		</div>
 	)
 }

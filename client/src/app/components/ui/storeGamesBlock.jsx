@@ -3,16 +3,28 @@ import PropTypes from "prop-types"
 import StoreGameCardMiddle from "./storeGameCardMiddle"
 import Pagination from "../common/pagination"
 import getArrayByDelimiter from "../../utils/getArrayByDelimiter"
+import { useSelector } from "react-redux"
+import { getSelectedCategoryStore } from "../../store/categoryStore"
 
 const StoreGamesBlock = ({ data }) => {
+	 // Category game current
+	const selectedCategoryStore = useSelector(getSelectedCategoryStore())
 	const [isActiveAdditionalBtn, setActiveAdditionalBtn] = useState(false)
 	const [currentPagin, setCurrentPagin] = useState(0)
 	const NUMBER_OF_ELEMENTS_ON_PAGE = 15
-	const numberOfPages = Math.ceil(data.length / NUMBER_OF_ELEMENTS_ON_PAGE)
+	// Проводим первичную фильтрацию по категории текущей
+	const filteredDataGamesOnCategory = (selectedCategoryStore.name === "all" ? data : data.filter((element) => {
+		if (element.tags.includes(selectedCategoryStore.name)) return element
+		return null
+	}))
+	// После фильтрации по категории мы корректно определяем количество страниц пагинации
+	const numberOfPages = Math.ceil(filteredDataGamesOnCategory.length / NUMBER_OF_ELEMENTS_ON_PAGE)
 	const handlerPaginationChange = (index) => setCurrentPagin(index)
 	const handlerAdditionalBtn = () => setActiveAdditionalBtn(prevState => !prevState)
-	const arrayForCurrentPagin = getArrayByDelimiter(currentPagin, NUMBER_OF_ELEMENTS_ON_PAGE, data)
-	let correctArrayData
+	// Разбиваем наш массив данных на страницы пагинации
+	const arrayForCurrentPagin = getArrayByDelimiter(currentPagin, NUMBER_OF_ELEMENTS_ON_PAGE, filteredDataGamesOnCategory)
+	// Отбираем 10 элементов если у нас количество элементов на страницу равно 15, иначе выдаем весб список для страницы
+	let correctArrayData // Логика нижней кнопки под блоком данных
 	if (arrayForCurrentPagin.length === NUMBER_OF_ELEMENTS_ON_PAGE && !isActiveAdditionalBtn) {
 		correctArrayData = arrayForCurrentPagin.filter((el, index) => index < 10)
 	} else {
