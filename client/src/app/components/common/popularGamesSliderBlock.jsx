@@ -3,13 +3,15 @@ import GameCardCommentsSlider from "../ui/gameCardCommentsSlider"
 import PropTypes from "prop-types"
 import { useSelector } from "react-redux"
 import { getCommentGamesOnArrayIds } from "../../store/commentsGames"
+import CommentCardSliderComments from "../ui/commentCardSliderComments"
 
 const PopularGamesSliderBlock = ({ data, currentPagin, onUpdatePagin }) => {
 	const refContainerSlides = useRef(null)
 	const [heightContainerSlides, setHeightContainerSlides] = useState(null)
 	const [stylessContainerSlides, setStylessContainerSlides] = useState({ transform: "translateY(0)" })
+	console.log(data, "data")
+	const [stylessContainerComments, setStylessContainerComments] = useState({ transform: `translateY(-${data.length * heightContainerSlides}px)` })
 	const dataCommentsGames = useSelector(getCommentGamesOnArrayIds(data))
-	console.log(dataCommentsGames)
 	useEffect(() => {
 		setStylessContainerSlides({ transform: `translateY(-${currentPagin * heightContainerSlides}px)` })
 	}, [currentPagin])
@@ -25,8 +27,8 @@ const PopularGamesSliderBlock = ({ data, currentPagin, onUpdatePagin }) => {
 			</div>
 			<div className="comments-slider-block__column">
 				<h3 className="comments-slider-block__comment-title">Комментарии по игре</h3>
-				<div className="comments-slider-block__container-comments">
-
+				<div style={stylessContainerComments} className="comments-slider-block__container-comments">
+					{dataCommentsGames.map((commentsArray, index) => <CommentCardSliderComments key={index} dataArray={commentsArray} />)}
 				</div>
 			</div>
 			<div className="comments-slider-block__controller">
