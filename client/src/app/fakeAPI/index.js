@@ -8,6 +8,7 @@ import getCategoryStore from "./storeCategory"
 import getStoreWalletLinks from "./storeWallet"
 import getTopGames from "./videoGamesCollectionTopStore"
 import getGamesCollectionMiddle from "./videoGamesCollectionMiddle"
+import getCommentsGames from "./commentsGames"
 
 const fakeApi = {
 	getSliderGalleryGameData,
@@ -19,7 +20,8 @@ const fakeApi = {
 	getCategoryStore,
 	getStoreWalletLinks,
 	getTopGames,
-	getGamesCollectionMiddle
+	getGamesCollectionMiddle,
+	getCommentsGames
 }
 
 export default fakeApi

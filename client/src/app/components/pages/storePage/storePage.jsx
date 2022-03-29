@@ -8,6 +8,7 @@ import {
 	DEFAULT_SELECTED_CATEGORY
 } from "../../../store/categoryStore"
 import PopularGamesCommentsSlider from "../../common/popularGamesCommentsSlider"
+import CommentsGamesLoaderGlobal from "../../HOC/commentsGamesLoaderGlobal"
 
 const StorePage = () => {
 	const selectedCategory = useSelector(getSelectedCategoryStore())
@@ -25,7 +26,9 @@ const StorePage = () => {
 	}, [selectedCategory])
 	return (
 		<div className="block-content__store store">
-			<PopularGamesCommentsSlider classesParent="store" pathMp4="commentsSliderStore.mp4" pathWebm="commentsSliderStoreOptimaze.webm" />
+			<CommentsGamesLoaderGlobal>
+				<PopularGamesCommentsSlider classesParent="store" pathMp4="commentsSliderStore.mp4" pathWebm="commentsSliderStoreOptimaze.webm" />
+			</CommentsGamesLoaderGlobal>
 			<StoreHeadNavigation />
 			<StoreGamesBlock />
 			<div ref={refWrapBtnReset} style={stylessResetCategoryWrap} className="store__reset-category-wrap">
