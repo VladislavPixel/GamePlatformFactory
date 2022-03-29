@@ -78,12 +78,12 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 				<button onClick={() => {
 					handlerArrowController("left")
 				}} type="button" className="wide-scale-slider__btn-prev control-wide-scale-slider">
-					<img src="./images/icons/arrow-triangle-white.svg" alt="Иконка треугольной трелки" />
+					<img src="./images/icons/arrowTriangleWhite.svg" alt="Иконка треугольной трелки" />
 				</button>
 				<button onClick={() => {
 					handlerArrowController("right")
 				}} type="button" className="wide-scale-slider__btn-next control-wide-scale-slider">
-					<img src="./images/icons/arrow-triangle-white.svg" alt="Иконка треугольной трелки" />
+					<img src="./images/icons/arrowTriangleWhite.svg" alt="Иконка треугольной трелки" />
 				</button>
 				<div className="wide-scale-slider__pagination">
 					{arrayPagination.map(pagin => <div onClick={() => handlerPagin(pagin._id)} className={`wide-scale-slider__pagin${pagin._id === currentSlide - clones.head.length ? " active" : ""}`} key={pagin._id}></div>)}

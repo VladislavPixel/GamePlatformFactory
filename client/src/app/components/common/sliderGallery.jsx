@@ -82,12 +82,12 @@ const SliderGallery = ({ title, data, posters, ...rest }) => {
 						<div onClick={() => {
 							handlerBtnArrow("left")
 						}} className={`block-slider-gallery__arrow block-slider-gallery__arrow_left` + (currentValue === 0 ? " none-show" : "")}>
-							<img src="./images/icons/double-arrow.svg" alt="Иконка стрелки-контроллера" />
+							<img src="./images/icons/doubleArrow.svg" alt="Иконка стрелки-контроллера" />
 						</div>
 						<div onClick={() => {
 							handlerBtnArrow("right")
 						}} className={`block-slider-gallery__arrow block-slider-gallery__arrow_right` + (currentValue === (array.length - 1) ? " none-show" : "")}>
-							<img src="./images/icons/double-arrow.svg" alt="Иконка стрелки-контроллера" />
+							<img src="./images/icons/doubleArrow.svg" alt="Иконка стрелки-контроллера" />
 						</div>
 					</div>
 					<div className="block-slider-gallery__column" style={{ maxHeight: SLIDER_GALLERY_HEIGHT + "px" }}>

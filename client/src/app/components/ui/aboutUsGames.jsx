@@ -16,7 +16,7 @@ const AboutUsGames = () => {
 				<div className="games-about-us__content">
 					<h2 className="games-about-us__title">Библиотека игр</h2>
 					<p className="games-about-us__text">Factory platform предлагает около 35 игр на любой вкус, большие рецензии на них + рейтинги, а также эксклюзивные предложения. Мы также работаем над возможностью автоматического обновления игр.</p>
-					<Link to="/store"><span>Перейти в магазин</span><img src="./images/icons/arrow-blue-sky.svg" alt="Иконка стрелочки" /></Link>
+					<Link to="/store"><span>Перейти в магазин</span><img src="./images/icons/arrowBlueSky.svg" alt="Иконка стрелочки" /></Link>
 				</div>
 			</div>
 		</div>

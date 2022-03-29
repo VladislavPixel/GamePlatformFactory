@@ -12,7 +12,7 @@ const AboutUsOpportunitiesRow = ({ title, text, link, icon, alt, indexElement, p
 					<p className="opportunities-about-us__message">{text}</p>
 					<Link className="opportunities-about-us__link" to={path}>
 						{link}
-						<img src="./images/icons/arrow-blue-sky.svg" alt="Голубая стрелка" />
+						<img src="./images/icons/arrowBlueSky.svg" alt="Голубая стрелка" />
 					</Link>
 				</div>
 			</div>

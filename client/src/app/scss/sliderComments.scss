@@ -15,6 +15,7 @@
 		padding-top: 30px;
 		position: relative;
 		z-index: 10;
+		margin-bottom: 25px;
 	}
 	&__title{
 		color: #fff;
@@ -34,5 +35,112 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+}
+
+.comments-slider-block{
+	overflow: hidden;
+	display: flex;
+	position: relative;
+	z-index: 7;
+	box-shadow: 0 0 7px 0px #000;
+	&__column{
+		flex: 0 1 50%;
+		background: #171a21;
+		position: relative;
+	}
+	&__container-slides{
+		display: flex;
+		flex-direction: column;
+		height: 450px;
+		position: relative;
+		z-index: 25;
+	}
+	&__comment-title{
+		color: #67ff97;
+		font-size: 20px;
+		font-weight: 500;
+		position: absolute;
+		top: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	&__controller{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 30;
+		display: flex;
+	}
+	&__arrow-block{
+		background: #17191c63;
+		padding: 5px;
+		img{
+			width: 40px;
+			height: 40px;
+		}
+		&_right{
+			img{
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
+
+.wrap-poster-comments-slider{
+	position: relative;
+	flex: 0 0 100%;
+	&__img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 15;
+	}
+	&__game-title{
+		position: absolute;
+		top: 0;
+		left: 0;
+		color: #fff;
+		font-size: 25px;
+		z-index: 20;
+		padding: 20px;
+		background: rgba(0, 0, 0, 0.418);
+	}
+	&__footer{
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+		z-index: 20;
+		display: flex;
+		flex-direction: column;
+	}
+	&__price{
+		color: #fff;
+		align-self: flex-end;
+		font-size: 18px;
+		background: rgba(0, 0, 0, 0.63);
+		padding: 15px;
+		position: relative;
+		right: -20px;
+	}
+	&__btn-car{
+		transition: all 0.4s ease 0s;
+		background: #8AF9AD;
+		padding: 10px;
+		border-radius: 5px;
+		color: #17191C;
+		font-size: 16px;
+		font-weight: 600;
+		margin-top: 10px;
+		@media(min-width: 992px) {
+			&:hover{
+				background: #67ff97;
+				transform: scale(0.9);
+			}
+		}
 	}
 }
