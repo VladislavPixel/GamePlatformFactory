@@ -40,7 +40,7 @@ const HomePage = () => {
 	}, [wideScaleSliderData])
 	return (
 		<div className="block-content__home home-block">
-			{/* <HomeHead /> */}
+			<HomeHead />
 			{/* <HomeCards /> */}
 			{/* {
 				sliderGalleryLoader ? <Spinner /> :
