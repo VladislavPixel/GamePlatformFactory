@@ -41,7 +41,7 @@ const HomePage = () => {
 	return (
 		<div className="block-content__home home-block">
 			<HomeHead />
-			{/* <HomeCards /> */}
+			<HomeCards />
 			{/* {
 				sliderGalleryLoader ? <Spinner /> :
 				<SliderGallery title="Популярное и рекомендуемое" posters={sliderGalleryData[1]} data={sliderGalleryData[0]} globPath="./images/sliderGalleryGame/" />

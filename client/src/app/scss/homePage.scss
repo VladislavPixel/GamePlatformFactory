@@ -10,6 +10,7 @@
 		margin-bottom: 90px;
 		@media(max-width: 800px) {
 			flex-direction: column-reverse;
+			margin-bottom: 0px;
 		}
 	}
 	&__column{
@@ -114,6 +115,13 @@
 	&__we-have{
 		margin-bottom: 60px;
 	}
+	&__cards{
+		padding: 0px 30px;
+		@media(max-width: 550px) {
+			position: relative;
+			top: -30px;
+		}
+	}
 }
 
 
@@ -122,6 +130,7 @@
 	&__container{
 		display: flex;
 		margin: 0px -20px;
+		flex-wrap: wrap;
 	}
 	&__column{
 		flex: 0 1 25%;
@@ -139,6 +148,14 @@
 				}
 			}
 		}
+		@media(max-width: 1340px) {
+			flex: 0 1 50%;
+			margin-bottom: 30px;
+			padding: 0px 10px;
+		}
+		@media(max-width: 550px) {
+			flex: 0 1 100%;
+		}
 	}
 	&__block{
 		transition: all 0.5s ease 0s;
@@ -148,6 +165,9 @@
 		padding: 40px;
 		border-radius: 20px;
 		filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+		@media(max-width: 1340px) {
+			padding: 20px;
+		}
 	}
 	&__block-icon{
 		padding: 15px;
