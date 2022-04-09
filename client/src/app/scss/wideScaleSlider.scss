@@ -179,34 +179,61 @@
 }
 
 // MEDIA
-@media(max-width: 400px) {
-	.wide-scale-slider__title{
-		font-size: 17px;
-		line-height: 127%;
+@media(max-width: 2000px) {
+	.wide-scale-slider__btn-next{
+		transform: translate(55px, -50%);
 	}
 }
-@media(max-width: 500px) {
+@media(max-width: 1600px) {
+	.wide-scale-slider__btn-prev{
+		transform: translate(-15px, -50%);
+	}
+}
+@media(max-width: 1300px) {
+	.wide-scale-slider{
+		&__name{
+			font-size: 40px;
+		}
+		&__text{
+			font-size: 60px;
+			margin-bottom: 10px;
+		}
+		&__btn{
+			font-size: 18px;
+		}
+		&__pagin{
+			flex: 0 0 60px;
+			height: 10px;
+		}
+	}
+}
+@media(max-width: 1000px) {
 	.control-wide-scale-slider{
-		width: 30px;
-		height: 30px;
+		width: 40px;
+		height: 40px;
 		img{
-			width: 14px;
-			height: 14px;
+			width: 15px;
+			height: 15px;
 		}
 	}
 	.wide-scale-slider{
-		&__text{
-			font-size: 23px;
+		&__wrapper{
+			height: 450px;
+		}
+		&__content{
+			bottom: 60px;
+		}
+		&__btn-prev{
+			transform: translate(-3px, -50%);
 		}
 		&__pagination{
-			bottom: 5px;
+			bottom: 20px;
 		}
 	}
 }
-@media(max-width: 700px) {
-	.wide-scale-slider__name{
-		font-size: 24px;
-		padding: 5px;
+@media(max-width: 900px) {
+	.wide-scale-slider__title{
+		font-size: 21px;
 	}
 }
 @media(max-width: 800px) {
@@ -237,60 +264,33 @@
 		}
 	}
 }
-@media(max-width: 900px) {
-	.wide-scale-slider__title{
-		font-size: 21px;
+@media(max-width: 700px) {
+	.wide-scale-slider__name{
+		font-size: 24px;
+		padding: 5px;
 	}
 }
-@media(max-width: 1000px) {
+@media(max-width: 500px) {
 	.control-wide-scale-slider{
-		width: 40px;
-		height: 40px;
+		width: 30px;
+		height: 30px;
 		img{
-			width: 15px;
-			height: 15px;
+			width: 14px;
+			height: 14px;
 		}
 	}
 	.wide-scale-slider{
-		&__wrapper{
-			height: 450px;
-		}
-		&__content{
-			bottom: 60px;
-		}
-		&__btn-prev{
-			transform: translate(-3px, -50%);
+		&__text{
+			font-size: 23px;
 		}
 		&__pagination{
-			bottom: 20px;
+			bottom: 5px;
 		}
 	}
 }
-@media(max-width: 1300px) {
-	.wide-scale-slider{
-		&__name{
-			font-size: 40px;
-		}
-		&__text{
-			font-size: 60px;
-			margin-bottom: 10px;
-		}
-		&__btn{
-			font-size: 18px;
-		}
-		&__pagin{
-			flex: 0 0 60px;
-			height: 10px;
-		}
-	}
-}
-@media(max-width: 1600px) {
-	.wide-scale-slider__btn-prev{
-		transform: translate(-15px, -50%);
-	}
-}
-@media(max-width: 2000px) {
-	.wide-scale-slider__btn-next{
-		transform: translate(55px, -50%);
+@media(max-width: 400px) {
+	.wide-scale-slider__title{
+		font-size: 17px;
+		line-height: 127%;
 	}
 }
