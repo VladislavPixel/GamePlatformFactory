@@ -42,10 +42,10 @@ const HomePage = () => {
 		<div className="block-content__home home-block">
 			<HomeHead />
 			<HomeCards />
-			{/* {
+			{
 				sliderGalleryLoader ? <Spinner /> :
 				<SliderGallery title="Популярное и рекомендуемое" posters={sliderGalleryData[1]} data={sliderGalleryData[0]} globPath="./images/sliderGalleryGame/" />
-			} */}
+			}
 			<WeHave directionCircle="right" isOffsetCircle={true} isList={true} dataList={configAuxiliary.weHaveList} />
 			{
 				homeCategoryLoader ? <Spinner /> :

@@ -25,6 +25,16 @@ $fontFamily: "Montserrat", sans-serif;
 }
 
 // ОБЩАЯ НАСТРАИВАЕМАЯ СТИЛИСТИКА
+::-webkit-scrollbar{
+	width: 12px;
+}
+::-webkit-scrollbar-track{
+	background: #1f2937;
+	border-radius: 100vh;
+}
+::-webkit-scrollbar-thumb{
+	background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
+}
 ._container{
 	max-width: 1320px;
 	margin: 0 auto;

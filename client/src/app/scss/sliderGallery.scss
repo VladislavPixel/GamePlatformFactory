@@ -6,6 +6,10 @@
 		color: #fff;
 		font-size: 20px;
 		margin-bottom: 25px;
+		@media(max-width: 410px) {
+			font-size: 18px;
+			line-height: 130%;
+		}
 	}
 	&__pagination{
 		margin-top: 30px;
@@ -37,6 +41,9 @@
 .block-slider-gallery{
 	display: flex;
 	box-shadow: 0 0 7px 0px #000;
+	@media(max-width: 900px){
+		flex-direction: column;
+	}
 	&__column{
 		position: relative;
 		overflow: hidden;
@@ -46,6 +53,11 @@
 		&:last-child{
 			background: url("../img/backgroundScrinBlock.jpg") 0 0/cover no-repeat;
 			flex: 0 1 30%;
+		}
+		@media(max-width: 900px){
+			&:first-child{
+				flex: 0 0 350px;
+			}
 		}
 	}
 	&__main-poster{
@@ -74,6 +86,11 @@
 		@media(max-width: 888px) {
 			font-size: 18px;
 			font-weight: 400;
+		}
+		@media(max-width: 420px) {
+			font-size: 16px;
+			padding: 5px;
+			line-height: 125%;
 		}
 	}
 	&__btn{
@@ -164,6 +181,9 @@
 		font-size: 22px;
 		color: #fff;
 		margin-bottom: 15px;
+		@media(max-width: 900px) {
+			text-align: center;
+		}
 	}
 	&__column{
 		transition: all 0.5s ease 0s;
@@ -181,6 +201,18 @@
 				opacity: 1;
 				box-shadow: 0px 0px 20px 2px #fff;
 			}
+		}
+		@media(max-width: 900px) {
+			padding: 0px 0px 20% 0px;
+		}
+		@media(max-width: 750px) {
+			padding: 0px 0px 23% 0px;
+		}
+		@media(max-width: 560px) {
+			padding: 0px 0px 27% 0px;
+		}
+		@media(max-width: 450px) {
+			padding: 0px 0px 36% 0px;
 		}
 	}
 	&__screen-img{

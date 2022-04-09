@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import PropTypes from "prop-types"
+
+// Components
 import ContentSliderGallery from "../ui/contentSliderGallery"
 
 const SliderGallery = ({ title, data, posters, ...rest }) => {
@@ -32,12 +34,8 @@ const SliderGallery = ({ title, data, posters, ...rest }) => {
 	}
 	const handlerUpdateCurrentSlide = (value) => {
 		setElementConfig(null)
-		if (currentValue > value) {
-			getTranslateStyles("left", value)
-		}
-		if (currentValue < value) {
-			getTranslateStyles("right", value)
-		}
+		if (currentValue > value) getTranslateStyles("left", value)
+		if (currentValue < value) getTranslateStyles("right", value)
 		setCurrentValue(value)
 	}
 	const handlerBtnArrow = (direction) => {

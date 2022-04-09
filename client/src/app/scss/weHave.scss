@@ -87,6 +87,11 @@
 				margin: 170px 0px 0px 0px;
 			}
 		}
+		&.right{
+			@media(max-width: 666px) {
+				margin: 40px 0px 170px 0px;
+			}
+		}
 	}
 	&__list{
 		li{
