@@ -45,7 +45,7 @@ const HomePage = () => {
 			{/* {
 				sliderGalleryLoader ? <Spinner /> :
 				<SliderGallery title="Популярное и рекомендуемое" posters={sliderGalleryData[1]} data={sliderGalleryData[0]} globPath="./images/sliderGalleryGame/" />
-			}
+			} */}
 			<WeHave directionCircle="right" isOffsetCircle={true} isList={true} dataList={configAuxiliary.weHaveList} />
 			{
 				homeCategoryLoader ? <Spinner /> :
@@ -55,7 +55,7 @@ const HomePage = () => {
 				wideScaleSliderLoader ? <Spinner /> :
 				<WideScaleSlider pathImages="./images/homeWideScaleSlider/" classWrap="home-block" title="Популярные продукты российских разработчиков" dataSliders={wideScaleSliderData} />
 			}
-			<WeHave dataBlocks={configAuxiliary.weHaveBlocksHomePage} themeColors={["#4579F5", "#0044e2 0px 14px 34px", "#4579F5", "#4579F5 0px 14px 34px"]} isBlueCircle={true} isList={false} /> */}
+			{/* <WeHave dataBlocks={configAuxiliary.weHaveBlocksHomePage} themeColors={["#4579F5", "#0044e2 0px 14px 34px", "#4579F5", "#4579F5 0px 14px 34px"]} isBlueCircle={true} isList={false} /> */}
 		</div>
 	)
 }

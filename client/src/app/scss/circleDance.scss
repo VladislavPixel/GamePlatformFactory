@@ -1,26 +1,30 @@
 @keyframes rotSmall{
-	from {
-		transform: rotate(0deg) translate(100px) rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg) translate(100px) rotate(-360deg);
-	}
+	from { transform: rotate(0deg) translate(100px) rotate(0deg); }
+	to { transform: rotate(360deg) translate(100px) rotate(-360deg); }
+}
+@keyframes rotSmallForMode{
+	from { transform: rotate(0deg) translate(67px) rotate(0deg); }
+	to { transform: rotate(360deg) translate(67px) rotate(-360deg); }
 }
 @keyframes rotMiddle{
-	from {
-		transform: rotate(0deg) translate(215px) rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg) translate(215px) rotate(-360deg);
-	}
+	from { transform: rotate(0deg) translate(215px) rotate(0deg); }
+	to { transform: rotate(360deg) translate(215px) rotate(-360deg); }
+}
+@keyframes rotMiddleForMode{
+	from { transform: rotate(0deg) translate(135px) rotate(0deg); }
+	to { transform: rotate(-360deg) translate(135px) rotate(360deg); }
 }
 @keyframes rotExternal{
-	from {
-		transform: rotate(0deg) translate(430px) rotate(0deg);
-	}
-	to {
-		transform: rotate(-360deg) translate(430px) rotate(360deg);
-	}
+	from { transform: rotate(0deg) translate(430px) rotate(0deg); }
+	to { transform: rotate(-360deg) translate(430px) rotate(360deg); }
+}
+@keyframes rotExternalForMode{
+	from { transform: rotate(0deg) translate(279px) rotate(0deg); }
+	to { transform: rotate(-360deg) translate(279px) rotate(360deg); }
+}
+@keyframes rotExternalSecondForMode{
+	from { transform: rotate(0deg) translate(279px) rotate(0deg); }
+	to { transform: rotate(360deg) translate(279px) rotate(-360deg); }
 }
 @keyframes rotationElement{
 	0%{
@@ -57,17 +61,40 @@
 		left: -35px;
 		animation: rotSmall 3s infinite linear;
 	}
+	&__small-element-for-small-mode{
+		position: absolute;
+		top: -5px;
+		left: -32px;
+		animation: rotSmallForMode 3s infinite linear;
+	}
 	&__middle-element{
 		position: absolute;
 		top: -50%;
 		left: -55px;
 		animation: rotMiddle 7s infinite linear;
 	}
+	&__middle-element-for-small-mode{
+		position: absolute;
+		left: -50px;
+		top: -20px;
+		animation: rotMiddleForMode 6s infinite linear;
+	}
 	&__external-element{
 		position: absolute;
 		top: -19px;
 		left: -43px;
 		animation: rotExternal 10s infinite linear;
+	}
+	&__external-element-for-small-mode{
+		position: absolute;
+		top: -10px;
+		left: -15px;
+		animation: rotExternalForMode 8s infinite linear;
+		&_second{
+			top: -10px;
+			left: -15px;
+			animation: rotExternalSecondForMode 13s infinite linear;
+		}
 	}
 	&__circle-offset{
 		position: absolute;
