@@ -35,7 +35,9 @@ const CircleDance = ({ letter, color, shadow, isOffsetCircle, isBlueCircle, widt
 						<img className="letter-block__circle" src="./images/circleDance/circleBigSmallMode.png" alt="Большой круг для отображения на маленьких устройствах" />
 						{isBlueCircle ?
 							<React.Fragment>
-								
+								<img className="letter-block__middle-element-for-small-mode" src="./images/circleDance/middleElementForSmallModeBlue.png" alt="Средний элемент для маленьких устройств blue" />
+								<img style={{ width: "40px", height: "40px" }} className="letter-block__external-element-for-small-mode" src="./images/circleDance/asteroid.svg" alt="Внешний элемент для маленьких устройств blue - астероид" />
+								<img className="letter-block__external-element-for-small-mode letter-block__external-element-for-small-mode_second" src="./images/circleDance/externalElementForSmallMode.png" alt="Внешний элемент для маленьких устройств" />
 							</React.Fragment> :
 							<React.Fragment>
 								<img className="letter-block__middle-element-for-small-mode" src="./images/circleDance/middleElementForSmallMode.png" alt="Средний элемент для маленьких устройств" />

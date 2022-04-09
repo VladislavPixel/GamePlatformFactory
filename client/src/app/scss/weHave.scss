@@ -1,5 +1,4 @@
 .we-have{
-	margin: 150px 0;
 	&__title{
 		position: relative;
 		z-index: 10;
@@ -52,6 +51,19 @@
 		@media(max-width: 666px) {
 			padding: 20px;
 		}
+		margin: 150px 0;
+		@media(max-width: 1090px) {
+			margin: 100px 0;
+		}
+		@media(max-width: 900px) {
+			margin: 60px 0;
+		}
+		@media(max-width: 800px) {
+			margin: 30px 0;
+		}
+		@media(max-width: 666px) {
+			margin: 170px 0;
+		}
 		&.left{
 			border-left: none;
 			border-right: 1px solid #cbf1b223;
@@ -66,6 +78,13 @@
 			.we-have__column:last-child{
 				position: relative;
 				z-index: 10;
+				display: block;
+			}
+			@media(max-width: 1380px) {
+				border-right: none;
+			}
+			@media(max-width: 666px) {
+				margin: 170px 0px 0px 0px;
 			}
 		}
 	}
@@ -115,6 +134,9 @@
 		flex: 0 1 50%;
 		padding: 0px 15px;
 		margin-bottom: 35px;
+		@media(max-width: 1120px) {
+			flex: 0 1 100%;
+		}
 	}
 	&__title{
 		font-weight: 700;
