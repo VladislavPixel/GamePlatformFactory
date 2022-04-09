@@ -5,9 +5,7 @@ const WideScaleSliderSlide = ({ targetSlideIndex, pathImages, slides, title, onH
 	const isEven = ((targetSlideIndex + 1) % 2) === 0
 	const refColumn = useRef(null)
 	useEffect(() => {
-		if (targetSlideIndex === 0) {
-			onHandlerRef(refColumn.current.offsetWidth)
-		}
+		if (targetSlideIndex === 0) onHandlerRef(refColumn.current.offsetWidth)
 	}, [targetSlideIndex, onHandlerRef])
 	return (
 		<div ref={refColumn} className={`wide-scale-slider__column wide-scale-slider__column_${isEven ? "additional" : "first"} ${currentSlide === targetSlideIndex ? "active" : ""}`}>

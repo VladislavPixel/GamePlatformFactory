@@ -1,10 +1,17 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
+import { flushSync } from "react-dom"
 import PropTypes from "prop-types"
+
+// Components
 import WideScaleSliderSlide from "../ui/wideScaleSliderSlide"
+// Auxiliary
+import getArrayByNumber from "../../utils/getArrayByNumber"
 
 const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
+	const wideScaleComponent = useRef(null)
 	const [currentSlide, setCurrentSlide] = useState(2)
 	const [duration, setDuration] = useState(0.3)
+	// Data collection
 	const [clones] = useState({
 		head: [dataSliders[dataSliders.length - 2], dataSliders[dataSliders.length - 1]],
 		tail: [dataSliders[0], dataSliders[1]]
@@ -14,10 +21,10 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 		...dataSliders,
 		...clones.tail
 	])
-	const arrayPagination = []
-	for (let m = 0; m < dataSliders.length; m++) {
-		arrayPagination.push({_id: m})
-	}
+	// Pagins
+	const arrayPagination = getArrayByNumber(dataSliders.length)
+	// STATE
+	const [widthWideScale, setWidthWideScale] = useState(null)
 	const [widthColumn, setWidthColumn] = useState(null)
 	const [displacementBody, setDisplacementBody] = useState(null)
 	const [translateConfigBody, setTranslateConfigBody] = useState({value: 0, transform: "translateX(0px)"})
@@ -32,7 +39,12 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 		}
 	}
 	const handlerRef = (widthColumnRef) => setWidthColumn(() => widthColumnRef)
-	const defaultOffsetBody = widthColumn * clones.head.length - ((widthColumn * 10) / 100) + 15
+	let defaultOffsetBody
+	if (widthWideScale <= 800) {
+		defaultOffsetBody = widthColumn * clones.head.length + 60
+	} else {
+		defaultOffsetBody = widthColumn * clones.head.length - ((widthColumn * 10) / 100) + 15
+	}
 	const handlerPagin = (idPagin) => {
 		setCurrentSlide(idPagin + 2)
 		setDisplacementBody(defaultOffsetBody + ((widthColumn + 30) * idPagin))
@@ -40,7 +52,7 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 	useEffect(() => {
 		setDisplacementBody(defaultOffsetBody)
 	}, [widthColumn, clones.head.length, defaultOffsetBody])
-	useEffect(() => {
+	useEffect(() => { // Movement
 		setTranslateConfigBody(prevState => {
 			return {
 				...prevState,
@@ -50,26 +62,33 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 			}
 		})
 	}, [displacementBody, duration])
-	useEffect(() => {
+	useEffect(() => { // LOGIC SLICE-SHOW
 		if (currentSlide === 1) {
 			setTimeout(() => {
-				setDuration(0)
-				setDisplacementBody(prevState => prevState + (widthColumn + 30) * (correctArray.length - clones.tail.length - 2))
-				setCurrentSlide(7)
+				flushSync (() => { // to opt out of batching
+					setDuration(0)
+					setDisplacementBody(prevState => prevState + (widthColumn + 30) * (correctArray.length - clones.tail.length - 2))
+					setCurrentSlide(7)
+				})
 				setDuration(0.3)
 			}, 310)
 		}
 		if (currentSlide === 8) {
 			setTimeout(() => {
-				setDuration(0)
-				setDisplacementBody(widthColumn * clones.head.length - ((widthColumn * 10) / 100) + 15)
-				setCurrentSlide(2)
+				flushSync (() => { // to opt out of batching
+					setDuration(0)
+					setDisplacementBody(defaultOffsetBody)
+					setCurrentSlide(2)
+				})
 				setDuration(0.3)
 			}, 310)
 		}
 	}, [currentSlide, clones.tail.length, correctArray.length, widthColumn, clones.head.length])
+	useEffect(() => {
+		setWidthWideScale(wideScaleComponent.current.offsetWidth)
+	}, [])
 	return (
-		<div className={`${classWrap}__scale-wide-slider wide-scale-slider`}>
+		<div ref={wideScaleComponent} className={`${classWrap}__scale-wide-slider wide-scale-slider`}>
 			<h2 className="wide-scale-slider__title">{title}</h2>
 			<div className="wide-scale-slider__wrapper">
 				<div className="wide-scale-slider__body" style={translateConfigBody}>
