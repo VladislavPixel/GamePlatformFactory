@@ -1,7 +1,11 @@
 .values-about-us{
+	overflow: hidden;
 	padding: 70px 0px 80px 0px;
 	background: url("../img/lolPhone-min.jpg") 0 0/cover no-repeat fixed;
 	position: relative;
+	@media(max-width: 1100px) {
+		padding: 35px 0px;
+	}
 	&:before{
 		content: "";
 		position: absolute;
@@ -34,12 +38,20 @@
 		background-clip: text;
 		text-fill-color: transparent;
 		margin-bottom: 20px;
+		@media(max-width: 700px) {
+			font-size: 33px;
+			margin-bottom: 10px;
+		}
 	}
 	&__sub-title{
 		color: #fff;
 		font-size: 23px;
 		line-height: 130%;
 		max-width: 800px;
+		@media(max-width: 700px) {
+			max-width: auto;
+			font-size: 18px;
+		}
 	}
 	&__list{
 		display: flex;
@@ -51,6 +63,12 @@
 		height: 440px;
 		padding: 0px 20px;
 		margin-bottom: 40px;
+		@media(max-width: 1150px) {
+			flex: 0 1 50%;
+		}
+		@media(max-width: 800px) {
+			flex: 0 1 100%;
+		}
 	}
 	&__block-princip{
 		position: relative;
@@ -64,6 +82,9 @@
 		overflow: hidden;
 		border-radius: 20px;
 		box-shadow: 0 0 7px 0px #000;
+		@media(max-width: 991px) {
+			padding: 10px;
+		}
 		&:before{
 			transition: all 0.5s ease 0s;
 			content: "";

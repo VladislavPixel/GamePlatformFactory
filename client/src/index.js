@@ -5,10 +5,8 @@ import { BrowserRouter } from "react-router-dom"
 
 // Component-app
 import App from "./app/App"
-
 // root file styles
 import "./app/scss/style.scss"
-
 // Auxiliary
 import reportWebVitals from "./reportWebVitals"
 import createStore from "./app/store/createStore"

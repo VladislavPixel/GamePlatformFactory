@@ -12,7 +12,7 @@ const AboutUsPage = () => {
 		<div className="block-content__about-us about-us-block">
 			<AboutUsHead />
 			<AboutUsOpportunities />
-			{/* <AboutUsValues /> */}
+			<AboutUsValues />
 			{/* <AboutUsActivity /> */}
 			{/* <AboutUsGames /> */}
 		</div>

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react"
 import PropTypes from "prop-types"
 
-const AboutUsPrincip = ({ title, text, pathImage, alt, icon, altIcon }) => {
+const AboutUsPrincip = ({ title, text, pathImage, alt, icon, altIcon, widthRoot }) => {
 	// Базовые высоты элементов при первом монтировании компонента
 	const [heightBlock, setHeightBlock] = useState(null)
 	const [heightText, setHeightText] = useState(null)
@@ -13,25 +13,16 @@ const AboutUsPrincip = ({ title, text, pathImage, alt, icon, altIcon }) => {
 	const [stylessContent, setStylessContent] = useState({})
 	const [isShow, setShow] = useState(false)
 	const handlerMouseOver = ({ target }) => {
-		if (target.closest(".values-about-us__block-princip")) {
-			setShow(true)
-		}
+		if (target.closest(".values-about-us__block-princip")) setShow(true)
 	}
 	const handlerMouseOut = ({ relatedTarget }) => {
-		if (!relatedTarget.closest(".values-about-us__block-princip")){
-			setShow(false)
-		}
+		if (relatedTarget && !relatedTarget.closest(".values-about-us__block-princip")) setShow(false)
 	}
 	useEffect(() => {
 		// Устанавливаем высоты для расчетов
 		setHeightBlock(refBlock.current.offsetHeight)
 		setHeightText(refText.current.offsetHeight + 20)
 		setHeightTitle(refTitle.current.offsetHeight)
-		// После установок скрываем text
-		setTimeout(() => {
-			refText.current.style.height = 0
-		}, 10)
-		setStylessContent({ overflow: "hidden" })
 		// OVER = OUT
 		refBlock.current.addEventListener("mouseover", handlerMouseOver)
 		refBlock.current.addEventListener("mouseout", handlerMouseOut)
@@ -42,17 +33,33 @@ const AboutUsPrincip = ({ title, text, pathImage, alt, icon, altIcon }) => {
 		}
 	}, [])
 	useEffect(() => {
-		// Основная логика для toggle TEXT-BLOCK
-		if (isShow) {
-			refText.current.style.height = heightText + "px"
-			if (heightBlock - 40 < heightTitle + heightText + 40) {
-				setStylessContent({ overflow: "auto" })
-			}
-		} else {
+		// После установок скрываем text, защита от batching
+		if (heightText !== null && (widthRoot && widthRoot >= 992)) {
 			refText.current.style.height = 0
 			setStylessContent({ overflow: "hidden" })
 		}
-	}, [isShow, heightText, heightBlock, heightTitle])
+	}, [heightText, widthRoot])
+	useEffect(() => {
+		// Основная логика для toggle TEXT-BLOCK
+		if (heightText && widthRoot) { // защита от batching
+			if (isShow) {
+				refText.current.style.height = heightText + "px"
+				if (heightBlock - 40 <= heightTitle + heightText + 40) setStylessContent({ overflow: "auto" })
+			} else if (widthRoot >= 992) {
+				refText.current.style.height = 0
+				setStylessContent({ overflow: "hidden" })
+			}
+		}
+	}, [isShow, heightText, heightBlock, heightTitle, widthRoot])
+	useEffect(() => {
+		if (heightText && widthRoot && (widthRoot < 992)) { // На устройствах с разрешением меньше 992, мы отменяем наведение, так как его там нет в большинстве случаев
+			refText.current.style.height = heightText + "px"
+			setStylessContent({ overflow: "auto" })
+			const REF_BLOCK_SAVE = refBlock.current
+			REF_BLOCK_SAVE.removeEventListener("mouseover", handlerMouseOver)
+			REF_BLOCK_SAVE.removeEventListener("mouseout", handlerMouseOut)
+		}
+	}, [widthRoot, heightText])
 	return (
 		<div className="values-about-us__column">
 			<div ref={refBlock} className="values-about-us__block-princip">
@@ -73,7 +80,8 @@ AboutUsPrincip.propTypes = {
 	pathImage: PropTypes.string.isRequired,
 	alt: PropTypes.string.isRequired,
 	icon: PropTypes.string,
-	altIcon: PropTypes.string
+	altIcon: PropTypes.string,
+	widthRoot: PropTypes.number
 }
 
 export default AboutUsPrincip
