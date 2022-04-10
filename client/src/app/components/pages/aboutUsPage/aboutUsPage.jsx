@@ -1,4 +1,6 @@
 import React from "react"
+
+// Components
 import AboutUsHead from "../../ui/aboutUsHead"
 import AboutUsOpportunities from "../../ui/aboutUsOpportunities"
 import AboutUsActivity from "../../ui/aboutUsActivity"
@@ -10,9 +12,9 @@ const AboutUsPage = () => {
 		<div className="block-content__about-us about-us-block">
 			<AboutUsHead />
 			<AboutUsOpportunities />
-			<AboutUsValues />
-			<AboutUsActivity />
-			<AboutUsGames />
+			{/* <AboutUsValues /> */}
+			{/* <AboutUsActivity /> */}
+			{/* <AboutUsGames /> */}
 		</div>
 	)
 }

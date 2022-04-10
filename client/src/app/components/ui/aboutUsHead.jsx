@@ -1,4 +1,6 @@
 import React from "react"
+
+// Auxiliary
 import configAuxiliary from "../../configAuxiliary.json"
 
 const AboutUsHead = () => {

@@ -1,6 +1,9 @@
 import React from "react"
-import configAuxiliary from "../../configAuxiliary.json"
+
+// Components
 import AboutUsPrincip from "./aboutUsPrincip"
+// Auxiliary
+import configAuxiliary from "../../configAuxiliary.json"
 
 const AboutUsValues = () => {
 	return (

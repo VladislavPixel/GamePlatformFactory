@@ -1,7 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import configAuxiliary from "../../configAuxiliary.json"
+
+// Components
 import AboutUsGamesColumn from "./aboutUsGamesColumn"
+// Auxiliary
+import configAuxiliary from "../../configAuxiliary.json"
 
 const AboutUsGames = () => {
 	const delimiterIndex = configAuxiliary.aboutUsGames.length / 2

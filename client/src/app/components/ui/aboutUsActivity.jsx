@@ -1,6 +1,9 @@
 import React from "react"
-import configAuxiliary from "../../configAuxiliary.json"
+
+// Components
 import AboutUsActivityElement from "./aboutUsActivityElement"
+// Auxiliary
+import configAuxiliary from "../../configAuxiliary.json"
 
 const AboutUsActivity = () => {
 	return (
