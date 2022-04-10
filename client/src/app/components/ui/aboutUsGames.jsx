@@ -15,7 +15,7 @@ const AboutUsGames = () => {
 	return (
 		<div className="about-us-block__games games-about-us">
 			<div className="games-about-us__row">
-				{arrayColumns.map((dataArray, i) => <AboutUsGamesColumn key={i} data={dataArray} />)}
+				{arrayColumns.map((dataArray, i) => <AboutUsGamesColumn classes={i === 0 ? "first" : "second"} key={i} data={dataArray} />)}
 				<div className="games-about-us__content">
 					<h2 className="games-about-us__title">Библиотека игр</h2>
 					<p className="games-about-us__text">Factory platform предлагает около 35 игр на любой вкус, большие рецензии на них + рейтинги, а также эксклюзивные предложения. Мы также работаем над возможностью автоматического обновления игр.</p>

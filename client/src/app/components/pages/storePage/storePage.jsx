@@ -1,14 +1,17 @@
 import React, { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+
+// Components
+import PopularGamesCommentsSlider from "../../common/popularGamesCommentsSlider"
+import CommentsGamesLoaderGlobal from "../../HOC/commentsGamesLoaderGlobal"
 import StoreHeadNavigation from "../../ui/storeHeadNavigation"
 import StoreGamesBlock from "../../ui/storeGamesBlock"
+// Auxiliary
 import {
 	getSelectedCategoryStore,
 	updateCategoryStoreSelected,
 	DEFAULT_SELECTED_CATEGORY
 } from "../../../store/categoryStore"
-import PopularGamesCommentsSlider from "../../common/popularGamesCommentsSlider"
-import CommentsGamesLoaderGlobal from "../../HOC/commentsGamesLoaderGlobal"
 
 const StorePage = () => {
 	const selectedCategory = useSelector(getSelectedCategoryStore())

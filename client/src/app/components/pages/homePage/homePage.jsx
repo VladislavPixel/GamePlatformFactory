@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react"
+
+// Components
 import HomeHead from "../../ui/homeHead"
 import HomeCards from "../../ui/homeCards"
 import SliderGallery from "../../common/sliderGallery"
 import WeHave from "../../ui/weHave"
 import HomeCategoryBlock from "../../common/homeCategoryBlock"
-import fakeApi from "../../../fakeAPI"
 import Spinner from "../../common/spinner"
 import WideScaleSlider from "../../common/wideScaleSlider"
+// Auxiliary
 import configAuxiliary from "../../../configAuxiliary.json"
+import fakeApi from "../../../fakeAPI"
 
 const HomePage = () => {
 	const [sliderGalleryLoader, setSliderGalleryLoader] = useState(true)

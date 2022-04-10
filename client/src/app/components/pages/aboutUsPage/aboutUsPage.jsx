@@ -14,7 +14,7 @@ const AboutUsPage = () => {
 			<AboutUsOpportunities />
 			<AboutUsValues />
 			<AboutUsActivity />
-			{/* <AboutUsGames /> */}
+			<AboutUsGames />
 		</div>
 	)
 }

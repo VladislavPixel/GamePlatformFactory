@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
-const AboutUsGamesColumn = ({ data }) => {
+const AboutUsGamesColumn = ({ data, classes }) => {
 	return (
-		<div className="games-about-us__column">
+		<div className={"games-about-us__column" + ` games-about-us__column_${classes}`}>
 			{data.map((imageConfig, index) => {
 				return (
 					<div key={index} className="games-about-us__img-wrap">
@@ -17,7 +17,8 @@ const AboutUsGamesColumn = ({ data }) => {
 }
 
 AboutUsGamesColumn.propTypes = {
-	data: PropTypes.array.isRequired
+	data: PropTypes.array.isRequired,
+	classes: PropTypes.string.isRequired
 }
 
 export default AboutUsGamesColumn
