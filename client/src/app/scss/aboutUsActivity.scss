@@ -1,6 +1,10 @@
 .activity-about-us{
 	background: #1a2536;
 	padding: 70px 0px 80px 0px;
+	overflow: hidden;
+	@media(max-width: 1000px) {
+		padding: 30px 0px;
+	}
 	&__head{
 		margin-bottom: 100px;
 		display: flex;
@@ -9,6 +13,9 @@
 		align-items: center;
 		text-align: center;
 		color: #fff;
+		@media(max-width: 900px) {
+			margin-bottom: 70px;
+		}
 	}
 	&__caption{
 		font-size: 35px;
@@ -28,6 +35,16 @@
 		flex: 0 1 33.333%;
 		padding: 0px 20px;
 		margin-bottom: 40px;
+		@media(max-width: 1140px) {
+			margin-bottom: 60px;
+			padding: 0px 10px;
+		}
+		@media(max-width: 1000px) {
+			flex: 0 1 50%;
+		}
+		@media(max-width: 590px) {
+			flex: 0 1 100%;
+		}
 	}
 	&__block-activity{
 		position: relative;
@@ -45,6 +62,9 @@
 					background: linear-gradient(105.56deg, #E2F685 18.43%, #8AF9AD 89.58%);
 				}
 			}
+		}
+		@media(max-width: 1140px) {
+			padding: 15px;
 		}
 	}
 	&__wrap-image{

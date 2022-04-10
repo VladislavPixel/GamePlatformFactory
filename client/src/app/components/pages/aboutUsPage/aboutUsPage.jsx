@@ -13,7 +13,7 @@ const AboutUsPage = () => {
 			<AboutUsHead />
 			<AboutUsOpportunities />
 			<AboutUsValues />
-			{/* <AboutUsActivity /> */}
+			<AboutUsActivity />
 			{/* <AboutUsGames /> */}
 		</div>
 	)
