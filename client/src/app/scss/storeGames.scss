@@ -89,6 +89,17 @@
 		font-size: 25px;
 		color: #8AF9AD;
 	}
+	&__old-price{
+		font-size: 18px;
+		text-decoration: line-through;
+		text-align: right;
+		color: #fff;
+	}
+	&__sale{
+		font-size: 30px;
+		color: rgb(198, 2, 2);
+		margin-bottom: 10px;
+	}
 	&__image-wrap{
 		width: 100%;
 		position: relative;

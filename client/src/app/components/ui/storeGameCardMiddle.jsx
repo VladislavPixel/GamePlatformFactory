@@ -1,10 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
+
+// Auxiliary
 import getValuePrice from "../../utils/getValuePrice"
 import getValueRate from "../../utils/getValueRate"
 
-const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, price, platform, iconForTitle, iconForTitleAlt, subTitle }) => {
+const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, price, platform, iconForTitle, iconForTitleAlt, subTitle, oldPrice, sale }) => {
 	return(
 		<div className="list-games-store__column">
 			<div className="list-games-store__card-game">
@@ -26,6 +28,12 @@ const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, p
 				</div>
 				<div className="list-games-store__footer-block">
 					<p className="list-games-store__price">{getValuePrice(price)}</p>
+					{oldPrice &&
+						<React.Fragment>
+							<p className="list-games-store__old-price">{getValuePrice(oldPrice)}</p>
+							<p className="list-games-store__sale">sale {sale}%</p>
+						</React.Fragment>
+					}
 					<p className="list-games-store__rate">{getValueRate(rate)}</p>
 				</div>
 			</div>
@@ -46,7 +54,9 @@ StoreGameCardMiddle.propTypes = {
 	platform: PropTypes.array.isRequired,
 	iconForTitle: PropTypes.string.isRequired,
 	iconForTitleAlt: PropTypes.string.isRequired,
-	subTitle: PropTypes.string.isRequired
+	subTitle: PropTypes.string.isRequired,
+	oldPrice: PropTypes.number,
+	sale: PropTypes.number
 }
 
 export default StoreGameCardMiddle

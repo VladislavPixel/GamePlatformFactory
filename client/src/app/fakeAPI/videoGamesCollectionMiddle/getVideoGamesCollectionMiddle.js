@@ -1,5 +1,20 @@
 export const videoGamesCollectionMiddle = [
 	{
+		_id: "21spark567magica2dfg675",
+		title: "Magicka 2",
+		rate: 9.5,
+		imageMiddle: "magica2Middle.jpg",
+		altImageMiddle: "Главные герои в кругу обороняются от врагов",
+		tags: ["Приключения", "action"],
+		price: 87,
+		oldPrice: 349,
+		sale: 75,
+		platform: ["windows.svg", "apple.svg"],
+		iconForTitle: "magic.svg",
+		iconForTitleAlt: "Рука мага",
+		subTitle: "Комбинация Жизни и Смерти"
+	},
+	{
 		_id: "1eldenRingMiddle77",
 		title: "Elden Ring",
 		rate: 9.0,
@@ -24,6 +39,21 @@ export const videoGamesCollectionMiddle = [
 		iconForTitle: "dota2.svg",
 		iconForTitleAlt: "Иконка игры Dota 2",
 		subTitle: "Сражение - это зрелищно"
+	},
+	{
+		_id: "21spark567gamedec",
+		title: "Gamedec",
+		rate: 7.3,
+		imageMiddle: "gamedecMiddle.jpg",
+		altImageMiddle: "Главный герой на фоне города",
+		tags: ["RPG", "Приключения"],
+		price: 936,
+		oldPrice: 1249,
+		sale: 25,
+		platform: ["windows.svg"],
+		iconForTitle: "cyberpunkWoman.svg",
+		iconForTitleAlt: "Девушка с прядью волос",
+		subTitle: "Технический нуар"
 	},
 	{
 		_id: "3atomicHeart564",
@@ -91,6 +121,21 @@ export const videoGamesCollectionMiddle = [
 		subTitle: "Дивный мир"
 	},
 	{
+		_id: "21spark567r435emnant",
+		title: "Remnant: From The Ashes",
+		rate: 6.3,
+		imageMiddle: "remnantFromTheAshes.jpg",
+		altImageMiddle: "Главный герой на переднем плане, вдали виднеются монстры",
+		tags: ["Шутер", "action", "Приключения"],
+		price: 518,
+		oldPrice: 1297,
+		sale: 60,
+		platform: ["windows.svg", "xboxOne.svg", "playstation.svg"],
+		iconForTitle: "rat.svg",
+		iconForTitleAlt: "Крыса",
+		subTitle: "Дай ЖАРУ"
+	},
+	{
 		_id: "8godOfWar8776",
 		title: "God Of War",
 		rate: 7.1,
@@ -154,6 +199,21 @@ export const videoGamesCollectionMiddle = [
 		iconForTitle: "nlo.svg",
 		iconForTitleAlt: "Голова инопланетянина",
 		subTitle: "Чувствую битву"
+	},
+	{
+		_id: "21spark567batlearenafdgdfg000",
+		title: "Battle Brothers",
+		rate: 4.3,
+		imageMiddle: "battleBrothersMiddle.jpg",
+		altImageMiddle: "Воин сражается с нежетью",
+		tags: ["RPG", "стратегия"],
+		price: 164,
+		oldPrice: 499,
+		sale: 67,
+		platform: ["windows.svg"],
+		iconForTitle: "crossedSwords.svg",
+		iconForTitleAlt: "Перекрещенные мечи",
+		subTitle: "Биться во имя света"
 	},
 	{
 		_id: "1356756",
@@ -364,6 +424,21 @@ export const videoGamesCollectionMiddle = [
 		subTitle: "Мир чудес"
 	},
 	{
+		_id: "21spark567patfinderdfgdfg435345",
+		title: "Pathfinder: Wrath of the Righteous",
+		rate: 5.2,
+		imageMiddle: "pathfinderWrathOfTheRighteousMiddle.jpg",
+		altImageMiddle: "Ведьма из игры на постере",
+		tags: ["Ролевая игра", "RPG"],
+		price: 1124,
+		oldPrice: 1499,
+		sale: 25,
+		platform: ["windows.svg", "apple.svg"],
+		iconForTitle: "witch.svg",
+		iconForTitleAlt: "Дом ведьмы",
+		subTitle: "Если долго вглядываться в темноту, можно увидеть свет"
+	},
+	{
 		_id: "21spark567gfhfdistantworld435",
 		title: "Distant Worlds 2",
 		rate: 0.0,
@@ -388,6 +463,21 @@ export const videoGamesCollectionMiddle = [
 		iconForTitle: "moba.svg",
 		iconForTitleAlt: "Иконка специфики MOBA - карта",
 		subTitle: "Арена ждет тебя!"
+	},
+	{
+		_id: "21spark567warhammmm",
+		title: "Warhammer: Vermintide 2",
+		rate: 8.3,
+		imageMiddle: "warhammerVermintide2Middle.jpg",
+		altImageMiddle: "Орк из игры в доспехах",
+		tags: ["Шутер", "action"],
+		price: 103,
+		oldPrice: 515,
+		sale: 65,
+		platform: ["windows.svg"],
+		iconForTitle: "orc.svg",
+		iconForTitleAlt: "Морда орка - иконка",
+		subTitle: "Осторожно топор!!!!"
 	}
 ]
 
