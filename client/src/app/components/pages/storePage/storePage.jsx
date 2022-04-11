@@ -32,7 +32,7 @@ const StorePage = () => {
 			{/* <CommentsGamesLoaderGlobal>
 				<PopularGamesCommentsSlider classesParent="store" pathMp4="commentsSliderStore.mp4" pathWebm="commentsSliderStoreOptimaze.webm" />
 			</CommentsGamesLoaderGlobal> */}
-			{/* <StoreHeadNavigation /> */}
+			<StoreHeadNavigation />
 			<StoreGamesBlock />
 			<div ref={refWrapBtnReset} style={stylessResetCategoryWrap} className="store__reset-category-wrap">
 				<button onClick={handlerBtnReset} className="store__reset-category-btn" type="button">Сброс категории</button>

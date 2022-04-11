@@ -4,6 +4,9 @@
 	}
 	&__navigation{
 		margin-bottom: 40px;
+		@media(max-width: 500px) {
+			margin-bottom: 20px;
+		}
 	}
 	&__reset-category-wrap{
 		transition: all 0.4s ease 0s;
@@ -34,6 +37,8 @@
 .navigation-store{
 	padding-top: 30px;
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	&__fast-access,
 	&__category-btn,
 	&__sale,
@@ -72,12 +77,13 @@
 		display: flex;
 		align-items: center;
 		position: relative;
+		min-height: 40px;
 		&:first-child{
-			flex: 0 1 55%;
+			flex: 0 1 calc(55% - 10px);
 		}
 		&:nth-child(2){
 			transition: all 0.3s ease 0s;
-			flex: 0 1 23%;
+			flex: 0 1 calc(23% - 10px);
 			padding: 0px 7px;
 			@media(min-width: 992px) {
 				&:hover{
@@ -92,7 +98,7 @@
 		}
 		&:nth-child(3){
 			justify-content: center;
-			flex: 0 1 4%;
+			flex: 0 1 calc(4% - 10px);
 			@media(min-width: 992px) {
 				&:hover{
 					background: #333438;
@@ -103,11 +109,76 @@
 			flex: 0 1 18%;
 			margin-right: 0;
 		}
+		@media(max-width: 1186px) {
+			&:first-child{
+				flex: 0 1 calc(74% - 10px);
+			}
+			&:nth-child(2){
+				flex: 0 1 calc(26% - 10px);
+			}
+			&:nth-child(3){
+				margin: 15px 10px 0px 0px;
+				flex: 0 1 6%;
+			}
+			&:last-child{
+				margin: 15px 0px 0px 0px;
+			}
+		}
+		@media(max-width: 1186px) {
+			&:first-child{
+				flex: 0 1 100%;
+				margin: 0px 0px 10px 0px;
+			}
+			&:nth-child(2){
+				margin: 10px 10px 0px 0px;
+				flex: 0 1 calc(47% - 10px);
+			}
+			&:nth-child(3){
+				margin: 10px 10px 0px 0px;
+				flex: 0 1 calc(6% - 10px);
+			}
+			&:last-child{
+				margin: 10px 0px 0px 0px;
+				flex: 0 1 47%;
+			}
+		}
+		@media(max-width: 690px) {
+			&:nth-child(2){
+				margin: 10px 10px 0px 0px;
+				flex: 0 1 calc(90% - 10px);
+			}
+			&:nth-child(3){
+				margin: 10px 0px 0px 0px;
+				flex: 0 1 10%;
+			}
+			&:last-child{
+				margin: 20px 0px 0px 0px;
+			}
+		}
 	}
 	&__btn-heart{
 		img{
 			width: 30px;
 			height: 30px;
+		}
+	}
+	&__fast-access,
+	&__category-btn,
+	&__wallet-btn{
+		display: flex;
+		span{
+			flex: 0 0 20px;
+		}
+	}
+	@media(max-width: 500px) {
+		&__column{
+			&:first-child{
+				flex-direction: column;
+				align-items: stretch;
+			}
+			&:last-child{
+				flex: 0 1 100%;
+			}
 		}
 	}
 	&__wallet-btn{
@@ -150,7 +221,7 @@
 		display: inline-block;
 		margin-left: 7px;
 		&:before,&:after{
-			top: 50%;
+			top: 7px;
 			content: "";
 			position: absolute;
 			width: 10px;
