@@ -7,6 +7,14 @@
 		margin-bottom: 35px;
 		padding: 0px 15px;
 		text-align: center;
+		@media(max-width: 500px) {
+			font-size: 20px;
+			line-height: 125%;
+			margin-bottom: 20px;
+		}
+		@media(max-width: 500px) {
+			font-size: 18px;
+		}
 	}
 	&__list{}
 	&__pagination{
@@ -45,6 +53,18 @@
 		flex: 0 0 20%;
 		padding: 0px 15px;
 		margin: 0px 0px 30px 0px;
+		@media(max-width: 1580px) {
+			flex: 0 0 25%;
+		}
+		@media(max-width: 1350px) {
+			flex: 0 0 33.333%;
+		}
+		@media(max-width: 1000px) {
+			flex: 0 0 50%;
+		}
+		@media(max-width: 600px) {
+			flex: 0 0 100%;
+		}
 	}
 	&__head-block{
 		display: flex;

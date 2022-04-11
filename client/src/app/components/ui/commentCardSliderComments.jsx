@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const CommentCardSliderComments = ({ dataArray }) => {
-	console.log(dataArray)
+	console.log(dataArray, "DATA ARRAY")
 	return (
 		<div className="comments-slider-block__comment-item item-comment-comments-slider">
 			<div className="item-comment-comments-slider__wrapper">

@@ -1,7 +1,10 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import PropTypes from "prop-types"
+
+// Components
 import PopularGamesSliderBlock from "./popularGamesSliderBlock"
+// Auxiliary
 import getArrayByNumber from "../../utils/getArrayByNumber"
 import { getDataTop18Games } from "../../store/games"
 

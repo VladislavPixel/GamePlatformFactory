@@ -29,10 +29,10 @@ const StorePage = () => {
 	}, [selectedCategory])
 	return (
 		<div className="block-content__store store">
-			<CommentsGamesLoaderGlobal>
+			{/* <CommentsGamesLoaderGlobal>
 				<PopularGamesCommentsSlider classesParent="store" pathMp4="commentsSliderStore.mp4" pathWebm="commentsSliderStoreOptimaze.webm" />
-			</CommentsGamesLoaderGlobal>
-			<StoreHeadNavigation />
+			</CommentsGamesLoaderGlobal> */}
+			{/* <StoreHeadNavigation /> */}
 			<StoreGamesBlock />
 			<div ref={refWrapBtnReset} style={stylessResetCategoryWrap} className="store__reset-category-wrap">
 				<button onClick={handlerBtnReset} className="store__reset-category-btn" type="button">Сброс категории</button>
