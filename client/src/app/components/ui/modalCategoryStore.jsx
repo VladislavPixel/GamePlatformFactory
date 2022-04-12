@@ -1,11 +1,14 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { useSelector, useDispatch } from "react-redux"
+
+// Components
 import LiteMessage from "../common/liteMessage"
 import ListCategoryStore from "./listCategoryStore"
-import { getIsLoadingCategoryStore, fetchAllCategoryStoreData, getCategoryStoreData } from "../../store/categoryStore"
 import withLoading from "../HOC/withLoading"
 import withMessage from "../HOC/withMessage"
+// Auxiliary
+import { getIsLoadingCategoryStore, fetchAllCategoryStoreData, getCategoryStoreData } from "../../store/categoryStore"
 
 const ModalCategoryStore = ({ targetBtn, onHandlerBtnNavigation }) => {
 	const dispatch = useDispatch()

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import getValuePrice from "../../utils/getValuePrice"
 import getValueRate from "../../utils/getValueRate"
 
-const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, price, platform, iconForTitle, iconForTitleAlt, subTitle, oldPrice, sale }) => {
+const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, price, platform, iconForTitle, iconForTitleAlt, subTitle, oldPrice, sale, textPrice }) => {
 	return(
 		<div className="list-games-store__column">
 			<div className="list-games-store__card-game">
@@ -27,7 +27,7 @@ const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, p
 					<button className="list-games-store__btn-more btn-card-game" type="button">подробнее</button>
 				</div>
 				<div className="list-games-store__footer-block">
-					<p className="list-games-store__price">{getValuePrice(price)}</p>
+					<p className="list-games-store__price">{textPrice ? textPrice : getValuePrice(price)}</p>
 					{oldPrice &&
 						<React.Fragment>
 							<p className="list-games-store__old-price">{getValuePrice(oldPrice)}</p>
@@ -56,7 +56,8 @@ StoreGameCardMiddle.propTypes = {
 	iconForTitleAlt: PropTypes.string.isRequired,
 	subTitle: PropTypes.string.isRequired,
 	oldPrice: PropTypes.number,
-	sale: PropTypes.number
+	sale: PropTypes.number,
+	textPrice: PropTypes.string
 }
 
 export default StoreGameCardMiddle

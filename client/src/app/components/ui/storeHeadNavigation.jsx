@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
+
+// Components
 import ModalCategoryStore from "./modalCategoryStore"
 import ModalFastAccess from "./modalFastAccessStore"
 import ModalWalletStore from "./modalWalletStore"

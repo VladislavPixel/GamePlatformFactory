@@ -1,7 +1,10 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getIsLoadingGamesMiddle, fetchAllGamesMiddleData } from "../../store/games"
+
+// Components
 import withLoading from "./withLoading"
+// Auxiliary
+import { getIsLoadingGamesMiddle, fetchAllGamesMiddleData } from "../../store/games"
 
 const GamesMiddleLoaderGlobal = ({ children }) => {
 	const dispatch = useDispatch()

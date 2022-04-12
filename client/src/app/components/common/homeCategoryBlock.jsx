@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
+
+// Components
 import ItemCategory from "../ui/itemCategory"
 import ScreensBlock from "../ui/screensBlock"
 

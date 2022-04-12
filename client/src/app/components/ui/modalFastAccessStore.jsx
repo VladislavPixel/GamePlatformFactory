@@ -1,10 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
-import LiteMessage from "../common/liteMessage"
-import { getDataTop18Games } from "../../store/games"
 import { useSelector } from "react-redux"
+
+// Components
 import withMessage from "../HOC/withMessage"
+import LiteMessage from "../common/liteMessage"
+// Auxiliary
+import { getDataTop18Games } from "../../store/games"
 
 const ModalFastAccessStore = ({ targetBtn }) => {
 	const dataTop18 = useSelector(getDataTop18Games())

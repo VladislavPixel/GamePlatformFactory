@@ -1,5 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
+
+// Auxiliary
 import getArrayByNumber from "../../utils/getArrayByNumber"
 
 const Pagination = ({ classes, pagesNumber, currentPagin, onChangePagination }) => {

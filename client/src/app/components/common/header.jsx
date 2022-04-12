@@ -1,5 +1,7 @@
 import React from "react"
 import { NavLink, Link } from "react-router-dom"
+
+// Auxiliary
 import configAuxiliary from "../../configAuxiliary.json"
 
 const Header = () => {

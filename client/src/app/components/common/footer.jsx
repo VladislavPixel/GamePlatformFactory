@@ -1,5 +1,7 @@
 import React from "react"
 import { Link, NavLink } from "react-router-dom"
+
+// Auxiliary
 import configAuxiliary from "../../configAuxiliary.json"
 
 const Footer = () => {

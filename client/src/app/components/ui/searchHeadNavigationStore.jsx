@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useDispatch, useSelector } from "react-redux"
+
+// Auxiliary
 import { updateSearch, getValueSearchGamesStore, resetSearch } from "../../store/searchGamesStore"
 
 const SearchHeadNavigationStore = ({ onHandlerBtnNavigation }) => {

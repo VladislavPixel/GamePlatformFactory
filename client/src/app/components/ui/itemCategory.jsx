@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react"
-import getValuePrice from "../../utils/getValuePrice"
 import PropTypes from "prop-types"
+
+// Auxiliary
+import getValuePrice from "../../utils/getValuePrice"
 
 const ItemCategory = ({ path, poster, alt, title, platform, price, tags, _id, isTarget, onMouseOver, category, interest, newPrice }) => {
 	const isDiscount = category === "discounts"

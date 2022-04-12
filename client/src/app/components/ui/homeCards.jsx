@@ -1,6 +1,9 @@
 import React from "react"
-import configAuxiliary from "../../configAuxiliary.json"
+
+// Components
 import HomeCard from "../ui/homeCard"
+// Auxiliary
+import configAuxiliary from "../../configAuxiliary.json"
 
 const HomeCards = () => {
 	return (

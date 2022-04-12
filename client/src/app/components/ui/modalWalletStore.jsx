@@ -1,11 +1,14 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
-import LiteMessage from "../common/liteMessage"
 import { useDispatch, useSelector } from "react-redux"
-import { getIsLoadingWalletLinks, fetchAllDataWalletLinks, getDataWalletLinks } from "../../store/walletLinks"
+
+// Components
+import LiteMessage from "../common/liteMessage"
 import withLoading from "../HOC/withLoading"
 import withMessage from "../HOC/withMessage"
+// Auxiliary
+import { getIsLoadingWalletLinks, fetchAllDataWalletLinks, getDataWalletLinks } from "../../store/walletLinks"
 
 const ModalWalletStore = ({ targetBtn }) => {
 	const dispatch = useDispatch()

@@ -1,5 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
+
+// Auxiliary
 import getValuePrice from "../../utils/getValuePrice"
 
 const GameCardCommentsSlider = ({ imageMiddle, altImageMiddle, price, title }) => {

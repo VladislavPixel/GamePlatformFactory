@@ -6,6 +6,7 @@ const initialState = {
 	entitiesTop18: [],
 	isLoading: true,
 	error: null,
+	sortedBy: "highRatingPriority"
 }
 
 const gamesSlice = createSlice({
@@ -26,6 +27,9 @@ const gamesSlice = createSlice({
 		},
 		gamesTop18Received(state, action) {
 			state.entitiesTop18 = action.payload
+		},
+		gamesStatusSortedReceived(state, action) {
+			state.sortedBy = action.payload
 		}
 	}
 })
@@ -35,7 +39,8 @@ const {
 	gamesRequested,
 	gamesRequestFailed,
 	gamesReceived,
-	gamesTop18Received
+	gamesTop18Received,
+	gamesStatusSortedReceived
 } = actions
 
 // Actions
@@ -65,6 +70,13 @@ export function fetchAllGamesMiddleData() {
 			})
 	}
 }
+export function setStatusSortedGames(newStatus) {
+	return (dispatch, getState) => {
+		if (getState().games.sortedBy !== newStatus) {
+			dispatch(gamesStatusSortedReceived(newStatus))
+		}
+	}
+}
 
 // Selectors
 export const getIsLoadingGamesMiddle = () => {
@@ -80,6 +92,11 @@ export const getDataGamesMiddle = () => {
 export const getDataTop18Games = () => {
 	return (state) => {
 		return state.games.entitiesTop18
+	}
+}
+export const getStatusGamesSortedBy = () => {
+	return (state) => {
+		return state.games.sortedBy
 	}
 }
 

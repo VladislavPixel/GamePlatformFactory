@@ -1,7 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import ListSubCategoryStore from "./listSubCategoryStore"
 import { useDispatch, useSelector } from "react-redux"
+
+// Components
+import ListSubCategoryStore from "./listSubCategoryStore"
+// Auxiliary
 import { updateCategoryStoreSelected, getSelectedCategoryStore } from "../../store/categoryStore"
 import { resetSearch } from "../../store/searchGamesStore"
 

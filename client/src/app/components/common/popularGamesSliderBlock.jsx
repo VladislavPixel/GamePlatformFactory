@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from "react"
-import GameCardCommentsSlider from "../ui/gameCardCommentsSlider"
 import PropTypes from "prop-types"
 import { useSelector } from "react-redux"
-import { getCommentGamesOnArrayIds } from "../../store/commentsGames"
+
+// Components
 import CommentCardSliderComments from "../ui/commentCardSliderComments"
+import GameCardCommentsSlider from "../ui/gameCardCommentsSlider"
+// Auxiliary
+import { getCommentGamesOnArrayIds } from "../../store/commentsGames"
 
 const PopularGamesSliderBlock = ({ data, currentPagin, onUpdatePagin }) => {
 	const refContainerSlides = useRef(null)

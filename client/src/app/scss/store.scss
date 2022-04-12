@@ -428,3 +428,49 @@
 		}
 	}
 }
+
+.store-controls-block{
+	margin-bottom: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	@media(max-width: 670px) {
+		flex-direction: column;
+		&__btn-container{
+			align-self: flex-start;
+			margin-bottom: 15px;
+		}
+		&__pagination{
+			align-self: flex-end;
+		}
+	}
+	&__text{
+		color: rgb(155, 155, 155);
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+	&__btn{
+		transition: all 0.3s ease 0s;
+		padding: 7px 16px;
+		background: #8AF9AD;
+		color: #23252B;
+		font-weight: 600;
+		font-size: 16px;
+		text-align: center;
+		border-radius: 6px;
+		&.active{
+			background: yellow;
+		}
+		&.active1{
+			background: rgb(202, 148, 0);
+		}
+		&:first-child{
+			margin-right: 15px;
+		}
+		@media(min-width: 992px) {
+			&:hover{
+				transform: scale(0.9);
+			}
+		}
+	}
+}

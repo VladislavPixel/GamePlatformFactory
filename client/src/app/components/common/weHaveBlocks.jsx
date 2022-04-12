@@ -1,5 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
+
+// Components
 import WeHaveBlock from "../ui/weHaveBlock"
 
 const WeHaveBlocks = ({ data }) => {

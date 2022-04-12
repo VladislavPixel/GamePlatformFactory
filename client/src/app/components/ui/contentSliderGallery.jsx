@@ -1,5 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
+
+// Components
 import ScreenSliderGallery from "./screenSliderGallery"
 
 const ContentSliderGallery = ({ heightElement, data, onScreenOut, onScreenOver, rest }) => {
