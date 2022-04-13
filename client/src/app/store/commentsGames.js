@@ -57,11 +57,12 @@ export const getCommentsGamesData = () => {
 		return state.commentsGames.entities
 	}
 }
-export const getCommentGamesOnArrayIds = (arrayGames) => {
+export const getArrayCommentsByIdGames = (arrayGames) => {
 	return (state) => {
 		const arrayComments = []
-		for (const game of arrayGames) {
-			arrayComments.push(state.commentsGames.entities[game._id])
+		for (let i = arrayGames.length - 1; i >= 0; i--) {
+			const arrayCommentsForGame = state.commentsGames.entities.filter(comment => arrayGames[i]._id === comment.idGame)
+			arrayComments.push(arrayCommentsForGame)
 		}
 		return arrayComments
 	}

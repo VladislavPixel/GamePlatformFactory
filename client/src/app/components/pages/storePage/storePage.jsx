@@ -29,9 +29,9 @@ const StorePage = () => {
 	}, [selectedCategory])
 	return (
 		<div className="block-content__store store">
-			{/* <CommentsGamesLoaderGlobal>
+			<CommentsGamesLoaderGlobal>
 				<PopularGamesCommentsSlider classesParent="store" pathMp4="commentsSliderStore.mp4" pathWebm="commentsSliderStoreOptimaze.webm" />
-			</CommentsGamesLoaderGlobal> */}
+			</CommentsGamesLoaderGlobal>
 			<StoreHeadNavigation />
 			<StoreGamesBlock />
 			<div ref={refWrapBtnReset} style={stylessResetCategoryWrap} className="store__reset-category-wrap">

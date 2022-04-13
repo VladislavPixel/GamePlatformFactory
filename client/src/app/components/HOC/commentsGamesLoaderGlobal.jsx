@@ -14,14 +14,14 @@ const CommentsGamesLoaderGlobal = ({ children }) => {
 		if (isLoadingCommentsGames) dispatch(fetchAllCommentsGamesData())
 	}, [])
 	const ChildrenWithLoading = withLoading(children, isLoadingCommentsGames)
-	return  <ChildrenWithLoading />
+	return <ChildrenWithLoading />
 }
 
 CommentsGamesLoaderGlobal.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.arrayOf(PropTypes.node),
 		PropTypes.node
-	])
+	]).isRequired
 }
 
 export default CommentsGamesLoaderGlobal
