@@ -1,0 +1,2 @@
+import getCommentsGamesForSliderStore from "./getCommentsGamesForSliderStore.js"
+export default getCommentsGamesForSliderStore

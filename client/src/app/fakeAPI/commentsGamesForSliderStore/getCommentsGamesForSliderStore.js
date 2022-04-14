@@ -10,12 +10,18 @@ const commentsGames = [
 	{_id: "bvnvbmnytuytu5555555", idGame: "1eldenRingMiddle77", userId: "fdvvbvbvvbvbv8088", date: "23.03.2022", text: "Это все о чем я мечтал, фантастическая игра. Окежуаленый дарк солус в открытом мире, хотя хардкорности ни капли не меньше, я хз что это за магия. По ощущениям это буквально релиз десятилетия. Ты прям растворяешься в этом мире, тупо улетаешь в сказку, я такое последний раз чувствовал когда лет в 12 первый раз в скайриме вылез из пещеры и топал к ривервуду. Вот это чувство чего-то родного и сказачного не передать словами. Оно тут есть. Абсолютные 10 из 10. Единственное только я не оч желтый и оранжевый цвет люблю."}
 ]
 
-function getCommentsGames() {
+function getCommentsGamesForSliderStore(arrayTop12) {
 	return new Promise((resolve, reject) => {
+		const arr = []
+		for (const game of arrayTop12) {
+			for (let i = 0; i < commentsGames.length - 1; i++) {
+				if (game._id === commentsGames[i].idGame) arr.push(commentsGames[i])
+			}
+		}
 		setTimeout(() => {
-			resolve(commentsGames)
+			resolve(arr)
 		}, 1200)
 	})
 }
 
-export default getCommentsGames
+export default getCommentsGamesForSliderStore
