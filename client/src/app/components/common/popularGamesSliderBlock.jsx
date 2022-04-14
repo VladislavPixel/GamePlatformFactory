@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 import CommentCardSliderComments from "../ui/commentCardSliderComments"
 import GameCardCommentsSlider from "../ui/gameCardCommentsSlider"
 // Auxiliary
-import { getArrayCommentsByIdGames } from "../../store/commentsGames"
+import { getArrayCommentsByIdGames } from "../../store/commentsGamesStoreSlider"
 
 const PopularGamesSliderBlock = ({ data, currentPagin, onUpdatePagin }) => {
 	// Вспомогательный ref
@@ -21,12 +21,12 @@ const PopularGamesSliderBlock = ({ data, currentPagin, onUpdatePagin }) => {
 	useEffect(() => {
 		setStylessContainerSlides({ transform: `translateY(-${currentPagin * heightContainerSlides}px)` })
 		setStylessContainerComments({transform: `translateY(-${data.length * heightContainerSlides - ((currentPagin + 1) * heightContainerSlides)}px)`})
-	}, [currentPagin, heightContainerSlides])
+	}, [currentPagin, heightContainerSlides, data.length])
 	useEffect(() => {
 		const height = refContainerSlides.current.offsetHeight
 		setHeightContainerSlides(height)
 		setStylessContainerComments({ transform: `translateY(-${(data.length - 1) * height}px)` })
-	}, [])
+	}, [data.length])
 	return (
 		<div ref={refContainerSlides} className="slider-comments__block-slider-comments comments-slider-block">
 			<div className="comments-slider-block__column">

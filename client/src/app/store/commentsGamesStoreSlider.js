@@ -26,6 +26,14 @@ const commentsGamesStoreSlider = createSlice({
 			state.error = action.payload
 			state.isLoading = false
 		},
+		commentsGamesStoreSliderUsersRequested(state) {
+			state.errorFetchUsers = null
+			state.isLoadingFetchUsers = true
+		},
+		commentsGamesStoreSliderUsersReceived(state, action) {
+			state.dataUsersForCommentsSlider = action.payload
+			state.isLoadingFetchUsers = false
+		},
 		commentsGamesStoreSliderUsersRequestFailed(state, action) {
 			state.errorFetchUsers = action.payload
 			state.isLoadingFetchUsers = false
@@ -35,46 +43,42 @@ const commentsGamesStoreSlider = createSlice({
 
 const { actions, reducer: commentsGamesStoreSliderReducer } = commentsGamesStoreSlider
 const {
-	commentsGamesStoreSliderRequested,
+	commentsGamesStoreSliderRequested,// Для комментариев
 	commentsGamesStoreSliderReceived,
 	commentsGamesStoreSliderRequestFailed,
+	commentsGamesStoreSliderUsersRequested,// Для пользователей, оставивших эти комментарии
+	commentsGamesStoreSliderUsersReceived,
 	commentsGamesStoreSliderUsersRequestFailed
 } = actions
 
 // Actions
 export function fetchAllCommentsGamesStoreSliderByArrayGames(arrGames) {
-	return async (dispatch, getState) => {
+	return async (dispatch) => {
 		dispatch(commentsGamesStoreSliderRequested())
-		fakeApi.getCommentsGamesForSliderStore(arrGames)
-			.then(data => {
-				dispatch(commentsGamesStoreSliderReceived(data))
-				fakeApi.getUsersObjectForSliderStoreComments(data) // Получение комментариев
-					.then(dataUsers => {
-						
-					})
-					.catch(err => {
-						const { message } = err
-						dispatch(commentsGamesStoreSliderUsersRequestFailed(message))
-					})
-			})
-			.catch(err => {
-				const { message } = err
-				dispatch(commentsGamesStoreSliderRequestFailed(message))
-			})
-		console.log(getState().commentsGamesStoreSlider, "STET")
-		
+		let dataComments
+		try {
+			dataComments = await fakeApi.getCommentsGamesForSliderStore(arrGames)
+			dispatch(commentsGamesStoreSliderReceived(dataComments))
+		} catch (err) {
+			const { message } = err
+			dispatch(commentsGamesStoreSliderRequestFailed(message))
+		}
+		dispatch(commentsGamesStoreSliderUsersRequested())
+		try {
+			const dataUsers = await fakeApi.getUsersObjectForSliderStoreComments(dataComments)
+			dispatch(commentsGamesStoreSliderUsersReceived(dataUsers))
+		} catch (err) {
+			const { message } = err
+			dispatch(commentsGamesStoreSliderUsersRequestFailed(message))
+		}
 	}
 }
 
 // Selectors
+// For Comments =============================================
 export const getIsLoadingCommentsGames = () => {
 	return (state) => {
 		return state.commentsGamesStoreSlider.isLoading
-	}
-}
-export const getCommentsGamesData = () => {
-	return (state) => {
-		return state.commentsGamesStoreSlider.entities
 	}
 }
 export const getArrayCommentsByIdGames = (arrayGames) => {
@@ -85,6 +89,17 @@ export const getArrayCommentsByIdGames = (arrayGames) => {
 			arrayComments.push(arrayCommentsForGame)
 		}
 		return arrayComments
+	}
+}
+// For Users =============================================
+export const getStatusLoadingUsersForCommentsSlider = () => {
+	return (state) => {
+		return state.commentsGamesStoreSlider.isLoadingFetchUsers
+	}
+}
+export const getDataUserForCommentById = (idUser) => {
+	return (state) => {
+		return state.commentsGamesStoreSlider.dataUsersForCommentsSlider[idUser]
 	}
 }
 

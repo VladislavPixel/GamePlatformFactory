@@ -1,0 +1,2 @@
+import getUsersObjectForSliderStoreComments from "./usersData"
+export default getUsersObjectForSliderStoreComments

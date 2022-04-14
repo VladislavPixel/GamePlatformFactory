@@ -3,7 +3,7 @@ import gamesReducer from "./games"
 import categoryStoreReducer from "./categoryStore"
 import walletLinksReducer from "./walletLinks"
 import searchGamesStoreReducer from "./searchGamesStore"
-import commentsGamesStoreSliderReducer from "./commentsGames"
+import commentsGamesStoreSliderReducer from "./commentsGamesStoreSlider"
 
 const rootReducer = combineReducers({
 	games: gamesReducer,

@@ -10,10 +10,19 @@ const usersData = [
 	{_id: "fdvvbvbvvbvbv8088", nickName: "Gibrit", name: "Владислав", surName: "Ставрогин", avatar: "fdgert6548789707756756.jpg"}
 ]
 
-function getUsersObjectForSliderStoreComments(arrayGames) {
+function getUsersObjectForSliderStoreComments(arrayComments) {
 	return new Promise((resolve, reject) => {
 		const objectUsers = {}
-		
+		for (const comment of arrayComments) {
+			for (const user of usersData) {
+				if (!(comment.userId in objectUsers)) {
+					objectUsers[user._id] = user
+				}
+			}
+		}
+		setTimeout(() => {
+			resolve(objectUsers)
+		}, 500)
 	})
 }
 
