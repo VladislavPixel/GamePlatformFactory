@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
+import { flushSync } from "react-dom"
 import { useSelector } from "react-redux"
 import PropTypes from "prop-types"
 
@@ -17,13 +18,38 @@ const PopularGamesCommentsSlider = ({ classesParent, pathMp4, pathWebm }) => {
 	// Auxiliary
 	const dataGamesTop12 = dataGamesTop18.slice(0, 12)
 	const arrayPagins = getArrayByNumber(dataGamesTop12.length)
+	const intervalRef = useRef(null)
 	// Handlers
 	const handlerUpdatePagin = (newCurrent) => setCurrentPagin(newCurrent)
 	const getIconAutomaticControl = (status) => {
 		if (status) return <img src="./images/icons/pauseElement.svg" alt="Иконка - поставить на паузу" />
 		if (!status) return <img src="./images/icons/playElement.svg" alt="Иконка - play" />
 	}
-	const updateStatusAutomatic = () => setAutomaticStatus(prevState => !prevState)
+	const updateStatusAutomatic = () => {
+		if (automaticStatus) clearInterval(intervalRef.current)
+		setAutomaticStatus(prevState => !prevState)
+	}
+
+	useEffect(() => { // Логика автоматического перелистывания слайдов
+		let id
+		if (automaticStatus) {
+			id = setInterval(() => {
+				if (currentPagin === (dataGamesTop12.length - 1)) {
+					flushSync(() => { // избавляемся от батчинга пакетов React 18
+						setCurrentPagin(0)
+					})
+				} else {
+					flushSync(() => {
+						setCurrentPagin(prevState => prevState + 1)
+					})
+				}
+			}, 4000)
+			intervalRef.current = id
+		}
+		return () => {
+			clearInterval(intervalRef.current)
+		}
+	}, [automaticStatus, currentPagin, dataGamesTop12.length])
 	return (
 		<div className={`${classesParent}__comments-slider slider-comments`}>
 			<div className="slider-comments__container _container">
