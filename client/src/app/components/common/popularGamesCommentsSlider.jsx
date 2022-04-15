@@ -9,11 +9,21 @@ import getArrayByNumber from "../../utils/getArrayByNumber"
 import { getDataTop18Games } from "../../store/games"
 
 const PopularGamesCommentsSlider = ({ classesParent, pathMp4, pathWebm }) => {
-	const [currentPagin, setCurrentPagin] = useState(0)
+	// REDUX
 	const dataGamesTop18 = useSelector(getDataTop18Games())
+	// STATE
+	const [currentPagin, setCurrentPagin] = useState(0)
+	const [automaticStatus, setAutomaticStatus] = useState(true)
+	// Auxiliary
 	const dataGamesTop12 = dataGamesTop18.slice(0, 12)
 	const arrayPagins = getArrayByNumber(dataGamesTop12.length)
-	const handlerUpdatePagin = (newCurrent) => setCurrentPagin(newCurrent) 
+	// Handlers
+	const handlerUpdatePagin = (newCurrent) => setCurrentPagin(newCurrent)
+	const getIconAutomaticControl = (status) => {
+		if (status) return <img src="./images/icons/pauseElement.svg" alt="Иконка - поставить на паузу" />
+		if (!status) return <img src="./images/icons/playElement.svg" alt="Иконка - play" />
+	}
+	const updateStatusAutomatic = () => setAutomaticStatus(prevState => !prevState)
 	return (
 		<div className={`${classesParent}__comments-slider slider-comments`}>
 			<div className="slider-comments__container _container">
@@ -23,6 +33,7 @@ const PopularGamesCommentsSlider = ({ classesParent, pathMp4, pathWebm }) => {
 				</div>
 				<PopularGamesSliderBlock data={dataGamesTop12} onUpdatePagin={handlerUpdatePagin} currentPagin={currentPagin} />
 				<div className="slider-comments__paginations-wrap">
+					<div onClick={updateStatusAutomatic} className="slider-comments__automatic">{getIconAutomaticControl(automaticStatus)}</div>
 					{arrayPagins.map(el => <span onClick={() => handlerUpdatePagin(el._id)} className={`slider-comments__pagin${el._id === currentPagin ? " active" : ""}`} key={el._id}></span>)}
 				</div>
 			</div>
