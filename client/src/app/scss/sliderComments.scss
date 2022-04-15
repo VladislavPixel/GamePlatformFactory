@@ -99,8 +99,7 @@
 		font-weight: 500;
 		position: absolute;
 		top: 10px;
-		left: 50%;
-		transform: translateX(-50%);
+		left: 10px;
 	}
 	&__controller{
 		position: absolute;
@@ -258,7 +257,6 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	padding: 35px 5px 45px 55px;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
