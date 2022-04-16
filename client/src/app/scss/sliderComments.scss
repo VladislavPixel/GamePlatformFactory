@@ -1,6 +1,9 @@
 .slider-comments{
 	position: relative;
 	padding: 60px 0px;
+	@media(max-width: 600px){
+		padding: 20px 0px;
+	}
 	&:before{
 		content: "";
 		position: absolute;
@@ -21,11 +24,19 @@
 		text-transform: uppercase;
 		font-size: 25px;
 		margin-bottom: 15px;
+		@media(max-width: 600px) {
+			font-size: 20px;
+			text-align: center;
+		}
 	}
 	&__sub-title{
 		line-height: 110%;
 		color: rgb(218, 218, 218);
 		font-size: 18px;
+		@media(max-width: 600px) {
+			font-size: 17px;
+			text-align: center;
+		}
 	}
 	&__video{
 		position: absolute;
@@ -42,13 +53,14 @@
 		justify-content: center;
 		align-items: center;
 		margin-top: 20px;
+		flex-wrap: wrap;
 	}
 	&__pagin{
 		transition: all 0.5s ease 0s;
 		width: 20px;
 		height: 20px;
 		background: #494949;
-		margin-right: 7px;
+		margin: 0px 7px 10px 0px;
 		border-radius: 50%;
 		cursor: pointer;
 		@media(min-width: 992px){
@@ -57,7 +69,7 @@
 			}
 		}
 		&:last-child{
-			margin-right: 0;
+			margin: 0px 0px 10px 0px;
 		}
 		&.active{
 			background: #8AF9AD;
@@ -121,7 +133,7 @@
 		transform: translate(-50%, -50%);
 		z-index: 100;
 		display: flex;
-		@media(max-width: 850px) {
+		@media(max-width: 620px) {
 			left: 0px;
 			transform: translate(0px, -100%);
 		}
@@ -255,6 +267,9 @@
 			span{
 				color: #ffb400;
 			}
+		}
+		@media(max-width: 850px) {
+			padding: 10px;
 		}
 	}
 	&__btn-comment-page{
