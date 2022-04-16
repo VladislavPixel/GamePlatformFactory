@@ -80,10 +80,20 @@
 	z-index: 7;
 	box-shadow: 0 0 7px 0px #000;
 	min-height: 550px;
+	@media(max-width: 850px) {
+		flex-direction: column;
+		min-height: auto;
+		height: 600px;
+	}
 	&__column{
 		flex: 0 0 50%;
 		background: #171a21;
 		position: relative;
+		@media(max-width: 850px) {
+			width: 100%;
+			flex: 0 0 300px;
+			overflow: hidden;
+		}
 	}
 	&__container-slides{
 		transition: all 0.4s ease 0s;
@@ -92,6 +102,9 @@
 		height: 550px;
 		position: relative;
 		z-index: 25;
+		@media(max-width: 850px) {
+			height: 300px;
+		}
 	}
 	&__comment-title{
 		color: #67ff97;
@@ -106,8 +119,12 @@
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
-		z-index: 30;
+		z-index: 100;
 		display: flex;
+		@media(max-width: 850px) {
+			left: 0px;
+			transform: translate(0px, -100%);
+		}
 	}
 	&__arrow-block{
 		transition: all 0.5s ease 0s;
@@ -135,6 +152,9 @@
 		height: 550px;
 		position: relative;
 		z-index: 25;
+		@media(max-width: 850px) {
+			height: 300px;
+		}
 	}
 	&__comment-item{
 		
@@ -162,6 +182,11 @@
 		z-index: 20;
 		padding: 20px;
 		background: rgba(0, 0, 0, 0.418);
+		@media(max-width: 850px) {
+			padding: 10px;
+			font-size: 20px;
+			background: rgba(0, 0, 0, 0.663);
+		}
 	}
 	&__footer{
 		position: absolute;
@@ -170,6 +195,9 @@
 		z-index: 20;
 		display: flex;
 		flex-direction: column;
+		@media(max-width: 850px) {
+			bottom: 35px;
+		}
 	}
 	&__price{
 		color: #fff;
@@ -260,6 +288,10 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	padding: 35px 5px 45px 55px;
+	@media(max-width: 850px) {
+		padding: 35px 5px 45px 5px;
+	}
 	&__date{
 		color: #ffb400;
 		font-size: 15px;
@@ -271,7 +303,21 @@
 		font-size: 18px;
 		line-height: 125%;
 		margin-bottom: 10px;
-		flex: 1 1 auto;
+	}
+	&__more-btn-text{
+		transition: scale 0.4s ease 0s;
+		font-size: 15px;
+		padding: 7px;
+		color: #fff;
+		border-radius: 6px;
+		background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
+		margin: 10px 0;
+		align-self: center;
+		@media(min-width: 992px) {
+			&:hover{
+				transform: scale(0.9);
+			}
+		}
 	}
 }
 

@@ -28,13 +28,13 @@ const PopularGamesSliderBlock = ({ data, currentPagin, onUpdatePagin }) => {
 		setStylessContainerComments({ transform: `translateY(-${(data.length - 1) * height}px)` })
 	}, [data.length])
 	return (
-		<div ref={refContainerSlides} className="slider-comments__block-slider-comments comments-slider-block">
+		<div className="slider-comments__block-slider-comments comments-slider-block">
 			<div className="comments-slider-block__column">
 				<div style={stylessContainerSlides} className="comments-slider-block__container-slides">
 					{data.map(game => <GameCardCommentsSlider key={game._id} {...game} />)}
 				</div>
 			</div>
-			<div className="comments-slider-block__column">
+			<div ref={refContainerSlides} className="comments-slider-block__column">
 				<h3 className="comments-slider-block__comment-title">Комментарии по игре</h3>
 				<div style={stylessContainerComments} className="comments-slider-block__container-comments">
 					{arrayComments.map((arrComments, index) => <CommentCardSliderComments key={index} dataArray={arrComments} />)}
