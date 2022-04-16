@@ -359,7 +359,7 @@ export const videoGamesCollectionMiddle = [
 		imageMiddle: "monsterHunterRiseMiddle.jpg",
 		altImageMiddle: "Чудовище из игры набрасывается с открытой пастью",
 		tags: ["action"],
-		price: 2299,
+		price: 1999,
 		platform: ["windows.svg"],
 		iconForTitle: "monsterHead.svg",
 		iconForTitleAlt: "Голова монстра",

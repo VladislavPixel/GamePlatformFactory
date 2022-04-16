@@ -32,8 +32,12 @@
 	&__comments-slider{
 		margin-bottom: 30px;
 	}
+	&__scope-slider{
+		padding: 60px 0px;
+	}
 }
 
+// БЛОК ФИЛЬТРАЦИИ, СОРТИРОВКИ, ПОИСКА
 .navigation-store{
 	padding-top: 30px;
 	display: flex;
@@ -242,6 +246,7 @@
 	}
 }
 
+// МОДАЛКА ФИЛЬТРАЦИИ ПО КАТЕГОРИЯМ ИГР
 .modal-category{
 	transition: all 0.4s ease 0s;
 	visibility: hidden;
@@ -310,6 +315,7 @@
 	}
 }
 
+// МОДАЛКА КОШЕЛЬКА
 .modal-wallet{
 	transition: all 0.4s ease 0s;
 	visibility: hidden;
@@ -364,6 +370,7 @@
 	}
 }
 
+// МОДАЛКА БЫСТРОГО ДОСТУПА К СТРАНИЦАМ ИГР, TOP-18
 .modal-fast-access{
 	transition: all 0.4s ease 0s;
 	visibility: hidden;
@@ -432,6 +439,7 @@
 	}
 }
 
+// КНОПКИ СОРТИРОВОК
 .store-controls-block{
 	margin-bottom: 15px;
 	display: flex;
@@ -475,5 +483,172 @@
 				transform: scale(0.9);
 			}
 		}
+	}
+}
+
+// КОМПОНЕНТ - СЛАЙДЕР ДИАПАЗОНОВ ИГР ПО ЦЕНЕ
+.slider-scope{
+	&__title{
+		color: #fff;
+		font-size: 25px;
+		margin-bottom: 15px
+	}
+	&__block-btn{
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		margin-bottom: 15px;
+	}
+	&__button{
+		transition: color 0.3s ease 0s, border 0.3s ease 0s;
+		font-size: 15px;
+		padding: 7px;
+		&:first-child{
+			margin-right: 15px;
+		}
+		&_yellow{
+			color: #b88100;
+			border: 2px solid #b88100;
+			&.active{
+				color: #ffb400;
+				border: 2px solid #ffb400;
+			}
+		}
+		&_green{
+			color: #5aa271;
+			border: 2px solid #5aa271;
+			&.active{
+				color: #8AF9AD;
+				border: 2px solid #8AF9AD;
+			}
+		}
+		@media(min-width: 992px) {
+			&_yellow:hover{
+				color: #ffb400;
+				border: 2px solid #ffb400;
+			}
+			&_green:hover{
+				color: #8AF9AD;
+				border: 2px solid #8AF9AD;
+			}
+		}
+	}
+	&__message-not-found{
+		margin-top: 20px;
+		img {
+			width: 150px;
+			height: 150px;
+		}
+	}
+	&__wrapper{
+		overflow: hidden;
+		margin: 0px -5px 0px -5px;
+	}
+	&__content-block{
+		transition: transform 0.4s ease 0s;
+		display: flex;
+	}
+	&__column{
+		flex: 0 0 20%;
+		height: 150px;
+		padding: 0px 5px 0px 5px;
+	}
+	&__slide{
+		height: 100%;
+		width: 100%;
+		position: relative;
+		@media(min-width: 992px) {
+			&:hover{
+				.slider-scope__footer{
+					background: #6a97ff;
+				}
+			}
+		}
+	}
+	&__img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&__footer{
+		transition: background 0.3s ease 0s;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 30px;
+		background: #4579F5;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		padding: 0 5px;
+	}
+	&__sale{
+		margin-right: 7px;
+		font-weight: bold;
+		color: #6200c4;
+	}
+	&__old-price{
+		margin-right: 5px;
+		text-decoration: line-through;
+		color: #000;
+		font-weight: 600;
+	}
+	&__price{
+		font-weight: 600;
+		color: #00216f;
+	}
+}
+
+// УПРАВЛЯЮЩАЯ ЧАСТЬ СЛАЙДЕРОМ-ДИАПАЗОНА, стрелки
+.scope-slider-controllers{
+	margin-top: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	&__prev{
+		img{
+			transform: rotate(180deg);
+		}
+	}
+	&__pagins{
+		display: flex;
+		flex: 1 1 auto;
+		justify-content: center;
+		align-items: center;
+	}
+	&__pagin{
+		transition: background 0.3s ease 0s;
+		flex: 0 0 60px;
+		height: 10px;
+		background: #148eff;
+		border-radius: 8px;
+		margin-right: 15px;
+		cursor: pointer;
+		&:last-child{
+			margin-right: 0px;
+		}
+		@media(min-width: 992px) {
+			&:hover{
+				background: #ffffff;
+			}
+		}
+		&.active{
+			background: #0044e2;
+		}
+	}
+}
+.arrow-scope-slider{
+	flex: 0 0 65px;
+	cursor: pointer;
+	img{
+		width: 65px;
+		height: 65px;
+	}
+	&.no-active{
+		pointer-events: none;
 	}
 }

@@ -16,7 +16,6 @@
 			font-size: 18px;
 		}
 	}
-	&__list{}
 	&__wrap-btn{
 		display: flex;
 		justify-content: center;
@@ -37,6 +36,12 @@
 		&.active{
 			color: #fff;
 			background: #4579F5;
+		}
+	}
+	&__message{
+		img{
+			width: 250px;
+			height: 250px;
 		}
 	}
 }

@@ -6,6 +6,8 @@ import PopularGamesCommentsSlider from "../../common/popularGamesCommentsSlider"
 import CommentsGamesLoaderGlobal from "../../HOC/commentsGamesLoaderGlobal"
 import StoreHeadNavigation from "../../ui/storeHeadNavigation"
 import StoreGamesBlock from "../../ui/storeGamesBlock"
+import ScopeSlider from "../../common/scopeSlider"
+import ScopeSliderStoreLoaderGlobal from "../../HOC/scopeSliderStoreLoaderGlobal"
 // Auxiliary
 import {
 	getSelectedCategoryStore,
@@ -14,19 +16,24 @@ import {
 } from "../../../store/categoryStore"
 
 const StorePage = () => {
+	// REDUX
+	const dispatch = useDispatch()
 	const selectedCategory = useSelector(getSelectedCategoryStore())
+	// STATE
 	const [widthWrapResetCategory, setWidthWrapResetCategory] = useState(null)
 	const [stylessResetCategoryWrap, setStylessResetCategoryWrap] = useState({})
+	// AUXILIARY
 	const refWrapBtnReset = useRef(null)
-	const dispatch = useDispatch()
+	// HANDLERS
 	const handlerBtnReset = () => dispatch(updateCategoryStoreSelected(DEFAULT_SELECTED_CATEGORY))
+
 	useEffect(() => {
 		setWidthWrapResetCategory(refWrapBtnReset.current.offsetWidth)
 	}, [])
 	useEffect(() => {
 		if (selectedCategory.name !== "all") setStylessResetCategoryWrap({ left: `-${widthWrapResetCategory / 2 - 20}px` })
 		if (selectedCategory.name === "all") setStylessResetCategoryWrap({ left: "-100%" })
-	}, [selectedCategory])
+	}, [selectedCategory, widthWrapResetCategory])
 	return (
 		<div className="block-content__store store">
 			<CommentsGamesLoaderGlobal>
@@ -37,6 +44,9 @@ const StorePage = () => {
 			<div ref={refWrapBtnReset} style={stylessResetCategoryWrap} className="store__reset-category-wrap">
 				<button onClick={handlerBtnReset} className="store__reset-category-btn" type="button">Сброс категории</button>
 			</div>
+			<ScopeSliderStoreLoaderGlobal>
+				<ScopeSlider classesParent="store" />
+			</ScopeSliderStoreLoaderGlobal>
 		</div>
 	)
 }

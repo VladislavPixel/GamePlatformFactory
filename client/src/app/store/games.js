@@ -6,7 +6,10 @@ const initialState = {
 	entitiesTop18: [],
 	isLoading: true,
 	error: null,
-	sortedBy: "highRatingPriority"
+	sortedBy: "highRatingPriority",
+	scopeSliderStore: null,
+	scopeSliderLoading: true,
+	scopeSliderError: null
 }
 
 const gamesSlice = createSlice({
@@ -30,6 +33,18 @@ const gamesSlice = createSlice({
 		},
 		gamesStatusSortedReceived(state, action) {
 			state.sortedBy = action.payload
+		},
+		scopeSliderDataRequested(state) {
+			state.scopeSliderError = null
+			state.scopeSliderLoading = true
+		},
+		scopeSliderDataReceived(state, action) {
+			state.scopeSliderStore = action.payload
+			state.scopeSliderLoading = false
+		},
+		scopeSliderDataRequestFailed(state, action) {
+			state.scopeSliderError = action.payload
+			state.scopeSliderLoading = false
 		}
 	}
 })
@@ -40,7 +55,10 @@ const {
 	gamesRequestFailed,
 	gamesReceived,
 	gamesTop18Received,
-	gamesStatusSortedReceived
+	gamesStatusSortedReceived,
+	scopeSliderDataRequested,
+	scopeSliderDataReceived,
+	scopeSliderDataRequestFailed
 } = actions
 
 // Actions
@@ -77,6 +95,19 @@ export function setStatusSortedGames(newStatus) {
 		}
 	}
 }
+export function fetchScopeSliderData() {
+	return (dispatch) => {
+		dispatch(scopeSliderDataRequested())
+		fakeApi.getScopeSliderData()
+			.then(data => {
+				dispatch(scopeSliderDataReceived(data))
+			})
+			.catch(err => {
+				const { message } = err
+				dispatch(scopeSliderDataRequestFailed(message))
+			})
+	}
+}
 
 // Selectors
 export const getIsLoadingGamesMiddle = () => {
@@ -97,6 +128,16 @@ export const getDataTop18Games = () => {
 export const getStatusGamesSortedBy = () => {
 	return (state) => {
 		return state.games.sortedBy
+	}
+}
+export const getStatusLoaderScopeSlider = () => {
+	return (state) => {
+		return state.games.scopeSliderLoading
+	}
+}
+export const getDataScopeSlider = () => {
+	return (state) => {
+		return state.games.scopeSliderStore
 	}
 }
 
