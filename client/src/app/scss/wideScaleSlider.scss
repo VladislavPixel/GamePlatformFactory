@@ -10,6 +10,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	box-shadow: 0 0 3px 0px #000;
 	img{
 		width: 23px;
 		height: 23px;
@@ -52,6 +53,7 @@
 		margin-right: 30px;
 		border-radius: 8px;
 		overflow: hidden;
+		box-shadow: 0 0 3px 0px #000;
 		&.active{
 			border: 2px solid rgb(155, 155, 155);
 		}
@@ -125,6 +127,7 @@
 		background: #4579F5;
 		color: #fff;
 		transition: all 0.2s ease 0s;
+		box-shadow: 0 0 3px 0px #000;
 		@media(min-width: 992px) {
 			&:hover{
 				transform: scale(0.9);

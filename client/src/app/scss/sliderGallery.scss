@@ -84,6 +84,7 @@
 		margin-bottom: 15px;
 		padding: 10px;
 		background: rgba(124, 124, 124, 0.712);
+		box-shadow: 0 0 3px 0px #000;
 		@media(max-width: 888px) {
 			font-size: 18px;
 			font-weight: 400;
@@ -102,6 +103,7 @@
 		color: #000;
 		font-weight: 600;
 		align-self: flex-start;
+		box-shadow: 0 0 3px 0px #000;
 		@media(min-width: 992px) {
 			&:hover{
 				transform: scale(0.9);
@@ -131,6 +133,7 @@
 		top: 50%;
 		background: rgba(180, 180, 180, 0.267);
 		transition: all 0.5s ease 0s;
+		box-shadow: 0 0 3px 0px #000;
 		img{
 			width: 45px;
 			height: 45px;
@@ -241,6 +244,7 @@
 		font-weight: 600;
 		padding: 4px;
 		border-radius: 4px;
+		box-shadow: 0 0 3px 0px #000;
 		&:nth-child(even){
 			background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
 		}

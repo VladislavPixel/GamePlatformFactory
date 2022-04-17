@@ -58,6 +58,7 @@
 		@media(min-width: 992px) {
 			&:hover{
 				background: rgba(0, 0, 0, 0.39);
+				box-shadow: 0 0 3px 0px #000;
 				.activity-about-us__wrap-image{
 					background: linear-gradient(105.56deg, #E2F685 18.43%, #8AF9AD 89.58%);
 				}
@@ -104,6 +105,7 @@
 		font-weight: bold;
 		border-radius: 6px;
 		transition: all 0.3s ease 0s;
+		box-shadow: 0 0 3px 0px #000;
 		@media(min-width: 992px) {
 			&:hover{
 				transform: scale(0.9);

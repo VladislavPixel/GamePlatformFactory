@@ -8,7 +8,9 @@ import StoreHeadNavigation from "../../ui/storeHeadNavigation"
 import StoreGamesBlock from "../../ui/storeGamesBlock"
 import ScopeSlider from "../../common/scopeSlider"
 import ScopeSliderStoreLoaderGlobal from "../../HOC/scopeSliderStoreLoaderGlobal"
+import StoreTop5 from "../../common/storeTop5"
 // Auxiliary
+import configAuxiliary from "../../../configAuxiliary.json"
 import {
 	getSelectedCategoryStore,
 	updateCategoryStoreSelected,
@@ -47,6 +49,7 @@ const StorePage = () => {
 			<ScopeSliderStoreLoaderGlobal>
 				<ScopeSlider classesParent="store" />
 			</ScopeSliderStoreLoaderGlobal>
+			<StoreTop5 classesParent="store" config={configAuxiliary.storeTop5} />
 		</div>
 	)
 }
