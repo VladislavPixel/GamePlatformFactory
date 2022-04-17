@@ -63,6 +63,7 @@
 		margin: 0px 7px 10px 0px;
 		border-radius: 50%;
 		cursor: pointer;
+		box-shadow: 0 0 3px 0px #000;
 		@media(min-width: 992px){
 			&:hover{
 				background: #7E7E7E;

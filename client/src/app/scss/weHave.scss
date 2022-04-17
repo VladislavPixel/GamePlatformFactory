@@ -162,6 +162,7 @@
 		padding: 15px;
 		height: 100%;
 		border-radius: 20px;
+		box-shadow: 0 0 3px 0px #000;
 		@media(min-width: 992px) {
 			&:hover{
 				background: rgba(0, 0, 0, 0.507);

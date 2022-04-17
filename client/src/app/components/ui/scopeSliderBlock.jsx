@@ -15,7 +15,16 @@ const ScopeSliderBlock = ({ data }) => {
 	const [currentPagin, setCurrentPagin] = useState(0)
 	// AUXILIARY
 	const wrapperBlock = useRef(null)
-	const allWidthSlides = data.length * 229 + (data.length - 1) * 10 // 229 это ширина слайда в SCSS, 10 это правый margin
+	// Высчитываем по брейкпоинтам в SCSS общую длину всех слайдов, за счет того, что widthWrapper всегда быстрее достигает тригерных точек, чем viewport HTML у нас немного разные брейки в SCSS и тут
+	const allWidthSlides = widthWrapper <= 400 ?
+		widthWrapper * data.length :
+		widthWrapper <= 600 ?
+		(widthWrapper / 2) * data.length :
+		widthWrapper <= 800 ?
+		(widthWrapper / 3) * data.length :
+		widthWrapper <= 1000 ?
+		(widthWrapper / 4) * data.length :
+		(widthWrapper / 5) * data.length
 	// HANDLERS
 	const handlerUpdatePagin = (newPagin) => setCurrentPagin(newPagin)
 	const handlerArrow = (directionTxt) => {
@@ -27,7 +36,7 @@ const ScopeSliderBlock = ({ data }) => {
 		setWidthWrapper(wrapperBlock.current.offsetWidth)
 	}, [])
 	useEffect(() => {
-		if (widthWrapper !== null) {
+		if (widthWrapper !== null) { // Если не использовать useEffect и не делать эту проверку и просто высчитывать массив пагинации внутри функции браузер падает
 			const difference = allWidthSlides - widthWrapper
 			if (difference <= 0) {
 				setArrayPagins(getArrayByNumber(1))
