@@ -46,7 +46,7 @@ const AuthorizationPage = () => {
 							<button className="form-block-auth__btn-sub" type="submit">Войти</button>
 						</FormComponent>
 					</div>
-					<Link className="form-block-auth__recovery-link" to="/">Забыли пароль?</Link>
+					<Link title="Нужна помощь?" className="form-block-auth__recovery-link" to="/">Забыли пароль?</Link>
 				</div>
 			</div>
 			<AuthorizationRightColumn />

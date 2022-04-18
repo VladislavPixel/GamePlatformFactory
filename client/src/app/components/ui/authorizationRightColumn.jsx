@@ -12,7 +12,7 @@ const AuthorizationRightColumn = () => {
 					<img className="container-auth__poster" src="./images/authPages/halo.jpg" alt="Воин из игры Halo" />
 				</div>
 				<p className="container-auth__sub-image">Factory.inc - это быстро, прозрачно, понятно и самое главное бесплатно.</p>
-				<Link to="/signUp" className="container-auth__button-join">Присоединиться к Factory.inc</Link>
+				<Link title="Сообщество ждет тебя!" to="/signUp" className="container-auth__button-join">Присоединиться к Factory.inc</Link>
 			</div>
 			<img className="container-auth__mineral" src="./images/icons/mineral.svg" alt="mineral icon" />
 		</div>
