@@ -1,0 +1,33 @@
+.form{
+	display: flex;
+	flex-direction: column;
+	&__label-input{
+		display: inline-block;
+		color: #ffffff;
+		font-size: 17px;
+		font-weight: 600;
+		margin-bottom: 7px;
+	}
+	&__input-block{
+		margin-bottom: 25px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	&__input{
+		box-shadow: 0 0 3px 0px #000;
+		border-radius: 5px !important;
+		border: 2px solid rgb(0, 76, 218);
+		color: #E9E9E9;
+		font-size: 16px;
+		width: 100%;
+		display: inline-block;
+		padding: 15px 10px;
+		background: #32353C;
+	}
+	&__input-error{
+		margin-top: 7px;
+		color: #8AF9AD;
+		font-weight: 600;
+	}
+}

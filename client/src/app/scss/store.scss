@@ -60,7 +60,7 @@
 		transition: all 0.4s ease 0s;
 		font-weight: bold;
 		font-size: 16px;
-		border-radius: 4px;
+		border-radius: 4px !important;
 		color: rgb(192, 192, 192);
 		padding: 10px;
 		display: flex;
@@ -86,7 +86,7 @@
 		background: #23252B;
 		box-shadow: 0 0 7px 0px #000;
 		margin-right: 10px;
-		border-radius: 4px;
+		border-radius: 4px !important;
 		display: flex;
 		align-items: center;
 		position: relative;
@@ -264,7 +264,7 @@
 	background: #32343b;
 	border: 1px solid rgb(107, 107, 107);
 	padding: 15px;
-	border-radius: 6px;
+	border-radius: 6px !important;
 	box-shadow: 0 0 3px 0px #000;
 	&.active{
 		z-index: 30;
@@ -333,7 +333,7 @@
 	left: 0;
 	background: #32343b;
 	border: 1px solid rgb(107, 107, 107);
-	border-radius: 6px;
+	border-radius: 6px !important;
 	box-shadow: 0 0 3px 0px #000;
 	&.active{
 		z-index: 10;
@@ -389,7 +389,7 @@
 	left: 0;
 	background: #32343b;
 	border: 1px solid rgb(107, 107, 107);
-	border-radius: 6px;
+	border-radius: 6px !important;
 	padding: 15px;
 	box-shadow: 0 0 3px 0px #000;
 	&.active{
@@ -423,7 +423,7 @@
 				width: 10px;
 				height: 10px;
 				background: #8AF9AD;
-				border-radius: 50%;
+				border-radius: 50% !important;
 				left: -5px;
 				top: 50%;
 				transform: translateY(-50%);
@@ -477,7 +477,7 @@
 		font-weight: 600;
 		font-size: 16px;
 		text-align: center;
-		border-radius: 6px;
+		border-radius: 6px !important;
 		box-shadow: 0 0 3px 0px #000;
 		&.active{
 			background: yellow;
@@ -667,7 +667,7 @@
 		flex: 0 0 60px;
 		height: 10px;
 		background: #319bff;
-		border-radius: 8px;
+		border-radius: 8px !important;
 		margin: 0px 15px 10px 0px;
 		cursor: pointer;
 		box-shadow: 0 0 3px 0px #000;
@@ -682,7 +682,7 @@
 		@media(max-width: 500px) {
 			flex: 0 0 23px;
 			height: 23px;
-			border-radius: 50%;
+			border-radius: 50% !important;
 		}
 		&.active{
 			background: #0034ae;
@@ -719,7 +719,7 @@
 	align-items: center;
 	padding: 30px 20px;
 	box-shadow: 0 0 3px 0px #000;
-	border-radius: 10px;
+	border-radius: 10px !important;
 	background: #141b29;
 	position: relative;
 	margin-bottom: 35px;
@@ -741,7 +741,7 @@
 	&__selected-btn{
 		transition: background 0.4s ease 0s;
 		background: #405977;
-		border-radius: 20px;
+		border-radius: 20px !important;
 		padding: 5px 44px 5px 22px;
 		font-size: 18px;
 		color: #fff;
@@ -792,7 +792,7 @@
 		width: 300px;
 		background: #1c2538;
 		box-shadow: 0 0 3px 0px #000;
-		border-radius: 6px;
+		border-radius: 6px !important;
 		z-index: 55;
 		overflow: hidden;
 		&.active{

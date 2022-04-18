@@ -61,7 +61,7 @@
 		height: 20px;
 		background: #494949;
 		margin: 0px 7px 10px 0px;
-		border-radius: 50%;
+		border-radius: 50% !important;
 		cursor: pointer;
 		box-shadow: 0 0 3px 0px #000;
 		@media(min-width: 992px){
@@ -225,7 +225,7 @@
 		transition: all 0.4s ease 0s;
 		background: #8AF9AD;
 		padding: 7px;
-		border-radius: 5px;
+		border-radius: 5px !important;
 		color: #17191C;
 		font-size: 15px;
 		font-weight: 600;
@@ -279,7 +279,7 @@
 		padding: 10px;
 		color: #fff;
 		font-size: 16px;
-		border-radius: 6px;
+		border-radius: 6px !important;
 		background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
 		box-shadow: 0 0 3px 0px #000;
 		@media(min-width: 992px) {
@@ -327,7 +327,7 @@
 		font-size: 15px;
 		padding: 7px;
 		color: #fff;
-		border-radius: 6px;
+		border-radius: 6px !important;
 		background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
 		margin: 10px 0;
 		align-self: center;
@@ -398,7 +398,7 @@
 	background: rgb(232, 170, 0);
 	width: 37px;
 	height: 24px;
-	border-radius: 4px;
+	border-radius: 4px !important;
 	box-shadow: 0 0 3px 0px #000;
 	@media(min-width: 992px) {
 		&:hover{
@@ -421,7 +421,7 @@
 		&:first-child{
 			flex: 0 1 50px;
 			height: 50px;
-			border-radius: 50%;
+			border-radius: 50% !important;
 			position: relative;
 			overflow: hidden;
 			margin-right: 10px;

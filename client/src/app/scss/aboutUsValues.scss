@@ -80,7 +80,7 @@
 		align-items: center;
 		text-align: center;
 		overflow: hidden;
-		border-radius: 20px;
+		border-radius: 20px !important;
 		box-shadow: 0 0 7px 0px #000;
 		@media(max-width: 991px) {
 			padding: 10px;
@@ -130,7 +130,7 @@
 			width: 80px;
 			height: 4px;
 			background: #4579F5;
-			border-radius: 10px;
+			border-radius: 10px !important;
 			bottom: -20px;
 			left: 50%;
 			transform: translateX(-50%);

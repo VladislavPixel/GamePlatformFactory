@@ -4,7 +4,7 @@
 	background: rgb(59, 59, 59);
 	width: 56px;
 	height: 56px;
-	border-radius: 50%;
+	border-radius: 50% !important;
 	border: 2px solid rgba(255, 255, 255, 0.15);
 	transition: all 0.2s ease 0s;
 	display: flex;
@@ -51,7 +51,7 @@
 		flex: 0 0 80%;
 		position: relative;
 		margin-right: 30px;
-		border-radius: 8px;
+		border-radius: 8px !important;
 		overflow: hidden;
 		box-shadow: 0 0 3px 0px #000;
 		&.active{
@@ -123,7 +123,7 @@
 		font-size: 30px;
 		padding: 10px 20px;
 		border: 2px solid rgba(255, 255, 255, 0.15);
-		border-radius: 100px;
+		border-radius: 100px !important;
 		background: #4579F5;
 		color: #fff;
 		transition: all 0.2s ease 0s;
@@ -161,7 +161,7 @@
 		flex: 0 0 100px;
 		height: 12px;
 		background: rgb(153, 153, 153);
-		border-radius: 4px;
+		border-radius: 4px !important;
 		margin-right: 12px;
 		cursor: pointer;
 		box-shadow: 0 0 3px 0px #000;
@@ -264,7 +264,7 @@
 		&__pagin{
 			flex: 0 0 20px;
 			height: 20px;
-			border-radius: 50%;
+			border-radius: 50% !important;
 		}
 	}
 }

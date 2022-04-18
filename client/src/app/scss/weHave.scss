@@ -43,7 +43,7 @@
 	}
 	&__container{
 		padding: 50px;
-		border-radius: 20px;
+		border-radius: 20px !important;
 		border-left: 1px solid #cbf1b223;
 		@media(max-width: 1370px) {
 			border-left: none;
@@ -110,7 +110,7 @@
 				width: 19px;
 				height: 8px;
 				background: linear-gradient(105.56deg, #E2F685 18.43%, #8AF9AD 89.58%);
-				border-radius: 8px;
+				border-radius: 8px !important;
 				display: inline-block;
 				margin-right: 26px;
 			}
@@ -161,7 +161,7 @@
 		background: rgba(0, 0, 0, 0.294);
 		padding: 15px;
 		height: 100%;
-		border-radius: 20px;
+		border-radius: 20px !important;
 		box-shadow: 0 0 3px 0px #000;
 		@media(min-width: 992px) {
 			&:hover{

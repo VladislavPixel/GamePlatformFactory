@@ -233,7 +233,7 @@
 	width: 100%;
 	padding: 20px 10px;
 	box-shadow: 15px 15px 6px rgba(42, 71, 94, 0.849);
-	border-radius: 0px 6px 6px 0px;
+	border-radius: 0px 6px 6px 0px !important;
 	@media(max-width: 800px) {
 		padding: 13px 0px 0px 0px;
 		box-shadow: none;
@@ -255,7 +255,7 @@
 		span{
 			background: #263645;
 			padding: 5px;
-			border-radius: 10px;
+			border-radius: 10px !important;
 			margin: 0px 7px 7px 0px;
 			box-shadow: 0 0 3px 0px #000;
 		}

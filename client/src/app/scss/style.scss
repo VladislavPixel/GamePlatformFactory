@@ -30,7 +30,7 @@ $fontFamily: "Montserrat", sans-serif;
 }
 ::-webkit-scrollbar-track{
 	background: #1f2937;
-	border-radius: 100vh;
+	border-radius: 100vh !important;
 }
 ::-webkit-scrollbar-thumb{
 	background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);
@@ -116,3 +116,5 @@ $fontFamily: "Montserrat", sans-serif;
 @import "store";
 @import "storeGames";
 @import "sliderComments";
+@import "authPages";
+@import "form";

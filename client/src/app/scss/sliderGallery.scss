@@ -18,7 +18,7 @@
 		span{
 			transition: all 0.5s ease 0s;
 			cursor: pointer;
-			border-radius: 5px;
+			border-radius: 5px !important;
 			width: 30px;
 			height: 15px;
 			background: rgb(73, 73, 73);
@@ -98,7 +98,7 @@
 	&__btn{
 		transition: all 0.5s ease 0s;
 		padding: 10px;
-		border-radius: 6px;
+		border-radius: 6px !important;
 		background: #00FFAA;
 		color: #000;
 		font-weight: 600;
@@ -243,7 +243,7 @@
 		color: black;
 		font-weight: 600;
 		padding: 4px;
-		border-radius: 4px;
+		border-radius: 4px !important;
 		box-shadow: 0 0 3px 0px #000;
 		&:nth-child(even){
 			background: linear-gradient(135deg, #00FFAA 0%, #4579F5 53.01%, #9C42F5 99.83%);

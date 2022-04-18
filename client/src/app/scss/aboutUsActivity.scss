@@ -54,7 +54,7 @@
 		align-items: center;
 		text-align: center;
 		transition: all 0.5s ease 0s;
-		border-radius: 30px;
+		border-radius: 30px !important;
 		@media(min-width: 992px) {
 			&:hover{
 				background: rgba(0, 0, 0, 0.39);
@@ -76,7 +76,7 @@
 		transform: translate(-50%, -65%);
 		width: 100px;
 		height: 100px;
-		border-radius: 50%;
+		border-radius: 50% !important;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -103,7 +103,7 @@
 		color: #fff;
 		font-size: 18px;
 		font-weight: bold;
-		border-radius: 6px;
+		border-radius: 6px !important;
 		transition: all 0.3s ease 0s;
 		box-shadow: 0 0 3px 0px #000;
 		@media(min-width: 992px) {
