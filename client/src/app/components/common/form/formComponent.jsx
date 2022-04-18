@@ -37,7 +37,6 @@ const FormComponent = ({ children, onSubmit, defaultData, config, classesParent 
 		}
 		if (child.type === "button") {
 			if (child.props.type === undefined || child.props.type === "submit") {
-				console.log(child, "BUTTON CONF")
 				newConfigChild = {
 					...child.props,
 					className: child.props.className + (isDisabledBtn ? " no-active" : ""),
