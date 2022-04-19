@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import PropTypes from "prop-types"
 
 // Auxiliary
@@ -19,15 +19,15 @@ const FormComponent = ({ children, onSubmit, defaultData, config, classesParent 
 	const handlerChange = (newValue) => setData( prevState => ({ ...prevState, [newValue.name]: newValue.value }) )
 
 	// AUXILIARY
-	function validation(dataTarget) {// Направляет конфиг и данные формы в валидатор, он проверяет и отдает ошибки, если они есть
+	const validation = useCallback((dataTarget) => {// Направляет конфиг и данные формы в валидатор, он проверяет и отдает ошибки, если они есть
 		const errorSet = validator(dataTarget, config)
 		setErrors(errorSet)
 		return Object.keys(errorSet).length === 0 // Доп.проверка для handlerSubmit
-	}
+	}, [config, setErrors])
 	const isDisabledBtn = !(Object.keys(errors).length === 0)
 	const newChildren = React.Children.map(children, child => {
 		let newConfigChild // т.к. мы используем универсальную форму нам нужно дополнить детей некоторыми props
-		if (typeof child.type === "function") {
+		if (typeof child.type === "object") {
 			newConfigChild = {
 				...child.props,
 				value: data[child.props.name],

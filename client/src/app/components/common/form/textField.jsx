@@ -42,4 +42,4 @@ TextField.propTypes = {
 	type: PropTypes.string.isRequired
 }
 
-export default TextField
+export default React.memo(TextField)

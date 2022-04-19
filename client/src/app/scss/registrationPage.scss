@@ -1,0 +1,66 @@
+.registration-block{
+	&__container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__content{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 50px 0;
+	}
+	&__icon-img{
+		width: 100px;
+		flex: 0 0 100px;
+		margin-bottom: 25px;
+	}
+	&__title{
+		font-size: 34px;
+		color: #ffffff;
+		font-weight: 700;
+		margin-bottom: 25px;
+	}
+	&__sub-title{
+		font-weight: 700;
+		color: #b9babc;
+		font-size: 27px;
+		margin-bottom: 18px;
+	}
+	&__message{
+		color: #d0d0d0;
+		font-size: 18px;
+		max-width: 500px;
+		margin-bottom: 20px;
+		font-weight: 700px;
+		line-height: 130%;
+		text-align: center;
+	}
+	&__slider{
+		margin-top: 40px;
+	}
+}
+
+.slider-registration{
+	width: 100%;
+	display: flex;
+	&__btn-next{
+		transition: background 0.4s ease 0s, border 0.3s ease 0s;
+		font-weight: 500;
+		padding: 15px;
+		font-size: 18px;
+		background: rgb(0, 76, 218);
+		border: 1px solid rgb(0, 76, 218);
+		color: #ffffff;
+		min-width: 200px;
+		box-shadow: 0 0 3px 0px #000;
+		align-self: center;
+		@media(min-width: 992px) {
+			&:hover{
+				background: none;
+				border: 1px solid #2EBFFF;
+			}
+		}
+	}
+}
