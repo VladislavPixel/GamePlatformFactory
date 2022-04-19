@@ -10,6 +10,10 @@ function validator(dataObject, configObject) {
 					statusValidate = value.trim() === ""
 				}
 			break
+			case "range":
+				const valueNumber = Number(value)
+				statusValidate = !(valueNumber >= objectWithConfigForMethod.min && valueNumber <= objectWithConfigForMethod.max)
+			break
 			case "isEmail":
 				statusValidate = !(/^\S+@\S+\.\S+$/g.test(value))
 			break

@@ -1,47 +1,46 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import PropTypes from "prop-types"
-import { useSelector } from "react-redux"
 
 // Components
-import FormComponent, { SelectField, TextField } from "../common/form"
+import FormComponent, { TextField } from "../common/form"
+import GroupElementsFieldForRegistration from "./groupElementsFieldForRegistration"
 // Auxiliary
-import { getDataCountries } from "../../store/countries"
+import getValidatorConfigForRegistration from "../../utils/getValidatorConfigForRegistration"
+import validator from "../../utils/validator"
 
 const SlideForRegistrationSlider = ({ index }) => {
 	// STATE
-	const [data1] = useState({
+	const [error, setError] = useState({})
+	const [data, setData] = useState({
 		country: "",
 		birthDay: "",
 		monthOfBirth: "",
 		yearOfBirth: ""
 	})
-	// REDUX
-	const countriesForSelect = useSelector(getDataCountries())
+
 	// AUXILIARY
-	const validatorConfig = index === 0 ?
-		{
-			country: { isRequired: { message: "Страна проживания должна быть обязательно выбрана" } },
-			birthDay: { isRequired: { message: "День рождения должен быть указан"} },
-			monthOfBirth: { isRequired: { message: "Месяц рождения обязателен к заполнению" } },
-			yearOfBirth: { isRequired: { message: "Год рождения должен быть заполнен" } }
-		} :
-		index === 1 ?
-		{
-			name: { isRequired: { message: "Имя обязательно к заполнению" } },
-			surName: { isRequired: { message: "Поле фамилия должно быть заполнено" } }
-		} :
-		""
+	const validatorConfig = getValidatorConfigForRegistration(index)
+	// HANDLERS
+	const validation = useCallback((dataTarget) => {// Направляет конфиг и данные формы в валидатор, он проверяет и отдает ошибки, если они есть
+		const errorSet = validator(dataTarget, validatorConfig)
+		setError(errorSet)
+	}, [validatorConfig, setError])
+	const handlerSubmit = () => {}
+	const handlerChangeData = (object) => setData(prevState => ({ ...prevState, [object.name]: object.value }))
+
+	useEffect(() => {
+		validation(data)
+	}, [data])
 	return (
 		<div className="slider-registration__slide">
 			{index === 0 &&
 				<form className="slider-registration__form form">
-					<SelectField label="Страна проживания" dataOptions={countriesForSelect} defaultOption="Выберите свою страну" name="country" value={data1.country} />
-					<TextField label="Дата рождения" placeholder="Дата рождения (дд . мм . гггг)" name="phantom" />
+					<GroupElementsFieldForRegistration errorObject={error} onChange={handlerChangeData} dataForm={data} />
 					<button className="slider-registration__btn-next" type="button">Далее</button>
 				</form>
 			}
 			{index === 1 &&
-				<FormComponent config={validatorConfig}>
+				<FormComponent onSubmit={handlerSubmit} defaultData={data} classesParent="slider-registration" config={validatorConfig}>
 					<TextField name="name" label="Имя" placeholder="Ваше имя" />
 					<TextField name="surName" label="Фамилия" placeholder="Ваша фамилия" />
 					<button className="slider-registration__btn-next" type="button">Далее</button>

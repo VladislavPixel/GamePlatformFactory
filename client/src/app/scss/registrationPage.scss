@@ -10,10 +10,11 @@
 		justify-content: center;
 		align-items: center;
 		padding: 50px 0;
+		max-width: 450px;
 	}
 	&__icon-img{
-		width: 100px;
-		flex: 0 0 100px;
+		width: 90px;
+		flex: 0 0 90px;
 		margin-bottom: 25px;
 	}
 	&__title{
@@ -31,7 +32,6 @@
 	&__message{
 		color: #d0d0d0;
 		font-size: 18px;
-		max-width: 500px;
 		margin-bottom: 20px;
 		font-weight: 700px;
 		line-height: 130%;
@@ -44,7 +44,13 @@
 
 .slider-registration{
 	width: 100%;
-	display: flex;
+	overflow: hidden;
+	&__wrapper{
+		display: flex;
+	}
+	&__slide{
+		flex: 0 0 100%;
+	}
 	&__btn-next{
 		transition: background 0.4s ease 0s, border 0.3s ease 0s;
 		font-weight: 500;
@@ -61,6 +67,50 @@
 				background: none;
 				border: 1px solid #2EBFFF;
 			}
+		}
+	}
+	&__btn-prev{
+		transition: color 0.6s ease 0s;
+		font-size: 20px;
+		color: rgb(0, 76, 218);
+		margin-top: 20px;
+		font-weight: 500;
+		@media(min-width: 992px) {
+			&:hover{
+				color: #2EBFFF;
+			}
+		}
+	}
+	&__block-birthday{
+		margin-bottom: 25px;
+	}
+}
+
+.birthday-block{
+	&__label{
+		display: inline-block;
+		color: #ffffff;
+		font-size: 17px;
+		font-weight: 600;
+		margin-bottom: 7px;
+	}
+	&__group-birthday{
+		width: 100%;
+		padding: 15px 10px;
+		border-radius: 5px !important;
+		border: 2px solid #004cda;
+		background: #32353C;
+		color: #E9E9E9;
+		font-size: 16px;
+		span{
+			margin: 0px 20px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		input{
+			color: #E9E9E9;
+			font-size: 16px;
+			max-width: 60px;
 		}
 	}
 }

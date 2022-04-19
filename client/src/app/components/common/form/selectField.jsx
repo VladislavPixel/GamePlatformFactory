@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const SelectField = ({ label, name, dataOptions, value, defaultOption, onChange }) => {
+const SelectField = ({ label, name, dataOptions, value, defaultOption, onChange, error }) => {
 	// HANDLERS
 	const handlerChange = ({ target }) => onChange({ name: name, value: target.value })
 	return (
@@ -12,6 +12,7 @@ const SelectField = ({ label, name, dataOptions, value, defaultOption, onChange 
 					<option value="" disabled>{defaultOption}</option>
 					{dataOptions.map(item => <option key={item._id} value={item.valueCode}>{item.title}</option>)}
 				</select>
+				{error && <p className="form__input-error">{error}</p>}
 			</div>
 		</div>
 	)
@@ -23,7 +24,8 @@ SelectField.propTypes = {
 	dataOptions: PropTypes.array.isRequired,
 	value: PropTypes.string,
 	defaultOption: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired
+	onChange: PropTypes.func.isRequired,
+	error: PropTypes.string
 }
 
 export default SelectField
