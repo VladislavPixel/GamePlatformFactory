@@ -9,12 +9,8 @@ const Header = () => {
 		<header className="wrapper__header header">
 			<div className="header__container _container">
 				<div className="header__auth-block block-auth">
-					<button className="block-auth__btn block-auth__btn_reg" type="button">
-						<NavLink to="/signUp">Регистрация</NavLink>
-					</button>
-					<button className="block-auth__btn block-auth__btn_auth" type="button">
-						<NavLink to="/signIn">Войти</NavLink>
-					</button>
+					<NavLink className="block-auth__link block-auth__link_reg" to="/signUp">Регистрация</NavLink>
+					<NavLink className="block-auth__link block-auth__link_auth" to="/signIn">Войти</NavLink>
 				</div>
 				<div className="header__menu menu-header">
 					<div className="menu-header__logo">

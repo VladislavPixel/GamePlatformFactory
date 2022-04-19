@@ -11,6 +11,7 @@ import getGamesCollectionMiddle from "./videoGamesCollectionMiddle"
 import getCommentsGamesForSliderStore from "./commentsGamesForSliderStore"
 import getUsersObjectForSliderStoreComments from "./users"
 import getScopeSliderData from "./scopeSliderStoreData"
+import getCountries from "./countries"
 
 const fakeApi = {
 	getSliderGalleryGameData,
@@ -25,7 +26,8 @@ const fakeApi = {
 	getGamesCollectionMiddle,
 	getCommentsGamesForSliderStore,
 	getUsersObjectForSliderStoreComments,
-	getScopeSliderData
+	getScopeSliderData,
+	getCountries
 }
 
 export default fakeApi

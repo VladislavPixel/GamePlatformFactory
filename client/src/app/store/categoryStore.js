@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
+
+// Auxiliary
 import fakeApi from "../fakeAPI"
 
 export const DEFAULT_SELECTED_CATEGORY = {_id: "all-124", name: "all"}

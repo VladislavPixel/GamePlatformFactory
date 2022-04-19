@@ -23,7 +23,7 @@
 	@media(max-width: 900px) {
 		margin-bottom: 26px;
 	}
-	&__btn{
+	&__link{
 		padding: 10px 25px;
 		font-weight: 700;
 		line-height: 20px;
@@ -35,6 +35,7 @@
 		&_reg{
 			background: linear-gradient(180deg, #E2F685 0%, #8AF9AD 100%);
 			margin-right: 15px;
+			color: #05030E;
 			&:before{
 				content: "";
 				transition: all 0.5s ease 0s;
@@ -46,9 +47,6 @@
 				height: 100%;
 				background: #67ff97;
 			}
-			a{
-				color: #05030E;
-			}
 			@media(min-width: 992px) {
 				&:hover{
 					background: transparent;
@@ -57,9 +55,7 @@
 					border-right: 1px solid #8AF9AD;
 					border-bottom: 1px solid #8AF9AD;
 					transform: scale(0.9);
-					a{
-						color: #fff;
-					}
+					color: #fff;
 					&:before{
 						opacity: 0;
 					}
@@ -71,16 +67,12 @@
 			border-left: 1px solid #8AF9AD;
 			border-right: 1px solid #8AF9AD;
 			border-bottom: 1px solid #8AF9AD;
-			a{
-				color: #fff;
-			}
+			color: #fff;
 			@media(min-width: 992px) {
 				&:hover{
 					transform: scale(0.9);
 					background: #8AF9AD;
-					a{
-						color: #05030E;
-					}
+					color: #05030E;
 				}
 			}
 		}

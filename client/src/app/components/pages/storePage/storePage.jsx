@@ -3,11 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 
 // Components
 import PopularGamesCommentsSlider from "../../common/popularGamesCommentsSlider"
-import CommentsGamesLoaderGlobal from "../../HOC/commentsGamesLoaderGlobal"
 import StoreHeadNavigation from "../../ui/storeHeadNavigation"
 import StoreGamesBlock from "../../ui/storeGamesBlock"
 import ScopeSlider from "../../common/scopeSlider"
-import ScopeSliderStoreLoaderGlobal from "../../HOC/scopeSliderStoreLoaderGlobal"
 import StoreTop5 from "../../common/storeTop5"
 // Auxiliary
 import configAuxiliary from "../../../configAuxiliary.json"
@@ -38,17 +36,13 @@ const StorePage = () => {
 	}, [selectedCategory, widthWrapResetCategory])
 	return (
 		<div className="block-content__store store">
-			<CommentsGamesLoaderGlobal>
-				<PopularGamesCommentsSlider classesParent="store" pathMp4="commentsSliderStore.mp4" pathWebm="commentsSliderStoreOptimaze.webm" />
-			</CommentsGamesLoaderGlobal>
+			<PopularGamesCommentsSlider classesParent="store" pathMp4="commentsSliderStore.mp4" pathWebm="commentsSliderStoreOptimaze.webm" />
 			<StoreHeadNavigation />
 			<StoreGamesBlock />
 			<div ref={refWrapBtnReset} style={stylessResetCategoryWrap} className="store__reset-category-wrap">
 				<button onClick={handlerBtnReset} className="store__reset-category-btn" type="button">Сброс категории</button>
 			</div>
-			<ScopeSliderStoreLoaderGlobal>
-				<ScopeSlider classesParent="store" />
-			</ScopeSliderStoreLoaderGlobal>
+			<ScopeSlider classesParent="store" />
 			<StoreTop5 classesParent="store" config={configAuxiliary.storeTop5} />
 		</div>
 	)

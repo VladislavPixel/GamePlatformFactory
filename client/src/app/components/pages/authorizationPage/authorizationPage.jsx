@@ -42,7 +42,7 @@ const AuthorizationPage = () => {
 						<FormComponent onSubmit={handlerSubmitForm} config={validatorConfig} defaultData={data} classesParent="form-block-auth">
 							<TextField name="loginAccount" label="Имя аккаунта Factory.inc" placeholder="введите имя аккаунта" />
 							<TextField name="email" label="Почта" placeholder="укажите почту аккаунта" />
-							<TextField name="password" label="Пароль" placeholder="введите пароль" />
+							<TextField name="password" type="password" label="Пароль" placeholder="введите пароль" />
 							<button className="form-block-auth__btn-sub" type="submit">Войти</button>
 						</FormComponent>
 					</div>

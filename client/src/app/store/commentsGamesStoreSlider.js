@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
+
+// Auxiliary
 import fakeApi from "../fakeAPI"
 
 const initialState = {
