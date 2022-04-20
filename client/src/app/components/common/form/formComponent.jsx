@@ -26,26 +26,50 @@ const FormComponent = ({ children, onSubmit, defaultData, config, classesParent 
 	}, [config, setErrors])
 	const isDisabledBtn = !(Object.keys(errors).length === 0)
 	const newChildren = React.Children.map(children, child => {
-		let newConfigChild // т.к. мы используем универсальную форму нам нужно дополнить детей некоторыми props
-		if (typeof child.type === "object") {
-			newConfigChild = {
-				...child.props,
-				value: data[child.props.name],
-				error: errors[child.props.name],
-				onChange: handlerChange
-			}
-		}
-		if (child.type === "button") {
-			if (child.props.type === undefined || child.props.type === "submit") {
+		if (child !== null) {
+			let newConfigChild // т.к. мы используем универсальную форму нам нужно дополнить детей некоторыми props
+			if (typeof child.type === "object") {
 				newConfigChild = {
 					...child.props,
-					className: child.props.className + (isDisabledBtn ? " no-active" : ""),
-					disabled: isDisabledBtn
+					value: data[child.props.name],
+					error: (errors[child.props.name] !== undefined ? errors[child.props.name] : child.props.error),
+					onChange: handlerChange
 				}
 			}
-		}
+			if (child.type === "button") {
+				if (child.props.type === undefined || child.props.type === "submit") {
+					newConfigChild = {
+						...child.props,
+						className: child.props.className + (isDisabledBtn ? " no-active" : ""),
+						disabled: isDisabledBtn
+					}
+				}
+			}
+			if (child.type === "div") {
+				console.log(child)
+				const children = React.Children.map(child.props.children, childEl => {
+					const centeredBypass = () => {
 
-		return React.cloneElement(child, newConfigChild)
+					}
+					centeredBypass(childEl.props)
+					return React.cloneElement(childEl)
+				})
+				
+				//const newChildren = React.cloneElement(child, )
+				// const newChildren = React.Children.map(child.props.children[1].props.children, childEl => {
+				// 	const config = {
+				// 		...childEl.props,
+				// 		value: data[childEl.props.name],
+				// 		error: errors[childEl.props.name],
+				// 		onChange: handlerChange
+				// 	}
+				// 	return React.cloneElement(childEl, config)
+				// })
+				// child.props.children[1].props.children = newChildren
+			}
+
+			return React.cloneElement(child, newConfigChild)
+		}
 	})
 
 	useEffect(() => { // При каждом изменении данных формы, когда мы вводим что-то в input, запускается валидация полей

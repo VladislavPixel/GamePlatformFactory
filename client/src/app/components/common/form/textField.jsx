@@ -31,7 +31,8 @@ const TextField = ({ name, label, placeholder, value, error, onChange, type, onC
 }
 
 TextField.defaultProps = {
-	type: "text"
+	type: "text",
+	onCallback: () => {}
 }
 
 TextField.propTypes = {
