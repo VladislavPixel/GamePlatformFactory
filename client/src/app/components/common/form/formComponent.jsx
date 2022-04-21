@@ -28,7 +28,14 @@ const FormComponent = ({ children, onSubmit, defaultData, config, classesParent 
 	const newChildren = React.Children.map(children, child => {
 		if (child !== null) {
 			let newConfigChild // т.к. мы используем универсальную форму нам нужно дополнить детей некоторыми props
-			if (typeof child.type === "object") {
+			if (child.props["data-trigger"]) { // Логика для форм, в которых FormComponent принимает блок, который уже раздает props на несколько полей
+				newConfigChild = {
+					...child.props,
+					value: data,
+					error: errors,
+					onChange: handlerChange
+				}
+			} else if (typeof child.type === "object") { // Логика обычных форм, в которых FormComponent принимает сразу поля
 				newConfigChild = {
 					...child.props,
 					value: data[child.props.name],
@@ -44,28 +51,14 @@ const FormComponent = ({ children, onSubmit, defaultData, config, classesParent 
 						disabled: isDisabledBtn
 					}
 				}
-			}
-			if (child.type === "div") {
-				console.log(child)
-				const children = React.Children.map(child.props.children, childEl => {
-					const centeredBypass = () => {
-
+				if (child.props.type === "button") {
+					let disabledConfig = child.props["data-status"] ? {} : { disabled: isDisabledBtn }
+					newConfigChild = {
+						...child.props,
+						className: child.props.className + (isDisabledBtn && !child.props["data-status"] ? " no-active" : ""),
+						...disabledConfig
 					}
-					centeredBypass(childEl.props)
-					return React.cloneElement(childEl)
-				})
-				
-				//const newChildren = React.cloneElement(child, )
-				// const newChildren = React.Children.map(child.props.children[1].props.children, childEl => {
-				// 	const config = {
-				// 		...childEl.props,
-				// 		value: data[childEl.props.name],
-				// 		error: errors[childEl.props.name],
-				// 		onChange: handlerChange
-				// 	}
-				// 	return React.cloneElement(childEl, config)
-				// })
-				// child.props.children[1].props.children = newChildren
+				}
 			}
 
 			return React.cloneElement(child, newConfigChild)

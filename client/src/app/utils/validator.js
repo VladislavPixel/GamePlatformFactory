@@ -20,6 +20,12 @@ function validator(dataObject, configObject) {
 			case "num":
 				statusValidate = !(/\d+/g.test(value))
 			break
+			case "isPhone":
+				statusValidate = !(/^8\d+$/g.test(value))
+			break
+			case "specificAmountElements":
+				statusValidate = value.trim().length > method.score || value.trim().length < method.score
+			break
 			case "upperEl":
 				statusValidate = !(/[A-Z]+/g.test(value))
 			break

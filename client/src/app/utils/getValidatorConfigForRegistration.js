@@ -22,6 +22,24 @@ function getValidatorConfigForRegistration(index) {
 			surName: { isRequired: { message: "Поле фамилия должно быть заполнено" } }
 		}
 	}
+	if (index === 2) {
+		return {
+			email: {
+				isRequired: { message: `Поле "Почта" обязаельно для заполнения` },
+				isEmail: { message: `Поле "Почта" не удовлетворяет требованиям` }
+			},
+			numberPhone: {
+				isRequired: { message: `Поле "Телефон" обязательно для заполнения...` },
+				isPhone: {
+					message: `Поле "Телефон" должно начинаться с 8 и иметь в своем составе только цифры`
+				},
+				specificAmountElements: {
+					message: `Поле "Телефон" должно содержать 11 цифр, не меньше и не больше`,
+					score: 11
+				}
+			}
+		}
+	}
 }
 
 export default getValidatorConfigForRegistration
