@@ -9,15 +9,6 @@ const FormComponent = ({ children, onSubmit, defaultData, config, classesParent 
 	const [data, setData] = useState(defaultData || {})
 	const [errors, setErrors] = useState({})
 
-	// HANDLERS
-	const handlerSubmit = (event) => {
-		event.preventDefault()
-		const isValidFormData = validation()
-		if (!isValidFormData) return
-		onSubmit(data)
-	}
-	const handlerChange = (newValue) => setData( prevState => ({ ...prevState, [newValue.name]: newValue.value }) )
-
 	// AUXILIARY
 	const validation = useCallback((dataTarget) => {// Направляет конфиг и данные формы в валидатор, он проверяет и отдает ошибки, если они есть
 		const errorSet = validator(dataTarget, config)
@@ -64,6 +55,16 @@ const FormComponent = ({ children, onSubmit, defaultData, config, classesParent 
 			return React.cloneElement(child, newConfigChild)
 		}
 	})
+	// HANDLERS
+	function handlerSubmit(event) {
+		event.preventDefault()
+		const isValidFormData = validation()
+		if (!isValidFormData) return
+		onSubmit(data)
+	}
+	function handlerChange(newValue) {
+		setData( prevState => ({ ...prevState, [newValue.name]: newValue.value }) )
+	}
 
 	useEffect(() => { // При каждом изменении данных формы, когда мы вводим что-то в input, запускается валидация полей
 		validation(data)

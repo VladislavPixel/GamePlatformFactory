@@ -70,6 +70,24 @@
 	&__input-container{
 		position: relative;
 	}
+	&__checkbox{
+		width: 16px;
+		height: 16px;
+		margin-right: 10px;
+	}
+	&__checkbox-label{
+		color: #ffffff;
+		font-size: 18px;
+		line-height: 130%;
+	}
+	&__checkbox-error{
+		color: #2EBFFF;
+		font-size: 18px;
+		margin-top: 10px;
+	}
+	&__checkbox-block{
+		margin-bottom: 25px;
+	}
 }
 
 .password__svg{

@@ -29,14 +29,16 @@ function getValidatorConfigForRegistration(index) {
 				isEmail: { message: `Поле "Почта" не удовлетворяет требованиям` }
 			},
 			numberPhone: {
-				isRequired: { message: `Поле "Телефон" обязательно для заполнения...` },
-				isPhone: {
-					message: `Поле "Телефон" должно начинаться с 8 и иметь в своем составе только цифры`
-				},
-				specificAmountElements: {
-					message: `Поле "Телефон" должно содержать 11 цифр, не меньше и не больше`,
-					score: 11
-				}
+				isRequired: { message: `Поле "Телефон" обязательно для заполнения` },
+				isPhone: { message: `Поле "Телефон" должно начинаться с 8 и иметь в своем составе только цифры` },
+				specificAmountElements: { message: `Поле "Телефон" должно содержать 11 цифр, не меньше и не больше`, score: 11 }
+			}
+		}
+	}
+	if (index === 3) {
+		return {
+			accessPolicy: {
+				isRequired: { message:"Ваше согласие важно для нас, Вам нужно принять нашу политику." }
 			}
 		}
 	}

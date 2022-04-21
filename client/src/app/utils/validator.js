@@ -24,7 +24,7 @@ function validator(dataObject, configObject) {
 				statusValidate = !(/^8\d+$/g.test(value))
 			break
 			case "specificAmountElements":
-				statusValidate = value.trim().length > method.score || value.trim().length < method.score
+				statusValidate = value.trim().length > objectWithConfigForMethod.score || value.trim().length < objectWithConfigForMethod.score
 			break
 			case "upperEl":
 				statusValidate = !(/[A-Z]+/g.test(value))
