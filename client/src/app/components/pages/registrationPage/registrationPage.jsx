@@ -8,7 +8,7 @@ import configAuxiliary from "../../../configAuxiliary.json"
 const RegistrationPage = () => {
 	// STATE
 	const [widthWrapper, setWidthWrapper] = useState(0)
-	const [currentStage, setCurrentStage] = useState(6)
+	const [currentStage, setCurrentStage] = useState(0)
 	const [styleWrapper, setStyleWrapper] = useState({ transform: "translateX(0px)" })
 	const [isModalClarification, setModalClarification] = useState(false)
 	const [data, setData] = useState({ country: "", birthDay: "", monthOfBirth: "", yearOfBirth: "" })
@@ -20,6 +20,13 @@ const RegistrationPage = () => {
 	// AUXILIARY
 	const additionalConfig = configAuxiliary.modalRegConfig[`${currentStage}`]
 	const wrapperSlides = useRef(null)
+	const stylessPosterYoda = {
+		"background-repeat": "no-repeat",
+		background: "url(./images/posterYoda.jpg)",
+		"background-position": "0 0",
+		"background-size": "cover",
+		"background-attachment": "fixed"
+	}
 	// HANDLERS
 	const handlerUpdateQuestion = () => setModalClarification(prevState => !prevState)
 	const handlerUpdateStage = (message) => {
@@ -52,7 +59,7 @@ const RegistrationPage = () => {
 		setStyleWrapper({ transform: `translateX(-${currentStage * widthWrapper}px)` })
 	}, [currentStage, widthWrapper])
 	return (
-		<div className="block-content__registration registration-block">
+		<div style={(currentStage === 6 ? stylessPosterYoda : {})} className="block-content__registration registration-block">
 			<div className="registration-block__container _container">
 				<div className="registration-block__content">
 					<img className="registration-block__icon-img" src="./images/icons/swords.svg" alt="Перекрещенные мечи" />
@@ -70,7 +77,7 @@ const RegistrationPage = () => {
 					}
 					<div className="registration-block__slider slider-registration">
 						<div ref={wrapperSlides} style={styleWrapper} className="slider-registration__wrapper">
-							{configAuxiliary.titlesReg.map((_, i) => <SlideForRegistrationSlider key={i} index={i} pullData={[data, data1, data2, data3, data4, data5]} onSubmitForm={handlerSubmit} onUpdateStage={handlerUpdateStage} />)}
+							{configAuxiliary.titlesReg.map((_, i) => <SlideForRegistrationSlider currentStage={currentStage} key={i} index={i} pullData={[data, data1, data2, data3, data4, data5]} onSubmitForm={handlerSubmit} onUpdateStage={handlerUpdateStage} />)}
 						</div>
 					</div>
 				</div>

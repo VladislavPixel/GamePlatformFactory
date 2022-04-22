@@ -5,12 +5,15 @@
 		align-items: center;
 	}
 	&__content{
+		flex: 0 1 450px;
+		text-align: center;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 50px 0;
+		padding: 50px 0px 10px 0px;
 		max-width: 450px;
+		width: 100%;
 	}
 	&__icon-img{
 		width: 90px;
@@ -39,6 +42,9 @@
 	}
 	&__slider{
 		margin-top: 40px;
+		@media(max-width: 430px) {
+			margin-top: 15px;
+		}
 	}
 }
 
@@ -48,6 +54,7 @@
 	&__wrapper{
 		transition: transform 0.3s ease 0s;
 		display: flex;
+		align-items: flex-start;
 	}
 	&__slide{
 		flex: 0 0 100%;
@@ -93,16 +100,45 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		text-align: center;
 	}
 	&__quote{
 		font-size: 35px;
 		font-style: italic;
 		color: #2EBFFF;
 		margin-bottom: 25px;
+		font-weight: 600;
+		line-height: 135%;
+	}
+	&__pagins-list{
+		margin-top: 25px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__pagin{
+		flex: 0 0 10px;
+		height: 10px;
+		margin-right: 10px;
+		background: #171a21;
+		border-radius: 50%;
+		&:last-child{
+			margin-right: 0;
+		}
+		&.target{
+			background: #8AF9AD;
+			flex: 0 0 15px;
+			width: 15px;
+			height: 15px;
+		}
+		&.passed{
+			background: #8AF9AD;
+		}
 	}
 }
 
 .birthday-block{
+	margin-bottom: 25px;
 	&__label{
 		display: inline-block;
 		color: #ffffff;
@@ -118,7 +154,6 @@
 		background: #32353C;
 		color: #E9E9E9;
 		font-size: 16px;
-		margin-bottom: 25px;
 		span{
 			margin: 0px 20px;
 			font-size: 20px;

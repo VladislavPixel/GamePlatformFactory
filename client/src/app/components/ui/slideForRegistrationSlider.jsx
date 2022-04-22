@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
 // Components
 import FormComponent, { TextField, SelectField, CheckboxField, RecaptchaField } from "../common/form"
@@ -8,14 +9,20 @@ import BirthdayBlockField from "./birthdayBlockField"
 // Auxiliary
 import getValidatorConfigForRegistration from "../../utils/getValidatorConfigForRegistration"
 import { getDataCountries } from "../../store/countries"
+import getArrayByNumber from "../../utils/getArrayByNumber"
+import configAuxiliary from "../../configAuxiliary.json"
 
-const SlideForRegistrationSlider = ({ index, onUpdateStage, onSubmitForm, pullData }) => {
+const SlideForRegistrationSlider = ({ index, onUpdateStage, onSubmitForm, pullData, currentStage }) => {
 	// REDUX
 	const countriesForSelect = useSelector(getDataCountries())
 	// STATE
 	const [isShowPhantom, setShowPhantom] = useState(true)
+	// AUXILIARY
+	const navigate = useNavigate()
+	const arrayPagesRegistration = getArrayByNumber(configAuxiliary.titlesReg.length)
 	// HANDLERS
 	const handlerCallbackField = () => setShowPhantom(prevState => !prevState)
+	const handlerLastPageBtn = () => navigate("/")
 
 	return (
 		<div className="slider-registration__slide">
@@ -67,11 +74,14 @@ const SlideForRegistrationSlider = ({ index, onUpdateStage, onSubmitForm, pullDa
 				</FormComponent>
 			}
 			{index === 6 &&
-			<div className="slider-registration__quote-block">
-				<p className="slider-registration__quote">«Светящиеся существа — это мы… а не эта грубая материя» — Йода</p>
-				<button title="Теперь будь храбр и не оглядывайся назад" className="slider-registration__btn-prev" type="button">Используй свою силу!</button>
-			</div>
+				<div className="slider-registration__quote-block">
+					<p className="slider-registration__quote">«Светящиеся существа — это мы… а не эта грубая материя» — Йода</p>
+					<button onClick={handlerLastPageBtn} title="Теперь будь храбр и не оглядывайся назад" className="slider-registration__btn-next" type="button">Используй свою силу!</button>
+				</div>
 			}
+			<div className="slider-registration__pagins-list">
+				{arrayPagesRegistration.map(item => <span className={"slider-registration__pagin" + (item._id < currentStage ? " passed" : currentStage === item._id ? " target" : "") } key={item._id}></span>)}
+			</div>
 		</div>
 	)
 }
@@ -80,7 +90,8 @@ SlideForRegistrationSlider.propTypes = {
 	index: PropTypes.number.isRequired,
 	onUpdateStage: PropTypes.func.isRequired,
 	onSubmitForm: PropTypes.func.isRequired,
-	pullData: PropTypes.array.isRequired
+	pullData: PropTypes.array.isRequired,
+	currentStage: PropTypes.number.isRequired
 }
 
 export default SlideForRegistrationSlider
