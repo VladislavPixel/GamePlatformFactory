@@ -8,7 +8,6 @@ const FormComponent = ({ children, onSubmit, defaultData, config, classesParent 
 	// STATE
 	const [data, setData] = useState(defaultData || {})
 	const [errors, setErrors] = useState({})
-
 	// AUXILIARY
 	const validation = useCallback((dataTarget) => {// Направляет конфиг и данные формы в валидатор, он проверяет и отдает ошибки, если они есть
 		const errorSet = validator(dataTarget, config)

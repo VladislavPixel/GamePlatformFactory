@@ -18,7 +18,7 @@ const ModalCategoryStore = ({ targetBtn, onHandlerBtnNavigation }) => {
 	const ListCategoryStoreWithMessageWithLoading = withLoading(ListCategoryStoreWithMessage, isLoadingCategoryStore)
 	useEffect(() => {
 		if (isLoadingCategoryStore) dispatch(fetchAllCategoryStoreData())
-	}, [])
+	}, [dispatch, isLoadingCategoryStore])
 	return (
 		<div className={`navigation-store__category-modal modal-category${targetBtn === "category" ? " active" : ""}`}>
 			<ListCategoryStoreWithMessageWithLoading />

@@ -16,7 +16,7 @@ const ModalWalletStore = ({ targetBtn }) => {
 	const walletDataLinks = useSelector(getDataWalletLinks())
 	useEffect(() => {
 		if (isLoadingWalletDataLinks) dispatch(fetchAllDataWalletLinks())
-	}, [])
+	}, [dispatch, isLoadingWalletDataLinks])
 	const ModalWalletLinksWithMessage = withMessage(<ul className="modal-wallet__list-wallet">{walletDataLinks.map(item => <li key={item._id}><img src={`./images/icons/${item.icon}`} alt={item.altIcon} /><Link to={item.path}>{item.title}</Link></li>)}</ul>, <LiteMessage title="В настоящее время кошелек не доступен" offer="Вы сможете воспользоваться им позже" classes="modal-wallet__message" iconPath="sadIcon.svg" alt="Иконка грустного смайлика" />, walletDataLinks.length)
 	const ModalWalletLinksWithMessageWithLoading = withLoading(ModalWalletLinksWithMessage, isLoadingWalletDataLinks)
 	return (

@@ -37,9 +37,25 @@ function getValidatorConfigForRegistration(index) {
 	}
 	if (index === 3) {
 		return {
-			accessPolicy: {
-				isRequired: { message:"Ваше согласие важно для нас, Вам нужно принять нашу политику." }
+			recaptchaTag: { isRequired: { message: "Подтвердите, что вы не робот" } },
+			accessPolicy: { isRequired: { message:"Ваше согласие важно для нас, Вам нужно принять нашу политику" } }
+		}
+	}
+	if (index === 4) {
+		return { 
+			password: {
+				isRequired: { message: `Поле "Пароль" обязательно для заполнения` },
+				num: { message: `Пароль должен содержать хотя бы одну цифру` },
+				upperEl: { message: `Пароль должен содержать хотя бы одну букву в верхнем регистре. Эта буква должна быть на латинице.` },
+				specialCharacter: { message: `Пароль должен содержать хотя бы один специальный символ: !@#$%&^*?` },
+				minElements: { message: `Пароль должен быть не меньше 8 символов`, value: 8 }
 			}
+		}
+	}
+	if (index === 5) {
+		return {
+			nickName: { isRequired: { message: "Ник - это важная составляющая для социализации на нашей платформе" } },
+			loginAccount: { isRequired: { message: "Логин обязателен, т.к. по нему происходит авторизация" } }
 		}
 	}
 }

@@ -26,7 +26,7 @@ const StoreGamesBlock = () => {
 	// Если поиск заполнен, то скидываем state category
 	useEffect(() => {
 		if (valueSearchGamesStore !== "") dispatch(updateCategoryStoreSelected(DEFAULT_SELECTED_CATEGORY))
-	}, [valueSearchGamesStore, dispatch, DEFAULT_SELECTED_CATEGORY])
+	}, [valueSearchGamesStore, dispatch])
 
 	// STATE
 	const [isActiveAdditionalBtn, setActiveAdditionalBtn] = useState(false)

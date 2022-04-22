@@ -89,6 +89,17 @@
 	&__block-birthday{
 		margin-bottom: 25px;
 	}
+	&__quote-block{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	&__quote{
+		font-size: 35px;
+		font-style: italic;
+		color: #2EBFFF;
+		margin-bottom: 25px;
+	}
 }
 
 .birthday-block{

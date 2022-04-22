@@ -8,7 +8,7 @@
 		font-weight: 600;
 		margin-bottom: 7px;
 	}
-	&__label-select{
+	&__label-select,&__recaptcha-label{
 		display: inline-block;
 		color: #ffffff;
 		font-size: 15px;
@@ -62,7 +62,7 @@
 			}
 		}
 	}
-	&__input-error{
+	&__input-error,&__recaptcha-error{
 		margin-top: 7px;
 		color: #8AF9AD;
 		font-weight: 500;
@@ -85,8 +85,14 @@
 		font-size: 18px;
 		margin-top: 10px;
 	}
-	&__checkbox-block{
+	&__checkbox-block, &__recaptcha-field{
 		margin-bottom: 25px;
+	}
+	&__recaptcha-field{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
 	}
 }
 
