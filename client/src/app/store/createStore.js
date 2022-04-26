@@ -7,6 +7,7 @@ import walletLinksReducer from "./walletLinks"
 import searchGamesStoreReducer from "./searchGamesStore"
 import commentsGamesStoreSliderReducer from "./commentsGamesStoreSlider"
 import countriesReducer from "./countries"
+import gamePageReducer from "./gamePage"
 
 const rootReducer = combineReducers({
 	games: gamesReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
 	walletLinks: walletLinksReducer,
 	searchGamesStore: searchGamesStoreReducer,
 	commentsGamesStoreSlider: commentsGamesStoreSliderReducer,
-	countries: countriesReducer
+	countries: countriesReducer,
+	gamePage: gamePageReducer
 })
 
 export default function createStore() {

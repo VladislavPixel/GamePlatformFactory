@@ -12,6 +12,7 @@ import getCommentsGamesForSliderStore from "./commentsGamesForSliderStore"
 import getUsersObjectForSliderStoreComments from "./users"
 import getScopeSliderData from "./scopeSliderStoreData"
 import getCountries from "./countries"
+import getBigDataGameById from "./gamePage"
 
 const fakeApi = {
 	getSliderGalleryGameData,
@@ -27,7 +28,8 @@ const fakeApi = {
 	getCommentsGamesForSliderStore,
 	getUsersObjectForSliderStoreComments,
 	getScopeSliderData,
-	getCountries
+	getCountries,
+	getBigDataGameById
 }
 
 export default fakeApi

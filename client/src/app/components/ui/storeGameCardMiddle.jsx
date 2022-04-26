@@ -1,16 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 // Auxiliary
 import getValuePrice from "../../utils/getValuePrice"
 import getValueRate from "../../utils/getValueRate"
 
-const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, price, platform, iconForTitle, iconForTitleAlt, subTitle, oldPrice, sale, textPrice }) => {
+const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, price, platform, iconForTitle, iconForTitleAlt, subTitle, oldPrice, sale, textPrice, _id }) => {
+	const navigate = useNavigate()
 	return(
 		<div className="list-games-store__column">
 			<div className="list-games-store__card-game">
-				<Link to="/" className="list-games-store__image-wrap">
+				<Link to={`/game/${_id}`} className="list-games-store__image-wrap">
 					<img src={`./images/storeGamesMiddle/${imageMiddle}`} alt={altImageMiddle} />
 				</Link>
 				<div className="list-games-store__head-block">
@@ -24,7 +25,7 @@ const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, p
 						{platform.map((el, index) => <img key={index} src={`./images/platformsIcon/${el}`} alt="Иконка платформы, на которой работает игра" />)}
 					</div>
 					<button className="list-games-store__btn-car  btn-card-game" type="button">в корзину</button>
-					<button className="list-games-store__btn-more btn-card-game" type="button">подробнее</button>
+					<button onClick={() => navigate(`/game/${_id}`)} className="list-games-store__btn-more btn-card-game" type="button">подробнее</button>
 				</div>
 				<div className="list-games-store__footer-block">
 					<p className="list-games-store__price">{textPrice ? textPrice : getValuePrice(price)}</p>
