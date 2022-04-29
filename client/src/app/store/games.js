@@ -142,5 +142,10 @@ export const getDataScopeSlider = () => {
 		return state.games.scopeSliderStore
 	}
 }
+export const getDataGameMiddleById = (idSearch) => {
+	return (state) => {
+		return state.games.entities.find(game => idSearch === game._id)
+	}
+}
 
 export default gamesReducer

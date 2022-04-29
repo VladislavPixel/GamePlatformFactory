@@ -4,6 +4,11 @@ const arrayBigDataGames = [
 		added: "Admin",
 		idMiddleParent: "2dota2lol56",
 		poster: "dota2QueenOfPain.jpg",
+		posterAlt: "QueenOfPain - черная королева",
+		linkPublisher: "https://www.dota2.com",
+		messageForMenuActivity: `"Dota 2 — невообразимо интересная и глубокая командная игра. Вы можете наиграть две, три, четыре сотни часов, но все равно не знать всех подробностей". - ИГРОМАНИЯ`,
+		releaseDate: "9 июля 2013",
+		developer: { name: "Valve", linkResourceDeveloper: "https://www.valvesoftware.com" },
 		slidersHead: [
 			{path: "dota1.jpg", alt: "Templar - персонаж из игры"},
 			{path: "dota2.jpg", alt: "Void - персонаж из игры"},

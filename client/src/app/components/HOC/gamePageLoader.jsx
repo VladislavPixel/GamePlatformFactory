@@ -19,7 +19,7 @@ const GamePageLoader = ({ children }) => {
 
 	useEffect(() => {
 		if (searchGameData || status !== "didNotSend") {
-			setLoading(prevState => !prevState)
+			setLoading(false)
 		} else {
 			dispatch(fetchDataGame(idGame))
 		}
