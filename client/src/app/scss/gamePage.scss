@@ -276,7 +276,7 @@
 	width: 67%;
 	display: flex;
 	justify-content: space-between;
-	margin: 15px 0px 65px 0px;
+	margin-top: 15px;
 	&__btn{
 		transition: background 0.3s ease 0s;
 		width: 55px;
@@ -339,5 +339,24 @@
 				}
 			}
 		}
+	}
+}
+
+.game-about-block{
+	margin: 50px 15px 40px 15px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #c9c9c9;
+	&__title{
+		width: 67%;
+		font-size: 45px;
+		margin-bottom: 25px;
+		color: #ffffff;
+		font-weight: 500;
+	}
+	&__text{
+		width: 67%;
+		font-size: 18px;
+		line-height: 130%;
+		color: #c9c9c9;
 	}
 }
