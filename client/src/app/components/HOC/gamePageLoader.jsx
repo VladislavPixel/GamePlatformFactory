@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 
 // Auxiliary
-import { getDataGameById, getStatusFetchData, fetchDataGame } from "../../store/gamePage"
+import { getDataGameById, getStatusFetchData, fetchDataGame, setStatusGamePageFetchDefault } from "../../store/gamePage"
 import withLoading from "./withLoading"
 
 const GamePageLoader = ({ children }) => {
@@ -18,12 +18,25 @@ const GamePageLoader = ({ children }) => {
 	const [isLoading, setLoading] = useState(true)
 
 	useEffect(() => {
-		if (searchGameData || status !== "didNotSend") {
+		if (searchGameData) { // ДОДЕЛАТЬ !!!
 			setLoading(false)
+		} else if (status === "didNotSend") {
+			dispatch(fetchDataGame(idGame))
+		} else if (status === "success") {
+
+		} else if (status === "dataGameNotFound") {
+
+		}
+		if (searchGameData || status !== "didNotSend") {
+			if (status === "success") {
+				dispatch(setStatusGamePageFetchDefault())
+			} else {
+				
+			}
 		} else {
 			dispatch(fetchDataGame(idGame))
 		}
-	}, [searchGameData, status])
+	}, [searchGameData, status, idGame, dispatch])
 	const ChildrenWithLoading = withLoading(children, isLoading)
 	return <ChildrenWithLoading />
 }

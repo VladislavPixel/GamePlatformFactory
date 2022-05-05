@@ -8,7 +8,7 @@ const AboutUsGamesColumn = ({ data, classes }) => {
 			{data.map((imageConfig, index) => {
 				return (
 					<div key={index} className="games-about-us__img-wrap">
-						<Link to="/"><img src={`./images/aboutUsGames/${imageConfig.path}`} alt={imageConfig.alt} /></Link>
+						<Link to="/"><img src={`/images/aboutUsGames/${imageConfig.path}`} alt={imageConfig.alt} /></Link>
 					</div>
 				)
 			})}

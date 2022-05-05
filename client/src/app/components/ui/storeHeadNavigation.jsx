@@ -34,7 +34,7 @@ const StoreHeadNavigation = () => {
 				<SearchHeadNavigationStore onHandlerBtnNavigation={handlerBtnNavigation} />
 				<div className="navigation-store__column">
 					<button title="Список желаемого для Вас" className="navigation-store__btn-heart">
-						<img src="./images/icons/heartNoArms.svg" alt="Иконка сердца с кардиограммой" />
+						<img src="/images/icons/heartNoArms.svg" alt="Иконка сердца с кардиограммой" />
 					</button>
 				</div>
 				<div className="navigation-store__column">

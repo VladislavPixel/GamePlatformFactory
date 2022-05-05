@@ -5,12 +5,12 @@ import { Link } from "react-router-dom"
 // Auxiliary
 import getValuePrice from "../../utils/getValuePrice"
 
-const ScopeSliderSlide = ({ price, imageMiddle, altImageMiddle, oldPrice, sale }) => {
+const ScopeSliderSlide = ({ price, imageMiddle, altImageMiddle, oldPrice, sale, _id }) => {
 	return (
 		<div className="slider-scope__column">
 			<div className="slider-scope__slide">
-				<Link to="/">
-					<img className="slider-scope__img" src={`./images/storeGamesMiddle/${imageMiddle}`} alt={altImageMiddle} />
+				<Link to={`/game/${_id}`}>
+					<img className="slider-scope__img" src={`/images/storeGamesMiddle/${imageMiddle}`} alt={altImageMiddle} />
 					<div className="slider-scope__footer">
 						{sale &&
 							<React.Fragment>
@@ -30,6 +30,7 @@ ScopeSliderSlide.propTypes = {
 	price: PropTypes.number.isRequired,
 	imageMiddle: PropTypes.string.isRequired,
 	altImageMiddle: PropTypes.string.isRequired,
+	_id: PropTypes.string.isRequired,
 	oldPrice: PropTypes.number,
 	sale: PropTypes.number
 }

@@ -1,24 +1,33 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { useNavigate } from "react-router-dom"
 
 // Auxiliary
 import getValuePrice from "../../utils/getValuePrice"
 import getValueRate from "../../utils/getValueRate"
 
-const StoreTop5Card = ({ imageMiddle, altImageMiddle, title, textPrice, price, rate, sale, oldPrice }) => {
+const StoreTop5Card = ({ imageMiddle, altImageMiddle, title, textPrice, price, rate, sale, oldPrice, _id }) => {
+	// AUXILIARY
+	const navigate = useNavigate()
 	const activity = [
 		{title: "Добавить в корзину", content: <img src="./images/icons/basket.svg" alt="Иконка корзины" />},
 		{title: "Добавить в список желаемого", content: <img src="./images/icons/heartWhite.svg" alt="Иконка сердца" />},
 		{title: "Рейтинг", content: getValueRate(rate)}
 	]
+	// HANDLERS
+	const handlerClickActivityElements = (title) => {
+		if (title === "Рейтинг") {
+			navigate(`/game/${_id}`)
+		}
+	}
 	return (
 		<div className="list-top5__column">
 			<div className="list-top5__card">
 				<div className="list-top5__image-block">
-					<img src={`./images/storeGamesMiddle/${imageMiddle}`} alt={altImageMiddle} />
-					<button className="list-top5__more" type="button">Подробнее</button>
+					<img src={`/images/storeGamesMiddle/${imageMiddle}`} alt={altImageMiddle} />
+					<button onClick={() => navigate(`/game/${_id}`)} className="list-top5__more" type="button">Подробнее</button>
 					<ul className="list-top5__block-activity">
-						{activity.map((item, index) => <li title={item.title} key={index}>{item.content}</li>)}
+						{activity.map((item, index) => <li onClick={() => handlerClickActivityElements(item.title)} title={item.title} key={index}>{item.content}</li>)}
 					</ul>
 				</div>
 				<div className="list-top5__footer">
@@ -47,7 +56,8 @@ StoreTop5Card.propTypes = {
 	]).isRequired,
 	rate: PropTypes.number.isRequired,
 	sale: PropTypes.number,
-	oldPrice: PropTypes.number
+	oldPrice: PropTypes.number,
+	_id: PropTypes.string.isRequired
 }
 
 export default StoreTop5Card

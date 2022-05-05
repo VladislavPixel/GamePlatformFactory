@@ -5,8 +5,10 @@ import PropTypes from "prop-types"
 import getValuePrice from "../../utils/getValuePrice"
 
 const ItemCategory = ({ path, poster, alt, title, platform, price, tags, _id, isTarget, onMouseOver, category, interest, newPrice }) => {
+	// AUXILIARY
 	const isDiscount = category === "discounts"
 	const cardGameRef = useRef(null)
+
 	useEffect(() => {
 		cardGameRef.current.addEventListener("mouseover", onMouseOver)
 	}, [onMouseOver])

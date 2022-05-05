@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 const LiteMessage = ({ title, offer, classes, iconPath, altIcon }) => {
 	return (
 		<div className={classes + " lite-message"}>
-			<img src={`./images/icons/${iconPath}`} alt={altIcon} />
+			<img src={`/images/icons/${iconPath}`} alt={altIcon} />
 			<h3 className="lite-message__title">{title}</h3>
 			<p className="lite-message__offer">{offer}</p>
 		</div>

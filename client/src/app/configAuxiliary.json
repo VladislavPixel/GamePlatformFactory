@@ -46,7 +46,8 @@
 		{"path": "playstation.svg", "name": "Playstation"},
 		{"path": "vr.svg", "name": "VR"},
 		{"path": "windows.svg", "name": "Windows"},
-		{"path": "xboxOne.svg", "name": "XboxOne"}
+		{"path": "xboxOne.svg", "name": "XboxOne"},
+		{"path": "linux.svg", "name": "Linux"}
 	],
 	"weHaveList": [
 		"Эксклюзивные игры на платформе Factory",

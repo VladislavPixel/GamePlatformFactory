@@ -19,7 +19,7 @@ const categoryBlockGames = [
 	{_id: "r3", category: "discounts", poster: "pathfinderWrathOfTheRighteousPoster.jpg", alt: "Монстры", title: "Pathfinder: Wrath of the Righteous", tags: ["Ролевая игра", "RPG"], platform: ["windows.svg", "apple.svg"], price: 1499, newPrice: 1124, interest: 25},
 	{_id: "r4", category: "discounts", poster: "battleBrothersPoster.jpg", alt: "Battle Brothers воины в битве", title: "Battle Brothers", tags: ["RPG", "стратегия"], platform: ["windows.svg"], price: 499, newPrice: 164, interest: 67},
 	{_id: "r5", category: "discounts", poster: "gamedecPoster.jpg", alt: "Gamedec", title: "Gamedec", tags: ["RPG", "Приключения"], platform: ["windows.svg"], price: 1249, newPrice: 936, interest: 25},
-	{_id: "r6", category: "discounts", poster: "magicka2Poster.jpg", alt: "magicka2 герои", title: "Magicka 2", tags: ["Приключения", "action"], platform: ["windows.svg", "apple.svg"], price: 349, newPrice: 87, interest: 75}
+	{_id: "r6", category: "discounts", poster: "magicka2Poster.jpg", alt: "magicka2 герои", title: "Magicka 2", tags: ["Приключения", "action"], platform: ["windows.svg", "apple.svg", "linux.svg"], price: 349, newPrice: 87, interest: 75}
 ]
 
 function getCategoryHomeGames() {

@@ -53,7 +53,7 @@ const arrayBigDataGames = [
 			]
 		},
 		systemRequirements: {
-			windows: [
+			Windows: [
 				{title: "OC", value: "Windows 7 или новее"},
 				{title: "Процессор", value: "Двухъядерный процессор с тактовой частотой 2,80 ГГц от Intel или AMD"},
 				{title: "Оперативная память", value: "4 GB ОЗУ"},
@@ -63,7 +63,7 @@ const arrayBigDataGames = [
 				{title: "Место на диске", value: "15 GB"},
 				{title: "Звуковая карта", value: "Совместимая с DirectX"}
 			],
-			linux: [
+			Linux: [
 				{title: "ОС", value: "Ubuntu 12.04 или новее"},
 				{title: "Процессор", value: "Двухъядерный процессор с тактовой частотой 2,80 ГГц от Intel или AMD"},
 				{title: "Оперативная память", value: "4 GB ОЗУ"},
@@ -72,7 +72,7 @@ const arrayBigDataGames = [
 				{title: "Место на диске", value: "15 GB"},
 				{title: "Звуковая карта", value: "Звуковая карта, совместимая с OpenAL"}
 			],
-			macOS: [
+			Apple: [
 				{title: "ОС", value: "OS X Mavericks 10.9 или новее"},
 				{title: "Процессор", value: "Двухъядерный процессор от Intel"},
 				{title: "Оперативная память", value: "4 GB ОЗУ"},
@@ -133,7 +133,7 @@ const arrayBigDataGames = [
 			]
 		},
 		systemRequirements: {
-			windows: [
+			Windows: [
 				{title: "OC", value: "Windows 7, 8 or 10"},
 				{title: "Процессор", value: "CPU: 3GHz Dual Core (Intel Pentium G3220 or higher / AMD A4-4000 or higher)"},
 				{title: "Оперативная память", value: "2 GB ОЗУ"},
@@ -141,14 +141,14 @@ const arrayBigDataGames = [
 				{title: "Место на диске", value: "3 GB"},
 				{title: "Звуковая карта", value: "DirectX Compatible Sound Card"}
 			],
-			linux: [
+			Linux: [
 				{title: "ОС", value: "Ubuntu 12.04"},
 				{title: "Процессор", value: "3GHz Dual Core (Intel Pentium G3220 or higher / AMD A4-4000 or higher)"},
 				{title: "Оперативная память", value: "2 GB ОЗУ"},
 				{title: "Видеокарта", value: "Nvidia GeForce 550 or better / ATI Radeon HD 5850 or better"},
 				{title: "Место на диске", value: "3 GB"}
 			],
-			macOS: [
+			Apple: [
 				{title: "ОС", value: "OSX 10.7"},
 				{title: "Процессор", value: "Intel Core i5, 1.7GHz Dual-Core"},
 				{title: "Оперативная память", value: "4 GB ОЗУ"},
@@ -216,7 +216,7 @@ const arrayBigDataGames = [
 			]
 		},
 		systemRequirements: {
-			windows: [
+			Windows: [
 				{title: "OC", value: "Windows 10"},
 				{title: "Процессор", value: "INTEL CORE I5-8400 or AMD RYZEN 3 3300X"},
 				{title: "Оперативная память", value: "12 GB ОЗУ"},

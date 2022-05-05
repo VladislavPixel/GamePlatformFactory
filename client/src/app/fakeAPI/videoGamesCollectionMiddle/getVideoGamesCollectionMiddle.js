@@ -9,7 +9,7 @@ export const videoGamesCollectionMiddle = [
 		price: 87,
 		oldPrice: 349,
 		sale: 75,
-		platform: ["windows.svg", "apple.svg"],
+		platform: ["windows.svg", "linux.svg", "apple.svg"],
 		iconForTitle: "magic.svg",
 		iconForTitleAlt: "Рука мага",
 		subTitle: "Комбинация Жизни и Смерти"
@@ -36,7 +36,7 @@ export const videoGamesCollectionMiddle = [
 		tags: ["MOBA", "Развлечение", "Фэнтези", "action", "RPG", "Спекулятивная фантастика", "Societal"],
 		price: 0,
 		textPrice: "играй бесплатно",
-		platform: ["windows.svg", "apple.svg"],
+		platform: ["windows.svg", "apple.svg", "linux.svg"],
 		iconForTitle: "dota2.svg",
 		iconForTitleAlt: "Иконка игры Dota 2",
 		subTitle: "Сражение - это зрелищно"

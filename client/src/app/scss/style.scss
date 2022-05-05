@@ -64,6 +64,31 @@ $fontFamily: "Montserrat", sans-serif;
 		font-size: 15px;
 	}
 }
+// среднее сообщение, вывожу в тех местах, где данные не пришли и у меня есть кнопка, которая что-то должна сделать
+// (редирект например или отменить запрос какой-то, или сбросить state )
+.middle-message{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	&__button{
+		transition: border 0.4s ease 0s;
+		padding: 10px 25px;
+		border: 1px solid rgb(0, 76, 218);
+		color: #ffffff;
+		font-size: 18px;
+		box-shadow: 0 0 3px 0px #000;
+		margin-top: 45px;
+		@media(min-width: 992px) {
+			&:hover{
+				border: 1px solid #2EBFFF;
+			}
+		}
+		@media(max-width: 550px) {
+			margin-top: 25px;
+		}
+	}
+}
 // компонент пагинации
 .pagination-block{
 	display: flex;

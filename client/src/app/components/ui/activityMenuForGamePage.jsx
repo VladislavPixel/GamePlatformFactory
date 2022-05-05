@@ -27,11 +27,11 @@ const ActivityMenuForGamePage = ({ title, iconForTitle, iconForTitleAlt, tags, m
 				<p className="game-activity-menu__date">Дата выхода продукта: <span>{releaseDate}г.</span></p>
 				<div className="game-activity-menu__block-developer">
 					<img className="game-activity-menu__instruments-icon" src="/images/icons/hammer.svg" alt="Иконка инструментов для починки" />
-					<p className="game-activity-menu__developer">Команда разработчиков: <a href={developer.linkResourceDeveloper} target="_blank">{developer.name}</a></p>
+					<p className="game-activity-menu__developer">Команда разработчиков: <a href={developer.linkResourceDeveloper} rel="noreferrer" target="_blank">{developer.name}</a></p>
 				</div>
 				<div className="game-activity-menu__block-publisher">
 					<img className="game-activity-menu__publisher-icon" src="/images/icons/publisher.svg" alt="Иконка издателя" />
-					<p className="game-activity-menu__text-publisher">Издатель: <a href={publisher.linkResourcePublisher} target="_blank">{developer.name}</a></p>
+					<p className="game-activity-menu__text-publisher">Издатель: <a href={publisher.linkResourcePublisher} rel="noreferrer" target="_blank">{developer.name}</a></p>
 				</div>
 			</div>
 		</div>

@@ -21,18 +21,21 @@ const gamePageSlice = createSlice({
 			state.essence[action.payload.idMiddleParent] = action.payload
 			state.fetchStatus = "success"
 		},
-		gamePageSetStatus(state) {
+		gamePageSetStatusNotFound(state) {
 			state.fetchStatus = "dataGameNotFound"
 		},
 		gamePageRequestField(state, action) {
 			state.error = action.payload
 			state.fetchStatus = "dataGameNotFound"
+		},
+		gamePageSetStatusDefault(state) {
+			state.fetchStatus = "didNotSend"
 		}
 	}
 })
 
 const { actions, reducer: gamePageReducer } = gamePageSlice
-const { gamePageRequested, gamePageReceived, gamePageRequestField, gamePageSetStatus } = actions
+const { gamePageRequested, gamePageReceived, gamePageRequestField, gamePageSetStatusNotFound, gamePageSetStatusDefault } = actions
 
 // Actions
 export function fetchDataGame(idGame) {
@@ -43,13 +46,18 @@ export function fetchDataGame(idGame) {
 				if (data) {
 					dispatch(gamePageReceived(data))
 				} else {
-					dispatch(gamePageSetStatus())
+					dispatch(gamePageSetStatusNotFound())
 				}
 			})
 			.catch(err => {
 				const { message } = err
 				dispatch(gamePageRequestField(message))
 			})
+	}
+}
+export function setStatusGamePageFetchDefault() {
+	return (dispatch) => {
+		dispatch(gamePageSetStatusDefault())
 	}
 }
 
