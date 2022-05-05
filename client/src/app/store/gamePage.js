@@ -6,7 +6,8 @@ import fakeApi from "../fakeAPI"
 const initialState = {
 	essence: {},
 	error: null,
-	fetchStatus: "didNotSend"
+	isLoading: true,
+	targerId: null
 }
 
 const gamePageSlice = createSlice({
@@ -14,50 +15,52 @@ const gamePageSlice = createSlice({
 	initialState,
 	reducers: {
 		gamePageRequested(state) {
-			state.fetchStatus = "didNotSend"
+			state.isLoading = true
 			state.error = null
 		},
 		gamePageReceived(state, action) {
 			state.essence[action.payload.idMiddleParent] = action.payload
-			state.fetchStatus = "success"
-		},
-		gamePageSetStatusNotFound(state) {
-			state.fetchStatus = "dataGameNotFound"
+			state.isLoading = false
 		},
 		gamePageRequestField(state, action) {
 			state.error = action.payload
-			state.fetchStatus = "dataGameNotFound"
+			state.isLoading = false
 		},
-		gamePageSetStatusDefault(state) {
-			state.fetchStatus = "didNotSend"
+		gamePageStoppingDownloadProcess(state) {
+			state.isLoading = false
+		},
+		gamePageReceivedTargetId(state, action) {
+			state.targerId = action.payload
 		}
 	}
 })
 
 const { actions, reducer: gamePageReducer } = gamePageSlice
-const { gamePageRequested, gamePageReceived, gamePageRequestField, gamePageSetStatusNotFound, gamePageSetStatusDefault } = actions
+const {
+	gamePageRequested,
+	gamePageReceived,
+	gamePageRequestField,
+	gamePageStoppingDownloadProcess,
+	gamePageReceivedTargetId
+} = actions
 
 // Actions
 export function fetchDataGame(idGame) {
 	return async (dispatch) => {
+		dispatch(gamePageReceivedTargetId(idGame))
 		dispatch(gamePageRequested())
 		fakeApi.getBigDataGameById(idGame)
 			.then(data => {
 				if (data) {
 					dispatch(gamePageReceived(data))
 				} else {
-					dispatch(gamePageSetStatusNotFound())
+					dispatch(gamePageStoppingDownloadProcess())
 				}
 			})
 			.catch(err => {
 				const { message } = err
 				dispatch(gamePageRequestField(message))
 			})
-	}
-}
-export function setStatusGamePageFetchDefault() {
-	return (dispatch) => {
-		dispatch(gamePageSetStatusDefault())
 	}
 }
 
@@ -69,7 +72,12 @@ export const getDataGameById = (idGame) => {
 }
 export const getStatusFetchData = () => {
 	return (state) => {
-		return state.gamePage.fetchStatus
+		return state.gamePage.isLoading
+	}
+}
+export const getTargetIdElement = () => {
+	return (state) => {
+		return state.gamePage.targerId
 	}
 }
 

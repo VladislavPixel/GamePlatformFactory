@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 
 // Auxiliary
-import { getDataGameById, getStatusFetchData, fetchDataGame, setStatusGamePageFetchDefault } from "../../store/gamePage"
+import { getDataGameById, getStatusFetchData, fetchDataGame, getTargetIdElement } from "../../store/gamePage"
 import withLoading from "./withLoading"
 
 const GamePageLoader = ({ children }) => {
@@ -14,29 +14,25 @@ const GamePageLoader = ({ children }) => {
 	const dispatch = useDispatch()
 	const searchGameData = useSelector(getDataGameById(idGame))
 	const status = useSelector(getStatusFetchData())
+	const currentIdElement = useSelector(getTargetIdElement())
 	// STATE
 	const [isLoading, setLoading] = useState(true)
 
 	useEffect(() => {
-		if (searchGameData) { // ДОДЕЛАТЬ !!!
+		if (searchGameData) { // Если данные есть в Redux, то отключаем Spinner
 			setLoading(false)
-		} else if (status === "didNotSend") {
-			dispatch(fetchDataGame(idGame))
-		} else if (status === "success") {
-
-		} else if (status === "dataGameNotFound") {
-
+			return
 		}
-		if (searchGameData || status !== "didNotSend") {
-			if (status === "success") {
-				dispatch(setStatusGamePageFetchDefault())
+		if (status) { // Если загрузчик в статусе true - значит он еще ни разу не грузил данные
+			dispatch(fetchDataGame(idGame)) // делаем соответственно загрузку
+		} else { // если загрузчик отключен, значит уже что-то он запрашивал
+			if (currentIdElement !== idGame) { // убеждаемся делал ли он запрос для конкретного роута
+				dispatch(fetchDataGame(idGame))
 			} else {
-				
+				setLoading(false)
 			}
-		} else {
-			dispatch(fetchDataGame(idGame))
 		}
-	}, [searchGameData, status, idGame, dispatch])
+	}, [searchGameData, status, idGame, dispatch, currentIdElement])
 	const ChildrenWithLoading = withLoading(children, isLoading)
 	return <ChildrenWithLoading />
 }
