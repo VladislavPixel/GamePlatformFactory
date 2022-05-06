@@ -45,8 +45,6 @@ const GamePage = () => {
 			btnText: "Перейти в Магазин Factory.inc"
 		}
 	)
-
-	console.log("ДАТА, прилетели данные", game)
 	return (
 		<div className="block-content__game game-block">
 			{game ?

@@ -1,4 +1,5 @@
 .game-block{
+	overflow: hidden;
 	&__head-container{
 		width: 100%;
 		min-height: 810px;
@@ -283,6 +284,7 @@
 // Стили для полосы слайдов (Сразу под главным постером) (Admin Layot)
 .data-slider-game{
 	position: relative;
+	padding-bottom: 60px;
 	&:before{
 		content: "";
 		position: absolute;
@@ -405,13 +407,17 @@
 					background: #00FFAA;
 				}
 			}
+			&.no-active{
+				pointer-events: none;
+				opacity: 0.4;
+			}
 		}
 	}
 }
 
 // Стили для описания (сразу под слайдером) (Admin Layot)
 .game-about-block{
-	margin: 50px 15px 70px 15px;
+	margin: 10px 15px 70px 15px;
 	padding-bottom: 30px;
 	border-bottom: 1px solid #c9c9c9;
 	&__title{

@@ -18,6 +18,10 @@ const arrayBigDataGames = [
 			{path: "dota5.jpg", alt: "Juggernaut - персонаж из игры"},
 			{path: "dota6.jpg", alt: "Skeleton King - персонаж из игры"},
 			{path: "dota7.jpg", alt: "Meepo - персонаж из игры"},
+			{path: "dota8.jpg", alt: "Brewmaster - персонаж из игры"},
+			{path: "dota9.jpg", alt: "Antimage - персонаж из игры"},
+			{path: "dota10.jpg", alt: "OgreMag - персонаж с двумя головами из игры"},
+			{path: "dota11.jpg", alt: "Ember Spirit - персонаж из игры"}
 		],
 		aboutTheGame: {
 			title: "Готовься к самым эпичным битвам в твоей жизни.",
