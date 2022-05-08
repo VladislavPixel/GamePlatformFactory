@@ -1,22 +1,4 @@
 {
-	"aboutUsGames": [
-		{ "path": "eldenRing.jpg", "alt": "Логотип Elden Ring" },
-		{ "path": "godOfWar.jpg", "alt": "Логотип God of War" },
-		{ "path": "dyingLinght2StayHuman.jpg", "alt": "Логотип Dying Linght 2 Stay Human" },
-		{ "path": "dota2.jpg", "alt": "Логотип Dota 2" },
-		{ "path": "gta5.png", "alt": "Логотип GTA 5" },
-		{ "path": "theWitcher.jpg", "alt": "Логотип Ведьмак 3" },
-		{ "path": "starcraft2LegacyOfTheVoid.jpg", "alt": "Логотип Starcraft 2 Legacy Of The Void" },
-		{ "path": "beholder3poster.jpg", "alt": "Логотип Beholder 3" },
-		{ "path": "alloda.jpg", "alt": "Логотип Аллоды Онлайн" },
-		{ "path": "warface.jpg", "alt": "Логотип Warface" },
-		{ "path": "atomicHeart.jpg", "alt": "Логотип Atomic Heart" },
-		{ "path": "theDayBefore.jpg", "alt": "Логотип The Day Before" },
-		{ "path": "ill.jpg", "alt": "Логотип ILL (отечественный хоррор)" },
-		{ "path": "pioner.jpg", "alt": "Логотип Pioner" },
-		{ "path": "sparkInTheDark.jpg", "alt": "Логотип Spark In The Dark" },
-		{ "path": "tinyBunny.jpg", "alt": "Логотип Зайчик" }
-	],
 	"aboutUsValues": [
 		{"title": "Развлечение превыше всего", "text": "Отдых важен для каждого человека, и мы стараемся наполнить его самыми яркими красками. Нам важно, чтобы вы получали удовольствие.", "pathImage": "woman-pistols.jpg", "alt": "Девушка с пистолетами"},
 		{"title": "Только качество", "text": "Проработка даже самых мелких нюансов, вот что движет нами. Мы вдумчиво добавляем новые фичи и руководствуемся таким понятием как - 7 раз отмерь, один раз отреж. Постоянно модернизируя старое и добавляя новое - мы пытаемся довести ваше взаимодейтсвие с Factory до идеала. Чтобы вам было комфортно, и вам нравилось находиться здесь. Мы добиваемся того, чтобы вы общались и договаривались о совместной игре здесь, а не шли на сторонние ресурсы.", "pathImage": "orkSekir.jpg", "alt": "Орк из орды"},

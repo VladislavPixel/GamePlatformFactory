@@ -7,11 +7,11 @@ const AboutUsActivityElement = ({ title, text, path, alt, link, linkPath }) => {
 		<div className="activity-about-us__column">
 			<div className="activity-about-us__block-activity">
 				<div className="activity-about-us__wrap-image">
-					<img src={`./images/icons/${path}`} alt={alt} />
+					<img src={`/images/icons/${path}`} alt={alt} />
 				</div>
 				<h3 className="activity-about-us__title">{title}</h3>
 				<p className="activity-about-us__text">{text}</p>
-				{linkPath && <Link className="activity-about-us__link" to={linkPath}>{link}</Link>}
+				{linkPath && <Link title={`Перейти на страницу -> ${title}`} className="activity-about-us__link" to={linkPath}>{link}</Link>}
 			</div>
 		</div>
 	)

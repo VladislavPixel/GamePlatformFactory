@@ -12,7 +12,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "linux.svg", "apple.svg"],
 		iconForTitle: "magic.svg",
 		iconForTitleAlt: "Рука мага",
-		subTitle: "Комбинация Жизни и Смерти"
+		subTitle: "Комбинация Жизни и Смерти",
+		aboutUsGames: { path: "magicka2.jpg", alt: "Маг из игры сражается в красном плаще" }
 	},
 	{
 		_id: "1eldenRingMiddle77",
@@ -25,7 +26,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "warriorHelmet.svg",
 		iconForTitleAlt: "Шлем воина",
-		subTitle: "На тропе войны"
+		subTitle: "На тропе войны",
+		aboutUsGames: { path: "eldenRing.jpg", alt: "Логотип Elden Ring" }
 	},
 	{
 		_id: "2dota2lol56",
@@ -39,7 +41,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "apple.svg", "linux.svg"],
 		iconForTitle: "dota2.svg",
 		iconForTitleAlt: "Иконка игры Dota 2",
-		subTitle: "Сражение - это зрелищно"
+		subTitle: "Сражение - это зрелищно",
+		aboutUsGames: { path: "dota2.jpg", alt: "Логотип Dota 2" }
 	},
 	{
 		_id: "21spark567gamedec",
@@ -54,7 +57,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "cyberpunkWoman.svg",
 		iconForTitleAlt: "Девушка с прядью волос",
-		subTitle: "Технический нуар"
+		subTitle: "Технический нуар",
+		aboutUsGames: { path: "gamedec.jpg", alt: "3 персонажа из игры Gamedec, мужчина с бородой и железной рукой, бизнесмен, девушка" }
 	},
 	{
 		_id: "3atomicHeart564",
@@ -67,7 +71,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "apple.svg"],
 		iconForTitle: "robot.svg",
 		iconForTitleAlt: "Иконка робота",
-		subTitle: "У них есть душа?"
+		subTitle: "У них есть душа?",
+		aboutUsGames: { path: "atomicHeart.jpg", alt: "Логотип Atomic Heart" }
 	},
 	{
 		_id: "4theDayBefore9567",
@@ -80,7 +85,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "apple.svg", "playstation.svg", "xboxOne.svg"],
 		iconForTitle: "survival.svg",
 		iconForTitleAlt: "Иконка черепа в огне",
-		subTitle: "Выжить любой ценой"
+		subTitle: "Выжить любой ценой",
+		aboutUsGames: { path: "theDayBefore.jpg", alt: "Логотип The Day Before" }
 	},
 	{
 		_id: "5enlisted8776",
@@ -94,7 +100,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "playstation.svg", "xboxOne.svg"],
 		iconForTitle: "war.svg",
 		iconForTitleAlt: "Советские солдаты устанавливают знамя",
-		subTitle: "Фронт не ждет!"
+		subTitle: "Фронт не ждет!",
+		aboutUsGames: { path: "enlisted.jpg", alt: "Солдат СССР, а за стеной фашист" }
 	},
 	{
 		_id: "6beholder3lfdg8776",
@@ -107,7 +114,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "peoples.svg",
 		iconForTitleAlt: "Иконка на которой изображены 3 политика",
-		subTitle: "Влияние и манипуляция"
+		subTitle: "Влияние и манипуляция",
+		aboutUsGames: { path: "beholder3poster.jpg", alt: "Логотип Beholder 3" }
 	},
 	{
 		_id: "7lostArk8776",
@@ -121,7 +129,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "magicStaff.svg",
 		iconForTitleAlt: "Магический посох",
-		subTitle: "Дивный мир"
+		subTitle: "Дивный мир",
+		aboutUsGames: { path: "lostArk.jpg", alt: "Персонаж из игры LOSTARK" }
 	},
 	{
 		_id: "21spark567r435emnant",
@@ -136,7 +145,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "xboxOne.svg", "playstation.svg"],
 		iconForTitle: "rat.svg",
 		iconForTitleAlt: "Крыса",
-		subTitle: "Дай ЖАРУ"
+		subTitle: "Дай ЖАРУ",
+		aboutUsGames: { path: "remnant.png", alt: "Главного героя игры опутали щупальцами монстры" }
 	},
 	{
 		_id: "8godOfWar8776",
@@ -149,7 +159,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "axe.svg",
 		iconForTitleAlt: "Секира Кратоса",
-		subTitle: "Кратос на тропе войны"
+		subTitle: "Кратос на тропе войны",
+		aboutUsGames: { path: "godOfWar.jpg", alt: "Логотип God of War" }
 	},
 	{
 		_id: "9dlsh84545",
@@ -162,7 +173,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "zombie.svg",
 		iconForTitleAlt: "Голова зомби",
-		subTitle: "Двигайся!"
+		subTitle: "Двигайся!",
+		aboutUsGames: { path: "dyingLinght2StayHuman.jpg", alt: "Логотип Dying Linght 2 Stay Human" }
 	},
 	{
 		_id: "10gta5jkjh84545",
@@ -175,7 +187,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "apple.svg"],
 		iconForTitle: "gta5.svg",
 		iconForTitleAlt: "Логотип GTA 5",
-		subTitle: "Деньги, как смысл жизни"
+		subTitle: "Деньги, как смысл жизни",
+		aboutUsGames: { path: "gta5.png", alt: "Логотип GTA 5" }
 	},
 	{
 		_id: "11theWither5jkjh84545",
@@ -188,7 +201,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "apple.svg"],
 		iconForTitle: "witcher.svg",
 		iconForTitleAlt: "Голова волка",
-		subTitle: "Освободи земли от демонов"
+		subTitle: "Освободи земли от демонов",
+		aboutUsGames: { path: "theWitcher.jpg", alt: "Логотип Ведьмак 3" }
 	},
 	{
 		_id: "1276853star",
@@ -201,7 +215,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "nlo.svg",
 		iconForTitleAlt: "Голова инопланетянина",
-		subTitle: "Чувствую битву"
+		subTitle: "Чувствую битву",
+		aboutUsGames: { path: "starcraft2LegacyOfTheVoid.jpg", alt: "Логотип Starcraft 2 Legacy Of The Void" }
 	},
 	{
 		_id: "21spark567batlearenafdgdfg000",
@@ -216,7 +231,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "crossedSwords.svg",
 		iconForTitleAlt: "Перекрещенные мечи",
-		subTitle: "Биться во имя света"
+		subTitle: "Биться во имя света",
+		aboutUsGames: { path: "battleBrothers.jpg", alt: "Логотип Battle Brothers" }
 	},
 	{
 		_id: "1356756",
@@ -230,7 +246,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "pipe.svg",
 		iconForTitleAlt: "Трубы",
-		subTitle: "Мастери и помни, главное смекалка"
+		subTitle: "Мастери и помни, главное смекалка",
+		aboutUsGames: { path: "apertureDeskJob.jpg", alt: "Логотип Aperture Desk Job" }
 	},
 	{
 		_id: "14farChanging43534",
@@ -243,7 +260,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "ship.svg",
 		iconForTitleAlt: "Штурвал корабля",
-		subTitle: "Приключения зовут"
+		subTitle: "Приключения зовут",
+		aboutUsGames: { path: "farChangingTides.jpg", alt: "FAR: Changing Tides" }
 	},
 	{
 		_id: "156786878rtyrtfghfhg",
@@ -256,7 +274,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "viking.svg",
 		iconForTitleAlt: "Шлем викинга",
-		subTitle: "Время побеждать"
+		subTitle: "Время побеждать",
+		aboutUsGames: { path: "conanChopChop.jpg", alt: "Conan Chop Chop" }
 	},
 	{
 		_id: "16alloda54646mbn",
@@ -270,7 +289,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "luchi.svg",
 		iconForTitleAlt: "Лучи, звездочки",
-		subTitle: "Погрузись в Аллоды"
+		subTitle: "Погрузись в Аллоды",
+		aboutUsGames: { path: "alloda.jpg", alt: "Логотип Аллоды Онлайн" }
 	},
 	{
 		_id: "17warface54646mbn",
@@ -284,7 +304,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "xboxOne.svg", "playstation.svg"],
 		iconForTitle: "gun.svg",
 		iconForTitleAlt: "Пистолет",
-		subTitle: "Вступай в команду Warface"
+		subTitle: "Вступай в команду Warface",
+		aboutUsGames: { path: "warface.jpg", alt: "Логотип Warface" }
 	},
 	{
 		_id: "18ill54646mbn",
@@ -297,7 +318,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "handZombie.svg",
 		iconForTitleAlt: "Рука зомби из земли",
-		subTitle: "Не оборачивайся!!!"
+		subTitle: "Не оборачивайся!!!",
+		aboutUsGames: { path: "ill.jpg", alt: "Логотип ILL (отечественный хоррор)" }
 	},
 	{
 		_id: "19pioner54646mbn",
@@ -310,7 +332,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "xboxOne.svg", "playstation.svg"],
 		iconForTitle: "blowHeadZombie.svg",
 		iconForTitleAlt: "Человек бьет зомби по голове",
-		subTitle: "Мы должны выжить на этой земле"
+		subTitle: "Мы должны выжить на этой земле",
+		aboutUsGames: { path: "pioner.jpg", alt: "Логотип Pioner" }
 	},
 	{
 		_id: "20tbunny567567",
@@ -323,7 +346,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "hare.svg",
 		iconForTitleAlt: "Голова зайца",
-		subTitle: "Зайчик, зайчик попрыгайчик..."
+		subTitle: "Зайчик, зайчик попрыгайчик...",
+		aboutUsGames: { path: "tinyBunny.jpg", alt: "Логотип Зайчик" }
 	},
 	{
 		_id: "21spark567gfhfg",
@@ -337,7 +361,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "apple.svg"],
 		iconForTitle: "spider.svg",
 		iconForTitleAlt: "Паук",
-		subTitle: "Подземелья таят невероятную угрозу"
+		subTitle: "Подземелья таят невероятную угрозу",
+		aboutUsGames: { path: "sparkInTheDark.jpg", alt: "Логотип Spark In The Dark" }
 	},
 	{
 		_id: "21spark567gfhfggcsgo90",
@@ -350,7 +375,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "apple.svg"],
 		iconForTitle: "soldier.svg",
 		iconForTitleAlt: "Солдат",
-		subTitle: "Пора ринуться в бой"
+		subTitle: "Пора ринуться в бой",
+		aboutUsGames: { path: "csGO.jpg", alt: "CS:GO" }
 	},
 	{
 		_id: "21spark567gfhfgmonster8",
@@ -363,7 +389,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "monsterHead.svg",
 		iconForTitleAlt: "Голова монстра",
-		subTitle: "Готов ли ты сразиться?"
+		subTitle: "Готов ли ты сразиться?",
+		aboutUsGames: { path: "monsterHunterRise.jpg", alt: "Логотип Monster Hunter Rise и монстр из игры" }
 	},
 	{
 		_id: "21spark567gfhfgdetroit9090",
@@ -376,7 +403,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "chipBrain.svg",
 		iconForTitleAlt: "Мозг робота - чип",
-		subTitle: "Возможно стать человеком..."
+		subTitle: "Возможно стать человеком...",
+		aboutUsGames: { path: "detroitBecomeHuman.jpg", alt: "Логотип Detroit: Become Human" }
 	},
 	{
 		_id: "21spark567gfhfgdayzzzzzzz",
@@ -389,7 +417,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "zombieHead.svg",
 		iconForTitleAlt: "Голова зомби",
-		subTitle: "О! Враждебный мир"
+		subTitle: "О! Враждебный мир",
+		aboutUsGames: { path: "dayz.jpg", alt: "Логотип dayz" }
 	},
 	{
 		_id: "21spark567gfhfgmadisonhor",
@@ -402,7 +431,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "ghost.svg",
 		iconForTitleAlt: "Чудовище в халате",
-		subTitle: "Не включай вспышку!"
+		subTitle: "Не включай вспышку!",
+		aboutUsGames: { path: "madison.jpg", alt: "Логотип MADiSON" }
 	},
 	{
 		_id: "21spark567gfhfyoungiiiii",
@@ -415,7 +445,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "hero.svg",
 		iconForTitleAlt: "Иконка героя",
-		subTitle: "Стань борцом за справедливость"
+		subTitle: "Стань борцом за справедливость",
+		aboutUsGames: { path: "youngSouls.jpg", alt: "Логотип Young Souls" }
 	},
 	{
 		_id: "21spark567gfhfhyperbolica546",
@@ -428,7 +459,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "vr.svg"],
 		iconForTitle: "abstractionCube.svg",
 		iconForTitleAlt: "Иконка абстрактного куба",
-		subTitle: "Мир чудес"
+		subTitle: "Мир чудес",
+		aboutUsGames: { path: "hyperbolica.jpg", alt: "HYPERBOLICA логотип на фоне Земли" }
 	},
 	{
 		_id: "21spark567patfinderdfgdfg435345",
@@ -443,7 +475,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg", "apple.svg"],
 		iconForTitle: "witch.svg",
 		iconForTitleAlt: "Дом ведьмы",
-		subTitle: "Если долго вглядываться в темноту, можно увидеть свет"
+		subTitle: "Если долго вглядываться в темноту, можно увидеть свет",
+		aboutUsGames: { path: "pathfinder.jpg", alt: "Pathfinder: Wrath of the Righteous логотип" }
 	},
 	{
 		_id: "21spark567gfhfdistantworld435",
@@ -456,7 +489,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "spacePlants.svg",
 		iconForTitleAlt: "Планеты в космосе",
-		subTitle: "Борозди просторы и укрепи альянс"
+		subTitle: "Борозди просторы и укрепи альянс",
+		aboutUsGames: { path: "distantWorlds2.jpg", alt: "Логотип Distant Worlds 2 на фоне космоса" }
 	},
 	{
 		_id: "21spark567ruin",
@@ -469,7 +503,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "moba.svg",
 		iconForTitleAlt: "Иконка специфики MOBA - карта",
-		subTitle: "Арена ждет тебя!"
+		subTitle: "Арена ждет тебя!",
+		aboutUsGames: { path: "ruin.jpg", alt: "Персонаж из игры RuIN" }
 	},
 	{
 		_id: "21spark567warhammmm",
@@ -484,7 +519,8 @@ export const videoGamesCollectionMiddle = [
 		platform: ["windows.svg"],
 		iconForTitle: "orc.svg",
 		iconForTitleAlt: "Морда орка - иконка",
-		subTitle: "Осторожно топор!!!!"
+		subTitle: "Осторожно топор!!!!",
+		aboutUsGames: { path: "warhammerVer2.png", alt: "Логотип Warhammer: Vermintide 2" }
 	}
 ]
 

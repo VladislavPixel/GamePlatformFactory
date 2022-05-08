@@ -10,15 +10,15 @@ const AboutUsOpportunitiesRow = ({ title, text, link, icon, alt, indexElement, p
 				<div className="opportunities-about-us__info">
 					<h3 className="opportunities-about-us__title">{title}</h3>
 					<p className="opportunities-about-us__message">{text}</p>
-					<Link className="opportunities-about-us__link" to={path}>
+					<Link title={`Нажми для перехода на страницу: "${link}"`} className="opportunities-about-us__link" to={path}>
 						{link}
-						<img src="./images/icons/arrowBlueSky.svg" alt="Голубая стрелка" />
+						<img src="/images/icons/arrowBlueSky.svg" alt="Голубая стрелка" />
 					</Link>
 				</div>
 			</div>
 			<div className="opportunities-about-us__column">
 				<div className="opportunities-about-us__poster-block opportunities-about-us__poster-block_rotate-img">
-					<img src={`./images/icons/${icon}`} alt={alt} />
+					<img src={`/images/icons/${icon}`} alt={alt} />
 				</div>
 			</div>
 		</div>
