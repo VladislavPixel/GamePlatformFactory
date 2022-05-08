@@ -10,7 +10,7 @@ const GamePageSliderList = ({ data, onUpdatePoster, currentConfig, onSetWidthLis
 
 	useEffect(() => {
 		onSetWidthList(listBlock.current.offsetWidth)
-	}, [])
+	}, [onSetWidthList])
 	return (
 		<div style={configList} ref={listBlock} className="data-slider-game__list">
 			{data.map((item, index) => <GamePageSlide onSetWidthSlide={onSetWidthSlide} key={index} {...item} onUpdatePoster={onUpdatePoster} currentConfig={currentConfig} />)}

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect, startTransition } from "react"
 import PropTypes from "prop-types"
 
 // Components
@@ -7,8 +7,6 @@ import GamePageSliderList from "./gamePageSliderList"
 const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConfig }) => {
 	// STATE
 	const [currentPage, setCurrentPage] = useState(0)
-	const [widthListContainer, setWidthListContainer] = useState(null)
-	const [widthSlideGamePage, setWidthSlideGamePage] = useState(null)
 	const [configList, setConfigList] = useState({ transform: "translateX(0px)" })
 	const [toddlerConfig, setToddlerConfig] = useState({ left: "0px"})
 	// AUXILIARY
@@ -16,16 +14,20 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 	const band = useRef(null) // ссылка на дорожку по которой двигается ползунок
 	const toddlerEl = useRef(null) // ссылка на ползунок
 	const container = useRef(null) // ссылка на весь блок
+	const widthSlideGamePage = useRef(null) // ширина 1 слайда
+	const widthBand = useRef(null) // ширина дорожки ползунка
+	const widthListContainer = useRef(null) // ширина контенера со слайдами
+	const leftOffsetBand = useRef(null) // смещение дорожки относительно родителя (у него получается от самого края)
+	const leftBorderOffsetToddler = useRef(null) // смещение ползунка относительно родителя
 	let widthClickOnToddler = null // в момент клика по ползунку мы получаем ширину от его крайней точки до точки клика по нему
-	let maximumDisplacement = null // Максимально допустимое смещение ползунка, чтобы он не вываливался за край дорожки
-	const leftOffsetBand = band.current?.offsetLeft // смещение дорожки относительно родителя (у него получается от самого края)
-	const leftBorderOffsetToddler = toddlerEl.current?.offsetLeft // смещение ползунка относительно родителя
-	const widthBand = band.current?.offsetWidth // ширина дорожки ползунка
 	// HANDLERS
-	const handlerSetWidthList = (widthData) => setWidthListContainer(widthData)
-	const handlerSetWidthGamePageSlide = (widthValue) => setWidthSlideGamePage(widthValue)
+	const handlerSetWidthList = (widthData) => widthListContainer.current = widthData
+	const handlerSetWidthGamePageSlide = (widthValue) => widthSlideGamePage.current = widthValue
 	const handlerShiftList = (directionStr) => {
+		if (directionStr === "left" && currentPage === 0) return
+		if (directionStr === "right" && allPage - 1 === currentPage) return
 		let pageValue = currentPage
+		const ratio = widthSlideGamePage.current * arrHeadData.length / widthBand.current
 		if (directionStr === "left") {
 			setCurrentPage(prevState => prevState - 1)
 			pageValue--
@@ -34,34 +36,50 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 			setCurrentPage(prevState => prevState + 1)
 			pageValue++
 		}
-		setConfigList({ transform: `translateX(-${pageValue * widthListContainer}px)` })
+		setToddlerConfig({ left: `${(widthSlideGamePage.current * 5) * pageValue / ratio}px` })
+		setConfigList({ transform: `translateX(-${pageValue * widthListContainer.current}px)` })
 	}
 	const moveAt = (pageX) => {
-		console.log(widthSlideGamePage * arrHeadData.length, ": ШИРИНА БЛОКА С КАРТИНКАМИ")
-		console.log(widthBand, "Ширина дорожки")
-		let correctValue = pageX - leftOffsetBand - widthClickOnToddler
-		const trigger = correctValue + toddlerEl.current?.offsetWidth
-		if (trigger === widthBand) {
-			maximumDisplacement = correctValue
-		} else if (trigger > widthBand) {
-			correctValue = maximumDisplacement
+		let correctValue = pageX - leftOffsetBand.current - widthClickOnToddler
+		const trigger = correctValue + toddlerEl.current.offsetWidth
+		const ratio = widthSlideGamePage.current * arrHeadData.length / widthBand.current
+		if (trigger >= widthBand.current) {
+			correctValue = widthBand.current - toddlerEl.current.offsetWidth
 		} else if (correctValue <= 0) {
 			correctValue = 0
 		}
 		setToddlerConfig({ left: `${correctValue}px` })
-		setConfigList({ transform: `translateX(-${correctValue}px)` })
+		startTransition(() => { // React 18 Function
+			setConfigList({ transform: `translateX(-${correctValue * ratio}px)` })
+		})
 	}
 	const handlerBandMove = ({ pageX }) => moveAt(pageX)
 	const handlerToddlerUp = () => band.current.removeEventListener("mousemove", handlerBandMove)
 	function handlerToddlerPress({ pageX }) {
-		widthClickOnToddler = pageX - leftOffsetBand - leftBorderOffsetToddler
+		widthClickOnToddler = pageX - leftOffsetBand.current - leftBorderOffsetToddler.current
 		band.current.addEventListener("mousemove", handlerBandMove)
 		band.current.addEventListener("mouseup", handlerToddlerUp)
 	}
+	const handlerMoveContainer = (event) => {
+		if (event.target.parentElement !== band.current) handlerToddlerUp()
+	}
+	useEffect(() => { // ИНИЦИАЛИЗАЦИЯ ПЕРЕМЕННЫХ, важно чтобы рендер их не скидывал в неопределенные значения, поэтому Ref
+		if (band.current) {
+			widthBand.current = band.current.offsetWidth
+			leftOffsetBand.current = band.current.offsetLeft
+		}
+		if (toddlerEl.current) {
+			toddlerEl.current.addEventListener("mousedown", handlerToddlerPress)
+			leftBorderOffsetToddler.current = toddlerEl.current.offsetLeft
+		}
+		if (container.current) {
+			container.current.addEventListener("mouseup", handlerToddlerUp)
+			container.current.addEventListener("mousemove", handlerMoveContainer)
+		}
+	}, [])
 	useEffect(() => {
-		if (toddlerEl.current) toddlerEl.current.addEventListener("mousedown", handlerToddlerPress)
-		if (container.current) container.current.addEventListener("mouseup", handlerToddlerUp)
-	})
+		leftBorderOffsetToddler.current = toddlerEl.current.offsetLeft
+	}, [toddlerConfig])
 	return (
 		<div ref={container} className="game-block__slider-data data-slider-game">
 			<GamePageSliderList configList={configList} data={arrHeadData} onUpdatePoster={onUpdatePoster} currentConfig={currentConfig} onSetWidthList={handlerSetWidthList} onSetWidthSlide={handlerSetWidthGamePageSlide} />
