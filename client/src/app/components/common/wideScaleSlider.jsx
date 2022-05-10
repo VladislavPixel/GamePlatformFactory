@@ -7,22 +7,22 @@ import WideScaleSliderSlide from "../ui/wideScaleSliderSlide"
 // Auxiliary
 import getArrayByNumber from "../../utils/getArrayByNumber"
 
-const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
+const WideScaleSlider = ({ classWrap, title, data, pathImages }) => {
 	const wideScaleComponent = useRef(null)
 	const [currentSlide, setCurrentSlide] = useState(2)
 	const [duration, setDuration] = useState(0.3)
 	// Data collection
 	const [clones] = useState({
-		head: [dataSliders[dataSliders.length - 2], dataSliders[dataSliders.length - 1]],
-		tail: [dataSliders[0], dataSliders[1]]
+		head: [data[data.length - 2], data[data.length - 1]],
+		tail: [data[0], data[1]]
 	})
 	const [correctArray] = useState([
 		...clones.head,
-		...dataSliders,
+		...data,
 		...clones.tail
 	])
 	// Pagins
-	const arrayPagination = getArrayByNumber(dataSliders.length)
+	const arrayPagination = getArrayByNumber(data.length)
 	// STATE
 	const [widthWideScale, setWidthWideScale] = useState(null)
 	const [widthColumn, setWidthColumn] = useState(null)
@@ -68,12 +68,12 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 				flushSync (() => { // to opt out of batching
 					setDuration(0)
 					setDisplacementBody(prevState => prevState + (widthColumn + 30) * (correctArray.length - clones.tail.length - 2))
-					setCurrentSlide(7)
+					setCurrentSlide(correctArray.length - clones.tail.length - 1)
 				})
 				setDuration(0.3)
 			}, 310)
 		}
-		if (currentSlide === 8) {
+		if (currentSlide === correctArray.length - clones.tail.length) {
 			setTimeout(() => {
 				flushSync (() => { // to opt out of batching
 					setDuration(0)
@@ -83,7 +83,7 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 				setDuration(0.3)
 			}, 310)
 		}
-	}, [currentSlide, clones.tail.length, correctArray.length, widthColumn, clones.head.length])
+	}, [currentSlide, clones.tail.length, correctArray.length, widthColumn, clones.head.length, defaultOffsetBody])
 	useEffect(() => {
 		setWidthWideScale(wideScaleComponent.current.offsetWidth)
 	}, [])
@@ -97,12 +97,12 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 				<button onClick={() => {
 					handlerArrowController("left")
 				}} type="button" className="wide-scale-slider__btn-prev control-wide-scale-slider">
-					<img src="./images/icons/arrowTriangleWhite.svg" alt="Иконка треугольной трелки" />
+					<img src="/images/icons/arrowTriangleWhite.svg" alt="Иконка треугольной трелки" />
 				</button>
 				<button onClick={() => {
 					handlerArrowController("right")
 				}} type="button" className="wide-scale-slider__btn-next control-wide-scale-slider">
-					<img src="./images/icons/arrowTriangleWhite.svg" alt="Иконка треугольной трелки" />
+					<img src="/images/icons/arrowTriangleWhite.svg" alt="Иконка треугольной трелки" />
 				</button>
 				<div className="wide-scale-slider__pagination">
 					{arrayPagination.map(pagin => <div onClick={() => handlerPagin(pagin._id)} className={`wide-scale-slider__pagin${pagin._id === currentSlide - clones.head.length ? " active" : ""}`} key={pagin._id}></div>)}
@@ -115,7 +115,7 @@ const WideScaleSlider = ({ classWrap, title, dataSliders, pathImages }) => {
 WideScaleSlider.propTypes = {
 	classWrap: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
-	dataSliders: PropTypes.array.isRequired,
+	data: PropTypes.array,
 	pathImages: PropTypes.string.isRequired
 }
 

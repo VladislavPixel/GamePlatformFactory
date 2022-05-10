@@ -1,9 +1,15 @@
 import React, { useRef, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import PropTypes from "prop-types"
 
-const WideScaleSliderSlide = ({ targetSlideIndex, pathImages, slides, title, onHandlerRef, currentSlide }) => {
+const WideScaleSliderSlide = ({ targetSlideIndex, pathImages, slides, title, onHandlerRef, currentSlide, pathPage }) => {
+	// AUXILIARY
+	let navigate = useNavigate()
 	const isEven = ((targetSlideIndex + 1) % 2) === 0
 	const refColumn = useRef(null)
+	// HANDLERS
+	const handlerBtnMoreInfo = () => navigate(`/game/${pathPage}`)
+
 	useEffect(() => {
 		if (targetSlideIndex === 0) onHandlerRef(refColumn.current.offsetWidth)
 	}, [targetSlideIndex, onHandlerRef])
@@ -14,7 +20,7 @@ const WideScaleSliderSlide = ({ targetSlideIndex, pathImages, slides, title, onH
 					<img src={pathImages + slides.path} alt={slides.alt} />
 					<div className="wide-scale-slider__content">
 						<h3 className="wide-scale-slider__text">{title}</h3>
-						<button type="button" className="wide-scale-slider__btn">Подробнее</button>
+						<button onClick={handlerBtnMoreInfo} type="button" className="wide-scale-slider__btn">Подробнее</button>
 					</div>
 				</React.Fragment> :
 				<React.Fragment>
@@ -41,7 +47,8 @@ WideScaleSliderSlide.propTypes = {
 	title: PropTypes.string.isRequired,
 	onHandlerRef: PropTypes.func,
 	targetSlideIndex: PropTypes.number.isRequired,
-	currentSlide: PropTypes.number.isRequired
+	currentSlide: PropTypes.number.isRequired,
+	pathPage: PropTypes.string
 }
 
 export default WideScaleSliderSlide

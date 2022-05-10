@@ -1,0 +1,2 @@
+import getVideoGamesCollectionLite from "./getVideoGamesCollectionLite"
+export default getVideoGamesCollectionLite

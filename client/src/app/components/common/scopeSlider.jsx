@@ -13,9 +13,14 @@ const ScopeSlider = ({ classesParent }) => {
 	const dataMiddleGames = useSelector(getDataGamesMiddle())
 	const dataScopeSlider = useSelector(getDataScopeSlider())
 	// STATE
+	const [currentPagin, setCurrentPagin] = useState(0)
 	const [selectedScope, setSelectedScope] = useState(dataScopeSlider[0])
 	// HANDLERS
-	const handlerUpdateSelectedScope = (newScope) => setSelectedScope(newScope)
+	const handlerUpdateCurrentPagin = (newCurrentPagin) => setCurrentPagin(newCurrentPagin) 
+	const handlerUpdateSelectedScope = (newScope) => {
+		setSelectedScope(newScope)
+		handlerUpdateCurrentPagin(0)
+	}
 	// AUXILIARY
 	const games = dataMiddleGames.filter(element => {
 		if (element.price === "ОЖИДАНИЕ") return null
@@ -29,7 +34,7 @@ const ScopeSlider = ({ classesParent }) => {
 				<div className="slider-scope__block-btn">
 					{dataScopeSlider.map((item, index) => <button onClick={() => handlerUpdateSelectedScope(item)} className={"slider-scope__button" + (index === 1 ? " slider-scope__button_green" : index === 0 ? " slider-scope__button_yellow" : "") + (selectedScope === item ? " active" : "")} key={item._id} type="button">{`${getValuePrice(item.minScope)} - ${getValuePrice(item.maxScope)}`}</button>)}
 				</div>
-				<ScopeSliderBlock data={games} />
+				<ScopeSliderBlock onUpdatePagin={handlerUpdateCurrentPagin} targetPagin={currentPagin} data={games} />
 			</div>
 		</div>
 	)
