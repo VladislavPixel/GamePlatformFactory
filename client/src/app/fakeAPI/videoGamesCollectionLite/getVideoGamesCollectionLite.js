@@ -112,6 +112,9 @@ const arrayData = [
 	{
 		_id: "allodavcbbv435435y4zxc",
 		idMiddleParent: "16alloda54646mbn",
+		homePageSliderGallery: {
+			poster: {pathView: "allodaView.jpg", alt: "Эльфы сидят за столом"},
+		},
 		homePageWideScale: [
 			{
 				_id: "A11",
