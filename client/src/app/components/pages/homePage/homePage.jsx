@@ -35,6 +35,7 @@ const HomePage = () => {
 	useEffect(() => {
 		if (homeCategoryData) { setHomeCategoryLoader(false) }
 	}, [homeCategoryData])
+	console.log(sliderGalleryData, "ДАнные на популярный слайдер")
 	return (
 		<div className="block-content__home home-block">
 			<HomeHead />

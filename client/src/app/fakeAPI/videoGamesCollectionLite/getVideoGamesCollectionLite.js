@@ -241,6 +241,28 @@ const arrayData = [
 			}
 		]
 	},
+	{
+		_id: "spaaaarkvcbnmb3242345564",
+		idMiddleParent: "21spark567gfhfg",
+		homePageWideScale: [
+			{
+				_id: "A23",
+				title: "Спускайся в подземелье",
+				pathPage: "21spark567gfhfg",
+				slides: {path: "sparkInTheDark.jpg", alt: "Воин пробирается по подземельям"}
+			},
+			{
+				_id: "A24",
+				title: "SPARK in the Dark",
+				slides: [
+					{path: "sparkInTheDarkC1.jpg", alt: "Воин стоит внутри подземелья с окровавленным оружием"},
+					{path: "sparkInTheDarkC2.jpg", alt: "Воин в подземелье"},
+					{path: "sparkInTheDarkC3.jpg", alt: "Воин перед подземельем"},
+					{path: "sparkInTheDarkC4.jpg", alt: "Черная тварь в перьях"}
+				]
+			}
+		]
+	}
 ]
 
 function getVideoGamesCollectionLite() {

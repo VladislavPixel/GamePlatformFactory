@@ -5,6 +5,7 @@ const array = [
 	{ _id: "pi043599", idMiddleParent: "19pioner54646mbn", rate: 9.4 },
 	{ _id: "ill546456xxcv", idMiddleParent: "18ill54646mbn", rate: 9.2 },
 	{ _id: "bex345546vbnbnm", idMiddleParent: "6beholder3lfdg8776", rate: 8.8 },
+	{ _id: "spark345in435435the4353dark", idMiddleParent: "21spark567gfhfg", rate: 8.8 },
 	{ _id: "tdb2345vcbcvb", idMiddleParent: "4theDayBefore9567", rate: 8.5 },
 	{ _id: "la214435bnmxcv", idMiddleParent: "7lostArk8776", rate: 8.3 },
 	{ _id: "en132123lghgh", idMiddleParent: "5enlisted8776", rate: 8.0 },
