@@ -214,9 +214,9 @@ const arrayData = [
 				titleChief: "Будь осторожен",
 				galleryImages: [
 					{path: "illGallery1.jpeg", alt: "Герой идет по разрушенному дому"},
-					{path: "dayzGallery2.jpg", alt: "Выживший целится в дом из ружья"}, // ДОДЕЛАТЬ DATA
-					{path: "dayzGallery3.jpg", alt: "Выживший отстреливается от зомби"},
-					{path: "dayzGallery4.jpg", alt: "Походные сумки"}
+					{path: "illGallery2.jpg", alt: "Чудовища в крови"},
+					{path: "illGallery3.jpg", alt: "Зомби у которого нет глаз"},
+					{path: "illGallery4.jpg", alt: "Зомби убил человека"}
 				]
 			}
 		},
@@ -367,6 +367,22 @@ const arrayData = [
 					{path: "dayzGallery2.jpg", alt: "Выживший целится в дом из ружья"},
 					{path: "dayzGallery3.jpg", alt: "Выживший отстреливается от зомби"},
 					{path: "dayzGallery4.jpg", alt: "Походные сумки"}
+				]
+			}
+		}
+	},
+	{
+		_id: "dota3213123vcbbnmbnmb,,",
+		idMiddleParent: "2dota2lol56",
+		homePageSliderGallery: {
+			poster: {pathView: "dota2View.jpg", alt: "Иконка Dota2 и падающие кометы"},
+			auxiliary: {
+				titleChief: "Сражайся и побеждай",
+				galleryImages: [
+					{path: "dota2sc1.jpg", alt: "Герой Разор"},
+					{path: "dota2sc2.jpg", alt: "Герой рубик"},
+					{path: "dota2sc3.jpg", alt: "Герой Энигма"},
+					{path: "dota2sc4.jpg", alt: "Лина"}
 				]
 			}
 		}

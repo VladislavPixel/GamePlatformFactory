@@ -1,22 +1,25 @@
 import React, { useState, useEffect, useRef } from "react"
+import { useNavigate } from "react-router-dom"
 import PropTypes from "prop-types"
 
 // Components
 import ContentSliderGallery from "../ui/contentSliderGallery"
 
 const SliderGallery = ({ title, data, posters, ...rest }) => {
-	const SLIDER_GALLERY_HEIGHT = 512
+	// STATE
 	const [currentValue, setCurrentValue] = useState(0)
 	const [elementConfig, setElementConfig] = useState(null)
 	const [screenBodyOffset, setScreenBodyOffset] = useState(0)
 	const [screenBodyTranslate, setScreenBodyTranslate] = useState({ transform: "translateX(0px)" })
 	const [contentWrapperTranslate, setContentWrapperTranslate] = useState({ transform: "translateY(0px)" })
+	// AUXILIARY
+	const navigate = useNavigate()
+	const SLIDER_GALLERY_HEIGHT = 512
 	const refScrinBody = useRef(null)
 	const array = []
 	const currentSlide = data[currentValue]
-	for (let i = 0; i < data.length; i++) {
-		array.push({ id: i })
-	}
+	for (let i = 0; i < data.length; i++) array.push({ id: i })
+	// HANDLERS
 	const getTranslateStyles = (direction, newCurrentValue) => {
 		let value
 		let val
@@ -75,17 +78,17 @@ const SliderGallery = ({ title, data, posters, ...rest }) => {
 						{getPoster()}
 						<div className="block-slider-gallery__content-poster">
 							<div className="block-slider-gallery__text">{currentSlide.titleChief}</div>
-							<button type="button" className="block-slider-gallery__btn">{currentSlide.titleButton}</button>
+							<button onClick={() => navigate(`/game/${currentSlide._id}`)} type="button" className="block-slider-gallery__btn">{currentSlide.price === "ОЖИДАНИЕ" ? "Быть первым" : "Узнать больше"}</button>
 						</div>
 						<div onClick={() => {
 							handlerBtnArrow("left")
 						}} className={`block-slider-gallery__arrow block-slider-gallery__arrow_left` + (currentValue === 0 ? " none-show" : "")}>
-							<img src="./images/icons/doubleArrow.svg" alt="Иконка стрелки-контроллера" />
+							<img src="/images/icons/doubleArrow.svg" alt="Иконка стрелки-контроллера" />
 						</div>
 						<div onClick={() => {
 							handlerBtnArrow("right")
 						}} className={`block-slider-gallery__arrow block-slider-gallery__arrow_right` + (currentValue === (array.length - 1) ? " none-show" : "")}>
-							<img src="./images/icons/doubleArrow.svg" alt="Иконка стрелки-контроллера" />
+							<img src="/images/icons/doubleArrow.svg" alt="Иконка стрелки-контроллера" />
 						</div>
 					</div>
 					<div className="block-slider-gallery__column" style={{ maxHeight: SLIDER_GALLERY_HEIGHT + "px" }}>

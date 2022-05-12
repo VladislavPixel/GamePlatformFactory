@@ -9,20 +9,15 @@ import HomeCategoryBlock from "../../common/homeCategoryBlock"
 import Spinner from "../../common/spinner"
 import WideScaleSlider from "../../common/wideScaleSlider"
 import RusGamesForWideScaleHomeGlobalLoader from "../../HOC/rusGamesForWideScaleHome"
+import GamesRateGallerySliderLoaderGlobalForHome from "../../HOC/gamesRateGallerySliderLoaderGlobalForHome"
 // Auxiliary
 import configAuxiliary from "../../../configAuxiliary.json"
 import fakeApi from "../../../fakeAPI"
 
 const HomePage = () => {
-	const [sliderGalleryLoader, setSliderGalleryLoader] = useState(true)
 	const [homeCategoryLoader, setHomeCategoryLoader] = useState(true)
-	const [sliderGalleryData, setSliderGalleryData] = useState(null)
 	const [homeCategoryData, setHomeCategoryData] = useState(null)
 	useEffect(() => {
-		// Promise.all([
-		// 	fakeApi.getSliderGalleryGameData(),
-		// 	fakeApi.getSliderGalleryGamePosters()
-		// ]).then(data => { setSliderGalleryData(data) })
 		Promise.all([
 			fakeApi.getHomeCategory(),
 			fakeApi.getCategoryHomeGames(),
@@ -30,20 +25,15 @@ const HomePage = () => {
 		]).then(data => { setHomeCategoryData(data) })
 	}, [])
 	useEffect(() => {
-		if (sliderGalleryData) { setSliderGalleryLoader(false) }
-	}, [sliderGalleryData])
-	useEffect(() => {
 		if (homeCategoryData) { setHomeCategoryLoader(false) }
 	}, [homeCategoryData])
-	// console.log(sliderGalleryData, "ДАнные на популярный слайдер")
 	return (
 		<div className="block-content__home home-block">
 			<HomeHead />
 			<HomeCards />
-			{/* {
-				sliderGalleryLoader ? <Spinner /> :
-				<SliderGallery title="Популярное и рекомендуемое" posters={sliderGalleryData[1]} data={sliderGalleryData[0]} globPath="/images/sliderGalleryGame/" />
-			} */}
+			<GamesRateGallerySliderLoaderGlobalForHome>
+				<SliderGallery title="Популярное и рекомендуемое" globPath="/images/sliderGalleryGame/" />
+			</GamesRateGallerySliderLoaderGlobalForHome>
 			<WeHave directionCircle="right" isOffsetCircle={true} isList={true} dataList={configAuxiliary.weHaveList} />
 			{
 				homeCategoryLoader ? <Spinner /> :
