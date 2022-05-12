@@ -19,10 +19,10 @@ const HomePage = () => {
 	const [sliderGalleryData, setSliderGalleryData] = useState(null)
 	const [homeCategoryData, setHomeCategoryData] = useState(null)
 	useEffect(() => {
-		Promise.all([
-			fakeApi.getSliderGalleryGameData(),
-			fakeApi.getSliderGalleryGamePosters()
-		]).then(data => { setSliderGalleryData(data) })
+		// Promise.all([
+		// 	fakeApi.getSliderGalleryGameData(),
+		// 	fakeApi.getSliderGalleryGamePosters()
+		// ]).then(data => { setSliderGalleryData(data) })
 		Promise.all([
 			fakeApi.getHomeCategory(),
 			fakeApi.getCategoryHomeGames(),
@@ -35,15 +35,15 @@ const HomePage = () => {
 	useEffect(() => {
 		if (homeCategoryData) { setHomeCategoryLoader(false) }
 	}, [homeCategoryData])
-	console.log(sliderGalleryData, "ДАнные на популярный слайдер")
+	// console.log(sliderGalleryData, "ДАнные на популярный слайдер")
 	return (
 		<div className="block-content__home home-block">
 			<HomeHead />
 			<HomeCards />
-			{
+			{/* {
 				sliderGalleryLoader ? <Spinner /> :
 				<SliderGallery title="Популярное и рекомендуемое" posters={sliderGalleryData[1]} data={sliderGalleryData[0]} globPath="/images/sliderGalleryGame/" />
-			}
+			} */}
 			<WeHave directionCircle="right" isOffsetCircle={true} isList={true} dataList={configAuxiliary.weHaveList} />
 			{
 				homeCategoryLoader ? <Spinner /> :

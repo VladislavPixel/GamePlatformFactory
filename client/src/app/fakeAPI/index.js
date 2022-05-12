@@ -1,5 +1,3 @@
-import getSliderGalleryGameData from "./sliderGalleryGame"
-import getSliderGalleryGamePosters from "./sliderGalleryGamePoster"
 import getHomeCategory from "./categoryHome"
 import getCategoryHomeGames from "./categoryHomeGames"
 import getCategoryScreensData from "./categoryScreens"
@@ -14,10 +12,10 @@ import getCountries from "./countries"
 import getBigDataGameById from "./gamePage"
 import getArrayRussianGames from "./russianGames"
 import getVideoGamesCollectionLite from "./videoGamesCollectionLite"
+import getSliderGalleryGamePosters from "./sliderGalleryGamePoster"
+import getSliderGalleryGameData from "./sliderGalleryGame"
 
 const fakeApi = {
-	getSliderGalleryGameData,
-	getSliderGalleryGamePosters,
 	getHomeCategory,
 	getCategoryHomeGames,
 	getCategoryScreensData,
@@ -31,7 +29,9 @@ const fakeApi = {
 	getCountries,
 	getBigDataGameById,
 	getArrayRussianGames,
-	getVideoGamesCollectionLite
+	getVideoGamesCollectionLite,
+	getSliderGalleryGamePosters,
+	getSliderGalleryGameData
 }
 
 export default fakeApi

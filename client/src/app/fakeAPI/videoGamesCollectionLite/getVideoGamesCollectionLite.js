@@ -2,6 +2,18 @@ const arrayData = [
 	{
 		_id: "atomic3254789vbnnmnb",
 		idMiddleParent: "3atomicHeart564",
+		homePageSliderGallery: {
+			poster: {pathView: "atomicHeartView.jpg", alt: "Роботы подвешены за провода"},
+			auxiliary: {
+				titleChief: "Долбанные железки",
+				galleryImages: [
+					{path: "atomicHeartGallery1.jpg", alt: "Главные герой прячется в комнате от робота"},
+					{path: "atomicHeartGallery2.jpg", alt: "Комната экспериментов"},
+					{path: "atomicHeartGallery3.jpg", alt: "Главный герой стоит перед железными воротами с пистолетом"},
+					{path: "atomicHeartGallery4.webp", alt: "Робот с выпученными человеческими глазами"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A1",
@@ -114,6 +126,15 @@ const arrayData = [
 		idMiddleParent: "16alloda54646mbn",
 		homePageSliderGallery: {
 			poster: {pathView: "allodaView.jpg", alt: "Эльфы сидят за столом"},
+			auxiliary: {
+				titleChief: "Время становиться повелителем",
+				galleryImages: [
+					{path: "allodaGallery1.jpg", alt: "Все рассы из игры Аллоды-онлайн"},
+					{path: "allodaGallery2.jpg", alt: "Отряд сражается с монстрами"},
+					{path: "allodaGallery3.jpg", alt: "Мутант, похожий на дерево"},
+					{path: "allodaGallery4.jpg", alt: "Битва против монстра"}
+				]
+			}
 		},
 		homePageWideScale: [
 			{
@@ -135,8 +156,36 @@ const arrayData = [
 		]
 	},
 	{
+		_id: "magicka32454bvmnbmvbnGallery",
+		idMiddleParent: "21spark567magica2dfg675",
+		homePageSliderGallery: {
+			poster: { pathView: "magicka2View.jpg", alt: "Маг в красном плаще стоит перед монстром с одним глазом" },
+			auxiliary: {
+				titleChief: "Настоящая феерия",
+				galleryImages: [
+					{path: "magicka2Gallery1.jpg", alt: "Отряд сражается против монстров"},
+					{path: "magicka2Gallery2.jpg", alt: "Маг сражается против волны монстров-мертвецов"},
+					{path: "magicka2Gallery3.jpg", alt: "Маг сделал супер-взрыв"},
+					{path: "magicka2Gallery4.jpg", alt: "3 мага сдерживают волны монстров в лесу"}
+				]
+			}
+		},
+	},
+	{
 		_id: "warface6767868vcnvmnbm",
 		idMiddleParent: "17warface54646mbn",
+		homePageSliderGallery: {
+			poster: {pathView: "warfaceView.jpg", alt: "Команда warface, загрузочный экран игры"},
+			auxiliary: {
+				titleChief: "Не береги патроны",
+				galleryImages: [
+					{path: "warfaceGallery1.jpg", alt: "Отряд солдат в ангаре"},
+					{path: "warfaceGallery2.jpg", alt: "Боевой класс в игре"},
+					{path: "warfaceGallery3.jpg", alt: "Топовый скин у солдата"},
+					{path: "warfaceGallery4.jpg", alt: "Отряд девушек"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A13",
@@ -159,6 +208,18 @@ const arrayData = [
 	{
 		_id: "illvcnbnmnb57587987",
 		idMiddleParent: "18ill54646mbn",
+		homePageSliderGallery: {
+			poster: {pathView: "illView.jpg", alt: "Главный герой целится в зомби"},
+			auxiliary: {
+				titleChief: "Будь осторожен",
+				galleryImages: [
+					{path: "illGallery1.jpeg", alt: "Герой идет по разрушенному дому"},
+					{path: "dayzGallery2.jpg", alt: "Выживший целится в дом из ружья"}, // ДОДЕЛАТЬ DATA
+					{path: "dayzGallery3.jpg", alt: "Выживший отстреливается от зомби"},
+					{path: "dayzGallery4.jpg", alt: "Походные сумки"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A15",
@@ -181,6 +242,18 @@ const arrayData = [
 	{
 		_id: "pionerdforetre03423453",
 		idMiddleParent: "19pioner54646mbn",
+		homePageSliderGallery: {
+			poster: {pathView: "pionerView.jpg", alt: "Солдаты в лесу с детекторами"},
+			auxiliary: {
+				titleChief: "Берегись выживших",
+				galleryImages: [
+					{path: "pionerGallery1.jpg", alt: "В кафе солдаты"},
+					{path: "pionerGallery2.jpg", alt: "Главный герой с горы смотрит на разрушенный город"},
+					{path: "pionerGallery3.jpg", alt: "Солдат с пистолетом выходит из пещеры"},
+					{path: "pionerGallery4.jpg", alt: "Оружие из игры pioner"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A17",
@@ -265,6 +338,38 @@ const arrayData = [
 				]
 			}
 		]
+	},
+	{
+		_id: "eldenRingLite21324345mvcbmvbn",
+		idMiddleParent: "1eldenRingMiddle77",
+		homePageSliderGallery: {
+			poster: {pathView: "elderRingView.jpg", alt: "Два воина сражаются"},
+			auxiliary: {
+				titleChief: "Мы любим храбрых",
+				galleryImages: [
+					{path: "gallery1.jpg", alt: "Ведьма с большим количеством рук"},
+					{path: "gallery2.jpg", alt: "Воин в пещере с большими муравьями"},
+					{path: "gallery3.jpg", alt: "Всадник перед магическим огромным деревом"},
+					{path: "gallery4.jpg", alt: "Всадник в лесу сражается со странным гигантским чудовищем"}
+				]
+			}
+		}
+	},
+	{
+		_id: "dayzzzzzbvnnbm000657657",
+		idMiddleParent: "21spark567gfhfgdayzzzzzzz",
+		homePageSliderGallery: {
+			poster: {pathView: "dayzView.jpg", alt: "Главный герой стоит на фоне природы"},
+			auxiliary: {
+				titleChief: "Главное уцелеть!",
+				galleryImages: [
+					{path: "dayzGallery1.jpg", alt: "Постер DayZ, два выживших стреляют в бездомных"},
+					{path: "dayzGallery2.jpg", alt: "Выживший целится в дом из ружья"},
+					{path: "dayzGallery3.jpg", alt: "Выживший отстреливается от зомби"},
+					{path: "dayzGallery4.jpg", alt: "Походные сумки"}
+				]
+			}
+		}
 	}
 ]
 
