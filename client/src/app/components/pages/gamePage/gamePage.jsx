@@ -62,7 +62,7 @@ const GamePage = () => {
 					<GamePageAbout {...game.aboutTheGame} />
 					<GamePageBlocks {...game.atmosphere} />
 					<GamePageSystemRequirements data={game.systemRequirements} />
-					<GamePageComments />
+					<GamePageComments title="Комментарии пользователей нашей платформы" />
 				</React.Fragment> :
 				<MiddleMessage altIcon="Гриб от ядерного взрыва" iconPath="explosion.svg" onCallback={handlerMiddleMessageBtn} classesParent="game-block" title={configTextForMiddleMessage.title} offer={configTextForMiddleMessage.offer} textBtn={configTextForMiddleMessage.btnText} />
 			}
