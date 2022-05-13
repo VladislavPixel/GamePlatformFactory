@@ -1,3 +1,0 @@
-import getSliderGalleryGamePosters from "./getSliderGalleryGamePosters"
-
-export default getSliderGalleryGamePosters

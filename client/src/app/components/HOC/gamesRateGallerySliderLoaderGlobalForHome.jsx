@@ -18,7 +18,7 @@ const GamesRateGallerySliderLoaderGlobalForHome = ({ children }) => {
 	const gameRateGallerySliderForHome = useSelector(getGamesDataRateGallerySliderForHome())
 	useEffect(() => {
 		if (statusLoading) dispatch(fetchDataRateGallerySliderForHome())
-	}, [statusLoading])
+	}, [statusLoading, dispatch])
 	const ChildrenWithLoading = withLoading(children, statusLoading)
 	return <ChildrenWithLoading posters={gameRateGallerySliderForHome[1]} data={gameRateGallerySliderForHome[0]} />
 }

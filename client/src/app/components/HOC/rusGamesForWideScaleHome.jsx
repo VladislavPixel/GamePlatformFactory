@@ -14,7 +14,7 @@ const RusGamesForWideScaleHomeGlobalLoader = ({ children }) => {
 	const dataRusGames = useSelector(getDataRusGamesForWideScaleHome())
 	useEffect(() => {
 		if (isLoading) dispatch(fetchDataRussianGamesForWideScale())
-	}, [isLoading])
+	}, [isLoading, dispatch])
 	const ChildrenWithLoading = withLoading(children, isLoading)
 	return <ChildrenWithLoading data={dataRusGames} />
 }

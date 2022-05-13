@@ -36,6 +36,18 @@ const arrayData = [
 	{
 		_id: "theDayBef0324554bcvbvcb",
 		idMiddleParent: "4theDayBefore9567",
+		homePageSliderGallery: {
+			poster: {pathView: "theDayBeforeView.jpg", alt: "Главный герой в заброшенном торговом центре"},
+			auxiliary: {
+				titleChief: "Зомби-экшен",
+				galleryImages: [
+					{path: "theDayBeforeG1.jpg", alt: "Персонаж из игры"},
+					{path: "theDayBeforeG2.webp", alt: "Пустынные улицы"},
+					{path: "theDayBeforeG3.jpg", alt: "На заброшенной улице у БТР валяется разорванный зомби военный"},
+					{path: "theDayBeforeG4.webp", alt: "Военный с пластмассовым стаканчиком сидит на улице"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A3",
@@ -58,6 +70,18 @@ const arrayData = [
 	{
 		_id: "enlist134546560bvnvbn",
 		idMiddleParent: "5enlisted8776",
+		homePageSliderGallery: {
+			poster: {pathView: "enlistedView.jpg", alt: "Советские солдаты (Алексей Берест, Михаил Егоров, Мелитон Кантария) устанавливают знамя победы над Рейхстагом"},
+			auxiliary: {
+				titleChief: "Враг будет разбит!",
+				galleryImages: [
+					{path: "enlistedG1.jpg", alt: "Битва за Сталинград, советские солдаты оттесняют врага"},
+					{path: "enlistedG2.jpg", alt: "Советские солдаты прорываются при поддержке танка"},
+					{path: "enlistedG3.jpg", alt: "Штурм города советскими солдатами"},
+					{path: "enlistedG4.jpg", alt: "Советский солдат на позиции"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A5",
@@ -80,6 +104,18 @@ const arrayData = [
 	{
 		_id: "bexolder43535467vbnvb",
 		idMiddleParent: "6beholder3lfdg8776",
+		homePageSliderGallery: {
+			poster: {pathView: "beholder3View.jpg", alt: "Жилой дом из игры"},
+			auxiliary: {
+				titleChief: "Нас могут подслушивать",
+				galleryImages: [
+					{path: "beholder3G1.jpg", alt: "Персонаж из игры у телефона стоит"},
+					{path: "beholder3G2.jpg", alt: "Министерство прослушивает людей"},
+					{path: "beholder3G3.jpg", alt: "Служащие министерства"},
+					{path: "beholder3G4jpg", alt: "Диктатор на листовке"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A7",
@@ -102,6 +138,18 @@ const arrayData = [
 	{
 		_id: "lostArk00999234245645bvn",
 		idMiddleParent: "7lostArk8776",
+		homePageSliderGallery: {
+			poster: {pathView: "lostarkView.jpg", alt: "Персонажи на корабле"},
+			auxiliary: {
+				titleChief: "Великолепный мир",
+				galleryImages: [
+					{path: "lostarkG1.jpg", alt: "Девушка с мечами на красном фоне"},
+					{path: "lostArkG2.jpg", alt: "Отряд на арене"},
+					{path: "lostArkG3.png", alt: "Персонажи сидят в порту"},
+					{path: "lostArk4.png", alt: "Руны LostArk"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A9",
@@ -276,6 +324,18 @@ const arrayData = [
 	{
 		_id: "tinyBunny25464765vbnvnbmn",
 		idMiddleParent: "20tbunny567567",
+		homePageSliderGallery: {
+			poster: {pathView: "tbView.jpg", alt: "Страшный монстр с открытой пастью"},
+			auxiliary: {
+				titleChief: "Страшная история",
+				galleryImages: [
+					{path: "tbG1.jpeg", alt: "Человек с головой зайчика в ужасе"},
+					{path: "tbG2.webp", alt: "Мужчина с подбитым носом"},
+					{path: "tbG3.jpg", alt: "Телевизор с зайчиком на экране"},
+					{path: "tbG4.jpg", alt: "Игровой процесс - интерфейс игры внутри дома"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A19",
@@ -298,6 +358,18 @@ const arrayData = [
 	{
 		_id: "patfainder4354665vcbbnmn",
 		idMiddleParent: "21spark567patfinderdfgdfg435345",
+		homePageSliderGallery: {
+			poster: {pathView: "pathfinderView.jpg", alt: "Скелеты из игры"},
+			auxiliary: {
+				titleChief: "Магия запределья",
+				galleryImages: [
+					{path: "pathG1.jpg", alt: "Воины сражаются"},
+					{path: "pathG2.jpg", alt: "Лучница с паучьими ногами"},
+					{path: "pathG3.jpg", alt: "Женщина ведьма"},
+					{path: "pathG4.jpg", alt: "Лагерь в огне"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A21",
@@ -320,6 +392,18 @@ const arrayData = [
 	{
 		_id: "spaaaarkvcbnmb3242345564",
 		idMiddleParent: "21spark567gfhfg",
+		homePageSliderGallery: {
+			poster: {pathView: "sparkView.webp", alt: "Девушка по пояс стоит в воде"},
+			auxiliary: {
+				titleChief: "Будь храбрым",
+				galleryImages: [
+					{path: "sparkG1.jpg", alt: "Персонаж в подземелье"},
+					{path: "sparkG2.png", alt: "Персонаж стоит на помосте"},
+					{path: "sparkG3.png", alt: "В подземелье - светлячки"},
+					{path: "sparkG4.jpg", alt: "Персонаж пробирается по подземельям с арбалетом"}
+				]
+			}
+		},
 		homePageWideScale: [
 			{
 				_id: "A23",
@@ -383,6 +467,326 @@ const arrayData = [
 					{path: "dota2sc2.jpg", alt: "Герой рубик"},
 					{path: "dota2sc3.jpg", alt: "Герой Энигма"},
 					{path: "dota2sc4.jpg", alt: "Лина"}
+				]
+			}
+		}
+	},
+	{
+		_id: "gamedec34254645cbcvbnbm",
+		idMiddleParent: "21spark567gamedec",
+		homePageSliderGallery: {
+			poster: {pathView: "gamedecView.jpg", alt: "Персонаж из игры на фоне города"},
+			auxiliary: {
+				titleChief: "Испытай другуй реальность",
+				galleryImages: [
+					{path: "gamedecSlider1.webp", alt: "Персонаж в помещении"},
+					{path: "gamedecSlider2.jpg", alt: "Улица мира Gamedec"},
+					{path: "gamedecSlider3.jpg", alt: "Персонаж из игры стоит на улице у дерева графического"},
+					{path: "gamedecSlider4.jpg", alt: "Припаркованный современный автомобил Gamedec"}
+				]
+			}
+		}
+	},
+	{
+		_id: "remnant587768vcbcvbnbm,",
+		idMiddleParent: "21spark567r435emnant",
+		homePageSliderGallery: {
+			poster: {pathView: "remnantView.jpg", alt: "Отряд борется с мутантами"},
+			auxiliary: {
+				titleChief: "Крысы...",
+				galleryImages: [
+					{path: "remnantG1.webp", alt: "Сражение против монстров"},
+					{path: "remnantG2.jpg", alt: "Два монстра"},
+					{path: "remnantG3.jpg", alt: "Монстр из игры"},
+					{path: "remnantG4.jpg", alt: "Сражение в подземелье против монстра"}
+				]
+			}
+		}
+	},
+	{
+		_id: "godOfWarfdgcvb54765757",
+		idMiddleParent: "8godOfWar8776",
+		homePageSliderGallery: {
+			poster: {pathView: "godOfWarView.jpg", alt: "Кратос демонстрирует голову убитого воина змее"},
+			auxiliary: {
+				titleChief: "Познай мой топор",
+				galleryImages: [
+					{path: "godOfWar1.jpg", alt: "Кратос стоит в лесу с топором"},
+					{path: "godOfWar2.jpeg", alt: "Кратос и Атрей идут к дереву"},
+					{path: "godOfWar3.jpeg", alt: "Кратос и Атрей стоят на вершине горы и любуются пейзажем"},
+					{path: "godOfWar4.jpeg", alt: "Кратос и Атрей проходят через горные перевалы"}
+				]
+			}
+		}
+	},
+	{
+		_id: "dlsh265765bvnbm,mn765",
+		idMiddleParent: "9dlsh84545",
+		homePageSliderGallery: {
+			poster: {pathView: "dyingLight2View.jpg", alt: "Ближний бой с бандитами"},
+			auxiliary: {
+				titleChief: "Атака, скорость, незаметность",
+				galleryImages: [
+					{path: "dyingLight2sc1.jpg", alt: "Герой жарит фонарем зомби"},
+					{path: "dyingLight2sc2.jpg", alt: "Герой смотрит на разрушенный город, охваченный пожаром"},
+					{path: "dyingLight2sc3.jpg", alt: "Главный герой лежит на полу, а на него замахивается тесаком бандит"},
+					{path: "dyingLight2sc4.jpg", alt: "Герой стоит на вершине здания с другими людьми"}
+				]
+			}
+		}
+	},
+	{
+		_id: "gta5vcbvnmmmmm",
+		idMiddleParent: "10gta5jkjh84545",
+		homePageSliderGallery: {
+			poster: {pathView: "gta5View.jpg", alt: "Постер GTA5"},
+			auxiliary: {
+				titleChief: "время - ДЕНЬГИ, ДЕНЬГИ - все",
+				galleryImages: [
+					{path: "gta5sc1.jpg", alt: "Гараж с двумя машинами"},
+					{path: "gta5sc2.jpg", alt: "3 бандитов за стеной от полицейского"},
+					{path: "gta5sc3.jpg", alt: "Бандит стоит на горе с M16"},
+					{path: "gta5sc4.jpg", alt: "Лицо бандита на фоне города"}
+				]
+			}
+		}
+	},
+	{
+		_id: "theWitherbvnbm768768",
+		idMiddleParent: "11theWither5jkjh84545",
+		homePageSliderGallery: {
+			poster: {pathView: "witcherView.jpg", alt: "Ведьмак перед огромной жабой в лесу"},
+			auxiliary: {
+				titleChief: "Пора поохотиться",
+				galleryImages: [
+					{path: "witcher1.jpg", alt: "Ведьмак на китайском празднике"},
+					{path: "witcher2.jpg", alt: "Ведьмак"},
+					{path: "witcher3.jpg", alt: "Цири"},
+					{path: "witcher4.jpg", alt: "Йеннифер, Геральд, Трисс"}
+				]
+			}
+		}
+	},
+	{
+		_id: "starCraft43534vbn",
+		idMiddleParent: "1276853star",
+		homePageSliderGallery: {
+			poster: {pathView: "starCraft2View.jpg", alt: "Королева"},
+			auxiliary: {
+				titleChief: "Окунись в противоборство",
+				galleryImages: [
+					{path: "starCraft2sc1.jpg", alt: "Протосы"},
+					{path: "starCraft2sc2.jpg", alt: "Подбитый корабль"},
+					{path: "starCraft2sc3.jpg", alt: "Рубка на космическом корабле"},
+					{path: "starCraft2sc4.jpg", alt: "Протосы"}
+				]
+			}
+		}
+	},
+	{
+		_id: "batleBro504768xcv",
+		idMiddleParent: "21spark567batlearenafdgdfg000",
+		homePageSliderGallery: {
+			poster: {pathView: "batleView.jpeg", alt: "Воины"},
+			auxiliary: {
+				titleChief: "Умные игры",
+				galleryImages: [
+					{path: "batleG1.jpg", alt: "Сражение с дикарями в горах"},
+					{path: "batleG2.jpg", alt: "Тактическая расстановка войск на карте"},
+					{path: "battleG3.jpg", alt: "Сражение в лесу"},
+					{path: "batleG4.webp", alt: "Карта сфер влияния"}
+				]
+			}
+		}
+	},
+	{
+		_id: "aperTurvnmmmAper3423",
+		idMiddleParent: "1356756",
+		homePageSliderGallery: {
+			poster: {pathView: "apertureDeskJobView.jpg", alt: "Человеческая голова машины"},
+			auxiliary: {
+				titleChief: "Головоломка",
+				galleryImages: [
+					{path: "aperG1.jpg", alt: "Взрыв на фабрике"},
+					{path: "aperTurG2.jpg", alt: "Пачинка на складе"},
+					{path: "aperG3.jpg", alt: "Взрыв на складе"},
+					{path: "aperG4.jpg", alt: "Конвеер"}
+				]
+			}
+		}
+	},
+	{
+		_id: "farfarfarfar45435",
+		idMiddleParent: "14farChanging43534",
+		homePageSliderGallery: {
+			poster: {pathView: "farView.jpeg", alt: "Персонаж стоит на платформе"},
+			auxiliary: {
+				titleChief: "Тихие воды",
+				galleryImages: [
+					{path: "farG1.png", alt: "Корабль плывет под водой"},
+					{path: "farG2.jpg", alt: "Ребенок сидит на корабле"},
+					{path: "farG3.jpg", alt: "Корабль плывет в ночи"},
+					{path: "farG4.jpg", alt: "Персонажи стоят на горе"}
+				]
+			}
+		}
+	},
+	{
+		_id: "connanConnnan453vcbcvb",
+		idMiddleParent: "156786878rtyrtfghfhg",
+		homePageSliderGallery: {
+			poster: {pathView: "conanView.jpg", alt: "Отряд прорывается по подземельям"},
+			auxiliary: {
+				titleChief: "Круши - ломай",
+				galleryImages: [
+					{path: "conanG1.jpg", alt: "Битва с боссом"},
+					{path: "connanG2.png", alt: "Битва с монстром в красном плаще"},
+					{path: "connanG3.jpg", alt: "Воины сражаются со скелетами"},
+					{path: "connanG4.png", alt: "Постер - отряд дикарей смотрит на врага"}
+				]
+			}
+		}
+	},
+	{
+		_id: "csgogogogoogog45354345",
+		idMiddleParent: "21spark567gfhfggcsgo90",
+		homePageSliderGallery: {
+			poster: {pathView: "csgoView.jpg", alt: "Террорист с калашниковым в руке"},
+			auxiliary: {
+				titleChief: "Ты за кого?",
+				galleryImages: [
+					{path: "csgoG1.jpg", alt: "Террорист из игры"},
+					{path: "csgoG2.jpg", alt: "Спецназовец поймал террориста"},
+					{path: "csgoG3.jpg", alt: "Спецназовцы"},
+					{path: "csgoG4.jpg", alt: "Игрок на базе спецназа"}
+				]
+			}
+		}
+	},
+	{
+		_id: "monsterHunterRisevcbnb5435",
+		idMiddleParent: "21spark567gfhfgmonster8",
+		homePageSliderGallery: {
+			poster: {pathView: "monsterHunterView.jpg", alt: "Битва с монстром"},
+			auxiliary: {
+				titleChief: "Избавим мир от них",
+				galleryImages: [
+					{path: "mhG1.jpg", alt: "Ящерица - мутант из игры"},
+					{path: "mhG2.jpg", alt: "Два монстра"},
+					{path: "mhG3.jpg", alt: "Самураи сражаются"},
+					{path: "mhG4.jpg", alt: "Монстры из игры"}
+				]
+			}
+		}
+	},
+	{
+		_id: "detroit324832cvbc",
+		idMiddleParent: "21spark567gfhfgdetroit9090",
+		homePageSliderGallery: {
+			poster: {pathView: "detroitView.jpg", alt: "Человек держит в заложниках ребенка"},
+			auxiliary: {
+				titleChief: "Идеальное общество",
+				galleryImages: [
+					{path: "dtG1.jpg", alt: "Спецназ Detroit"},
+					{path: "detroitG2.jpg", alt: "Террорист крпным планом"},
+					{path: "detG3.jpg", alt: "Девушка из Detroit"},
+					{path: "detroitG4.jpg", alt: "Вор из Detroit"}
+				]
+			}
+		}
+	},
+	{
+		_id: "madison32432vcbvcdfg",
+		idMiddleParent: "21spark567gfhfgmadisonhor",
+		homePageSliderGallery: {
+			poster: {pathView: "madisonView.jpg", alt: "Комната на чердаке"},
+			auxiliary: {
+				titleChief: "Держи камеру при себе",
+				galleryImages: [
+					{path: "madG1.jpg", alt: "На парковке летают конечности"},
+					{path: "madisonG2.jpg", alt: "Персонаж в подземелье с фотоаппаратом"},
+					{path: "madG3.png", alt: "Персонаж стоит в доме"},
+					{path: "madG4.webp", alt: "Кубики лежат на полу"}
+				]
+			}
+		}
+	},
+	{
+		_id: "yongSoul43534534",
+		idMiddleParent: "21spark567gfhfyoungiiiii",
+		homePageSliderGallery: {
+			poster: {pathView: "yongView.jpg", alt: "Постер игры"},
+			auxiliary: {
+				titleChief: "Мы герои!",
+				galleryImages: [
+					{path: "yongG1.jpg", alt: "Битва"},
+					{path: "yongG2.webp", alt: "Битва героев против врагов"},
+					{path: "yongG3jpg", alt: "Героиня лежит на земле поверженная"},
+					{path: "yongG4.jpg", alt: "Разборки с врагами"}
+				]
+			}
+		}
+	},
+	{
+		_id: "hyperboldsfdsf4324234",
+		idMiddleParent: "21spark567gfhfhyperbolica546",
+		homePageSliderGallery: {
+			poster: {pathView: "hyperView.jpg", alt: "Робот стоит с картой"},
+			auxiliary: {
+				titleChief: "Итерактивный мир",
+				galleryImages: [
+					{path: "hyperG1.jpg", alt: "На ферме"},
+					{path: "hyperG2.png", alt: "Парк"},
+					{path: "hyperG3.jpg", alt: "Ферма"},
+					{path: "hyperG4.jpg", alt: "Лес зимой"}
+				]
+			}
+		}
+	},
+	{
+		_id: "distantWor3424lcvbcvbfdg",
+		idMiddleParent: "21spark567gfhfdistantworld435",
+		homePageSliderGallery: {
+			poster: {pathView: "distantWorld2View.jpg", alt: "Космические корабли"},
+			auxiliary: {
+				titleChief: "Безграничный космос",
+				galleryImages: [
+					{path: "dist2G1jpg", alt: "Космос"},
+					{path: "disW2G2.jpg", alt: "Передвижение в Distant World 2"},
+					{path: "dw2G3.jpg", alt: "Корабли на фоне планеты"},
+					{path: "dw2G4.webp", alt: "Космический корабль летит"}
+				]
+			}
+		}
+	},
+	{
+		_id: "ruin234fdgcvb",
+		idMiddleParent: "21spark567ruin",
+		homePageSliderGallery: {
+			poster: {pathView: "ruinView.jpg", alt: "Маг кастует заклинание"},
+			auxiliary: {
+				titleChief: "Арена истории",
+				galleryImages: [
+					{path: "ruinG1.jpg", alt: "Сражение"},
+					{path: "ruinG2.jpg", alt: "Арена в джунглях"},
+					{path: "ruinG3.jpg", alt: "Арена подземелья"},
+					{path: "ruinG4.jpg", alt: "Герои на карте"}
+				]
+			}
+		}
+	},
+	{
+		_id: "warhamm342432546456",
+		idMiddleParent: "21spark567warhammmm",
+		homePageSliderGallery: {
+			poster: {pathView: "warhamView.jpg", alt: "Гном сражается против врагов"},
+			auxiliary: {
+				titleChief: "К Р У Ш И",
+				galleryImages: [
+					{path: "warhG1.jpg", alt: "Сражение с крысой"},
+					{path: "warhG2.jpg", alt: "Сражение с крысами в городе"},
+					{path: "warhG3.jpg", alt: "Разрубающей силы меч"},
+					{path: "warG4.jpeg", alt: "Сражение с крысами"}
 				]
 			}
 		}

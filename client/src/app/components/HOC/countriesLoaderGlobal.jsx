@@ -14,7 +14,7 @@ const CountriesLoaderGlobal = ({ children }) => {
 
 	useEffect(() => {
 		if (statusLoaderCountrues) dispatch(fetchAllCountriesData())
-	}, [])
+	}, [dispatch, statusLoaderCountrues])
 	const ChildrenWithLoading = withLoading(children, statusLoaderCountrues)
 	return <ChildrenWithLoading />
 }
