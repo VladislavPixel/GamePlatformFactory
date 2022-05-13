@@ -11,6 +11,7 @@ import getArrayByDelimiter from "../../utils/getArrayByDelimiter"
 import { getSelectedCategoryStore, updateCategoryStoreSelected, DEFAULT_SELECTED_CATEGORY } from "../../store/categoryStore"
 import { getDataGamesMiddle, getStatusGamesSortedBy, setStatusSortedGames } from "../../store/games"
 import { getValueSearchGamesStore } from "../../store/searchGamesStore"
+import configAuxiliary from "../../configAuxiliary.json"
 
 const StoreGamesBlock = () => {
 	const NUMBER_OF_ELEMENTS_ON_PAGE = 15
@@ -59,13 +60,16 @@ const StoreGamesBlock = () => {
 			sortedGames.sort((gamePrev, gameNext) => gamePrev.price - gameNext.price)
 			break
 		default:
-			console.log("Сортировка не определяет порядок никаким образом")
+			console.log(`Сортировка не определяет порядок никаким образом. Вы выбрали указатель --> ${statusSortedGames}`)
 	}
 
 	// Проводим первичную фильтрацию по категории, которая выбрана пользователем
 	const filteredDataGamesOnCategory = (valueSearchGamesStore !== "" && sortedGames.length !== 0 ?
 		sortedGames.filter(element => element.title.toLowerCase().includes(valueSearchGamesStore.toLowerCase())) :
-		selectedCategoryStore.name === "all" ? sortedGames :
+		selectedCategoryStore.name === "all" ?
+		sortedGames :
+		selectedCategoryStore.name === "Продукты Российских разработчиков" ?
+		sortedGames.filter(element => element.country === "RU") :
 		selectedCategoryStore.name === "Бесплатно" ?
 		sortedGames.filter(element => element.price === "играй бесплатно") :
 		selectedCategoryStore.name === "Ожидание" ?
@@ -126,8 +130,10 @@ const StoreGamesBlock = () => {
 				<div className="store-controls-block__btn-container">
 					<p className="store-controls-block__text">Сортировка по некоторым критериям:</p>
 					<div className="store-controls-block__wrapper-btn">
-						<button onClick={() => handlerSortBtn(configRateBtn.directionValue)} className={`store-controls-block__btn${configRateBtn.classes}`} type="button">Рейтинг</button>
-						<button onClick={() => handlerSortBtn(configPriceBtn.directionValue)} className={`store-controls-block__btn${configPriceBtn.classes}`} type="button">Цена</button>
+						{configAuxiliary.btnSortedForStore.map((config, index) => {
+							const { text, target } = config
+							return <button key={index} onClick={() => handlerSortBtn(target === "rate" ? configRateBtn.directionValue : target === "price" ? configPriceBtn.directionValue : target)} className={`store-controls-block__btn${target === "rate" ? configRateBtn.classes : target === "price" ? configPriceBtn.classes : " white"}`} type="button">{text}</button>
+						})}
 					</div>
 				</div>
 				{numberOfPages > 1 && <Pagination onChangePagination={handlerPaginationChange} currentPagin={currentPagin} pagesNumber={numberOfPages} classes="store-controls-block" />}

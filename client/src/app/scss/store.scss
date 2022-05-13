@@ -479,14 +479,18 @@
 		text-align: center;
 		border-radius: 6px !important;
 		box-shadow: 0 0 3px 0px #000;
+		margin-right: 15px;
 		&.active{
 			background: yellow;
 		}
 		&.active1{
 			background: rgb(202, 148, 0);
 		}
-		&:first-child{
-			margin-right: 15px;
+		&.white{
+			background: #ffffff;
+		}
+		&:last-child{
+			margin-right: 0px;
 		}
 		@media(min-width: 992px) {
 			&:hover{

@@ -73,7 +73,8 @@ const category = [
 			{_id: "spec3", name: "Alpha/Beta"},
 			{_id: "spec4", name: "Нелинейность"},
 			{_id: "spec5", name: "multi-colophon"},
-			{_id: "spec6", name: "Ожидание"}
+			{_id: "spec6", name: "Ожидание"},
+			{_id: "spec7", name: "Продукты Российских разработчиков"}
 		]
 	},
 	{
