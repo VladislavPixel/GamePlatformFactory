@@ -1,14 +1,11 @@
 .form{
 	display: flex;
 	flex-direction: column;
-	&__label-input{
-		display: inline-block;
-		color: #ffffff;
-		font-size: 15px;
-		font-weight: 600;
-		margin-bottom: 7px;
+	&__area-block{
+		display: flex;
+		flex-direction: column;
 	}
-	&__label-select,&__recaptcha-label{
+	&__label-select,&__recaptcha-label,&__label-area,&__label-input{
 		display: inline-block;
 		color: #ffffff;
 		font-size: 15px;
@@ -23,6 +20,16 @@
 	}
 	&__select-block{
 		margin-bottom: 20px;
+	}
+	&__area{
+		resize: vertical;
+		border: 1px solid #171a21;
+		padding: 15px;
+		border-radius: 8px !important;
+		box-shadow: 0 0 3px 0px #000;
+		min-height: 110px;
+		font-size: 17px;
+		color: #ffffff;
 	}
 	&__input{
 		box-shadow: 0 0 3px 0px #000;
@@ -62,10 +69,27 @@
 			}
 		}
 	}
-	&__input-error,&__recaptcha-error{
+	&__input-error,&__recaptcha-error,&__area-error{
 		margin-top: 7px;
 		color: #8AF9AD;
 		font-weight: 500;
+	}
+	&__area-container{
+		width: 100%;
+		position: relative;
+		textarea{
+			width: 100%;
+		}
+	}
+	&__area-cross{
+		position: absolute;
+		transform: translateY(-50%);
+		top: 0;
+		right: -13px;
+		width: 35px;
+		height: 35px;
+		z-index: 400;
+		cursor: pointer;
 	}
 	&__input-container{
 		position: relative;

@@ -44,7 +44,8 @@
 		{"text": "Новости", "path": "/news"},
 		{"text": "O Factory", "path": "/aboutUs"},
 		{"text": "Акции", "path": "/stock"},
-		{"text": "Поддержка", "path": "/support"}
+		{"text": "Поддержка", "path": "/support"},
+		{"text": "Доска почета", "path": "/honor-board"}
 	],
 	"homeCards": [
 		{"title": "Акции", "text": "Горячие предложения, о которых ты мог только мечтать", "icon": "stock.svg", "alt": "Иконка бомбы из игры."},
@@ -104,5 +105,39 @@
 		{"text": "Рейтинг", "target": "rate" },
 		{"text": "Цена", "target":"price"},
 		{"text": "Сброс", "target": "reset"} 
-	]
+	],
+	"statusNewComment": [
+		{"_id": "status777", "text": "Положительный", "value": "positive", "icon": "likeGreen.svg"},
+		{"_id": "status999", "text": "Нейтральный", "value": "neutral", "icon": "neutralEmotion.svg"},
+		{"_id": "status888", "text": "Негативный", "value": "negative", "icon": "negativeEmotion.svg"}
+	],
+	"ranks": {
+		"level1": { "title": "Пользователь платформы Factory.inc", "color": "#9fb4c9" },
+		"level2": { "title": "Комментатор Factory.inc", "color": "#5e98d9" },
+		"level3": { "title": "Советник Factory.inc", "color": "#4b69ff" },
+		"level4": { "title": "Уважаемый советник Factory.inc", "color": "#8847ff" },
+		"level5": { "title": "Почетный комментатор Factory.inc", "color": "#d32ce6" },
+		"level6": { "title": "Игровой рецензент 1 уровня", "color": "#b28a33" },
+		"level7": { "title": "Игровой рецензент 2 уровня", "color": "#ade55c" },
+		"level8": { "title": "Игровой рецензент 3 уровня", "color": "#eb4b4b" },
+		"level9": { "title": "Профессиональный рецензент", "color": "#fff34f" },
+		"level10": { "title": "Топовый игровой критик сообщества", "color": "#ffb400" }
+	},
+	"activityComment": {
+		"block1": [
+			{"_id": "reaction1", "title": "Забавный", "icon": "smile.svg"},
+			{"_id": "reaction2", "title": "Наградить", "icon": "award.svg"}
+		],
+		"block2": [
+			{"_id": "reaction3", "title": "Лайк", "icon": "like.svg"},
+			{"_id": "reaction4", "title": "Дизлайк", "icon": "dizlike.svg"}
+		],
+		"block3": [
+			{"_id": "reaction5", "title": "Согласен", "icon": "iagree.svg"},
+			{"_id": "reaction6", "title": "Несогласен", "icon": "disagree.svg"}
+		],
+		"block4": [
+			{"_id": "reaction7", "title": "Полный отстой", "icon": "poo.svg"}
+		]
+	}
 }

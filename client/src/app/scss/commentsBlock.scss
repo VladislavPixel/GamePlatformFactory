@@ -1,0 +1,132 @@
+.comments-container{
+	display: flex;
+	padding: 0px 0px 30px 0px;
+	&__column{
+		&:first-child{
+			flex: 0 1 70%;
+		}
+		&:last-child{
+			flex: 0 1 30%;
+		}
+	}
+	&__title{
+		font-size: 22px;
+		color: #ffffff;
+		margin-bottom: 15px;
+	}
+	&__message-last-week{
+		img{
+			width: 60px;
+			height: 60px;
+		}
+	}
+}
+
+.block-last-week{
+	&__comment{
+		border-radius: 2px !important;
+		box-shadow: 0 0 3px 0px #000;
+		margin-bottom: 25px;
+		background: #16202d;
+		&:last-child{
+			margin-bottom: 0px;
+		}
+	}
+	&__head{
+		padding: 10px;
+		background: #171a21a4;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 5px;
+		box-shadow: 0 0 3px 0px #000;
+	}
+	&__content{
+		padding: 6px;
+	}
+	&__status{
+		display: flex;
+		align-items: center;
+	}
+	&__icon{
+		flex: 0 0 30px;
+		width: 30px;
+		height: 30px;
+		margin-right: 10px;
+	}
+	&__logo-factory{
+		flex: 0 0 30px;
+		height: 30px;
+		width: 30px;
+	}
+	&__text-status{
+		color: #ffffff;
+		font-weight: 600;
+	}
+	&__date{
+		color: #a2a2a2;
+	}
+	&__nickname{
+		color: #2EBFFF;
+		margin-bottom: 7px;
+		a{
+			color: #ffffff;
+			@media(min-width: 992px) {
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	&__rank-user{
+		text-align: right;
+		margin-bottom: 15px;
+	}
+	&__text-comment{
+		color: #a2a2a2;
+		font-size: 16px;
+		line-height: 110%;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #a2a2a2;
+	}
+}
+
+.block-activity-comment{
+	padding-bottom: 10px;
+	&__line{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 15px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	&__reaction{
+		transition: background 0.3s ease 0s;
+		display: flex;
+		align-items: center;
+		margin-right: 7px;
+		font-size: 16px;
+		color: #2EBFFF;
+		background: #252f3e;
+		border-radius: 2px;
+		padding: 5px;
+		box-shadow: 0 0 3px 0px #000;
+		&:last-child{
+			margin-right: 0;
+		}
+		@media(min-width: 992px) {
+			&:hover{
+				background: #333f51;
+			}
+		}
+	}
+	&__icon-reaction{
+		flex: 0 0 16px;
+		width: 20px;
+		height: 20px;
+		margin-right: 4px;
+	}
+}

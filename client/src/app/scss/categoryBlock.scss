@@ -237,7 +237,7 @@
 	@media(max-width: 800px) {
 		padding: 13px 0px 0px 0px;
 		box-shadow: none;
-		border-radius: 0px;
+		border-radius: 0px !important;
 	}
 	&__title{
 		text-align: center;

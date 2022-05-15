@@ -1,0 +1,110 @@
+.block-add-comment{
+	max-width: 750px;
+	margin: 0 auto;
+	background: #171a21a4;
+	padding: 20px;
+	border-radius: 8px !important;
+	border: 1px solid #171a21;
+	box-shadow: 0 0 3px 0px #000;
+	margin-bottom: 30px;
+	&__error-status-comment{
+		text-align: center;
+		margin-top: 15px;
+		font-size: 16px;
+		font-weight: 600;
+	}
+	&__row{
+		display: flex;
+	}
+	&__column{
+		&:first-child{
+			transition: box-shadow 0.4s ease 0s;
+			flex: 0 0 70px;
+			height: 70px;
+			position: relative;
+			border-radius: 50% !important;
+			overflow: hidden;
+			box-shadow: 0 0 3px 0px #000;
+			margin-right: 10px;
+			@media(min-width: 992px) {
+				&:hover{
+					box-shadow: 0 0 5px 2px #8AF9AD;
+				}
+			}
+		}
+		&:last-child{
+			flex: 0 1 100%;
+		}
+	}
+	&__avatar-user{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&__explanation{
+		color: #ffffff;
+		font-size: 15px;
+		margin-bottom: 10px;
+		font-weight: 500;
+	}
+	&__relationship-btns{
+		margin-bottom: 25px;
+	}
+	&__btn-status{
+		transition: transform 0.5s ease 0s;
+		margin-right: 10px;
+		padding: 5px 15px;
+		color: #ffffff;
+		font-weight: 600;
+		border-radius: 5px !important;
+		box-shadow: 0 0 3px 0px #000;
+		&_positive{
+			background: #8af9ad52;
+			&.active{
+				background: #8AF9AD;
+				color: #171a21;
+			}
+		}
+		&_negative{
+			background: rgba(139, 0, 0, 0.308);
+			&.active{
+				background: rgb(229, 0, 0);
+			}
+		}
+		&_neutral{
+			background: #e1f68546;
+			&.active{
+				background: #ffe41a;
+				color: #171a21;
+			}
+		}
+		@media(min-width: 992px) {
+			&:hover{
+				transform: scale(0.9);
+			}
+		}
+	}
+	&__btn-sub{
+		transition: background 0.4s ease 0s, border 0.3s ease 0s, opacity 0.3s ease 0s;
+		margin-top: 27px;
+		color: #ffffff;
+		background: rgb(0, 76, 218);
+		font-size: 16px;
+		border: 1px solid rgb(0, 76, 218);
+		border-radius: 4px !important;
+		padding: 10px;
+		&.no-active{
+			opacity: 0.5;
+			pointer-events: none;
+		}
+		@media(min-width: 992px) {
+			&:hover{
+				background: none;
+				border: 1px solid #2EBFFF;
+			}
+		}
+	}
+}

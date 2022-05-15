@@ -4,13 +4,15 @@ import SelectField from "./selectField"
 import StockTextField from "./stockTextField"
 import CheckboxField from "./checkboxField"
 import RecaptchaField from "./recaptchaField"
+import TextAreaField from "./textAreaField"
 
 export {
 	TextField,
 	SelectField,
 	StockTextField,
 	CheckboxField,
-	RecaptchaField
+	RecaptchaField,
+	TextAreaField
 }
 
 export default FormComponent

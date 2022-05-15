@@ -12,6 +12,7 @@ import NotFound from "./layots/notFound"
 import Authorization from "./layots/authorization"
 import Registration from "./layots/registration"
 import Game from "./layots/game"
+import User from "./layots/user"
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 						<Route path="/signUp" element={<Registration />} />
 						<Route path="/signIn" element={<Authorization />} />
 						<Route path="/game/:idGame" element={<Game />} />
+						<Route path="/profile/:idUser" element={<User />} />
 						<Route path="/" element={<Home />} />
 						<Route path="*" element={<NotFound />} />
 					</Routes>

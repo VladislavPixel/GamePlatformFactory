@@ -5,8 +5,8 @@ import getCategoryStore from "./storeCategory"
 import getStoreWalletLinks from "./storeWallet"
 import getTopGames from "./videoGamesCollectionTopStore"
 import getGamesCollectionMiddle from "./videoGamesCollectionMiddle"
-import getCommentsGamesForSliderStore from "./commentsGamesForSliderStore"
-import getUsersObjectForSliderStoreComments from "./users"
+import getCommentsGamesForSliderStore, { getCommentsForTheLastWeek } from "./commentsGamesForSliderStore"
+import getUsersObjectForSliderStoreComments, { getUserById } from "./users"
 import getScopeSliderData from "./scopeSliderStoreData"
 import getCountries from "./countries"
 import getBigDataGameById from "./gamePage"
@@ -27,7 +27,9 @@ const fakeApi = {
 	getCountries,
 	getBigDataGameById,
 	getArrayRussianGames,
-	getVideoGamesCollectionLite
+	getVideoGamesCollectionLite,
+	getUserById,
+	getCommentsForTheLastWeek
 }
 
 export default fakeApi

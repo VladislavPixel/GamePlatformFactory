@@ -4,22 +4,23 @@ import { useSelector } from "react-redux"
 
 // Auxiliary
 import { getDataUserForCommentById } from "../../store/commentsGamesStoreSlider"
+import getDateInStringFormat from "../../utils/getDateInStringFormat"
 
 const SlideCommentCardSliderComments = ({ userId, date, text }) => {
-	// Redux
+	// REDUX
 	const { avatar, nickName } = useSelector(getDataUserForCommentById(userId))
-	// State
+	// STATE
 	const [stylessTextBlockComment, setStylessTextBlockComment] = useState({})
 	const [heightBlockSlide, setHeightBlockSlide] = useState(null) // Максимально допустимая высота
 	const [heightBlockDate, setHeightBlockDate] = useState(null)
 	const [heightBlockTextComment, setHeightBlockTextComment] = useState(null)
 	const [heightProfile, setHeightProfile] = useState(null)
-	// Auxiliary
+	// AUXILIARY
 	const blockSlide = useRef(null)
 	const blockDate = useRef(null)
 	const blockTextComment = useRef(null)
 	const profile = useRef(null)
-	// Handlers
+	// HANDLERS
 	const handlerBtnMore = () => console.log("Перейти на страницу, где доступен полный текст комментария!")
 
 	useEffect(() => { // При первом монтировании мы сохраняем все высоты, для правильного отображения большого комментария
@@ -42,14 +43,14 @@ const SlideCommentCardSliderComments = ({ userId, date, text }) => {
 	return (
 		<div ref={blockSlide} className="block-comments-sub__slide">
 			<div className="block-comments-sub__content-wrap comment-content-wrap">
-				<p ref={blockDate} className="comment-content-wrap__date">Дата комментария: {date}</p>
+				<p ref={blockDate} className="comment-content-wrap__date">Дата комментария: {getDateInStringFormat(date)}</p>
 				<p ref={blockTextComment} style={stylessTextBlockComment} className="comment-content-wrap__text-comment">{`"${text}"`}</p>
 				{difference <= 0 &&
 					<button onClick={handlerBtnMore} className="comment-content-wrap__more-btn-text" type="button">Читать дальше</button>
 				}
 				<div ref={profile} className="comment-content-wrap__profile profile-comment">
 					<div className="profile-comment__column">
-						<img src={`./images/users/avatar/${avatar}`} alt={`Аватарка профайла - ${nickName}`} />
+						<img src={`/images/users/avatar/${avatar}`} alt={`Аватарка профайла - ${nickName}`} />
 					</div>
 					<div className="profile-comment__column">
 						<p className="profile-comment__nick">{nickName}</p>
@@ -62,7 +63,7 @@ const SlideCommentCardSliderComments = ({ userId, date, text }) => {
 
 SlideCommentCardSliderComments.propTypes = {
 	userId: PropTypes.string.isRequired,
-	date: PropTypes.string.isRequired,
+	date: PropTypes.number.isRequired,
 	text: PropTypes.string.isRequired
 }
 
