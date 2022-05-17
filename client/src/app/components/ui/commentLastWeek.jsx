@@ -36,7 +36,7 @@ const CommentLastWeek = ({ status, date, nickName, rank, userId, text:textCommen
 					<p className="block-last-week__text-status">{text}</p>
 				</div>
 				<p className="block-last-week__date">{getDateInStringFormat(date)}</p>
-				<img title="Логотип платформы Factory.inc" className="block-last-week__logo-factory" src="/images/icons/logoFactory.svg" alt="Иконка платформы - Factory.inc" />
+				<Link to="/aboutUs"><img title={`Перейти на страницу "О Factory". Вы сможете познакомиться с нами поближе.`} className="block-last-week__logo-factory" src="/images/icons/logoFactory.svg" alt="Иконка платформы - Factory.inc" /></Link>
 			</div>
 			<div className="block-last-week__content">
 				<p className="block-last-week__nickname">Оставил(-a): <Link title={`Перейти на страницу профиля --> ${nickName}`} to={`/profile/${userId}`}>{nickName}</Link></p>

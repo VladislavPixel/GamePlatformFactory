@@ -187,6 +187,11 @@
 			flex: 0 1 65%;
 		}
 	}
+	&__content-right{
+		padding: 0px 10px 10px 10px;
+		box-shadow: 0 0 3px 0px #000;
+		margin: 0px -10px -10px 0px;
+	}
 	&__title{
 		text-transform: uppercase;
 		font-size: 22px;
@@ -263,5 +268,72 @@
 		span{
 			color: #ffb400;
 		}
+	}
+	&__right-head{
+		display: flex;
+		justify-content: space-between;
+		background: #171a21a4;
+		padding: 10px;
+		margin: -10px -10px 15px -10px;
+		box-shadow: 0 0 8px 0px #000;
+	}
+	&__column-head{
+		display: flex;
+		align-items: center;
+	}
+	&__icon-status{
+		flex: 0 0 40px;
+		width: 40px;
+		height: 40px;
+		margin-right: 10px;
+	}
+	&__logo-icon{
+		flex: 0 0 40px;
+		width: 40px;
+		height: 40px;
+	}
+	&__status-text{
+		color: #ffffff;
+		font-size: 17px;
+		font-weight: 500;
+	}
+	&__date{
+		color: #2EBFFF;
+		font-size: 16px;
+		margin-bottom: 17px;
+		span{
+			color: #ffffff;
+		}
+	}
+	&__funny,&__awards,&__consonants,&__disagree,&__sucks,&__like-block,&__dislike-block{
+		margin-bottom: 7px;
+		font-size: 16px;
+		color: #ffffff;
+		span{
+			color: #ffb400;
+		}
+	}
+	&__sucks,&__like-block,&__dislike-block{
+		display: flex;
+		align-items: center;
+	}
+	&__poo,&__like,&__dislike{
+		flex: 0 0 40px;
+		width: 40px;
+		height: 40px;
+		margin-right: 10px;
+	}
+	&__sucks,&__like-block,&__dislike-block{
+		span{
+			margin-left: 5px;
+		}
+	}
+	&__container-text-comment{
+		margin: 15px 0px;
+	}
+	&__text-comment{
+		color: #41c6ffb2;
+		font-size: 17px;
+		line-height: 110%;
 	}
 }
