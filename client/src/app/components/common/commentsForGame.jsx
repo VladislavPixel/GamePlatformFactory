@@ -1,8 +1,10 @@
 import React from "react"
 
 // Components
+import CommentsForTheMainWallForGamePageLoaderGlobal from "../HOC/commentsForTheMainWallForGamePageLoaderGlobal"
 import CommentsForTheLastWeekForGamePageLoaderGlobal from "../HOC/commentsForTheLastWeekForGamePageLoaderGlobal"
 import CommentsLastWeekList from "../ui/commentsLastWeekList"
+import CommentsMainWallList from "../ui/commentsMainWallList"
 
 const CommentsForGame = () => {
 	// HANDLERS
@@ -11,10 +13,14 @@ const CommentsForGame = () => {
 	}
 	return (
 		<div className="comments-game-block__comments-row comments-container">
-			<div className="comments-container__column"></div>
+			<div className="comments-container__column">
+				<CommentsForTheMainWallForGamePageLoaderGlobal>
+					<CommentsMainWallList />
+				</CommentsForTheMainWallForGamePageLoaderGlobal>
+			</div>
 			<div className="comments-container__column">
 				<div className="comments-container__last-week">
-					<h3 className="comments-container__title">За последние 7 дней</h3>
+					<h4 className="comments-container__title">За последние 7 дней</h4>
 					<CommentsForTheLastWeekForGamePageLoaderGlobal>
 						<CommentsLastWeekList onClickReaction={handlerClickBtnReactionOnComment} />
 					</CommentsForTheLastWeekForGamePageLoaderGlobal>

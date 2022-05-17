@@ -7,7 +7,8 @@ import PropTypes from "prop-types"
 import {
 	getStatusLoadingCommentsForTheLastWeek,
 	getTargetIdGameForComments,
-	fetchDataCommentsForTheLastWeek
+	fetchDataCommentsForTheLastWeek,
+	getDataCommentsForTheLastWeek
 } from "../../store/commentsForGamePage"
 
 // Components
@@ -21,18 +22,19 @@ const CommentsForTheLastWeekForGamePageLoaderGlobal = ({ children }) => {
 	// REDUX
 	const dispatch = useDispatch()
 	const statusLoading = useSelector(getStatusLoadingCommentsForTheLastWeek())
+	const dataComments = useSelector(getDataCommentsForTheLastWeek())
 	const idTargetGameForComments = useSelector(getTargetIdGameForComments())
 	useEffect(() => {
 		if (statusLoading) {
 			dispatch(fetchDataCommentsForTheLastWeek(idGame))
 		} else {
-			if (idTargetGameForComments !== idGame) {
+			if (idTargetGameForComments !== idGame || dataComments === null) {
 				dispatch(fetchDataCommentsForTheLastWeek(idGame))
 			} else {
 				setLoadingGlobal(false)
 			}
 		}
-	}, [statusLoading, dispatch, idGame, idTargetGameForComments])
+	}, [statusLoading, dispatch, idGame, idTargetGameForComments, dataComments])
 	const ChildrenWithLoading = withLoading(children, isLoadingGlobal)
 
 	return <ChildrenWithLoading />

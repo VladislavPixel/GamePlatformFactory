@@ -17,20 +17,35 @@ const commentsForGamePageSlice = createSlice({
 	name: "commentsForGamePage",
 	initialState,
 	reducers: {
-		commentsForTheLastWeekRequested(state) {
-			state.targetIdGame = null
+		commentsForTheLastWeekRequested(state, action) {
+			if (state.targetIdGame !== action.payload) state.targetIdGame = null
 			state.errorCommentsForTheLastWeek = null
 			state.isLoadingCommentsForTheLastWeek = true
 		},
 		commentsForTheLastWeekReceived(state, action) {
 			const { data, id } = action.payload
-			state.targetIdGame = id
+			if (state.targetIdGame !== id) state.targetIdGame = id
 			state.commentsForTheLastWeek = data
 			state.isLoadingCommentsForTheLastWeek = false
 		},
 		commentsForTheLastWeekRequestField(state, action) {
 			state.errorCommentsForTheLastWeek = action.payload
 			state.isLoadingCommentsForTheLastWeek = false
+		},
+		commentsForTheMainWallRequested(state, action) {
+			if (state.targetIdGame !== action.payload) state.targetIdGame = null
+			state.errorCommentsForTheMainWall = null
+			state.isLoadingCommentsForTheMainWall = true
+		},
+		commentsForTheMainWallReceived(state, action) {
+			const { data, id } = action.payload
+			if (state.targetIdGame !== id) state.targetIdGame = id
+			state.commentsForTheMainWall = data
+			state.isLoadingCommentsForTheMainWall = false
+		},
+		commentsForTheMainWallRequestField(state, action) {
+			state.errorCommentsForTheMainWall = action.payload
+			state.isLoadingCommentsForTheMainWall = false
 		}
 	}
 })
@@ -39,19 +54,34 @@ const { actions, reducer: commentsForGamePageReducer } = commentsForGamePageSlic
 const {
 	commentsForTheLastWeekRequested,
 	commentsForTheLastWeekReceived,
-	commentsForTheLastWeekRequestField
+	commentsForTheLastWeekRequestField,
+	commentsForTheMainWallRequested,
+	commentsForTheMainWallReceived,
+	commentsForTheMainWallRequestField
 } = actions
 
 // Actions
 export function fetchDataCommentsForTheLastWeek(idGame) {
 	return async (dispatch) => {
-		dispatch(commentsForTheLastWeekRequested())
+		dispatch(commentsForTheLastWeekRequested(idGame))
 		try {
 			const commentsArr = await fakeApi.getCommentsForTheLastWeek(idGame)
 			dispatch(commentsForTheLastWeekReceived({ data: commentsArr, id: idGame }))
 		} catch(err) {
 			const { message } = err
 			dispatch(commentsForTheLastWeekRequestField(message))
+		}
+	}
+}
+export function fetchDataCommentsForTheMainWall(idGame) {
+	return async (dispatch) => {
+		dispatch(commentsForTheMainWallRequested(idGame))
+		try {
+			const comments = await fakeApi.getCommentsForTheMainWallByIdNoLastWeek(idGame)
+			dispatch(commentsForTheMainWallReceived({ data: comments, id: idGame }))
+		} catch(err) {
+			const { message } = err
+			dispatch(commentsForTheMainWallRequestField(message))
 		}
 	}
 }

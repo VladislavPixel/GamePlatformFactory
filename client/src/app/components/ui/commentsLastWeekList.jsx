@@ -12,7 +12,6 @@ import CommentLastWeek from "./commentLastWeek"
 const CommentsLastWeekList = ({ onClickReaction }) => {
 	// REDUX
 	const dataComments = useSelector(getDataCommentsForTheLastWeek())
-	console.log(dataComments)
 	// AUXILIARY
 	const correctLengthValue = dataComments === null ? 0 : dataComments.length
 	const ELEMENT = <div className="comments-container__last-week-list block-last-week">

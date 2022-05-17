@@ -1,6 +1,7 @@
 import { usersData } from "../users"
 const commentsGames = [
-	{_id: "bvnvvbc546578", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1649581200000, status: "positive", text: "однажды зайдя сюда ты пожалеешь, но тебе понравится"},
+	{_id: "bvnvvbc546578768678678", funnyStatus: [], awards: [], consonants: ["consonant6", "consonant7"], disagree: [], sucks: [], likes: [], dislikes: [], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1649581200000, status: "positive", text: "Спасибо разработчикам за патч 7.23... Такого приятного подарка мнне давно никто не делал. У меня почти 5к часов в доте и я страдал от этой зависимости. Благодаря этому чудесному патчу я наконец таки нажал заветную кнопку удалить. Спустя года я наконец то познакомился с семьёй и прогулялся по улице!"},
+	{_id: "bvnvvbc546578", funnyStatus: [], awards: [], consonants: ["consonant1", "consonant2", "consonant3", "consonant4", "consonant5"], disagree: [], sucks: [], likes: [], dislikes: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1649581200000, status: "positive", text: "однажды зайдя сюда ты пожалеешь, но тебе понравится"},
 	{_id: "docvbta324234", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1652542200000, status: "positive", text: "Прикольно но надо понимать перса."},
 	{_id: "mark2", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], idGame: "2dota2lol56", userId: "9934534fghf", date: 1652443200000, status: "negative", text: "Так получается, что я играю в доту, когда у меня в жизни всё не очень здорово, не считая периода, когда я только начинал. Эта игра давно уже мне не приносит эмоций, ни положительных, ни отрицательных, после серии каток остаётся только опустошение. Я даже не могу вспомнить, за кого я играл 2 катки назад. Когда я играю с друзьями, ситуация чуть лучше, там хоть пообщаться можно, но в целом дота-просто бессмысленная трата моего времени. И всё бы ничего, но я подсел на эту херь, вопреки всем доводам логики. Дота не дала мне ничего, разве только стрессоустойчивость в жизни, мне стало искренне ♥♥♥♥♥♥♥♥♥♥♥♥♥♥ на токсичность в реальной жизни, на оскорбления и т.д. Я честно не рекомендую катать в эту ♥♥♥♥♥♥♥♥♥♥ без друзей или без коммерческих целей (стримеры, киберспорт). Она точно не сделает вас умнее, смешнее, круче. Пацаны, не надо, мб так только у меня, но играя в доту я деградирую, бросаю читать, учиться, общаться. Превращаюсь в тупое животное. Попробую бросить (снова) хотя ♥♥♥♥♥♥♥♥ так и тянет каточку-другую сыграть."},
 	{_id: "dotadotadotabnm", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1652518800000, status: "positive", text: "Регулярно пишу сюда, потому что игра ну просто космос. Обожаю ее, считаю уже достоянием человечества, АХАХАХА"},
@@ -37,15 +38,20 @@ function getCommentsGamesForSliderStore(arrayTop12) {
 	})
 }
 
+function isInScopeDate(dateMilliseconds) {
+	const prevDateMilliseconds = new Date(2022, 4, 8).getTime()
+	const nextDateMilliseconds = new Date(2022, 4, 9).getTime()
+	const millisecondsInSevenDays = (nextDateMilliseconds - prevDateMilliseconds) * 7
+	const endScopeMilliseconds = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).getTime()
+	const startScopeMilliseconds = endScopeMilliseconds - millisecondsInSevenDays
+
+	return (dateMilliseconds >= startScopeMilliseconds && dateMilliseconds < endScopeMilliseconds)
+}
+
 export function getCommentsForTheLastWeek(idGame) {
 	return new Promise((resolve, reject) => {
-		const prevDateMilliseconds = new Date(2022, 4, 8).getTime()
-		const nextDateMilliseconds = new Date(2022, 4, 9).getTime()
-		const millisecondsInSevenDays = (nextDateMilliseconds - prevDateMilliseconds) * 7
-		const endScopeMilliseconds = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).getTime()
-		const startScopeMilliseconds = endScopeMilliseconds - millisecondsInSevenDays
 		const result = commentsGames.filter(comment => {
-			if (comment.idGame === idGame && comment.date >= startScopeMilliseconds && comment.date < endScopeMilliseconds) return comment
+			if (comment.idGame === idGame && isInScopeDate(comment.date)) return comment
 			return null
 		})
 		const sliceResult = result.length > 10 ? result.slice(0, 10) : result
@@ -66,6 +72,32 @@ export function getCommentsForTheLastWeek(idGame) {
 		
 		setTimeout(() => {
 			resolve(updateSliceReqult)
+		}, 1000)
+	})
+}
+export function getCommentsForTheMainWallByIdNoLastWeek(idGame) {
+	return new Promise((resolve, reject) => {
+		const result = commentsGames.filter(item => {
+			if (idGame === item.idGame && !isInScopeDate(item.date)) return item
+			return null
+		})
+		const resultWithCorrectLength = (result.length > 15 ? result.slice(0, 15) : result)
+		if (resultWithCorrectLength.length) {
+			resultWithCorrectLength.sort((commentA, commentB) => {
+				if (commentA.consonants.length > commentB.consonants.length) return -1
+				if (commentA.consonants.length < commentB.consonants.length) return 1
+				return 0
+			})
+		}
+		const updateResult = resultWithCorrectLength.map(comment => {
+			const user = usersData.find(item => item._id === comment.userId)
+			const updateUser = {...user}
+			delete updateUser._id
+
+			return {...comment, ...updateUser}
+		})
+		setTimeout(() => {
+			resolve(updateResult)
 		}, 1000)
 	})
 }
