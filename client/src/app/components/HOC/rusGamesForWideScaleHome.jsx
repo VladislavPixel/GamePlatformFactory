@@ -12,9 +12,11 @@ const RusGamesForWideScaleHomeGlobalLoader = ({ children }) => {
 	const dispatch = useDispatch()
 	const isLoading = useSelector(getStatusLoaderRusGamesWideScaleHome())
 	const dataRusGames = useSelector(getDataRusGamesForWideScaleHome())
+
 	useEffect(() => {
 		if (isLoading) dispatch(fetchDataRussianGamesForWideScale())
 	}, [isLoading, dispatch])
+	// AUXILIARY
 	const ChildrenWithLoading = withLoading(children, isLoading)
 	return <ChildrenWithLoading data={dataRusGames} />
 }
