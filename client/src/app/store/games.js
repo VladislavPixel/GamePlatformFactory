@@ -122,6 +122,11 @@ export const getDataGamesMiddle = () => {
 		return state.games.entities
 	}
 }
+export const getDataTitleGameById = (idGame) => {
+	return (state) => {
+		return state.games.entities.find(game => game._id === idGame).title
+	}
+}
 export const getDataTop18Games = () => {
 	return (state) => {
 		return state.games.entitiesTop18

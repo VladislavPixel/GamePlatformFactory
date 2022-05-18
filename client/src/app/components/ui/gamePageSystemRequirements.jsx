@@ -23,7 +23,7 @@ const GamePageSystemRequirements = ({ data }) => {
 						{arrKeysPlatform.map((key, index) => {
 							return (
 								<button onClick={() => handlerUpdatePlatform(key)} style={{ flex: `0 1 ${100 / arrKeysPlatform.length}%` }} className={"system-requirements-game__btn-platform" + (currentPlatform === key ? " active" : "")} key={index}>
-									<img src={`/images/platformsIcon/${key.toLowerCase()}.svg`} alt={`Иконка платформы: ${key}`} />
+									<img title={`Платформа: ${key}`} src={`/images/platformsIcon/${key.toLowerCase()}.svg`} alt={`Иконка платформы: ${key}`} />
 									{key}
 								</button>
 							)

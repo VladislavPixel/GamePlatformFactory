@@ -12,7 +12,7 @@ const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, p
 		<div className="list-games-store__column">
 			<div className="list-games-store__card-game">
 				<Link to={`/game/${_id}`} className="list-games-store__image-wrap">
-					<img src={`./images/storeGamesMiddle/${imageMiddle}`} alt={altImageMiddle} />
+					<img src={`/images/storeGamesMiddle/${imageMiddle}`} alt={altImageMiddle} />
 				</Link>
 				<div className="list-games-store__head-block">
 					<img className="list-games-store__icon" src={`./images/icons/${iconForTitle}`} alt={iconForTitleAlt} />
@@ -22,7 +22,7 @@ const StoreGameCardMiddle = ({ title, rate, imageMiddle, altImageMiddle, tags, p
 						{tags.map((tag, index) => <span key={index}>{tag}</span>)}
 					</div>
 					<div className="list-games-store__list-platform">
-						{platform.map((el, index) => <img key={index} src={`./images/platformsIcon/${el}`} alt="Иконка платформы, на которой работает игра" />)}
+						{platform.map((el, index) => <img title={`Платформа, которой поддерживается эта игра: ${el.split(".")[0]}`} key={index} src={`/images/platformsIcon/${el}`} alt="Иконка платформы, на которой работает игра" />)}
 					</div>
 					<button className="list-games-store__btn-car  btn-card-game" type="button">в корзину</button>
 					<button onClick={() => navigate(`/game/${_id}`)} className="list-games-store__btn-more btn-card-game" type="button">подробнее</button>

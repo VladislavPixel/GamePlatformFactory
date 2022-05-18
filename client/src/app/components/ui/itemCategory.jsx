@@ -21,7 +21,7 @@ const ItemCategory = ({ path, poster, alt, title, platform, price, tags, _id, is
 				<h3 className="card-game__title">{title}</h3>
 				<div className="card-game__row">
 					<div className="card-game__content-column">
-						{platform.map((platformPath, m) => <img key={m} src={"./images/platformsIcon/" + platformPath} alt="Иконка платформы на которой работает игра." />)}
+						{platform.map((platformPath, m) => <img title={`Платформа, которой поддерживается эта игра: ${platformPath.split(".")[0]}`} key={m} src={"/images/platformsIcon/" + platformPath} alt="Иконка платформы на которой работает игра." />)}
 					</div>
 					<div className="card-game__content-column">
 						<div className={"card-game__price" + (isDiscount ? " card-game__price_through" : "")}>{getValuePrice(price)}</div>

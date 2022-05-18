@@ -4,7 +4,7 @@ import React from "react"
 import CommentsForGamePage from "../components/pages/commentsForGamePage"
 
 const Comments = () => {
-   return <CommentsForGamePage />
+	return <CommentsForGamePage />
 }
 
 export default Comments

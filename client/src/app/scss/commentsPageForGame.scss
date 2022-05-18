@@ -1,0 +1,50 @@
+.comments-game-block{
+	position: relative;
+	background: url("../img/backgroundCommentsForGamePage.jpg") 0 0/cover no-repeat fixed;
+	height: 100%;
+	width: 100%;
+	&:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #00000079;
+		z-index: 2;
+	}
+	&__container{
+		padding-top: 30px;
+		position: relative;
+		z-index: 100;
+	}
+	&__head{
+		display: flex;
+		flex-direction: column;
+	}
+	&__title-game{
+		font-size: 35px;
+		line-height: 32px;
+		color: #ffffff;
+		margin-bottom: 10px;
+	}
+	&__link{
+		align-self: flex-end;
+		transition: background 0.4s ease 0s, border 0.3s ease 0s, opacity 0.3s ease 0s;
+		font-size: 15px;
+		font-weight: 500;
+		padding: 15px;
+		background: none;
+		border: 1px solid #2EBFFF;
+		color: #ffffff;
+		min-width: 200px;
+		box-shadow: 0 0 3px 0px #000;
+		border-radius: 8px !important;
+		@media(min-width: 992px) {
+			&:hover{
+				background: rgb(0, 76, 218);
+				border: 1px solid rgb(0, 76, 218);
+			}
+		}
+	}
+}

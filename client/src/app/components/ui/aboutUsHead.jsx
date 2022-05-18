@@ -17,12 +17,12 @@ const AboutUsHead = () => {
 						<div className="head-about-us-block__platform">
 							<span>Мы работаем с такими платформами как:</span>
 							<div className="head-about-us-block__platform-list">
-								{configAuxiliary.platforms.map((item, index) => <img key={index} src={`./images/platformsIcon/${item.path}`} alt={item.name} />)}
+								{configAuxiliary.platforms.map((item, index) => <img key={index} title={item.title} src={`/images/platformsIcon/${item.path}`} alt={item.name} />)}
 							</div>
 						</div>
 					</div>
 					<div className="head-about-us-block__column">
-						<img className="head-about-us-block__poster" src="./images/aboutUs/hydrometry.jpg" alt="Абстрактная фигура" />
+						<img className="head-about-us-block__poster" src="/images/aboutUs/hydrometry.jpg" alt="Абстрактная фигура" />
 					</div>
 				</div>
 			</div>
