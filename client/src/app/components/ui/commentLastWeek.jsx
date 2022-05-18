@@ -8,7 +8,7 @@ import getDateInStringFormat from "../../utils/getDateInStringFormat"
 // Components
 import CommentActivityPanel from "../common/commentActivityPanel"
 
-const CommentLastWeek = ({ status, date, nickName, rank, userId, text:textComment, onClickReaction }) => {
+const CommentLastWeek = ({ status, date, nickName, rank, userId, text:textComment, onClickReaction, _id }) => {
 	// STATE
 	const [isShowContainerComment, setShowContainerComment] = useState(false)
 	const [heightComment, setHeightComment] = useState(null)
@@ -44,9 +44,9 @@ const CommentLastWeek = ({ status, date, nickName, rank, userId, text:textCommen
 				<div style={configContainerComment} className="block-last-week__container-text-comment">
 					<p ref={textBlock} className="block-last-week__text-comment">"{textComment}"</p>
 				</div>
-				{(heightComment > MAX_HEIGHT_COMMENT && !isShowContainerComment) && <div className="block-last-week__container-more-btn"><button onClick={handlerClickBtnMore} className="block-last-week__more-comment" type="button">Подробнее</button></div>}
+				{(heightComment > MAX_HEIGHT_COMMENT && !isShowContainerComment) && <div className="block-last-week__container-more-btn"><button title="Нажмите на кнопку, чтобы полностью развернуть комментарий пользователя" onClick={handlerClickBtnMore} className="block-last-week__more-comment" type="button">Подробнее</button></div>}
 			</div>
-			<CommentActivityPanel onClickReaction={onClickReaction} parentClass="block-last-week" />
+			<CommentActivityPanel idComment={_id} onClickReaction={onClickReaction} parentClass="block-last-week" />
 		</div>
 	)
 }
@@ -58,7 +58,8 @@ CommentLastWeek.propTypes = {
 	rank: PropTypes.object.isRequired,
 	userId: PropTypes.string.isRequired,
 	text: PropTypes.string.isRequired,
-	onClickReaction: PropTypes.func.isRequired
+	onClickReaction: PropTypes.func.isRequired,
+	_id: PropTypes.string.isRequired
 }
 
 export default CommentLastWeek

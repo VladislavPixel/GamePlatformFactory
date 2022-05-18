@@ -125,19 +125,19 @@
 	},
 	"activityComment": {
 		"block1": [
-			{"_id": "reaction1", "title": "Забавный", "icon": "smile.svg"},
-			{"_id": "reaction2", "title": "Наградить", "icon": "award.svg"}
+			{"_id": "reaction1", "title": "Забавный", "icon": "smile.svg", "titleBtn": "Нажмите на эту кнопку, чтобы отметить этот комментарий как *забавный*"},
+			{"_id": "reaction2", "title": "Наградить", "icon": "award.svg", "titleBtn": "Нажмите на эту кнопку, чтобы *наградить* пользователя"}
 		],
 		"block2": [
-			{"_id": "reaction3", "title": "Лайк", "icon": "like.svg"},
-			{"_id": "reaction4", "title": "Дизлайк", "icon": "dizlike.svg"}
+			{"_id": "reaction3", "title": "Лайк", "icon": "like.svg", "titleBtn": "Нажмите на эту кнопку, чтобы *отметить этот комментарий как понравившийся Вам*"},
+			{"_id": "reaction4", "title": "Дизлайк", "icon": "dizlike.svg", "titleBtn": "Нажмите на эту кнопку, чтобы *отметить этот комментарий как непонравившийся Вам*"}
 		],
 		"block3": [
-			{"_id": "reaction5", "title": "Согласен", "icon": "iagree.svg"},
-			{"_id": "reaction6", "title": "Несогласен", "icon": "disagree.svg"}
+			{"_id": "reaction5", "title": "Согласен", "icon": "iagree.svg", "titleBtn": "Нажимая эту кнопку, *Вы соглашаетесь* с автором комментария"},
+			{"_id": "reaction6", "title": "Несогласен", "icon": "disagree.svg", "titleBtn": "Нажимая эту кнопку, *Вы не соглашаетесь* с автором комментария"}
 		],
 		"block4": [
-			{"_id": "reaction7", "title": "Полный отстой", "icon": "poo.svg"}
+			{"_id": "reaction7", "title": "Полный отстой", "icon": "poo.svg", "titleBtn": "Вы считаете этот комментарий полной туфтой"}
 		]
 	}
 }

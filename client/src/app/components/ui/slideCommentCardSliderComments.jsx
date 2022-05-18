@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 // Auxiliary
 import { getDataUserForCommentById } from "../../store/commentsGamesStoreSlider"
@@ -8,7 +9,7 @@ import getDateInStringFormat from "../../utils/getDateInStringFormat"
 
 const SlideCommentCardSliderComments = ({ userId, date, text }) => {
 	// REDUX
-	const { avatar, nickName } = useSelector(getDataUserForCommentById(userId))
+	const { avatar, nickName, _id } = useSelector(getDataUserForCommentById(userId))
 	// STATE
 	const [stylessTextBlockComment, setStylessTextBlockComment] = useState({})
 	const [heightBlockSlide, setHeightBlockSlide] = useState(null) // Максимально допустимая высота
@@ -50,10 +51,10 @@ const SlideCommentCardSliderComments = ({ userId, date, text }) => {
 				}
 				<div ref={profile} className="comment-content-wrap__profile profile-comment">
 					<div className="profile-comment__column">
-						<img src={`/images/users/avatar/${avatar}`} alt={`Аватарка профайла - ${nickName}`} />
+						<Link title={`Перейти на страницу пользователя --> ${nickName}`} to={`/profile/${_id}`}><img src={`/images/users/avatar/${avatar}`} alt={`Аватарка профайла - ${nickName}`} /></Link>
 					</div>
 					<div className="profile-comment__column">
-						<p className="profile-comment__nick">{nickName}</p>
+						<p className="profile-comment__nick"><Link title={`Перейти на страницу пользователя --> ${nickName}`} to={`/profile/${_id}`}>{nickName}</Link></p>
 					</div>
 				</div>
 			</div>

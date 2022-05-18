@@ -33,6 +33,13 @@ function getUserById(idUser) {
 		}, 1000)
 	})
 }
+function getValueAllUsers() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(usersData.length)
+		}, 200)
+	})
+}
 
-export { usersData, getUserById }
+export { usersData, getUserById, getValueAllUsers }
 export default getUsersObjectForSliderStoreComments

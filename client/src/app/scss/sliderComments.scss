@@ -419,6 +419,7 @@
 	align-items: center;
 	&__column{
 		&:first-child{
+			transition: box-shadow 0.4s ease 0s;
 			flex: 0 1 50px;
 			height: 50px;
 			border-radius: 50% !important;
@@ -434,10 +435,22 @@
 				height: 100%;
 				object-fit: cover;
 			}
+			@media(min-width: 992px) {
+				&:hover{
+					box-shadow: 0 0 5px 2px #8AF9AD;
+				}
+			}
 		}
 	}
 	&__nick{
-		color: #00FFAA;
-		font-weight: bold;
+		a{
+			color: #00FFAA;
+			font-weight: bold;
+			@media(min-width: 992px) {
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+		}
 	}
 }

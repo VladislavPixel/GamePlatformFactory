@@ -8,14 +8,15 @@ import CommentsMainWallList from "../ui/commentsMainWallList"
 
 const CommentsForGame = () => {
 	// HANDLERS
-	const handlerClickBtnReactionOnComment = () => {
-		console.log("click")
+	const handlerClickBtnReactionOnComment = (reaction, idComment) => {
+		console.log("click -->", reaction)
+		console.log("id comment -->", idComment)
 	}
 	return (
 		<div className="comments-game-block__comments-row comments-container">
 			<div className="comments-container__column">
 				<CommentsForTheMainWallForGamePageLoaderGlobal>
-					<CommentsMainWallList />
+					<CommentsMainWallList onClickReaction={handlerClickBtnReactionOnComment} />
 				</CommentsForTheMainWallForGamePageLoaderGlobal>
 			</div>
 			<div className="comments-container__column">
