@@ -10,7 +10,8 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 	const [configList, setConfigList] = useState({ transform: "translateX(0px)" })
 	const [toddlerConfig, setToddlerConfig] = useState({ left: "0px"})
 	// AUXILIARY
-	const allPage = Math.ceil(arrHeadData.length / 5) // расчитываем количество страниц для стрелок
+	const MAXIMUM_NUMBER_OF_SLIDES_PER_CONTAINER = 5
+	const allPage = Math.ceil(arrHeadData.length / MAXIMUM_NUMBER_OF_SLIDES_PER_CONTAINER) // расчитываем количество страниц для стрелок
 	const band = useRef(null) // ссылка на дорожку по которой двигается ползунок
 	const toddlerEl = useRef(null) // ссылка на ползунок
 	const container = useRef(null) // ссылка на весь блок
@@ -28,6 +29,8 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 		if (directionStr === "right" && allPage - 1 === currentPage) return
 		let pageValue = currentPage
 		const ratio = widthSlideGamePage.current * arrHeadData.length / widthBand.current
+		console.log(widthSlideGamePage.current, "ШИРИНА СЛАЙДА")
+		console.log(widthSlideGamePage.current * arrHeadData.length, "Контейнер со слайдами")
 		if (directionStr === "left") {
 			setCurrentPage(prevState => prevState - 1)
 			pageValue--
@@ -36,7 +39,7 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 			setCurrentPage(prevState => prevState + 1)
 			pageValue++
 		}
-		setToddlerConfig({ left: `${(widthSlideGamePage.current * 5) * pageValue / ratio}px` })
+		setToddlerConfig({ left: `${widthSlideGamePage.current * MAXIMUM_NUMBER_OF_SLIDES_PER_CONTAINER / ratio}px` })
 		setConfigList({ transform: `translateX(-${pageValue * widthListContainer.current}px)` })
 	}
 	const moveAt = (pageX) => {
@@ -66,6 +69,7 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 	useEffect(() => { // ИНИЦИАЛИЗАЦИЯ ПЕРЕМЕННЫХ, важно чтобы рендер их не скидывал в неопределенные значения, поэтому Ref
 		if (band.current) {
 			widthBand.current = band.current.offsetWidth
+			console.log(widthBand, "ШИРИНА ДОРОЖКИ ПО КОТОРОЙ ДВИГАЕТСЯ ПОЛЗУН")
 			leftOffsetBand.current = band.current.offsetLeft
 		}
 		if (toddlerEl.current) {
