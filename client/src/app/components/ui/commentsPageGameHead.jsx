@@ -12,7 +12,7 @@ const CommentsPageGameHead = () => {
 	const titleGame = useSelector(getDataTitleGameById(idGame))
 	return (
 		<div className="comments-page-game-block__head">
-			<img className="comments-page-game-block__icon-communication" src="/images/icons/communication.svg" alt="Иконка символизирующая общение пользователей" />
+			<img title="Мы любим поболтать) Ознакомься с отзывами. Мы ценим ваши реакции на игры." className="comments-page-game-block__icon-communication" src="/images/icons/communication.svg" alt="Иконка символизирующая общение пользователей" />
 			<h1 className="comments-page-game-block__title-game">{titleGame}</h1>
 			<Link className="comments-page-game-block__link" title="При нажатии Вы перейдете на страницу этой игры, где будут представлены расширенные данные по ней." to={`/game/${idGame}`}>Перейти на страницу игры</Link>
 		</div>

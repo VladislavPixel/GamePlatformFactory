@@ -25,7 +25,6 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 	const handlerSetWidthList = (widthData) => widthListContainer.current = widthData
 	const handlerSetWidthGamePageSlide = (widthValue) => widthSlideGamePage.current = widthValue
 	const handlerShiftList = (directionStr) => {
-		console.log(maxSlides, "SLIDES")
 		if (directionStr === "left" && currentPage === 0) return
 		if (directionStr === "right" && allPage - 1 === currentPage) return
 		let pageValue = currentPage
