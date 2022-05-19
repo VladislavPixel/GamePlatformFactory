@@ -1,22 +1,15 @@
 import React from "react"
-import { useSelector } from "react-redux"
-import { useParams, Link } from "react-router-dom"
 
-// Auxiliary
-import { getDataTitleGameById } from "../../../store/games"
+// Components
+import CommentsPageGameHead from "../../ui/commentsPageGameHead"
+import PanelFiltersForCommentsPage from "../../ui/panelFiltersForCommentsPage"
 
 const CommentsForGamePage = () => {
-	// AUXILIARY
-	const { idGame } = useParams()
-	// REDUX
-	const titleGame = useSelector(getDataTitleGameById(idGame))
 	return (
 		<div className="block-content__commentsForGame comments-page-game-block">
 			<div className="comments-page-game-block__container _container">
-				<div className="comments-page-game-block__head">
-					<h1 className="comments-page-game-block__title-game">{titleGame}</h1>
-					<Link className="comments-page-game-block__link" title="При нажатии Вы перейдете на страницу этой игры, где будут представлены расширенные данные по ней." to={`/game/${idGame}`}>Перейти на страницу игры</Link>
-				</div>
+				<CommentsPageGameHead />
+				<PanelFiltersForCommentsPage />
 			</div>
 		</div>
 	)

@@ -19,19 +19,19 @@ const ActivityMenuForGamePage = ({ title, iconForTitle, iconForTitleAlt, tags, m
 				<p className="game-activity-menu__text">{messageForMenuActivity}</p>
 				<p className="game-activity-menu__price">{(textPrice ? textPrice : getValuePrice(price))}</p>
 				<div className="game-activity-menu__rate-block">
-					<div className="game-activity-menu__icon-container"><img src="/images/icons/like.svg" alt="Палец вверх - иконка" /></div>
+					<button title="Нажми, чтобы повысить рейтинг этой игре" type="button" className="game-activity-menu__icon-container"><img src="/images/icons/like.svg" alt="Палец вверх - иконка" /></button>
 					<span>{getValueRate(rate)}</span>
-					<div className="game-activity-menu__icon-container"><img src="/images/icons/dizlike.svg" alt="Дизлайк - иконка" /></div>
+					<button title="Нажми, чтобы понизить рейтинг этой игры" type="button" className="game-activity-menu__icon-container"><img src="/images/icons/dizlike.svg" alt="Дизлайк - иконка" /></button>
 				</div>
 				<ActivityMenuButtons textPrice={textPrice} price={price} />
-				<p className="game-activity-menu__date">Дата выхода продукта: <span>{releaseDate}г.</span></p>
+				<p title="Официальная дата выхода продукта" className="game-activity-menu__date">Дата выхода продукта: <span>{releaseDate}г.</span></p>
 				<div className="game-activity-menu__block-developer">
 					<img className="game-activity-menu__instruments-icon" src="/images/icons/hammer.svg" alt="Иконка инструментов для починки" />
-					<p className="game-activity-menu__developer">Команда разработчиков: <a href={developer.linkResourceDeveloper} rel="noreferrer" target="_blank">{developer.name}</a></p>
+					<p className="game-activity-menu__developer">Команда разработчиков: <a title="При нажатии, Вы будете переведены на официальный сайт разработчиков" href={developer.linkResourceDeveloper} rel="noreferrer" target="_blank">{developer.name}</a></p>
 				</div>
 				<div className="game-activity-menu__block-publisher">
 					<img className="game-activity-menu__publisher-icon" src="/images/icons/publisher.svg" alt="Иконка издателя" />
-					<p className="game-activity-menu__text-publisher">Издатель: <a href={publisher.linkResourcePublisher} rel="noreferrer" target="_blank">{developer.name}</a></p>
+					<p className="game-activity-menu__text-publisher">Издатель: <a title="При нажатии, Вы будете переведены на официальный сайт издателя" href={publisher.linkResourcePublisher} rel="noreferrer" target="_blank">{developer.name}</a></p>
 				</div>
 			</div>
 		</div>

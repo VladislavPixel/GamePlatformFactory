@@ -55,7 +55,6 @@
 		&_left{
 			flex: 0 1 50%;
 			padding: 10px 0px 0px 10px;
-			overflow: hidden;
 			@media(max-width: 1300px) {
 				flex: 0 1 100%;
 				padding: 20px;
@@ -115,14 +114,12 @@
 		color: #ffffff;
 		position: relative;
 		z-index: 10;
-		overflow: hidden;
 	}
 	&__publish-link{
 		transition: color 0.4s ease 0s;
 		margin-top: 7px;
 		color: #8AF9AD;
 		display: block;
-		white-space: wrap;
 		@media(min-width: 992px) {
 			&:hover{
 				color: #4e9966;

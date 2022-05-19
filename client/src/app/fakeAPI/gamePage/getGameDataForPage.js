@@ -459,6 +459,56 @@ const arrayBigDataGames = [
 		}
 	},
 	{
+		_id: "beholbeholbehol324234456vcb",
+		added: "Admin",
+		idMiddleParent: "6beholder3lfdg8776",
+		poster: "beholderPoster.jpg",
+		posterAlt: "Полицейские показываю, как надо скандировать во имя вождя",
+		linkPublisher: "https://beholder-game.com/",
+		messageForMenuActivity: `"Если Вы фанат серии игр Beholder, то определенно стоит играть, в остальном, мы бы не стали советовать". - Factory.inc`,
+		releaseDate: "09 ноября 2016",
+		developer: { name: "Warm Lamp Games", linkResourceDeveloper: "https://beholder.fandom.com/ru/wiki/Warm_Lamp_Games" },
+		publisher: { name: "Alawar", linkResourcePublisher: "https://www.alawar.ru/" },
+		slidersHead: [
+			{path: "beholder3post1.jpg", alt: "Главный персонаж разговаривает с привратником"},
+			{path: "beholder3post2.jpg", alt: "Полицейский офицер"},
+			{path: "beholder3post3.jpg", alt: "Семья из игры стоит на фоне дома"},
+			{path: "beholder3post4.jpg", alt: "Разговор с торговцем запрещенным)"}
+		],
+		aboutTheGame: {
+			title: "Темная сторона твоей жизни",
+			text: "В этом мрачном тоталитарном будущем жизни людей принадлежат Государству. Репрессивные законы и тотальная слежка пришли на смену свободе, равенству и братству. Отправить донос на главу семейства и разрушить семью? Или позволить ему исправиться, закрыв глаза на противозаконную деятельность? Или решиться на шантаж – возможно, единственный способ приобрести дорогие лекарства для больной дочери? А если следят и за вами? Вы познакомитесь с десятками жителей, узнаете об их проблемах и переживаниях, выясните все их тайны. И каждое принимаемое вами решение будет влиять на ход событий, приближая вас к одному из множества вариантов развязки."
+		},
+		atmosphere: {
+			title: "Атмосфера",
+			blocks: [
+				{
+					path: "beholder3post1.jpg",
+					alt: "Полицейский указывает на гражданина",
+					title: "Мир совсем не приветливый",
+					text: "Ты должен быть всегда начеку. Копы следят за тобой. Все очень опасно."
+				},
+				{
+					path: "beholder3post2.jpg",
+					alt: "Полицейские ведут людей на убой",
+					title: "Подонок или герой",
+					text: "Кем становиться в этой игре решать только тебе. Игра очень вариативна. Ты можешь пойти по головам людей или не потерять человеческий облик."
+				}
+			]
+		},
+		systemRequirements: {
+			Windows: [
+				{title: "OC", value: "Windows 7"},
+				{title: "Процессор", value: "Intel Core i5 or equivalent"},
+				{title: "Оперативная память", value: "4 GB ОЗУ"},
+				{title: "Видеокарта", value: "Nvidia GeForce GTX 960 or equivalent"},
+				{title: "Место на диске", value: "4 GB"},
+				{title: "Дополнительно1", value: "Требуются 64-разрядные процессор и операционная система"},
+				{title: "Дополнительно2", value: "IMPORTANT REQUIREMENT: TO HAVE AN UNDENIABLE FAITH IN THE WISE LEADER!"}
+			]
+		}
+	},
+	{
 		_id: "lostArkBigDatadfgdfgret",
 		added: "Admin",
 		idMiddleParent: "7lostArk8776",

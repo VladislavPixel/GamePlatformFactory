@@ -21,9 +21,17 @@
 	&__head{
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 20px;
+	}
+	&__icon-communication{
+		align-self: center;
+		flex: 0 0 100px;
+		width: 100px;
+		height: 100px;
+		margin-bottom: 10px;
 	}
 	&__title-game{
-		font-size: 35px;
+		font-size: 55px;
 		line-height: 32px;
 		color: #ffffff;
 		margin-bottom: 10px;
@@ -46,5 +54,14 @@
 				border: 1px solid rgb(0, 76, 218);
 			}
 		}
+	}
+}
+
+// Стили для панели фильтрации
+.filters-panel-comments{
+	&__title{
+		color: #ffffff;
+		text-transform: uppercase;
+		font-size: 27px;
 	}
 }

@@ -9,13 +9,13 @@ const Header = () => {
 		<header className="wrapper__header header">
 			<div className="header__container _container">
 				<div className="header__auth-block block-auth">
-					<NavLink className="block-auth__link block-auth__link_reg" to="/signUp">Регистрация</NavLink>
-					<NavLink className="block-auth__link block-auth__link_auth" to="/signIn">Войти</NavLink>
+					<NavLink title="Перейти на страницу Регистрации" className="block-auth__link block-auth__link_reg" to="/signUp">Регистрация</NavLink>
+					<NavLink title="Нажмите для перехода на страницу Авторизации" className="block-auth__link block-auth__link_auth" to="/signIn">Войти</NavLink>
 				</div>
 				<div className="header__menu menu-header">
 					<div className="menu-header__logo">
 						<img className="menu-header__img" src="/images/icons/gameController.svg" alt="Иконка игрового контроллера" />
-						<Link to="/">Factory.inc</Link>
+						<Link title="При нажатии, Вы будете перенаправлены на Домашнюю страницу" to="/">Factory.inc</Link>
 					</div>
 					<ul className="menu-header__list">
 						{configAuxiliary.menuHeaderRoutes.map((item, index) => <li key={index}><NavLink to={item.path}>{item.text}</NavLink></li>)}
