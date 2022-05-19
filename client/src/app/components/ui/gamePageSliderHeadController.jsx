@@ -9,9 +9,9 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 	const [currentPage, setCurrentPage] = useState(0)
 	const [configList, setConfigList] = useState({ transform: "translateX(0px)" })
 	const [toddlerConfig, setToddlerConfig] = useState({ left: "0px"})
+	const [maxSlides, setMaxSlides] = useState(5)
 	// AUXILIARY
-	const MAXIMUM_NUMBER_OF_SLIDES_PER_CONTAINER = 5
-	const allPage = Math.ceil(arrHeadData.length / MAXIMUM_NUMBER_OF_SLIDES_PER_CONTAINER) // расчитываем количество страниц для стрелок
+	const allPage = Math.ceil(arrHeadData.length / maxSlides) // расчитываем количество страниц для стрелок
 	const band = useRef(null) // ссылка на дорожку по которой двигается ползунок
 	const toddlerEl = useRef(null) // ссылка на ползунок
 	const container = useRef(null) // ссылка на весь блок
@@ -25,12 +25,11 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 	const handlerSetWidthList = (widthData) => widthListContainer.current = widthData
 	const handlerSetWidthGamePageSlide = (widthValue) => widthSlideGamePage.current = widthValue
 	const handlerShiftList = (directionStr) => {
+		console.log(maxSlides, "SLIDES")
 		if (directionStr === "left" && currentPage === 0) return
 		if (directionStr === "right" && allPage - 1 === currentPage) return
 		let pageValue = currentPage
 		const ratio = widthSlideGamePage.current * arrHeadData.length / widthBand.current
-		console.log(widthSlideGamePage.current, "ШИРИНА СЛАЙДА")
-		console.log(widthSlideGamePage.current * arrHeadData.length, "Контейнер со слайдами")
 		if (directionStr === "left") {
 			setCurrentPage(prevState => prevState - 1)
 			pageValue--
@@ -39,7 +38,11 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 			setCurrentPage(prevState => prevState + 1)
 			pageValue++
 		}
-		setToddlerConfig({ left: `${widthSlideGamePage.current * MAXIMUM_NUMBER_OF_SLIDES_PER_CONTAINER / ratio}px` })
+		if (pageValue === allPage - 1) {
+			setToddlerConfig({left: `${widthBand.current - toddlerEl.current.offsetWidth}px`})
+		} else {
+			setToddlerConfig({ left: `${widthSlideGamePage.current * maxSlides * pageValue / ratio}px` })
+		}
 		setConfigList({ transform: `translateX(-${pageValue * widthListContainer.current}px)` })
 	}
 	const moveAt = (pageX) => {
@@ -52,8 +55,10 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 			correctValue = 0
 		}
 		setToddlerConfig({ left: `${correctValue}px` })
+		let valueForList = ratio * correctValue
+		if (valueForList > widthSlideGamePage.current * (arrHeadData.length - 1)) valueForList = widthSlideGamePage.current * (arrHeadData.length - 1)
 		startTransition(() => { // React 18 Function
-			setConfigList({ transform: `translateX(-${correctValue * ratio}px)` })
+			setConfigList({ transform: `translateX(-${valueForList}px)` })
 		})
 	}
 	const handlerBandMove = ({ pageX }) => moveAt(pageX)
@@ -69,7 +74,6 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 	useEffect(() => { // ИНИЦИАЛИЗАЦИЯ ПЕРЕМЕННЫХ, важно чтобы рендер их не скидывал в неопределенные значения, поэтому Ref
 		if (band.current) {
 			widthBand.current = band.current.offsetWidth
-			console.log(widthBand, "ШИРИНА ДОРОЖКИ ПО КОТОРОЙ ДВИГАЕТСЯ ПОЛЗУН")
 			leftOffsetBand.current = band.current.offsetLeft
 		}
 		if (toddlerEl.current) {
@@ -79,8 +83,22 @@ const GamePageSliderHeadController = ({ arrHeadData, onUpdatePoster, currentConf
 		if (container.current) {
 			container.current.addEventListener("mouseup", handlerToddlerUp)
 			container.current.addEventListener("mousemove", handlerMoveContainer)
+			const width = container.current.offsetWidth
+			let valueMaxElements
+			if (width > 800) {
+				valueMaxElements = 5
+			} else if (width <= 800 && width > 600) {
+				valueMaxElements = 4
+			} else if (width <= 600 && width > 460) {
+				valueMaxElements = 3
+			} else if (width <= 460 && width > 319) {
+				valueMaxElements = 2
+			} else {
+				valueMaxElements = 1
+			}
+			setMaxSlides(valueMaxElements)
 		}
-	}, [])
+	}, [band.current, toddlerEl.current, container.current])
 	useEffect(() => {
 		leftBorderOffsetToddler.current = toddlerEl.current.offsetLeft
 	}, [toddlerConfig])

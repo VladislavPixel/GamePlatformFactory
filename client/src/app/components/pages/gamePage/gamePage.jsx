@@ -50,13 +50,17 @@ const GamePage = () => {
 			{game ?
 				<React.Fragment>
 					<div className="game-block__head-container container-head-game-block">
+						<div className="container-head-game-block__column container-head-game-block__column_left">
+							<div className="container-head-game-block__publisher">
+								Ссылка на издателя:
+								<a href={game.linkPublisher} target="_blank" rel="noreferrer" className="container-head-game-block__publish-link">{game.linkPublisher}</a>
+							</div>
+						</div>
+						<div className="container-head-game-block__column container-head-game-block__column_rigth">
+							<ActivityMenuForGamePage {...gameMiddleData} {...game} />
+						</div>
 						{configPoster.path && <button onClick={() => handlerUpdatePoster(configPoster)} type="button" className="container-head-game-block__reset-poster">Вернуть базовый постер</button>}
 						<img className="container-head-game-block__poster" src={`/images/gamePage/${configPoster.path === undefined ? "posters/" + game.poster : "slidesHead/" + configPoster.path}`} alt={configPoster.path === undefined ? game.posterAlt : configPoster.alt} />
-						<div className="container-head-game-block__publisher">
-							Ссылка на издателя:
-							<a href={game.linkPublisher} target="_blank" rel="noreferrer" className="container-head-game-block__publish-link">{game.linkPublisher}</a>
-						</div>
-						<ActivityMenuForGamePage {...gameMiddleData} {...game} />
 					</div>
 					<GamePageSliderHeadController currentConfig={configPoster} arrHeadData={game.slidersHead} onUpdatePoster={handlerUpdatePoster} />
 					<GamePageAbout {...game.aboutTheGame} />

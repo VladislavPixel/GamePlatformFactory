@@ -480,7 +480,8 @@ const arrayBigDataGames = [
 			{path: "lostArk8.jpg", alt: "Пещера данжа удивляет. Персонажи пробираются по данжу."},
 			{path: "lostArkposter9.jpg", alt: "Монстр воставший из ада"},
 			{path: "lostArkposter10.jpg", alt: "Команда героев готовится к штурму босса"},
-			{path: "lostArk11.jpg", alt: "Герои игры Lost Ark"}
+			{path: "lostArk11.jpg", alt: "Герои игры Lost Ark"},
+			{path: "lostArkPoster12.jpg", alt: "Герой из игры Lost Ark - девушка с рукой мутированной"}
 		],
 		aboutTheGame: {
 			title: "Обзор игры",

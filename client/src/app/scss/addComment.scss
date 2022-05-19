@@ -7,6 +7,9 @@
 	border: 1px solid #171a21;
 	box-shadow: 0 0 3px 0px #000;
 	margin-bottom: 60px;
+	@media(max-width: 510px) {
+		padding: 10px;
+	}
 	&__error-status-comment{
 		text-align: center;
 		margin-top: 15px;
@@ -21,10 +24,12 @@
 			transition: box-shadow 0.4s ease 0s;
 			flex: 0 0 70px;
 			height: 70px;
-			position: relative;
-			border-radius: 50% !important;
-			overflow: hidden;
-			box-shadow: 0 0 3px 0px #000;
+			@media(min-width: 500px) {
+				position: relative;
+				border-radius: 50% !important;
+				overflow: hidden;
+				box-shadow: 0 0 3px 0px #000;
+			}
 			margin-right: 10px;
 			@media(min-width: 992px) {
 				&:hover{
@@ -34,6 +39,29 @@
 		}
 		&:last-child{
 			flex: 0 1 100%;
+		}
+	}
+	@media(max-width: 500px) {
+		&__row{
+			flex-direction: column;
+		}
+		&__column{
+			&:first-child{
+				flex: 0 0 90px;
+				margin: 0px 0px 15px 0px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				a{
+					position: relative;
+					border-radius: 50% !important;
+					overflow: hidden;
+					flex: 0 0 100px;
+					height: 100px;
+					width: 100px;
+					box-shadow: 0 0 3px 0px #000;
+				}
+			}
 		}
 	}
 	&__avatar-user{
@@ -55,7 +83,7 @@
 	}
 	&__btn-status{
 		transition: transform 0.5s ease 0s;
-		margin-right: 10px;
+		margin: 0px 10px 10px 0px;
 		padding: 5px 15px;
 		color: #ffffff;
 		font-weight: 600;

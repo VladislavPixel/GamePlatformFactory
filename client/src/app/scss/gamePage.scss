@@ -4,6 +4,9 @@
 		width: 100%;
 		min-height: 810px;
 		position: relative;
+		@media(max-width: 1300px) {
+			min-height: 1370px;
+		}
 	}
 	&__message-middle{
 		padding: 20px;
@@ -43,6 +46,39 @@
 
 // Верхняя часть - ПОСТЕР (Admin Layot)
 .container-head-game-block{
+	display: flex;
+	height: 100%;
+	@media(max-width: 1300px) {
+		flex-direction: column;
+	}
+	&__column{
+		&_left{
+			flex: 0 1 50%;
+			padding: 10px 0px 0px 10px;
+			overflow: hidden;
+			@media(max-width: 1300px) {
+				flex: 0 1 100%;
+				padding: 20px;
+			}
+		}
+		&_rigth{
+			flex: 0 1 50%;
+			padding: 10px 20px 10px 10px;
+			display: flex;
+			justify-content: flex-end;
+			@media(max-width: 2065px) {
+				align-items: center;
+				padding: 10px 10px 30px 10px;
+			}
+			@media(max-width: 1300px) {
+				flex: 1 1 100%;
+				justify-content: center;
+				align-items: flex-end;
+				height: 100%;
+				padding: 10px 10px 63px 10px;
+			}
+		}
+	}
 	&__reset-poster{
 		transition: color 0.4s ease 0s;
 		position: absolute;
@@ -59,6 +95,11 @@
 				color: #ffb400;
 			}
 		}
+		@media(max-width: 1300px) {
+			padding: 7px;
+			left: auto;
+			right: 0;
+		}
 	}
 	&__poster{
 		position: absolute;
@@ -70,18 +111,18 @@
 	}
 	&__publisher{
 		font-weight: 700;
-		position: absolute;
-		top: 15px;
-		left: 20px;
-		z-index: 10;
 		font-size: 27px;
 		color: #ffffff;
+		position: relative;
+		z-index: 10;
+		overflow: hidden;
 	}
 	&__publish-link{
 		transition: color 0.4s ease 0s;
 		margin-top: 7px;
 		color: #8AF9AD;
 		display: block;
+		white-space: wrap;
 		@media(min-width: 992px) {
 			&:hover{
 				color: #4e9966;
@@ -92,15 +133,24 @@
 	&__activity-menu{
 		border-top: 1px solid #d2d2d2;
 		overflow: hidden;
-		position: absolute;
 		background: #171a21;
 		padding: 25px;
-		right: 20px;
-		bottom: -130px;
+		position: relative;
+		bottom: -147px;
 		z-index: 150;
 		border-radius: 15px !important;
 		max-width: 650px;
 		box-shadow: 0 0 3px 0px #000;
+		@media(max-width: 2065px) {
+			bottom: 0px;
+		}
+		@media(max-width: 1300px) {
+			max-width: 100%;
+			flex: 0 1 100%;
+		}
+		@media(max-width: 600px) {
+			padding: 10px;
+		}
 	}
 }
 
@@ -150,7 +200,7 @@
 	&__price{
 		box-shadow: 0 0 3px 0px #000;
 		background: #ffb400;
-		padding: 15px;
+		padding: 15px 25px;
 		margin: 0px -25px 20px -25px;
 		font-size: 19px;
 		font-weight: 600;
@@ -193,6 +243,9 @@
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 30px;
+		@media(max-width: 500px) {
+			margin-bottom: 15px;
+		}
 	}
 	&__btn{
 		transition: background 0.3s ease 0s, border 0.3s ease 0s;
@@ -203,6 +256,10 @@
 		color: #ffffff;
 		font-weight: bold;
 		border: 3px solid transparent;
+		@media(max-width: 500px) {
+			font-size: 18px;
+			padding: 10px;
+		}
 		&_action{
 			background: #319bff;
 			@media(min-width: 992px) {
@@ -220,6 +277,9 @@
 					background: #529c69;
 					border: 3px solid #8AF9AD;
 				}
+			}
+			@media(max-width: 500px) {
+				margin-top: 10px;
 			}
 		}
 		&_desired{
@@ -240,12 +300,16 @@
 					border: 3px solid #a8a8a8;
 				}
 			}
+			@media(max-width: 500px) {
+				margin-top: 10px;
+			}
 		}
 	}
 	&__date{
 		font-size: 18px;
 		color: #ffffff;
 		margin-bottom: 17px;
+		line-height: 125%;
 		span{
 			color: #8AF9AD;
 		}
@@ -266,6 +330,7 @@
 		margin-bottom: 7px;
 	}
 	&__developer,&__text-publisher{
+		line-height: 125%;
 		font-size: 16px;
 		color: #ffffff;
 		a{
@@ -285,20 +350,28 @@
 .data-slider-game{
 	position: relative;
 	padding-bottom: 60px;
-	&:before{
-		content: "";
-		position: absolute;
-		width: 33%;
-		right: 0;
-		top: 0;
-		height: 100%;
-		background: #1B2533;
-		z-index: 30;
+	@media(min-width: 1300px) {
+		&:before{
+			content: "";
+			position: absolute;
+			width: 33%;
+			right: 0;
+			top: 0;
+			height: 56%;
+			background: #1B2533;
+			z-index: 30;
+		}
+	}
+	@media(max-width: 1100px) {
+		padding-bottom: 25px;
 	}
 	&__list{
 		display: flex;
 		width: 67%;
 		transition: transform 0.4s ease 0s;
+		@media(max-width: 1300px) {
+			width: 100%;
+		}
 	}
 	&__slide{
 		transition: border 0.4s ease 0s;
@@ -309,6 +382,18 @@
 		position: relative;
 		border: 7px solid #171a21;
 		cursor: pointer;
+		@media(max-width: 800px) {
+			flex: 0 0 25%;
+		}
+		@media(max-width: 600px) {
+			flex: 0 0 33.333%;
+		}
+		@media(max-width: 460px) {
+			flex: 0 0 50%;
+		}
+		@media(max-width: 319px) {
+			flex: 0 0 100%;
+		}
 		img{
 			position: absolute;
 			top: 0;
@@ -347,6 +432,9 @@
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 15px;
+	@media(max-width: 1300px) {
+		width: 100%;
+	}
 	&__btn{
 		transition: background 0.3s ease 0s;
 		width: 55px;
@@ -359,6 +447,9 @@
 		justify-content: center;
 		align-items: center;
 		margin: 0px 15px 0px 0px;
+		@media(max-width: 500px) {
+			height: 30px;
+		}
 		&:before{
 			content: "";
 			position: absolute;
@@ -396,6 +487,7 @@
 		align-items: center;
 		position: relative;
 		z-index: 300;
+		
 		span{
 			position: absolute;
 			transition: background 0.3s ease 0s;
@@ -410,9 +502,18 @@
 					background: #00FFAA;
 				}
 			}
+			@media(max-width: 900px) {
+				width: 50px;
+			}
 			&.no-active{
 				pointer-events: none;
 				opacity: 0.4;
+			}
+		}
+		@media(max-width: 500px) {
+			height: 40px;
+			span{
+				height: 30px;
 			}
 		}
 	}
@@ -436,11 +537,39 @@
 		line-height: 130%;
 		color: #c9c9c9;
 	}
+	@media(max-width: 2065px) {
+		&__title{
+			width: 100%;
+		}
+		&__text{
+			width: 100%;
+		}
+	}
+	@media(max-width: 876px) {
+		&__title{
+			margin-bottom: 15px;
+			font-size: 50px;
+		}
+	}
+	@media(max-width: 650px) {
+		margin: 10px 15px 30px 15px;
+		&__title{
+			font-size: 40px;
+		}
+	}
+	@media(max-width: 420px) {
+		&__title{
+			font-size: 30px;
+		}
+	}
 }
 
 // Стили для блока с карточками (Admin Layot)
 .blocks-game-page{
 	margin-bottom: 70px;
+	@media(max-width: 1000px) {
+		margin-bottom: 25px;
+	}
 	&__container{
 		display: flex;
 		padding-bottom: 30px;
@@ -453,6 +582,18 @@
 		}
 		&:last-child{
 			flex: 0 1 80%;
+		}
+	}
+	@media(max-width: 1000px) {
+		&__container{
+			flex-direction: column;
+		}
+		&__column{
+			width: 100%;
+			flex: 0 1 100%;
+			&:first-child{
+				margin: 0px 0px 15px 0px;
+			}
 		}
 	}
 	&__title{
@@ -470,6 +611,9 @@
 		flex: 0 1 50%;
 		padding: 0px 15px 0px 15px;
 		margin-bottom: 35px;
+		@media(max-width: 630px) {
+			flex: 0 1 100%;
+		}
 	}
 	&__img-container{
 		position: relative;
@@ -492,6 +636,9 @@
 		font-size: 24px;
 		font-weight: bold;
 		margin-bottom: 20px;
+		@media(max-width: 630px) {
+			margin-bottom: 7px;
+		}
 	}
 	&__paragraph{
 		font-size: 17px;
@@ -517,12 +664,27 @@
 			flex: 0 1 80%;
 		}
 	}
+	@media(max-width: 1000px) {
+		margin-bottom: 25px;
+		&__container{
+			flex-direction: column;
+		}
+		&__column{
+			flex: 0 1 100%;
+			&:first-child{
+				margin: 0px 0px 15px 0px;
+			}
+		}
+	}
 	&__title{
 		font-size: 35px;
 		color: #ffffff;
 		font-weight: 700;
 		line-height: 120%;
 		text-transform: uppercase;
+		@media(max-width: 565px) {
+			font-size: 30px;
+		}
 	}
 	&__btn-platform{
 		display: flex;
@@ -569,6 +731,9 @@
 		display: flex;
 		border-bottom: 1px solid #a7a7a749;
 		margin-bottom: 40px;
+		@media(max-width: 500px) {
+			flex-direction: column;
+		}
 	}
 	&__list-system{
 		display: flex;
@@ -579,6 +744,9 @@
 		flex: 0 1 50%;
 		padding: 0px 10px;
 		margin-bottom: 20px;
+		@media(max-width: 500px) {
+			flex: 0 1 100%;
+		}
 	}
 	&__title-req{
 		color: #d5d7dd;
@@ -600,5 +768,9 @@
 		font-size: 25px;
 		margin-bottom: 15px;
 		text-transform: uppercase;
+		line-height: 110%;
+		@media(max-width: 640px) {
+			font-size: 20px;
+		}
 	}
 }
