@@ -142,13 +142,13 @@
 	},
 	"filtersDataForCommentsGamePage": {
 		"timeFilter": [
-			{"_id": "tf1", "title": "За все время", "scope": "allTime"},
-			{"_id": "tf2", "title": "За сегодня", "scope": "forToDay"},
-			{"_id": "tf3", "title": "За неделю", "scope": "inAWeek"},
-			{"_id": "tf4", "title": "За месяц", "scope": "perMouth"},
-			{"_id": "tf5", "title": "За 3 месяца", "scope": "inThreeMonths"},
-			{"_id": "tf6", "title": "За 6 месяцев", "scope": "inSixMonths"},
-			{"_id": "tf7", "title": "За 1 год", "scope": "perYear"}
+			{"_id": "tf1", "title": "За все время", "key": "allTime"},
+			{"_id": "tf2", "title": "За сегодня", "key": "forToDay"},
+			{"_id": "tf3", "title": "За неделю", "key": "inAWeek"},
+			{"_id": "tf4", "title": "За месяц", "key": "perMouth"},
+			{"_id": "tf5", "title": "За 3 месяца", "key": "inThreeMonths"},
+			{"_id": "tf6", "title": "За 6 месяцев", "key": "inSixMonths"},
+			{"_id": "tf7", "title": "За 1 год", "key": "perYear"}
 		],
 		"indicatorFilter": [
 			{"_id": "if1", "title": "Забавный", "key": "funnyStatus"},
@@ -160,9 +160,9 @@
 			{"_id": "if7", "title": "Ну полный отстой (сильно несогласны)", "key": "sucks"}
 		],
 		"statusFilter": [
-			{"_id": "sf1", "title": "Положительные", "status": "positive"},
-			{"_id": "sf2", "title": "Нейтральный", "status": "neutral"},
-			{"_id": "sf3", "title": "Отрицательный", "status": "negative"}
+			{"_id": "sf1", "title": "Положительные", "key": "positive"},
+			{"_id": "sf2", "title": "Нейтральный", "key": "neutral"},
+			{"_id": "sf3", "title": "Отрицательный", "key": "negative"}
 		]
 	}
 }

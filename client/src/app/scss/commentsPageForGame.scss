@@ -63,5 +63,69 @@
 		color: #ffffff;
 		text-transform: uppercase;
 		font-size: 27px;
+		margin-bottom: 15px;
+	}
+	&__row{
+		display: flex;
+		border-top: 2px solid rgb(0, 76, 218);
+		background-color: rgba( 0, 0, 0, 0.4 );
+		box-shadow: 0 0 3px 0px #000;
+	}
+	&__column{
+		transition: border 0.3s ease 0s, background 0.3s ease 0s;
+		flex: 0 1 33.333%;
+		padding: 15px 20px;
+		position: relative;
+		&.active{
+			border-bottom: 2px solid rgb(0, 76, 218);
+			background: #ffffff30;
+		}
+		@media(min-width: 992px) {
+			&:hover{
+				background: #ffffff30;
+			}
+		}
+	}
+	&__btn-filter{
+		color: #ffffff;
+		font-size: 17px;
+		font-weight: 700;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+	&__list-modal{
+		transition: opacity 0.2s ease 0s;
+		visibility: hidden;
+		opacity: 0;
+		position: absolute;
+		top: 105%;
+		left: 0;
+		z-index: -1;
+		background: #32343b;
+		border: 1px solid #6b6b6b;
+		box-shadow: 0 0 3px 0px #000;
+		min-width: 250px;
+		&.active{
+			opacity: 1;
+			z-index: 50;
+			visibility: visible;
+		}
+	}
+	&__btn-modal{
+		transition: background 0.3s ease 0s;
+		color: #ffffff;
+		font-size: 17px;
+		padding: 15px;
+		width: 100%;
+		text-align: left;
+		@media(min-width: 992px) {
+			&:hover{
+				background: #2EBFFF;
+			}
+		}
+		&.active{
+			background: #2EBFFF;
+		}
 	}
 }
