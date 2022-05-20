@@ -9,7 +9,7 @@ const Footer = () => {
 		<footer className="wrapper__footer footer">
 			<div className="footer__container _container">
 				<div className="footer__logo">
-					<img className="footer__img" src="/images/icons/gamepad.svg" alt="Геймпад-иконка" />
+					<img title="Все мы любим игры)" className="footer__img" src="/images/icons/gamepad.svg" alt="Геймпад-иконка" />
 					<Link to="/">Factory.inc</Link>
 				</div>
 				<ul className="footer__list">

@@ -4,6 +4,8 @@ import { flushSync } from "react-dom"
 // Components
 import CommentsPageGameHead from "../../ui/commentsPageGameHead"
 import PanelFiltersForCommentsPage from "../../ui/panelFiltersForCommentsPage"
+import CommentsForCommentsPageLoaderGlobal from "../../HOC/commentsForCommentsPageLoaderGlobal"
+import CommentsListForCommentsPage from "../../ui/commentsListForCommentsPage"
 
 const CommentsForGamePage = () => {
 	// STATE
@@ -11,6 +13,8 @@ const CommentsForGamePage = () => {
 	const [indicatorFilter, setIndicatorFilter] = useState({ _id: "if5", key: "consonants", columnKey: "indicatorFilter" })
 	const [statusFilter, setStatusFilter] = useState(null)
 	const [targetColumn, setTargetColumn] = useState(null)
+	const [startGroup, setStartGroup] = useState(1)
+	const [endGroup, setEndGroup] = useState(1)
 	// HANDLERS
 	const handlerShowColumn = (index) => {
 		if (index === targetColumn) {
@@ -24,7 +28,7 @@ const CommentsForGamePage = () => {
 			timeFilter,
 			indicatorFilter,
 			statusFilter,
-			[newData.columnKey]: newData
+			[(newData ? newData.columnKey: "statusFilter")]: newData
 		}
 
 		console.log("SUBMIT_DATA_COMMENTS", submitData)
@@ -44,9 +48,16 @@ const CommentsForGamePage = () => {
 				})
 			break
 			case "statusFilter":
-				flushSync(() => {
-					setStatusFilter(correctElement)
-				})
+				if (!statusFilter || correctElement._id !== statusFilter._id) {
+					flushSync(() => {
+						setStatusFilter(correctElement)
+					})
+				} else {
+					correctElement = null
+					flushSync(() => {
+						setStatusFilter(correctElement)
+					})
+				}
 			break
 			default:
 			break
@@ -59,6 +70,9 @@ const CommentsForGamePage = () => {
 			<div className="comments-page-game-block__container _container">
 				<CommentsPageGameHead />
 				<PanelFiltersForCommentsPage selectedTimeFilter={timeFilter} selectedIndicatorFilter={indicatorFilter} selectedStatusFilter={statusFilter} onShow={handlerShowColumn} onUpdateFilter={handlerUpdateFilter} targetColumn={targetColumn} />
+				<CommentsForCommentsPageLoaderGlobal configRequest={{ timeFilter, indicatorFilter, statusFilter }} groupRequest={startGroup}>
+					<CommentsListForCommentsPage startGroupIndex={startGroup} endGroupIndex={endGroup} />
+				</CommentsForCommentsPageLoaderGlobal>
 			</div>
 		</div>
 	)

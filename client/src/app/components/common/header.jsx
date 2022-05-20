@@ -14,7 +14,7 @@ const Header = () => {
 				</div>
 				<div className="header__menu menu-header">
 					<div className="menu-header__logo">
-						<img className="menu-header__img" src="/images/icons/gameController.svg" alt="Иконка игрового контроллера" />
+						<img title="Factory.inc: ведем свою деятельность для Вас!" className="menu-header__img" src="/images/icons/gameController.svg" alt="Иконка игрового контроллера" />
 						<Link title="При нажатии, Вы будете перенаправлены на Домашнюю страницу" to="/">Factory.inc</Link>
 					</div>
 					<ul className="menu-header__list">

@@ -1,6 +1,7 @@
-import getCommentsGamesForSliderStore, { getCommentsForTheLastWeek, getCommentsForTheMainWallByIdNoLastWeek } from "./getCommentsGamesForSliderStore.js"
+import getCommentsGamesForSliderStore, { getCommentsForTheLastWeek, getCommentsForTheMainWallByIdNoLastWeek, fetchCommentsForCommentsPage } from "./getCommentsGamesForSliderStore.js"
 export {
 	getCommentsForTheLastWeek,
-	getCommentsForTheMainWallByIdNoLastWeek
+	getCommentsForTheMainWallByIdNoLastWeek,
+	fetchCommentsForCommentsPage
 }
 export default getCommentsGamesForSliderStore

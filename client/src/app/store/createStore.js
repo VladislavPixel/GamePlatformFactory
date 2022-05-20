@@ -12,6 +12,7 @@ import russianGamesForWideScaleSliderHomeReducer from "./russianGamesForWideScal
 import gamesRateGallerySliderForHomeReducer from "./gamesRateGallerySliderForHome"
 import commentsForGamePageReducer from "./commentsForGamePage"
 import usersReducer from "./users"
+import commentsForCommentsPageReducer from "./commentsForCommentsPage"
 
 const rootReducer = combineReducers({
 	games: gamesReducer,
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
 	russianGamesForWideScaleSliderHome: russianGamesForWideScaleSliderHomeReducer,
 	gamesRateGallerySliderForHome: gamesRateGallerySliderForHomeReducer,
 	commentsForGamePage: commentsForGamePageReducer,
-	users: usersReducer
+	users: usersReducer,
+	commentsForCommentsPage: commentsForCommentsPageReducer
 })
 
 export default function createStore() {

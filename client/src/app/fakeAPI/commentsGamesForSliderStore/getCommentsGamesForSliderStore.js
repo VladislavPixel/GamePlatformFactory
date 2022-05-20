@@ -101,5 +101,43 @@ export function getCommentsForTheMainWallByIdNoLastWeek(idGame) {
 		}, 1000)
 	})
 }
+export function fetchCommentsForCommentsPage(config, group, idGame) {
+	return new Promise((resolve, reject) => {
+		const commentsByIdGame = commentsGames.filter(item => idGame === item.idGame) // Отбираем комментарии для конкретной игры
+		if (!commentsByIdGame.length) {
+			resolve(commentsByIdGame)
+			return
+		}
+
+		commentsByIdGame.sort((commentA, commentB) => commentB.date - commentA.date) // Сортировка по временному (постоянному фильтру)
+		let filterCommentsByDate
+		switch(config.timeFilter.key) { // Фильтр по дате
+			case "allTime":
+				filterCommentsByDate = commentsByIdGame
+			break
+		}
+		if (!filterCommentsByDate.length) {
+			resolve(filterCommentsByDate)
+			return
+		}
+
+		const MAX_GROUP_ELEMENTS = 15
+		const KEY = config.indicatorFilter.key
+		filterCommentsByDate.sort((commentA, commentB) => commentB[KEY].length - commentA[KEY].length) // Сортировка по критериям (постоянный фильтр)
+		const maxBorder = group * MAX_GROUP_ELEMENTS
+		const minBorder = maxBorder - MAX_GROUP_ELEMENTS
+		if (!config.statusFilter) {
+			resolve(filterCommentsByDate.slice(minBorder, maxBorder))
+			return
+		}
+
+		const filterCommentsByStatus = filterCommentsByDate.filter(comment => comment.status === config.statusFilter.key) // Фильтруем по посылу комментария
+		if (!filterCommentsByStatus.length) {
+			resolve(filterCommentsByStatus)
+			return
+		}
+		resolve(filterCommentsByStatus.slice(minBorder, maxBorder))
+	})
+}
 
 export default getCommentsGamesForSliderStore
