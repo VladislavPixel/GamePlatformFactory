@@ -198,20 +198,6 @@
 }
 
 .block-main-wall{
-	&__column-comment{
-		&:first-child{
-			flex: 0 1 35%;
-			margin-right: 10px;
-		}
-		&:last-child{
-			flex: 0 1 65%;
-		}
-	}
-	&__content-right{
-		padding: 0px 10px 10px 10px;
-		box-shadow: 0 0 3px 0px #000;
-		margin: 0px -10px -10px 0px;
-	}
 	&__title{
 		text-transform: uppercase;
 		font-size: 22px;
@@ -226,163 +212,6 @@
 	&__list{
 		display: flex;
 		flex-direction: column;
-	}
-	&__comment{
-		display: flex;
-		margin-bottom: 25px;
-		box-shadow: 0 0 3px 0px #000;
-		border-radius: 2px;
-		padding: 10px;
-		background: #0f151e;
-		&:last-child{
-			margin-bottom: 0;
-		}
-	}
-	@media(max-width: 725px) {
-		&__comment{
-			flex-direction: column;
-		}
-		&__column-comment{
-			flex: 0 1 100%;
-			&:first-child{
-				margin: 0px 0px 25px 0px;
-			}
-		}
-	}
-	&__row-left-column{
-		display: flex;
-	}
-	&__avatar-container{
-		transition: box-shadow 0.4s ease 0s;
-		flex: 0 0 90px;
-		height: 90px;
-		position: relative;
-		border-radius: 50%;
-		overflow: hidden;
-		margin-right: 10px;
-		box-shadow: 0 0 5px 0px #000;
-		@media(min-width: 992px) {
-			&:hover{
-				box-shadow: 0 0 5px 2px #8AF9AD;
-			}
-		}
-	}
-	&__avatar-img{
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-	&__nickname{
-		color: #2EBFFF;
-		font-size: 17px;
-		a{
-			color: #ffffff;
-			@media(min-width: 992px) {
-				&:hover{
-					text-decoration: underline;
-				}
-			}
-		}
-	}
-	&__rank{
-		font-size: 15px;
-		line-height: 115%;
-	}
-	&__nickname,&__rank,&__comments-user{
-		margin-bottom: 7px;
-	}
-	&__comments-user,&__reviews-user{
-		color: #ffffff;
-		span{
-			color: #ffb400;
-		}
-	}
-	&__right-head{
-		display: flex;
-		justify-content: space-between;
-		background: #171a21a4;
-		padding: 10px;
-		margin: -10px -10px 15px -10px;
-		box-shadow: 0 0 8px 0px #000;
-	}
-	&__column-head{
-		display: flex;
-		align-items: center;
-	}
-	&__icon-status{
-		flex: 0 0 40px;
-		width: 40px;
-		height: 40px;
-		margin-right: 10px;
-	}
-	&__logo-icon{
-		flex: 0 0 40px;
-		width: 40px;
-		height: 40px;
-	}
-	&__status-text{
-		color: #ffffff;
-		font-size: 17px;
-		font-weight: 500;
-	}
-	&__date{
-		color: #2EBFFF;
-		font-size: 16px;
-		margin-bottom: 17px;
-		span{
-			color: #ffffff;
-		}
-	}
-	&__funny,&__awards,&__consonants,&__disagree,&__sucks,&__like-block,&__dislike-block{
-		margin-bottom: 7px;
-		font-size: 16px;
-		color: #ffffff;
-		span{
-			color: #ffb400;
-		}
-	}
-	&__sucks,&__like-block,&__dislike-block{
-		display: flex;
-		align-items: center;
-	}
-	&__poo,&__like,&__dislike{
-		flex: 0 0 40px;
-		width: 40px;
-		height: 40px;
-		margin-right: 10px;
-	}
-	&__sucks,&__like-block,&__dislike-block{
-		span{
-			margin-left: 5px;
-		}
-	}
-	&__container-text-comment{
-		margin: 15px 0px;
-		overflow: hidden;
-	}
-	&__text-comment{
-		color: #41c6ffb2;
-		font-size: 17px;
-		line-height: 110%;
-	}
-	&__container-btn{
-		display: flex;
-		justify-content: flex-end;
-		margin-bottom: 10px;
-	}
-	&__more-btn{
-		font-weight: 600;
-		transition: color 0.3s ease 0s;
-		color: #2EBFFF;
-		font-size: 17px;
-		@media(min-width: 992px) {
-			&:hover{
-				color: #007cb1;
-			}
-		}
 	}
 	&__container-link{
 		margin-top: 40px;
@@ -403,6 +232,20 @@
 			margin-top: 20px;
 			a{
 				text-align: center;
+			}
+		}
+	}
+}
+
+@media(max-width: 725px) {
+	.block-main-wall{
+		.extended-comment{
+			flex-direction: column;
+			&__column-comment{
+				flex: 0 1 100%;
+				&:first-child{
+					margin: 0px 0px 25px 0px;
+				}
 			}
 		}
 	}

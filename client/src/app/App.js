@@ -31,6 +31,7 @@ function App() {
 							<Route path="/game/:idGame" element={<Game />} />
 							<Route path="/profile/:idUser" element={<User />} />
 							<Route path="/comments/:idGame" element={<Comments />} />
+							<Route path="/comment/:idComment" element={null} />
 							<Route path="/" element={<Home />} />
 							<Route path="*" element={<NotFound />} />
 						</Routes>

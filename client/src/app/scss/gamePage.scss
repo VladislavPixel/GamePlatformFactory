@@ -2,10 +2,10 @@
 	overflow: hidden;
 	&__head-container{
 		width: 100%;
-		min-height: 810px;
+		min-height: 680px;
 		position: relative;
-		@media(max-width: 1300px) {
-			min-height: 1370px;
+		@media(max-width: 960px){
+			min-height: 950px;
 		}
 	}
 	&__message-middle{
@@ -71,10 +71,14 @@
 			}
 			@media(max-width: 1300px) {
 				flex: 1 1 100%;
-				justify-content: center;
-				align-items: flex-end;
+				justify-content: flex-end;
+				align-items: center;
 				height: 100%;
 				padding: 10px 10px 63px 10px;
+			}
+			@media(max-width: 960px){
+				align-items: flex-end;
+				justify-content: center;
 			}
 		}
 	}
@@ -138,15 +142,12 @@
 		border-radius: 15px !important;
 		max-width: 650px;
 		box-shadow: 0 0 3px 0px #000;
-		@media(max-width: 2065px) {
+		@media(max-width: 2065px){
 			bottom: 0px;
 		}
-		@media(max-width: 1300px) {
-			max-width: 100%;
-			flex: 0 1 100%;
-		}
-		@media(max-width: 600px) {
+		@media(max-width: 1200px){
 			padding: 10px;
+			max-width: 500px;
 		}
 	}
 }
@@ -159,7 +160,7 @@
 		margin-bottom: 15px;
 	}
 	&__icon{
-		flex: 0 0 30px;
+		flex: 0 0 60px;
 		height: 60px;
 		width: 60px;
 		margin-right: 20px;
@@ -240,9 +241,6 @@
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 30px;
-		@media(max-width: 500px) {
-			margin-bottom: 15px;
-		}
 	}
 	&__btn{
 		transition: background 0.3s ease 0s, border 0.3s ease 0s;
@@ -339,6 +337,56 @@
 					text-decoration: underline;
 				}
 			}
+		}
+	}
+	@media(max-width: 1200px) {
+		&__icon{
+			flex: 0 0 40px;
+			height: 40px;
+			width: 40px;
+			margin-right: 10px;
+		}
+		&__tags{
+			margin-bottom: 7px;
+		}
+		&__text{
+			font-size: 15px;
+		}
+		&__price{
+			padding: 10px;
+			margin: 0px -10px 10px -10px;
+			font-size: 16px;
+		}
+		&__rate-block{
+			margin-bottom: 10px;
+			span{
+				font-size: 30px;
+				margin: 0px 15px;
+			}
+		}
+		&__buttons-container{
+			margin-bottom: 15px;
+		}
+		&__btn{
+			font-size: 17px;
+			padding: 10px;
+		}
+		&__icon-container{
+			width: 35px;
+			height: 35px;
+			flex: 0 0 35px;
+			img{
+				width: 20px;
+				height: 20px;
+			}
+		}
+		&__date{
+			margin-bottom: 10px;
+		}
+		&__instruments-icon,&__publisher-icon{
+			flex: 0 0 30px;
+			height: 30px;
+			width: 30px;
 		}
 	}
 }
@@ -598,6 +646,9 @@
 		color: #ffffff;
 		font-weight: 600;
 		line-height: 120%;
+		@media(max-width: 500px) {
+			font-size: 26px;
+		}
 	}
 	&__list{
 		display: flex;

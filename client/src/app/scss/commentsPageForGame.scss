@@ -24,13 +24,6 @@
 		flex-direction: column;
 		margin-bottom: 20px;
 	}
-	&__icon-communication{
-		align-self: center;
-		flex: 0 0 100px;
-		width: 100px;
-		height: 100px;
-		margin-bottom: 10px;
-	}
 	&__title-game{
 		font-size: 55px;
 		line-height: 32px;
@@ -56,6 +49,27 @@
 			}
 		}
 	}
+	&__message-middle{
+		margin-top: 25px;
+		img{
+			width: 100px;
+			height: 100px;
+		}
+		.lite-message__title{
+			font-size: 22px;
+			font-weight: 700;
+		}
+		.lite-message__offer{
+			max-width: 500px;
+			font-size: 17px;
+			line-height: 115%;
+			font-weight: 500;
+			color: #c2c2c2;
+		}
+	}
+	&__list-container{
+		padding: 50px 0px;
+	}
 }
 
 // Стили для панели фильтрации
@@ -77,6 +91,7 @@
 		flex: 0 1 33.333%;
 		padding: 15px 20px;
 		position: relative;
+		border-bottom: 2px solid transparent;
 		&.active{
 			border-bottom: 2px solid rgb(0, 76, 218);
 			background: #ffffff30;
@@ -127,6 +142,27 @@
 		}
 		&.active{
 			background: #2EBFFF;
+		}
+	}
+}
+
+.list-comments-page {
+	&__line-comment{
+		display: flex;
+		margin: 0px -10px 25px -10px;
+		.extended-comment{
+			flex: 0 1 50%;
+			margin: 0px 10px;
+			// &__content-right{
+			// 	min-height: 100%;
+			// }
+			&__row-left-column{
+				flex-direction: column;
+				align-items: center;
+			}
+			&__avatar-container{
+				margin: 0px 0px 15px 0px;
+			}
 		}
 	}
 }

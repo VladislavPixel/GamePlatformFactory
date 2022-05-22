@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
 
 // Components
-import CommentMainWall from "./commentMainWall"
+import ExtendedComment from "../common/extendedComment"
 import withMessage from "../HOC/withMessage"
 import LiteMessage from "../common/liteMessage"
 // Auxiliary
@@ -31,7 +31,7 @@ const CommentsMainWallList = ({ onClickReaction }) => {
 				{getPhrase(commentsForTheMainWall.length)}
 			</h4>
 			<div className="block-main-wall__list">
-				{commentsForTheMainWall.map(comment => <CommentMainWall onClickReaction={onClickReaction} key={comment._id} {...comment} />)}
+				{commentsForTheMainWall.map(comment => <ExtendedComment classesParent="block-main-wall" onClickReaction={onClickReaction} key={comment._id} {...comment} />)}
 			</div>
 			<div className="block-main-wall__container-link">
 				<Link title="Перейти на страницу, где Вы сможете ознакомиться со всеми комментариями и рецензиями" to={`/comments/${idGame}`}>Ознакомиться со всеми комментариями и рецензиями по этой игре можно тут</Link>

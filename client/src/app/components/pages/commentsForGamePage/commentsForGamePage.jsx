@@ -66,7 +66,7 @@ const CommentsForGamePage = () => {
 		handlerFetchCommentsByConfigFilters(correctElement)
 	}
 	return (
-		<div className="block-content__commentsForGame comments-page-game-block">
+		<div className="block-content__comments-for-game comments-page-game-block">
 			<div className="comments-page-game-block__container _container">
 				<CommentsPageGameHead />
 				<PanelFiltersForCommentsPage selectedTimeFilter={timeFilter} selectedIndicatorFilter={indicatorFilter} selectedStatusFilter={statusFilter} onShow={handlerShowColumn} onUpdateFilter={handlerUpdateFilter} targetColumn={targetColumn} />
