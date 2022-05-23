@@ -10,27 +10,34 @@ const initialState = {
 	entities: {},
 	commentsForFirstLoad: null,
 	errorForSubsequentRequests: null, // Последующие запросы данных
-	isLoadingSubsequent: true
+	isLoadingSubsequent: false
 }
 
 const commentsForCommentsPageSlice = createSlice({
 	name: "commentsForCommentsPage",
 	initialState,
 	reducers: {
+		commentsForCommentsPageRequestedSubsequentCalls(state) {
+			state.errorForSubsequentRequests = null
+			state.isLoadingSubsequent = true
+		},
 		commentsForCommentsPageReceived(state, action) {
 			const { data, messageQuerySequence, group, idGame } = action.payload
-			if (data.length) state.entities[group] = data
 			if (messageQuerySequence === "first") {
+				state.entities = {}
 				if (data.length) state.commentsForFirstLoad = data
 				state.isLoadingGlobal = false
 			}
+			if (data.length) state.entities[group] = data
 			state.targerIdGame = idGame
+			state.isLoadingSubsequent = false
 		},
 		commentsForCommentsPageReceivedFirstDownload(state, action) {
 			const bundleObject = {}
 			const { commentsForFirstLoad } = state
 			if (commentsForFirstLoad) bundleObject[action.payload] = commentsForFirstLoad
 			state.entities = bundleObject
+			if (state.isLoadingSubsequent) state.isLoadingSubsequent = false
 		},
 		commentsForCommentsPageRequestFieldGlobal(state, action) {
 			state.errorGlobal = action.payload
@@ -45,6 +52,7 @@ const commentsForCommentsPageSlice = createSlice({
 
 const { actions, reducer:commentsForCommentsPageReducer } = commentsForCommentsPageSlice
 const {
+	commentsForCommentsPageRequestedSubsequentCalls,
 	commentsForCommentsPageReceived,
 	commentsForCommentsPageReceivedFirstDownload,
 	commentsForCommentsPageRequestFieldGlobal,
@@ -54,8 +62,10 @@ const {
 // Actions
 export function fetchDataCommentsForCommentsPage(config, messageQuerySequence, group, idGame) {
 	return async (dispatch) => {
+		if (messageQuerySequence === "second") dispatch(commentsForCommentsPageRequestedSubsequentCalls())
 		try {
 			const data = await fakeApi.fetchCommentsForCommentsPage(config, group, idGame)
+			console.log(data, "ЕЩЕ ОДНА ПАЧКА", group)
 			dispatch(commentsForCommentsPageReceived({ data, messageQuerySequence, group, idGame }))
 		} catch (err) {
 			const { message } = err
@@ -96,6 +106,11 @@ export const getAllDataComments = () => {
 export const getDataCommentsForFirstLoad = () => {
 	return (state) => {
 		return state.commentsForCommentsPage.commentsForFirstLoad
+	}
+}
+export const getStatusLoaderForSubsequentCalls = () => {
+	return (state) => {
+		return state.commentsForCommentsPage.isLoadingSubsequent
 	}
 }
 

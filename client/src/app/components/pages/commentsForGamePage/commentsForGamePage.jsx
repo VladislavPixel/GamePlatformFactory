@@ -1,20 +1,26 @@
 import React, { useState } from "react"
+import { useParams } from "react-router-dom"
 import { flushSync } from "react-dom"
+import { useDispatch } from "react-redux"
 
 // Components
 import CommentsPageGameHead from "../../ui/commentsPageGameHead"
 import PanelFiltersForCommentsPage from "../../ui/panelFiltersForCommentsPage"
 import CommentsForCommentsPageLoaderGlobal from "../../HOC/commentsForCommentsPageLoaderGlobal"
 import CommentsListForCommentsPage from "../../ui/commentsListForCommentsPage"
+// Auxiliary
+import { fetchDataCommentsForCommentsPage } from "../../../store/commentsForCommentsPage"
 
 const CommentsForGamePage = () => {
+	// AUXILIARY
+	const { idGame } = useParams()
+	// REDUX
+	const dispatch = useDispatch()
 	// STATE
 	const [timeFilter, setTimeFilter] = useState({ _id: "tf1", key: "allTime", columnKey: "timeFilter" })
 	const [indicatorFilter, setIndicatorFilter] = useState({ _id: "if5", key: "consonants", columnKey: "indicatorFilter" })
 	const [statusFilter, setStatusFilter] = useState(null)
 	const [targetColumn, setTargetColumn] = useState(null)
-	const [startGroup, setStartGroup] = useState(1)
-	const [endGroup, setEndGroup] = useState(1)
 	// HANDLERS
 	const handlerShowColumn = (index) => {
 		if (index === targetColumn) {
@@ -32,6 +38,7 @@ const CommentsForGamePage = () => {
 		}
 
 		console.log("SUBMIT_DATA_COMMENTS", submitData)
+		dispatch(fetchDataCommentsForCommentsPage({ timeFilter, indicatorFilter, statusFilter }, "first", 1, idGame))
 	}
 	const handlerUpdateFilter = (newState) => {
 		let correctElement = {...newState}
@@ -70,8 +77,8 @@ const CommentsForGamePage = () => {
 			<div className="comments-page-game-block__container _container">
 				<CommentsPageGameHead />
 				<PanelFiltersForCommentsPage selectedTimeFilter={timeFilter} selectedIndicatorFilter={indicatorFilter} selectedStatusFilter={statusFilter} onShow={handlerShowColumn} onUpdateFilter={handlerUpdateFilter} targetColumn={targetColumn} />
-				<CommentsForCommentsPageLoaderGlobal configRequest={{ timeFilter, indicatorFilter, statusFilter }} groupRequest={startGroup}>
-					<CommentsListForCommentsPage startGroupIndex={startGroup} endGroupIndex={endGroup} />
+				<CommentsForCommentsPageLoaderGlobal configRequest={{ timeFilter, indicatorFilter, statusFilter }}>
+					<CommentsListForCommentsPage configRequest={{ timeFilter, indicatorFilter, statusFilter }} />
 				</CommentsForCommentsPageLoaderGlobal>
 			</div>
 		</div>

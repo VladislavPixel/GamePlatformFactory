@@ -20,7 +20,7 @@ const ColumnPanelFilterForCommentsPage = ({ title, dataModal, onShow, indexColum
       break
    }
    return (
-      <div className={`filters-panel-comments__column${isActive ? " active" : ""}`}>
+      <div title={`Фильтрация (выдача) комментариев по - "${title}"`} className={`filters-panel-comments__column${isActive ? " active" : ""}`}>
          <button type="button" onClick={() => onShow(indexColumn)} className="filters-panel-comments__btn-filter">{title}</button>
          <ul className={`filters-panel-comments__list-modal${isActive ? " active" : ""}`}>
             {dataModal.map(element => {

@@ -13,7 +13,7 @@ import {
 	setDataCommentsOnFirstDownload
 } from "../../store/commentsForCommentsPage"
 
-const CommentsForCommentsPageLoaderGlobal = ({ children, configRequest, groupRequest }) => {
+const CommentsForCommentsPageLoaderGlobal = ({ children, configRequest }) => {
 	// AUXILIARY
 	const { idGame } = useParams()
 	// REDUX
@@ -23,10 +23,10 @@ const CommentsForCommentsPageLoaderGlobal = ({ children, configRequest, groupReq
 
 	useEffect(() => {
 		if (statusLoaderGlobal || (targetGameId !== idGame)) {
-			dispatch(fetchDataCommentsForCommentsPage(configRequest, "first", groupRequest, idGame))
+			dispatch(fetchDataCommentsForCommentsPage(configRequest, "first", 1, idGame))
 			return
 		}
-		dispatch(setDataCommentsOnFirstDownload(groupRequest))
+		dispatch(setDataCommentsOnFirstDownload(1))
 	}, [])
 	const ChildrenWithLoading = withLoading(children, statusLoaderGlobal)
 	return <ChildrenWithLoading />
@@ -37,8 +37,7 @@ CommentsForCommentsPageLoaderGlobal.propTypes = {
 		PropTypes.node,
 		PropTypes.arrayOf(PropTypes.node)
 	]).isRequired,
-	configRequest: PropTypes.object.isRequired,
-	groupRequest: PropTypes.number.isRequired
+	configRequest: PropTypes.object.isRequired
 }
 
 export default CommentsForCommentsPageLoaderGlobal
