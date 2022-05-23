@@ -48,6 +48,7 @@
 	&__nickname{
 		color: #2EBFFF;
 		font-size: 17px;
+		line-height: 120%;
 		a{
 			color: #ffffff;
 			@media(min-width: 992px) {
@@ -73,7 +74,6 @@
 	&__content-right{
 		padding: 0px 10px 10px 10px;
 		box-shadow: 0 0 3px 0px #000;
-		margin: 0px -10px -10px 0px;
 		display: flex;
 		flex-direction: column;
 	}
@@ -174,6 +174,7 @@
 	&__text{
 		font-size: 17px;
 		color: #ffffff;
+		margin-right: 10px;
 	}
 	&__link{
 		transition: background 0.3s ease 0s;

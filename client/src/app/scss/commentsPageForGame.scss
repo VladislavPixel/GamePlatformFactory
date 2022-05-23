@@ -23,12 +23,21 @@
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 20px;
+		@media(max-width: 600px) {
+			align-items: center;
+			justify-content: center;
+		}
 	}
 	&__title-game{
 		font-size: 55px;
-		line-height: 32px;
+		line-height: 125%;
 		color: #ffffff;
-		margin-bottom: 10px;
+		margin-bottom: 30px;
+		@media(max-width: 850px) {
+			font-size: 33px;
+			margin-bottom: 15px;
+			text-align: center;
+		}
 	}
 	&__link{
 		align-self: flex-end;
@@ -47,6 +56,9 @@
 				background: rgb(0, 76, 218);
 				border: 1px solid rgb(0, 76, 218);
 			}
+		}
+		@media(max-width: 600px) {
+			align-self: center;
 		}
 	}
 	&__message-middle{
@@ -69,6 +81,9 @@
 	}
 	&__list-container{
 		padding: 50px 0px;
+		@media(max-width: 550px) {
+			padding: 30px 0px;
+		}
 	}
 }
 
@@ -79,12 +94,16 @@
 		text-transform: uppercase;
 		font-size: 27px;
 		margin-bottom: 15px;
+		@media(max-width: 600px) {
+			font-size: 20px;
+		}
 	}
 	&__row{
 		display: flex;
 		border-top: 2px solid rgb(0, 76, 218);
 		background-color: rgba( 0, 0, 0, 0.4 );
 		box-shadow: 0 0 3px 0px #000;
+		flex-wrap: wrap;
 	}
 	&__column{
 		transition: border 0.3s ease 0s, background 0.3s ease 0s;
@@ -100,6 +119,12 @@
 			&:hover{
 				background: #ffffff30;
 			}
+		}
+		@media(max-width: 820px) {
+			flex: 0 1 50%;
+		}
+		@media(max-width: 550px) {
+			flex: 0 1 100%;
 		}
 	}
 	&__btn-filter{
@@ -146,16 +171,16 @@
 	}
 }
 
-.list-comments-page {
+.list-comments-page{
 	&__line-comment{
 		display: flex;
 		margin: 0px -10px 25px -10px;
 		.extended-comment{
 			flex: 0 1 50%;
 			margin: 0px 10px;
-			// &__content-right{
-			// 	min-height: 100%;
-			// }
+			&__content-right{
+				min-height: 100%;
+			}
 			&__row-left-column{
 				flex-direction: column;
 				align-items: center;
@@ -164,5 +189,40 @@
 				margin: 0px 0px 15px 0px;
 			}
 		}
+		@media(max-width: 1120px) {
+			flex-direction: column;
+			margin: 0px 0px 25px 0px;
+			.extended-comment{
+				flex: 0 1 100%;
+				margin: 0px 0px 25px 0px;
+				&:last-child{
+					margin: 0;
+				}
+			}
+		}
+	}
+	.extended-comment__column-comment:last-child{
+		margin: 0px -10px -10px 0px;
+	}
+}
+
+@media(max-width: 770px) {
+	.list-comments-page .extended-comment__row-left-column{
+		flex-direction: column;
+		align-items: center;
+	}
+	.list-comments-page .extended-comment__avatar-container{
+		margin: 0px 0px 15px 0px;
+	}
+}
+@media(max-width: 610px) {
+	.list-comments-page .extended-comment{
+		flex-direction: column;
+	}
+	.list-comments-page .extended-comment__column-comment{
+		flex: 0 1 100%;
+	}
+	.list-comments-page .extended-comment__column-comment:first-child{
+		margin: 0px 0px 25px 0px;
 	}
 }
