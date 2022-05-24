@@ -21,7 +21,11 @@ const CommentsListForCommentsPage = ({ configRequest }) => {
 		navigate(`/game/${idGame}`)
 	}
 	// AUXILIARY
-	const ElementWithMessage = withMessage(<FetchDataListComments configRequest={configRequest} bundleComments={bundleComments} arrGroups={arrGroups} />, <MiddleMessage classesParent="comments-page-game-block" title="По указанным фильтрам комментарии не были найдены." offer="Попробуйте поменять условия фильтрации, если Вы все еще продолжаете видеть это сообщение, значит у игры нет обзоров от пользователей. Вы можете оставить свой, если перейдете по ссылке внизу." textBtn="Комментировать" onCallback={handlerBtnCommentGame} iconPath="sadIcon2.svg" />, arrGroups.length)
+	const ElementWithMessage = withMessage(
+		<FetchDataListComments configRequest={configRequest} />,
+		<MiddleMessage classesParent="comments-page-game-block" title="По указанным фильтрам комментарии не были найдены." offer="Попробуйте поменять условия фильтрации, если Вы все еще продолжаете видеть это сообщение, значит у игры нет обзоров от пользователей. Вы можете оставить свой, если перейдете по ссылке внизу." textBtn="Комментировать" onCallback={handlerBtnCommentGame} iconPath="sadIcon2.svg" />,
+		arrGroups.length
+	)
 	return (
 		<div className="comments-page-game-block__list-container">
 			<ElementWithMessage />
@@ -33,4 +37,4 @@ CommentsListForCommentsPage.propTypes = {
 	configRequest: PropTypes.object.isRequired
 }
 
-export default React.memo(CommentsListForCommentsPage)
+export default CommentsListForCommentsPage

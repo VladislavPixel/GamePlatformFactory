@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 
 // Auxiliary
@@ -6,7 +6,17 @@ import configAuxiliary from "../../configAuxiliary.json"
 // Components
 import ColumnPanelFilterForCommentsPage from "./columnPanelFilterForCommentsPage"
 
-const PanelFiltersForCommentsPage = ({ onShow, targetColumn, onUpdateFilter, selectedTimeFilter, selectedIndicatorFilter, selectedStatusFilter }) => {
+const PanelFiltersForCommentsPage = ({ onUpdateFilter, selectedTimeFilter, selectedIndicatorFilter, selectedStatusFilter }) => {
+	// STATE
+	const [targetColumn, setTargetColumn] = useState(null)
+	// HANDLERS
+	const handlerShowColumn = (index) => {
+		if (index === targetColumn) {
+			setTargetColumn(null)
+			return
+		}
+		setTargetColumn(index)
+	}
 	// AUXILIARY
 	const FILTERS_OBJECT = configAuxiliary.filtersDataForCommentsGamePage
 	const columnsFilters = Object.keys(FILTERS_OBJECT)
@@ -16,7 +26,7 @@ const PanelFiltersForCommentsPage = ({ onShow, targetColumn, onUpdateFilter, sel
 			<div className="filters-panel-comments__row">
 				{columnsFilters.map((column, index) => {
 					const title = (column === "timeFilter" ? "Временной фильтр" : column === "indicatorFilter" ? "Фильтр по показателям" : "Фильтр по посылу")
-					return <ColumnPanelFilterForCommentsPage selectedTimeFilter={selectedTimeFilter} selectedIndicatorFilter={selectedIndicatorFilter} selectedStatusFilter={selectedStatusFilter} onUpdateFilter={onUpdateFilter} columnKey={column} targetColumn={targetColumn} onShow={onShow} key={column + index} indexColumn={index} title={title} dataModal={FILTERS_OBJECT[column]} />
+					return <ColumnPanelFilterForCommentsPage selectedTimeFilter={selectedTimeFilter} selectedIndicatorFilter={selectedIndicatorFilter} selectedStatusFilter={selectedStatusFilter} onUpdateFilter={onUpdateFilter} columnKey={column} targetColumn={targetColumn} onShow={handlerShowColumn} key={column + index} indexColumn={index} title={title} dataModal={FILTERS_OBJECT[column]} />
 				})}
 			</div>
 		</div>
@@ -24,11 +34,6 @@ const PanelFiltersForCommentsPage = ({ onShow, targetColumn, onUpdateFilter, sel
 }
 
 PanelFiltersForCommentsPage.propTypes = {
-	onShow: PropTypes.func.isRequired,
-	targetColumn: PropTypes.oneOfType([
-		PropTypes.number,
-		PropTypes.oneOf([null])
-	]),
 	onUpdateFilter: PropTypes.func.isRequired,
 	selectedTimeFilter: PropTypes.object.isRequired,
 	selectedIndicatorFilter: PropTypes.object.isRequired,

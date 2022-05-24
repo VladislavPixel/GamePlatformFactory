@@ -173,6 +173,9 @@
 }
 
 .list-comments-page{
+	&__block-comments{
+		margin-bottom: 25px;
+	}
 	&__line-comment{
 		display: flex;
 		margin: 0px -10px 25px -10px;

@@ -12,10 +12,12 @@ import {
 	getTargetIdGameForCommentsPage,
 	setDataCommentsOnFirstDownload
 } from "../../store/commentsForCommentsPage"
+import configAuxiliary from "../../configAuxiliary.json"
 
-const CommentsForCommentsPageLoaderGlobal = ({ children, configRequest }) => {
+const CommentsForCommentsPageLoaderGlobal = ({ children }) => {
 	// AUXILIARY
 	const { idGame } = useParams()
+	const { timeFilter, indicatorFilter } = configAuxiliary.filtersDataForCommentsGamePage
 	// REDUX
 	const dispatch = useDispatch()
 	const statusLoaderGlobal = useSelector(getStatusGlobalLoaderForCommentsPage())
@@ -23,7 +25,7 @@ const CommentsForCommentsPageLoaderGlobal = ({ children, configRequest }) => {
 
 	useEffect(() => {
 		if (statusLoaderGlobal || (targetGameId !== idGame)) {
-			dispatch(fetchDataCommentsForCommentsPage(configRequest, "first", 1, idGame))
+			dispatch(fetchDataCommentsForCommentsPage({ timeFilter: timeFilter[0], indicatorFilter: indicatorFilter[4], statusFilter: null }, "first", idGame, "arbitrary", 1 ))
 			return
 		}
 		dispatch(setDataCommentsOnFirstDownload(1))
@@ -36,8 +38,7 @@ CommentsForCommentsPageLoaderGlobal.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.node,
 		PropTypes.arrayOf(PropTypes.node)
-	]).isRequired,
-	configRequest: PropTypes.object.isRequired
+	]).isRequired
 }
 
 export default CommentsForCommentsPageLoaderGlobal

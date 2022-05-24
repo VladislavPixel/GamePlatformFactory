@@ -2,22 +2,27 @@ import React, { useRef, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import PropTypes from "prop-types"
 import { useParams } from "react-router-dom"
+import { flushSync } from "react-dom"
 
 // Components
 import ExtendedComment from "../common/extendedComment"
 import Spinner from "../common/spinner"
 // Auxiliary
-import { fetchDataCommentsForCommentsPage, getStatusLoaderForSubsequentCalls } from "../../store/commentsForCommentsPage"
+import {
+	fetchDataCommentsForCommentsPage,
+	getStatusLoaderForSubsequentCalls,
+	getAllDataComments
+} from "../../store/commentsForCommentsPage"
 
-const FetchDataListComments = ({ bundleComments, arrGroups, configRequest }) => {
+const FetchDataListComments = ({ configRequest }) => {
 	// REDUX
 	const dispatch = useDispatch()
 	const statusLoaderForSubsequentCalls = useSelector(getStatusLoaderForSubsequentCalls())
+	const bundleComments = useSelector(getAllDataComments())
+	const arrGroups = Object.keys(bundleComments)
 	// STATE
-	const [startGroup, setStartGroup] = useState(1)
-	const [endGroup, setEndGroup] = useState(2)
+	const [inVisibility, setVisibility] = useState(false) 
 	// AUXILIARY
-	let auxIndex = endGroup
 	const { idGame } = useParams()
 	const elementTriggerTop = useRef(null)
 	const elementTriggerBottom = useRef(null)
@@ -28,38 +33,38 @@ const FetchDataListComments = ({ bundleComments, arrGroups, configRequest }) => 
 		console.log(reaction)
 	}
 	function visibleShowForTop(objectBounding, windowYValue) {
-		console.log(windowYValue, "Количество пролистываемых пикселей")
-		console.log(objectBounding.bottom + windowYValue, "Расстояние от верха до нижней точки элемента")
-	}
 
-	function visibleShowForBottom(ref, windowYValue) {
-		if (ref.current) {
-			const staticTop = ref.current.getBoundingClientRect().bottom + windowYValue
+	}
+	function visibleShowForBottom({ current }, windowYValue) {
+		if (current) {
+			const staticTop = current.getBoundingClientRect().bottom + windowYValue
 			const heightAll = windowYValue + window.document.documentElement.clientHeight
-			if (heightAll >= staticTop) {
-				
-				dispatch(fetchDataCommentsForCommentsPage(configRequest, "second", auxIndex, idGame))
-				setEndGroup(prevState => (auxIndex + 1))
-			}
+			if ((heightAll > staticTop) && !inVisibility) setVisibility(true)
 		}
 	}
-	console.log("Рендер")
+	function auxiliaryVisible() {
+		//visibleShowForTop(elementTriggerTop.current.getBoundingClientRect(), window.pageYOffset)
+		visibleShowForBottom(elementTriggerBottom, window.pageYOffset)
+	}
 	useEffect(() => {
-		function auxiliaryVisible() { // При каждом срабатывании event scroll происходит прокидывание BoundingClientRect таргетируемого объекта
-			//visibleShowForTop(elementTriggerTop.current.getBoundingClientRect(), window.pageYOffset) // что позволяет получать обновленные координаты
-			visibleShowForBottom(elementTriggerBottom, window.pageYOffset)
+		if (!statusLoaderForSubsequentCalls) {
+			window.addEventListener("scroll", auxiliaryVisible)
+		} else {
+			window.removeEventListener("scroll", auxiliaryVisible)
 		}
-		window.addEventListener("scroll", auxiliaryVisible)
 		//visibleShowForTop(elementTriggerTop.current.getBoundingClientRect(), window.pageYOffset)
 		visibleShowForBottom(elementTriggerBottom, window.pageYOffset)
 		return () => {
 			window.removeEventListener("scroll", auxiliaryVisible)
 		}
 	}, [])
+	useEffect(() => {
+		if (inVisibility) dispatch(fetchDataCommentsForCommentsPage(configRequest, "second", idGame, "bottom"))
+	}, [inVisibility])
 	return (
 		<React.Fragment>
 			<div className="comments-page-game-block__list list-comments-page">
-				<div ref={elementTriggerTop} className="list-comments-page__trigger">trigger</div>
+				<div ref={elementTriggerTop} className="list-comments-page__trigger">trigger top</div>
 				{arrGroups.map(keyBundle => {
 					return (
 						<div className="list-comments-page__block-comments" key={keyBundle}>
@@ -80,16 +85,14 @@ const FetchDataListComments = ({ bundleComments, arrGroups, configRequest }) => 
 						</div>
 					)
 				})}
-				<div ref={elementTriggerBottom} className="list-comments-page__trigger">trigger</div>
+				<div ref={elementTriggerBottom} className="list-comments-page__trigger">trigger bottom</div>
 			</div>
 			{statusLoaderForSubsequentCalls && <Spinner />}
 		</React.Fragment>
 	)
 }
-
+//dispatch(fetchDataCommentsForCommentsPage(configRequest, "second", endGroup, idGame))
 FetchDataListComments.propTypes = {
-	bundleComments: PropTypes.object.isRequired,
-	arrGroups: PropTypes.array.isRequired,
 	configRequest: PropTypes.object.isRequired
 }
 

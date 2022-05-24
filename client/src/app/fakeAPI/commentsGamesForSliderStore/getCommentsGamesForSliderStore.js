@@ -174,7 +174,7 @@ export function getCommentsForTheMainWallByIdNoLastWeek(idGame) {
 	})
 }
 const hashData = new HashSortDataComments()
-export function fetchCommentsForCommentsPage(config, group, idGame) {
+export function fetchCommentsForCommentsPage(config, idGame, group) {
 	return new Promise((resolve, reject) => {
 		const commentsByIdGame = hashData.getDataByIdGameSorted(idGame)
 
