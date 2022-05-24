@@ -11,7 +11,8 @@ import Spinner from "../common/spinner"
 import {
 	fetchDataCommentsForCommentsPage,
 	getStatusLoaderForSubsequentCalls,
-	getAllDataComments
+	getAllDataComments,
+	getStatusReachedBottom
 } from "../../store/commentsForCommentsPage"
 
 const FetchDataListComments = ({ configRequest }) => {
@@ -19,13 +20,15 @@ const FetchDataListComments = ({ configRequest }) => {
 	const dispatch = useDispatch()
 	const statusLoaderForSubsequentCalls = useSelector(getStatusLoaderForSubsequentCalls())
 	const bundleComments = useSelector(getAllDataComments())
-	const arrGroups = Object.keys(bundleComments)
+	const isReachedBottom = useSelector(getStatusReachedBottom())
 	// STATE
 	const [inVisibility, setVisibility] = useState(false) 
 	// AUXILIARY
+	const arrGroups = Object.keys(bundleComments)
 	const { idGame } = useParams()
 	const elementTriggerTop = useRef(null)
 	const elementTriggerBottom = useRef(null)
+	const blockComments = useRef(null)
 	let arrElementsForLine = []
 	let auxArrForElements = null
 	// HANDLERS
@@ -39,7 +42,11 @@ const FetchDataListComments = ({ configRequest }) => {
 		if (current) {
 			const staticTop = current.getBoundingClientRect().bottom + windowYValue
 			const heightAll = windowYValue + window.document.documentElement.clientHeight
-			if ((heightAll > staticTop) && !inVisibility) setVisibility(true)
+			if ((heightAll > staticTop) && !inVisibility) {
+				window.scrollBy(0, blockComments.current.offsetHeight / 2)
+				window.removeEventListener("scroll", auxiliaryVisible)
+				setVisibility(true)
+			}
 		}
 	}
 	function auxiliaryVisible() {
@@ -67,7 +74,7 @@ const FetchDataListComments = ({ configRequest }) => {
 				<div ref={elementTriggerTop} className="list-comments-page__trigger">trigger top</div>
 				{arrGroups.map(keyBundle => {
 					return (
-						<div className="list-comments-page__block-comments" key={keyBundle}>
+						<div ref={blockComments} className="list-comments-page__block-comments" key={keyBundle}>
 							{bundleComments[keyBundle].map((comment, index) => {
 								if ((index + 1) % 3 === 0) return <ExtendedComment classesParent="list-comments-page" isDiscussionSection={true} onClickReaction={handlerClickReaction} key={comment._id} {...comment} />
 								arrElementsForLine.push(comment)
@@ -85,13 +92,14 @@ const FetchDataListComments = ({ configRequest }) => {
 						</div>
 					)
 				})}
+				{isReachedBottom && <p className="list-comments-page__message-reached-bottom">Вы просмотрели все комментарии для этой игры по указанным фильтрам. Попробуйте изменить фильтры.</p>}
 				<div ref={elementTriggerBottom} className="list-comments-page__trigger">trigger bottom</div>
 			</div>
 			{statusLoaderForSubsequentCalls && <Spinner />}
 		</React.Fragment>
 	)
 }
-//dispatch(fetchDataCommentsForCommentsPage(configRequest, "second", endGroup, idGame))
+
 FetchDataListComments.propTypes = {
 	configRequest: PropTypes.object.isRequired
 }

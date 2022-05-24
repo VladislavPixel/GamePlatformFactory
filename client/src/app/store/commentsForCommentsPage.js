@@ -12,16 +12,17 @@ const initialState = {
 	errorForSubsequentRequests: null, // Последующие запросы данных
 	isLoadingSubsequent: false,
 	startGroupIndex: 1,
-	endGroupIndex: 2
+	endGroupIndex: 2,
+	isReachedBottom: false
 }
 
 const commentsForCommentsPageSlice = createSlice({
 	name: "commentsForCommentsPage",
 	initialState,
 	reducers: {
-		commentsForCommentsPageRequestedSubsequentCalls(state) {
+		commentsForCommentsPageRequestedSubsequentCalls(state, { payload }) {
 			state.errorForSubsequentRequests = null
-			state.isLoadingSubsequent = true
+			if (!state.isReachedBottom && payload !== "bottom") state.isLoadingSubsequent = true
 		},
 		commentsForCommentsPageReceived(state, action) {
 			const { data, messageQuerySequence, idGame, groupConfig } = action.payload
@@ -34,7 +35,16 @@ const commentsForCommentsPageSlice = createSlice({
 			state.targerIdGame = idGame
 			if (groupConfig.direction === "top") state.startGroupIndex += 1
 			if (groupConfig.direction === "bottom") state.endGroupIndex += 1
+			if (data.length && groupConfig.direction === "bottom" && groupConfig.valueGroup > 4) {
+				const cloneEntities = { ...state.entities }
+				delete cloneEntities[state.startGroupIndex]
+				state.startGroupIndex += 1
+				state.entities = cloneEntities
+			}
 			state.isLoadingSubsequent = false
+		},
+		commentsForCommentsPageUpdatedReachedBottom(state) {
+			state.isReachedBottom = true
 		},
 		commentsForCommentsPageReceivedFirstDownload(state, action) {
 			const bundleObject = {}
@@ -59,6 +69,7 @@ const {
 	commentsForCommentsPageRequestedSubsequentCalls,
 	commentsForCommentsPageReceived,
 	commentsForCommentsPageReceivedFirstDownload,
+	commentsForCommentsPageUpdatedReachedBottom,
 	commentsForCommentsPageRequestFieldGlobal,
 	commentsForCommentsPageRequestFieldSubsequent
 } = actions
@@ -66,10 +77,9 @@ const {
 // Actions
 export function fetchDataCommentsForCommentsPage(config, messageQuerySequence, idGame, directionDownLoad, group) {
 	return async (dispatch, getState) => {
-		if (messageQuerySequence === "second") dispatch(commentsForCommentsPageRequestedSubsequentCalls())
+		const { startGroupIndex, endGroupIndex, isReachedBottom } = getState().commentsForCommentsPage
+		if (messageQuerySequence === "second") dispatch(commentsForCommentsPageRequestedSubsequentCalls(directionDownLoad))
 		try {
-			console.log("Запрашиваемая пачка под номером: ", group)
-			const { startGroupIndex, endGroupIndex } = getState().commentsForCommentsPage
 			const groupConfig = directionDownLoad === "top" ?
 				{ valueGroup: startGroupIndex, direction: directionDownLoad } :
 				directionDownLoad === "bottom" ?
@@ -77,7 +87,12 @@ export function fetchDataCommentsForCommentsPage(config, messageQuerySequence, i
 				directionDownLoad === "arbitrary" ?
 				{ valueGroup: group, direction: directionDownLoad } : {}
 			const data = await fakeApi.fetchCommentsForCommentsPage(config, idGame, groupConfig.valueGroup)
-			dispatch(commentsForCommentsPageReceived({ data, messageQuerySequence, idGame, groupConfig }))
+			if (data.length) {
+				dispatch(commentsForCommentsPageReceived({ data, messageQuerySequence, idGame, groupConfig }))
+			} else if (!data.length && !isReachedBottom){
+				console.log("Устанавливаю дно")
+				dispatch(commentsForCommentsPageUpdatedReachedBottom())
+			}
 		} catch (err) {
 			const { message } = err
 			if (messageQuerySequence === "first") {
@@ -104,11 +119,6 @@ export const getStatusGlobalLoaderForCommentsPage = () => {
 		return state.commentsForCommentsPage.isLoadingGlobal
 	}
 }
-export const getErrorGlobalForCommentsPage = () => {
-	return (state) => {
-		return state.commentsForCommentsPage.errorGlobal
-	}
-}
 export const getAllDataComments = () => {
 	return (state) => {
 		return state.commentsForCommentsPage.entities
@@ -122,6 +132,11 @@ export const getDataCommentsForFirstLoad = () => {
 export const getStatusLoaderForSubsequentCalls = () => {
 	return (state) => {
 		return state.commentsForCommentsPage.isLoadingSubsequent
+	}
+}
+export const getStatusReachedBottom = () => {
+	return (state) => {
+		return state.commentsForCommentsPage.isReachedBottom
 	}
 }
 
