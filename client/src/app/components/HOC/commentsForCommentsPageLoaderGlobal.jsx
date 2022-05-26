@@ -26,9 +26,9 @@ const CommentsForCommentsPageLoaderGlobal = ({ children }) => {
 	useEffect(() => {
 		if (statusLoaderGlobal || (targetGameId !== idGame)) {
 			dispatch(fetchDataCommentsForCommentsPage({ timeFilter: timeFilter[0], indicatorFilter: indicatorFilter[4], statusFilter: null }, "first", idGame, "arbitrary", 1 ))
-			return
+		} else {
+			dispatch(setDataCommentsOnFirstDownload(1))
 		}
-		dispatch(setDataCommentsOnFirstDownload(1))
 	}, [])
 	const ChildrenWithLoading = withLoading(children, statusLoaderGlobal)
 	return <ChildrenWithLoading />
