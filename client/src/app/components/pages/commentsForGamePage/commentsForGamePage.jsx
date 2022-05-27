@@ -28,7 +28,7 @@ const CommentsForGamePage = () => {
 			[(newData ? newData.columnKey: "statusFilter")]: newData
 		}
 
-		dispatch(fetchDataCommentsForCommentsPage(submitData, "first", 1, idGame))
+		dispatch(fetchDataCommentsForCommentsPage(submitData, "first", idGame, "arbitrary", 1))
 	}
 	const handlerUpdateFilter = (newState) => {
 		let correctElement = {...newState}

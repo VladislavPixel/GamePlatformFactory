@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { useParams } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 
 // Components
 import ExtendedComment from "../common/extendedComment"
@@ -15,6 +15,7 @@ import {
 
 const CommentsMainWallList = ({ onClickReaction }) => {
 	// AUXILIARY
+	const location = useLocation()
 	const { idGame } = useParams()
 	const getPhrase = (value) => {
 		if (value === 1) return " полезный обзор"
@@ -34,7 +35,7 @@ const CommentsMainWallList = ({ onClickReaction }) => {
 				{commentsForTheMainWall.map(comment => <ExtendedComment classesParent="block-main-wall" onClickReaction={onClickReaction} key={comment._id} {...comment} />)}
 			</div>
 			<div className="block-main-wall__container-link">
-				<Link title="Перейти на страницу, где Вы сможете ознакомиться со всеми комментариями и рецензиями" to={`/comments/${idGame}`}>Ознакомиться со всеми комментариями и рецензиями по этой игре можно тут</Link>
+				<Link title="Перейти на страницу, где Вы сможете ознакомиться со всеми комментариями и рецензиями" to={`/comments/${idGame}`} state= {{ from: location.pathname }}>Ознакомиться со всеми комментариями и рецензиями по этой игре можно тут</Link>
 			</div>
 		</div>
 	const ElementWithMessage = withMessage(ELEMENT, <LiteMessage iconPath="sadIcon2.svg" altIcon="Очень грустный смайлик с большими глазами" classes="comments-container__message-main-wall" title="Полезных обзоров у этой игры не найдено" offer="Предлагаем Вам оставить свой комментарий по продукту, если другие пользователи с ним согласятся, то он непременно окажется здесь. Тем самым Вы поможете сообществу и прокачаетесь в ранге)" />, correctLengthValue)

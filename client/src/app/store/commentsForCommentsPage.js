@@ -4,13 +4,13 @@ import { createSlice } from "@reduxjs/toolkit"
 import fakeApi from "../fakeAPI"
 
 const initialState = {
-	targerIdGame: null,
-	isLoadingGlobal: true,
+	isLoadingGlobal: true, // Для первого раза (первая пачка данных)
 	errorGlobal: null,
+	isLoadingSubsequent: false, // Последующие запросы данных
+	errorForSubsequentRequests: null,
+	targerIdGame: null, // Вспомогательные
 	entities: {},
 	commentsForFirstLoad: null,
-	errorForSubsequentRequests: null, // Последующие запросы данных
-	isLoadingSubsequent: false,
 	startGroupIndex: 1,
 	endGroupIndex: 2,
 	isReachedBottom: false
@@ -37,9 +37,7 @@ const commentsForCommentsPageSlice = createSlice({
 				state.startGroupIndex -= 1
 				state.endGroupIndex -= 1
 			}
-			if (groupConfig.direction === "bottom") {
-				state.endGroupIndex += 1
-			}
+			if (groupConfig.direction === "bottom") state.endGroupIndex += 1
 			if (messageQuerySequence === "first") {
 				// На случай первой подгрузки данных нам нужно установить дефолтную пачку данных, чтобы иметь возможность обратно ее поставить при размонтировании и последующем монтировании компонента
 				state.entities = {}
@@ -50,7 +48,8 @@ const commentsForCommentsPageSlice = createSlice({
 			if (data.length) state.entities[groupConfig.valueGroup] = data
 			state.targerIdGame = idGame
 
-			// Удаление ненужных данных, при добавлении новой пачки вниз, мы удаляем верхнюю пачку (1 добавление снизу / -1 сверху)
+			// Удаление ненужных данных, при добавлении новой пачки вниз или вверх(когда мы возвращаемся по скроллу)
+			// 1 добавление приводит к одному удалению или сверху или снизу
 			if (data.length && groupConfig.direction === "bottom" && groupConfig.valueGroup > 4) {
 				const cloneEntities = { ...state.entities }
 				delete cloneEntities[state.startGroupIndex]

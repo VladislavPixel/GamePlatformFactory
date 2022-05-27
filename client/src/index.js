@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom"
 
 // Component-app
 import App from "./app/App"
+import ScrollToTopGlobal from "./app/components/HOC/scrollToTopGlobal"
 // root file styles
 import "./app/scss/style.scss"
 // Auxiliary
@@ -19,7 +20,9 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<BrowserRouter>
-				<App />
+				<ScrollToTopGlobal>
+					<App />
+				</ScrollToTopGlobal>
 			</BrowserRouter>
 		</Provider>
 	</React.StrictMode>

@@ -144,11 +144,12 @@
 		"timeFilter": [
 			{"_id": "tf1", "title": "За все время", "key": "allTime"},
 			{"_id": "tf2", "title": "За сегодня", "key": "forToDay"},
-			{"_id": "tf3", "title": "За неделю", "key": "inAWeek"},
-			{"_id": "tf4", "title": "За месяц", "key": "perMouth"},
-			{"_id": "tf5", "title": "За 3 месяца", "key": "inThreeMonths"},
-			{"_id": "tf6", "title": "За 6 месяцев", "key": "inSixMonths"},
-			{"_id": "tf7", "title": "За 1 год", "key": "perYear"}
+			{"_id": "tf3", "title": "За сутки", "key": "perDay"},
+			{"_id": "tf4", "title": "За неделю", "key": "inAWeek"},
+			{"_id": "tf5", "title": "За месяц", "key": "perMouth"},
+			{"_id": "tf6", "title": "За 3 месяца", "key": "inThreeMonths"},
+			{"_id": "tf7", "title": "За 6 месяцев", "key": "inSixMonths"},
+			{"_id": "tf8", "title": "За 1 год", "key": "perYear"}
 		],
 		"indicatorFilter": [
 			{"_id": "if1", "title": "Забавный", "key": "funnyStatus"},
