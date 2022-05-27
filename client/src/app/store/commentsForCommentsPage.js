@@ -38,7 +38,6 @@ const commentsForCommentsPageSlice = createSlice({
 				state.endGroupIndex -= 1
 			}
 			if (groupConfig.direction === "bottom") {
-				state.startGroupIndex += 1
 				state.endGroupIndex += 1
 			}
 			if (messageQuerySequence === "first") {

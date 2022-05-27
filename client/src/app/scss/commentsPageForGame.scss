@@ -213,11 +213,23 @@
 		height: 10px;
 		opacity: 0;
 	}
-	&__message-reached-bottom{
+	&__block-reached-bottom{
+		margin-top: 15px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		text-align: center;
+	}
+	&__icon-bottom{
+		flex: 0 0 135px;
+		width: 135px;
+		height: 135px;
+		margin-bottom: 10px;
+	}
+	&__message-reached-bottom{
 		font-size: 18px;
 		color: #2EBFFF;
-		margin-top: 15px;
 		font-weight: 700;
 	}
 	&__message-spinner{
