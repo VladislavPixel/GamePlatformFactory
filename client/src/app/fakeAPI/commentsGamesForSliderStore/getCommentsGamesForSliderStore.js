@@ -1,16 +1,34 @@
 import { usersData } from "../users"
+import { oneDayInMilliseconds, midnightForCurrentTime, prevYearStart, currentYearStart } from "../../utils/constants"
+
 const commentsGames = [
+	// ForToDay (за сегодня)
+	{_id: "docvbta324234879kjljkmmmmmm", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1656968400000, status: "negative", text: "Сложный макроконтроллинг перса, но мне нравится дроч."},
+	{_id: "docvbta324234bnmmmmmm", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "456fdgdfgert", date: 1656998700000, status: "positive", text: "Мне нравится то, что через эту игру можно построить киберспортивную карьеру."},
+	//======================================
+	// PerDay (сутки)
+	{_id: "shakurdota2vcbv657klkljlj76867867222222", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1656961800000, status: "neutral", text: "Слишком скучно. Мое мнение LOL круче, но пару каток сгонять можно."},
+	//======================================
+	// InAWeek (за неделю)
+	{_id: "123tytytyt", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1656447000000, status: "positive", text: "Игра достойна внимания, история у нее богатая."},
+	//======================================
+	// PerMouth (за месяц)
+	{_id: "123aaaaaaaaaaaaaabbbbbbbbbvvvv", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1656622800000, status: "neutral", text: "Неплохо играется!"},
+	//======================================
+	// perYear (за 1 предыдущий год)
+	{_id: "123tytytyt45677777777", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1609448400000, status: "positive", text: "Мы играем как это не странно всей семьей)ахахаха"},
+	{_id: "123tytytyt45677777777546456", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1640984300000, status: "positive", text: "Лол я пишу коммент о Dote на Factory.inc"},
+	//======================================
+	// All Time (за все время)
 	{_id: "bvnvvbc546578768678678", funnyStatus: [], awards: [], consonants: ["consonant6", "consonant7"], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1649581200000, status: "positive", text: "Спасибо разработчикам за патч 7.23... Такого приятного подарка мнне давно никто не делал. У меня почти 5к часов в доте и я страдал от этой зависимости. Благодаря этому чудесному патчу я наконец таки нажал заветную кнопку удалить. Спустя года я наконец то познакомился с семьёй и прогулялся по улице! Это лучшее, что они могли сделать для меня и для таких же как я) Выписываю огромную благодарность ребятам-работягам. Вот так и нужно патчить свои продукты. Просто конвеер по зомбированию людей, вот что это за игра и не более того, поэтому не рекомендую начинать в нее играть, если вы хотите познакомиться с Dota 2. Жизнь так и пройдет мимо и все что у вас останется - это часы проведенные в игре. Я полюбил эту игру, когда она называлась Dota Allstars, и в нее было откровенно интересно играть. Каждый матч вызывал положительные эмоции, даже если ты проиграл, потому что ты старался прежде всего для себя. Сегодня же дота - это огромная система по выманиванию денег из эгоистичных, противных людей, которые хотят чем-то выделяться на фоне других таких же людей. И шестеренки, которые двигают эту систему - это психически неуравновешенные люди, готовые целыми сутками самоутверждаться за счет других. Спасибо за внимание."},
 	{_id: "bvnvvbc546578", funnyStatus: [], awards: [], consonants: ["consonant1", "consonant2", "consonant3", "consonant4", "consonant5"], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1649581200000, status: "positive", text: "однажды зайдя сюда ты пожалеешь, но тебе понравится"},
 	{_id: "docvbta324234", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1652542200000, status: "positive", text: "Прикольно но надо понимать перса."},
 	{_id: "mark2", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9934534fghf", date: 1652443200000, status: "negative", text: "Так получается, что я играю в доту, когда у меня в жизни всё не очень здорово, не считая периода, когда я только начинал. Эта игра давно уже мне не приносит эмоций, ни положительных, ни отрицательных, после серии каток остаётся только опустошение. Я даже не могу вспомнить, за кого я играл 2 катки назад. Когда я играю с друзьями, ситуация чуть лучше, там хоть пообщаться можно, но в целом дота-просто бессмысленная трата моего времени. И всё бы ничего, но я подсел на эту херь, вопреки всем доводам логики. Дота не дала мне ничего, разве только стрессоустойчивость в жизни, мне стало искренне ♥♥♥♥♥♥♥♥♥♥♥♥♥♥ на токсичность в реальной жизни, на оскорбления и т.д. Я честно не рекомендую катать в эту ♥♥♥♥♥♥♥♥♥♥ без друзей или без коммерческих целей (стримеры, киберспорт). Она точно не сделает вас умнее, смешнее, круче. Пацаны, не надо, мб так только у меня, но играя в доту я деградирую, бросаю читать, учиться, общаться. Превращаюсь в тупое животное. Попробую бросить (снова) хотя ♥♥♥♥♥♥♥♥ так и тянет каточку-другую сыграть."},
-	// PerDay(сутки)
 	{_id: "shakurdota2vcbv657klkljlj", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "456fdgdfgert", date: 1653058800000, status: "positive", text: "Обожаем с друзьями зарубиться вечерком, рекомендую!"},
 	{_id: "dortacxbvv8v8v8v", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "vcbcv657989", date: 1651352400000, status: "positive", text: "Игра очень достойная, затягивает сильно. Убежать от проблем рекомендую."},
 	{_id: "bvnvvbc546578435345vcbcvfdgter", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "jhkhjtyu678", date: 1653048000000, status: "positive", text: "Спасибо разработчикам за игру)"},
 	{_id: "mark2324324", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9934534fghf", date: 1653558300000, status: "neutral", text: "Даже не думай сынок, оно того не стоит."},
 	{_id: "docvbta32423454676878", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1653636120000, status: "negative", text: "Игра полный отстой"},
-	//======================================
 	{_id: "dotadotadotabnm", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1652518800000, status: "positive", text: "Регулярно пишу сюда, потому что игра ну просто космос. Обожаю ее, считаю уже достоянием человечества, АХАХАХА"},
 	{_id: "dota2789089", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9009768345gfhfgh", date: 1652443200000, status: "positive", text: "Гениальная игра, гениальные люди ставлю 11/10 , пишу этот отзыв вместе с отцом, второй отец на работе но когда он вернётся мы вместе будем проводить время в этой прекрасной игре"},
 	{_id: "bvnvvbc546578435345", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "jhkhjtyu678", date: 1652216400000, status: "positive", text: "Написано что игра бесплатная,но она стоила мне жизни"},
@@ -46,12 +64,6 @@ class HashSortDataComments{
 		return filteredById
 	}
 }
-
-// ВСПОМОГАТЕЛЬНЫЕ ПЕРЕМЕННЫЕ
-const prevDateMilliseconds = new Date(2022, 4, 8).getTime()
-const nextDateMilliseconds = new Date(2022, 4, 9).getTime()
-const oneDayInMilliseconds = (nextDateMilliseconds - prevDateMilliseconds)
-const midnightForCurrentTime = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).getTime()
 
 // ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
 function isInScopeDate(dateMilliseconds) {
@@ -135,7 +147,6 @@ export function getCommentsForTheMainWallByIdNoLastWeek(idGame) {
 }
 const hashData = new HashSortDataComments()
 export function fetchCommentsForCommentsPage(config, idGame, group) {
-	console.log(config, idGame, group, "ДЛЯ НОВОЙ ДАТЫ")
 	return new Promise((resolve, reject) => {
 		const commentsByIdGame = hashData.getDataByIdGameSorted(idGame)
 
@@ -153,24 +164,37 @@ export function fetchCommentsForCommentsPage(config, idGame, group) {
 				filterCommentsByDate = commentsByIdGame
 			break
 			case "forToDay":
-				filterCommentsByDate = commentsByIdGame.filter(comment => comment.date >= midnightForCurrentTime)
+				filterCommentsByDate = commentsByIdGame.filter( comment => comment.date >= midnightForCurrentTime )
 			break
 			case "perDay":
-				filterCommentsByDate = commentsByIdGame.filter(comment => comment.date >= (Date.now() - oneDayInMilliseconds))
+				filterCommentsByDate = commentsByIdGame.filter( comment => comment.date >= (Date.now() - oneDayInMilliseconds) )
 			break
 			case "inAWeek":
-				filterCommentsByDate = commentsByIdGame.filter(comment => comment.date >= (Date.now() - (oneDayInMilliseconds * 7)))
+				filterCommentsByDate = commentsByIdGame.filter( comment => comment.date >= (Date.now() - oneDayInMilliseconds * 7) )
 			break
 			case "perMouth":
-				filterCommentsByDate = commentsByIdGame.filter(comment => (comment.date >= new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime() && comment.date <= Date.now()))
+				filterCommentsByDate = commentsByIdGame.filter( comment => comment.date >= new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime() )
 			break
 			case "inThreeMonths":
-				filterCommentsByDate = commentsByIdGame.filter()
+				const currentNumberMonth = new Date().getMonth()
+				const triggerValueForMonth = currentNumberMonth - 4
+				if (triggerValueForMonth >= 0) {
+					filterCommentsByDate = commentsByIdGame.filter( comment => comment.date >= new Date(new Date().getFullYear(), triggerValueForMonth, 1).getTime() && comment.date < new Date(new Date().getFullYear(), triggerValueForMonth + 3, 1).getTime() )
+				} else {
+					// дописать если месяц январь и мы вываливаемся на предыдущий год
+				}
+			break
+			case "inSixMonths":
+				//filterCommentsByDate = commentsByIdGame.filter(  )
+			break
+			case "perYear":
+				filterCommentsByDate = commentsByIdGame.filter( comment => comment.date >= prevYearStart && comment.date < currentYearStart )
 			break
 			default:
 				filterCommentsByDate = commentsByIdGame
 			break
 		}
+		console.log(filterCommentsByDate, "Фильтрация комментариев")
 		if (!filterCommentsByDate.length) {
 			resolve(filterCommentsByDate)
 			return

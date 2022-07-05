@@ -31,6 +31,9 @@ const gamePageSlice = createSlice({
 		},
 		gamePageReceivedTargetId(state, action) {
 			state.targerId = action.payload
+		},
+		gamePageCleared(state) {
+			state.essence = {}
 		}
 	}
 })
@@ -41,7 +44,8 @@ const {
 	gamePageReceived,
 	gamePageRequestField,
 	gamePageStoppingDownloadProcess,
-	gamePageReceivedTargetId
+	gamePageReceivedTargetId,
+	gamePageCleared
 } = actions
 
 // Actions
@@ -63,6 +67,11 @@ export function fetchDataGame(idGame) {
 			})
 	}
 }
+export function clearStoreForGamePage() {
+	return (dispatch) => {
+		dispatch(gamePageCleared())
+	} 
+}
 
 // Selectors
 export const getDataGameById = (idGame) => {
@@ -78,6 +87,11 @@ export const getStatusFetchData = () => {
 export const getTargetIdElement = () => {
 	return (state) => {
 		return state.gamePage.targerId
+	}
+}
+export const getNumberKeysEssenceGames = () => {
+	return (state) => {
+		return Object.keys(state.gamePage.essence).length
 	}
 }
 

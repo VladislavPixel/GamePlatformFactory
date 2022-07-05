@@ -60,6 +60,7 @@ const commentsForCommentsPageSlice = createSlice({
 				const cloneEntities = { ...state.entities }
 				delete cloneEntities[state.endGroupIndex]
 				state.entities = cloneEntities
+				state.isReachedBottom = false
 			}
 			state.isLoadingSubsequent = false
 		},
@@ -115,10 +116,17 @@ export function fetchDataCommentsForCommentsPage(config, messageQuerySequence, i
 				{ valueGroup: group, direction: directionDownLoad } : {}
 
 			const data = await fakeApi.fetchCommentsForCommentsPage(config, idGame, groupConfig.valueGroup)
+
 			if (data.length) { // Если пачка пришла, значит по указанным фильтрам данные есть
 				dispatch(commentsForCommentsPageReceived({ data, messageQuerySequence, idGame, groupConfig }))
-			} else if (!data.length && !isReachedBottom) { // если пачки нет, значит мы загрузили все комментарии по этим фильтрам
-				dispatch(commentsForCommentsPageUpdatedReachedBottom(messageQuerySequence))
+
+				// на случай, если мы получили данные и их меньше 15 (это максимальный размер пачки), получается, что нет смысла уже запрашивать еще
+				if (data.length < 15) dispatch(commentsForCommentsPageUpdatedReachedBottom(messageQuerySequence))
+			} else {
+				if (!isReachedBottom) dispatch(commentsForCommentsPageUpdatedReachedBottom(messageQuerySequence))
+
+				// На случай, если комментариев нет впринципе у выбранного фильтра
+				if (groupConfig.valueGroup === 1) dispatch(commentsForCommentsPageReceived({ data, messageQuerySequence, idGame, groupConfig }))
 			}
 		} catch (err) {
 			const { message } = err

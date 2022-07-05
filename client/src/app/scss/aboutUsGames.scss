@@ -42,6 +42,7 @@
 		position: relative;
 		box-shadow: 0 0 7px 0px #000;
 		margin-bottom: 25px;
+		transition: box-shadow 0.4s ease 0s;
 		&:nth-child(2n+1) {
 			align-self: flex-end;
 			width: 180px;
@@ -70,6 +71,11 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+		}
+		@media(min-width: 992px) {
+			&:hover{
+				box-shadow: 0 0 5px 2px #2EBFFF;
+			}
 		}
 	}
 	&__content{
