@@ -1,5 +1,5 @@
 import { usersData } from "../users"
-import { oneDayInMilliseconds, midnightForCurrentTime, prevYearStart, currentYearStart } from "../../utils/constants"
+import { oneDayInMilliseconds, midnightForCurrentTime, prevYearStart, currentYearStart, currentNumberMonth } from "../../utils/constants"
 
 const commentsGames = [
 	// ForToDay (за сегодня)
@@ -12,7 +12,7 @@ const commentsGames = [
 	// InAWeek (за неделю)
 	{_id: "123tytytyt", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1656447000000, status: "positive", text: "Игра достойна внимания, история у нее богатая."},
 	//======================================
-	// PerMouth (за месяц)
+	// PerMouth (за текущий месяц)
 	{_id: "123aaaaaaaaaaaaaabbbbbbbbbvvvv", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1656622800000, status: "neutral", text: "Неплохо играется!"},
 	//======================================
 	// perYear (за 1 предыдущий год)
@@ -159,6 +159,12 @@ export function fetchCommentsForCommentsPage(config, idGame, group) {
 		//commentsByIdGame.sort((commentA, commentB) => commentB.date - commentA.date)
 		// Сортировка по временному (постоянному фильтру)
 		let filterCommentsByDate
+		function getArrayForMonthFilter(value) {
+			// для фильтрации за 3 месяца, за 6
+			const triggerValueForMonth = currentNumberMonth - value
+			if (triggerValueForMonth >= 0) return commentsByIdGame.filter( comment => comment.date >= new Date(new Date().getFullYear(), triggerValueForMonth, 1).getTime() && comment.date < new Date(new Date().getFullYear(), currentNumberMonth, 1).getTime() )
+			return commentsByIdGame.filter( comment => comment.date >= new Date(new Date().getFullYear() - 1, 12 - Math.abs(triggerValueForMonth), 1).getTime() && comment.date < new Date(new Date().getFullYear(), currentNumberMonth, 1).getTime() )
+		}
 		switch(config.timeFilter.key) { // Фильтр по дате
 			case "allTime":
 				filterCommentsByDate = commentsByIdGame
@@ -176,16 +182,10 @@ export function fetchCommentsForCommentsPage(config, idGame, group) {
 				filterCommentsByDate = commentsByIdGame.filter( comment => comment.date >= new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime() )
 			break
 			case "inThreeMonths":
-				const currentNumberMonth = new Date().getMonth()
-				const triggerValueForMonth = currentNumberMonth - 4
-				if (triggerValueForMonth >= 0) {
-					filterCommentsByDate = commentsByIdGame.filter( comment => comment.date >= new Date(new Date().getFullYear(), triggerValueForMonth, 1).getTime() && comment.date < new Date(new Date().getFullYear(), triggerValueForMonth + 3, 1).getTime() )
-				} else {
-					// дописать если месяц январь и мы вываливаемся на предыдущий год
-				}
+				filterCommentsByDate = getArrayForMonthFilter(3)
 			break
 			case "inSixMonths":
-				//filterCommentsByDate = commentsByIdGame.filter(  )
+				filterCommentsByDate = getArrayForMonthFilter(6)
 			break
 			case "perYear":
 				filterCommentsByDate = commentsByIdGame.filter( comment => comment.date >= prevYearStart && comment.date < currentYearStart )
@@ -194,7 +194,6 @@ export function fetchCommentsForCommentsPage(config, idGame, group) {
 				filterCommentsByDate = commentsByIdGame
 			break
 		}
-		console.log(filterCommentsByDate, "Фильтрация комментариев")
 		if (!filterCommentsByDate.length) {
 			resolve(filterCommentsByDate)
 			return

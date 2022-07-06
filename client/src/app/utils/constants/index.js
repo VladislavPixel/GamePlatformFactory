@@ -4,10 +4,12 @@ const oneDayInMilliseconds = (nextDateMilliseconds - prevDateMilliseconds)
 const midnightForCurrentTime = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).getTime()
 const prevYearStart = new Date(new Date().getFullYear() - 1, 0, 1).getTime()
 const currentYearStart = new Date(new Date().getFullYear(), 0, 1).getTime()
+const currentNumberMonth = new Date().getMonth()
 
 export {
    oneDayInMilliseconds,
    midnightForCurrentTime,
    prevYearStart,
-   currentYearStart
+   currentYearStart,
+	currentNumberMonth
 }
