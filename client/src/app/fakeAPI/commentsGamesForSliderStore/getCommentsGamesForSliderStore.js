@@ -2,24 +2,13 @@ import { usersData } from "../users"
 import { oneDayInMilliseconds, midnightForCurrentTime, prevYearStart, currentYearStart, currentNumberMonth } from "../../utils/constants"
 
 const commentsGames = [
-	// ForToDay (за сегодня)
 	{_id: "docvbta324234879kjljkmmmmmm", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1656968400000, status: "negative", text: "Сложный макроконтроллинг перса, но мне нравится дроч."},
 	{_id: "docvbta324234bnmmmmmm", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "456fdgdfgert", date: 1656998700000, status: "positive", text: "Мне нравится то, что через эту игру можно построить киберспортивную карьеру."},
-	//======================================
-	// PerDay (сутки)
 	{_id: "shakurdota2vcbv657klkljlj76867867222222", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1656961800000, status: "neutral", text: "Слишком скучно. Мое мнение LOL круче, но пару каток сгонять можно."},
-	//======================================
-	// InAWeek (за неделю)
 	{_id: "123tytytyt", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1656447000000, status: "positive", text: "Игра достойна внимания, история у нее богатая."},
-	//======================================
-	// PerMouth (за текущий месяц)
 	{_id: "123aaaaaaaaaaaaaabbbbbbbbbvvvv", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1656622800000, status: "neutral", text: "Неплохо играется!"},
-	//======================================
-	// perYear (за 1 предыдущий год)
 	{_id: "123tytytyt45677777777", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1609448400000, status: "positive", text: "Мы играем как это не странно всей семьей)ахахаха"},
 	{_id: "123tytytyt45677777777546456", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1640984300000, status: "positive", text: "Лол я пишу коммент о Dote на Factory.inc"},
-	//======================================
-	// All Time (за все время)
 	{_id: "bvnvvbc546578768678678", funnyStatus: [], awards: [], consonants: ["consonant6", "consonant7"], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1649581200000, status: "positive", text: "Спасибо разработчикам за патч 7.23... Такого приятного подарка мнне давно никто не делал. У меня почти 5к часов в доте и я страдал от этой зависимости. Благодаря этому чудесному патчу я наконец таки нажал заветную кнопку удалить. Спустя года я наконец то познакомился с семьёй и прогулялся по улице! Это лучшее, что они могли сделать для меня и для таких же как я) Выписываю огромную благодарность ребятам-работягам. Вот так и нужно патчить свои продукты. Просто конвеер по зомбированию людей, вот что это за игра и не более того, поэтому не рекомендую начинать в нее играть, если вы хотите познакомиться с Dota 2. Жизнь так и пройдет мимо и все что у вас останется - это часы проведенные в игре. Я полюбил эту игру, когда она называлась Dota Allstars, и в нее было откровенно интересно играть. Каждый матч вызывал положительные эмоции, даже если ты проиграл, потому что ты старался прежде всего для себя. Сегодня же дота - это огромная система по выманиванию денег из эгоистичных, противных людей, которые хотят чем-то выделяться на фоне других таких же людей. И шестеренки, которые двигают эту систему - это психически неуравновешенные люди, готовые целыми сутками самоутверждаться за счет других. Спасибо за внимание."},
 	{_id: "bvnvvbc546578", funnyStatus: [], awards: [], consonants: ["consonant1", "consonant2", "consonant3", "consonant4", "consonant5"], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1649581200000, status: "positive", text: "однажды зайдя сюда ты пожалеешь, но тебе понравится"},
 	{_id: "docvbta324234", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1652542200000, status: "positive", text: "Прикольно но надо понимать перса."},

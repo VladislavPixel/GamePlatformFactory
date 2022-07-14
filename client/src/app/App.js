@@ -15,6 +15,7 @@ import Registration from "./layots/registration"
 import Game from "./layots/game"
 import User from "./layots/user"
 import Comments from "./layots/comments"
+import CommentById from "./layots/commentById"
 
 function App() {
 	return (
@@ -31,7 +32,7 @@ function App() {
 							<Route path="/game/:idGame" element={<Game />} />
 							<Route path="/profile/:idUser" element={<User />} />
 							<Route path="/comments/:idGame" element={<Comments />} />
-							<Route path="/comment/:idComment" element={null} />
+							<Route path="/comment/:idComment" element={<CommentById />} />
 							<Route path="/" element={<Home />} />
 							<Route path="*" element={<NotFound />} />
 						</Routes>
