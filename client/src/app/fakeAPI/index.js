@@ -4,8 +4,14 @@ import getCategoryScreensData from "./categoryScreens"
 import getCategoryStore from "./storeCategory"
 import getStoreWalletLinks from "./storeWallet"
 import getTopGames from "./videoGamesCollectionTopStore"
-import getGamesCollectionMiddle from "./videoGamesCollectionMiddle"
-import getCommentsGamesForSliderStore, { getCommentsForTheLastWeek, getCommentsForTheMainWallByIdNoLastWeek, fetchCommentsForCommentsPage } from "./commentsGamesForSliderStore"
+import getGamesCollectionMiddle, { getGameById } from "./videoGamesCollectionMiddle"
+import getCommentsGamesForSliderStore,
+{
+	getCommentsForTheLastWeek,
+	getCommentsForTheMainWallByIdNoLastWeek,
+	fetchCommentsForCommentsPage,
+	getCommentById
+} from "./commentsGamesForSliderStore"
 import getUsersObjectForSliderStoreComments, { getUserById, getValueAllUsers } from "./users"
 import getScopeSliderData from "./scopeSliderStoreData"
 import getCountries from "./countries"
@@ -32,7 +38,9 @@ const fakeApi = {
 	getCommentsForTheLastWeek,
 	getCommentsForTheMainWallByIdNoLastWeek,
 	getValueAllUsers,
-	fetchCommentsForCommentsPage
+	fetchCommentsForCommentsPage,
+	getCommentById,
+	getGameById
 }
 
 export default fakeApi

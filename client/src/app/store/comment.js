@@ -25,9 +25,25 @@ const {
 } = actions
 
 // Actions
-export function fetchDataComment() {
-	return async(dispatch) => {
-
+export function fetchDataComment(idComment) {
+	return async(dispatch, getState) => {
+		try {
+			const dataComment = await fakeApi.getCommentById(idComment)
+			const authorComment = await fakeApi.getUserById(dataComment.userId)
+			const arrGamesMiddleData = getState().games.entities
+			let targetGame
+			if (arrGamesMiddleData.length) {
+				targetGame = arrGamesMiddleData.find(game => game._id === dataComment.idGame)
+			} else {
+				targetGame = await fakeApi.getGameById(dataComment.idGame)
+			}
+			console.log(dataComment, "Data comment")
+			console.log(authorComment, "AuthorComment")
+			console.log(targetGame, "Middle game")
+		} catch (err) {
+			const { message } = err
+		}
+		
 	}
 }
 

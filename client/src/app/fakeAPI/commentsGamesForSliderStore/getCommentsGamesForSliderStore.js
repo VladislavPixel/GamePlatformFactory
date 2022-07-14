@@ -2,7 +2,7 @@ import { usersData } from "../users"
 import { oneDayInMilliseconds, midnightForCurrentTime, prevYearStart, currentYearStart, currentNumberMonth } from "../../utils/constants"
 
 const commentsGames = [
-	{_id: "docvbta324234879kjljkmmmmmm", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1656968400000, status: "negative", text: "Сложный макроконтроллинг перса, но мне нравится дроч."},
+	{_id: "docvbta324234879kjljkmmmmmm", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: ["dis1"], idGame: "2dota2lol56", userId: "fdvvbvbvvbvbv8088", date: 1656968400000, status: "negative", text: "Сложный макроконтроллинг перса, но мне нравится дроч."},
 	{_id: "docvbta324234bnmmmmmm", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "456fdgdfgert", date: 1656998700000, status: "positive", text: "Мне нравится то, что через эту игру можно построить киберспортивную карьеру."},
 	{_id: "shakurdota2vcbv657klkljlj76867867222222", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1656961800000, status: "neutral", text: "Слишком скучно. Мое мнение LOL круче, но пару каток сгонять можно."},
 	{_id: "123tytytyt", funnyStatus: [], awards: [], consonants: [], disagree: [], sucks: [], likes: [], dislikes: [], hisDiscussions: [], idGame: "2dota2lol56", userId: "9098ttyyy43", date: 1656447000000, status: "positive", text: "Игра достойна внимания, история у нее богатая."},
@@ -205,6 +205,14 @@ export function fetchCommentsForCommentsPage(config, idGame, group) {
 		}
 
 		resolve(getArrayCommentsWithUsersData(filterCommentsByStatus.slice(minBorder, maxBorder)))
+	})
+}
+
+export function getCommentById(id) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(commentsGames.find(comment => comment._id === id))
+		}, 1000)
 	})
 }
 

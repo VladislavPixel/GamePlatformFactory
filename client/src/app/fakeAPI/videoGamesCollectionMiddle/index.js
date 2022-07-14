@@ -1,4 +1,4 @@
-import getGamesCollectionMiddle, { videoGamesCollectionMiddle } from "./getVideoGamesCollectionMiddle"
+import getGamesCollectionMiddle, { videoGamesCollectionMiddle, getGameById } from "./getVideoGamesCollectionMiddle"
 
-export { videoGamesCollectionMiddle }
+export { videoGamesCollectionMiddle, getGameById }
 export default getGamesCollectionMiddle

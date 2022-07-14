@@ -567,3 +567,10 @@ export default function getGamesCollectionMiddle() {
 		}, 1500)
 	})
 }
+export function getGameById(id) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(videoGamesCollectionMiddle.find(game => game._id === id))
+		}, 500)
+	})
+}
