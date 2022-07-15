@@ -1,0 +1,47 @@
+.comment-big{
+	&__title-author{
+		color: #ffb400;
+		font-size: 17px;
+		margin-bottom: 15px;
+	}
+	&__statistics-author{
+		margin-bottom: 30px;
+		p{
+			font-size: 16px;
+			line-height: 110%;
+			color: #fff;
+			span{
+				color: #2EBFFF;
+				font-size: 19px;
+				font-weight: 600;
+			}
+		}
+	}
+	&__comments-statistics{
+		margin-bottom: 5px;
+	}
+}
+
+.big-comment-container{
+	&__status-block{
+		font-size: 18px;
+		color: #fff;
+	}
+	&__text-status{
+		color: #ffb400;
+		margin-bottom: 7px;
+	}
+	&__icon-image{
+		width: 50px;
+		height: 50px;
+		flex: 0 0 50px;
+		margin-right: 15px;
+	}
+	&__status-name{
+		font-weight: 700;
+	}
+	&__status-wrap{
+		display: flex;
+		align-items: center;
+	}
+}

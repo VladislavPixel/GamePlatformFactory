@@ -18,6 +18,7 @@ import getCountries from "./countries"
 import getBigDataGameById from "./gamePage"
 import getArrayRussianGames from "./russianGames"
 import getVideoGamesCollectionLite from "./videoGamesCollectionLite"
+import getAllDiscussionsById from "./commentDiscussions"
 
 const fakeApi = {
 	getHomeCategory,
@@ -40,7 +41,8 @@ const fakeApi = {
 	getValueAllUsers,
 	fetchCommentsForCommentsPage,
 	getCommentById,
-	getGameById
+	getGameById,
+	getAllDiscussionsById
 }
 
 export default fakeApi
