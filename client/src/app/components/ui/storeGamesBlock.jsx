@@ -11,7 +11,7 @@ import getArrayByDelimiter from "../../utils/getArrayByDelimiter"
 import { getSelectedCategoryStore, updateCategoryStoreSelected, DEFAULT_SELECTED_CATEGORY } from "../../store/categoryStore"
 import { getDataGamesMiddle, getStatusGamesSortedBy, setStatusSortedGames } from "../../store/games"
 import { getValueSearchGamesStore } from "../../store/searchGamesStore"
-import configAuxiliary from "../../configAuxiliary.json"
+import btnSortedForStore from "../../configAuxiliary/btnSortedForStore.json"
 
 const StoreGamesBlock = () => {
 	const NUMBER_OF_ELEMENTS_ON_PAGE = 15
@@ -130,7 +130,7 @@ const StoreGamesBlock = () => {
 				<div className="store-controls-block__btn-container">
 					<p className="store-controls-block__text">Сортировка по некоторым критериям:</p>
 					<div className="store-controls-block__wrapper-btn">
-						{configAuxiliary.btnSortedForStore.map((config, index) => {
+						{btnSortedForStore.map((config, index) => {
 							const { text, target } = config
 							return <button key={index} onClick={() => handlerSortBtn(target === "rate" ? configRateBtn.directionValue : target === "price" ? configPriceBtn.directionValue : target)} className={`store-controls-block__btn${target === "rate" ? configRateBtn.classes : target === "price" ? configPriceBtn.classes : " white"}`} type="button">{text}</button>
 						})}

@@ -1,0 +1,2 @@
+import dynamicStatisticsForComment from "./dynamicStatisticsForComment"
+export default dynamicStatisticsForComment

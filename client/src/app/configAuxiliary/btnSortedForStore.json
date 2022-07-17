@@ -1,0 +1,5 @@
+[
+	{"text": "Рейтинг", "target": "rate" },
+	{"text": "Цена", "target":"price"},
+	{"text": "Сброс", "target": "reset"} 
+]

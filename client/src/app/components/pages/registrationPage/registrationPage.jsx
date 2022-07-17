@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react"
 // Components
 import SlideForRegistrationSlider from "../../ui/slideForRegistrationSlider"
 // Auxiliary
-import configAuxiliary from "../../../configAuxiliary.json"
+import registrationModals from "../../../configAuxiliary/registrationModals.json"
 
 const RegistrationPage = () => {
 	// STATE
@@ -18,7 +18,7 @@ const RegistrationPage = () => {
 	const [data4, setData4] = useState({ password: "" })
 	const [data5] = useState({ loginAccount: "", nickName: "" })
 	// AUXILIARY
-	const additionalConfig = configAuxiliary.modalRegConfig[`${currentStage}`]
+	const additionalConfig = registrationModals.modalRegConfig[`${currentStage}`]
 	const wrapperSlides = useRef(null)
 	const stylessPosterYoda = {
 		"background-repeat": "no-repeat",
@@ -64,8 +64,8 @@ const RegistrationPage = () => {
 				<div className="registration-block__content">
 					<img className="registration-block__icon-img" src="./images/icons/swords.svg" alt="Перекрещенные мечи" />
 					<h1 className="registration-block__title">Factory.inc</h1>
-					<h2 className="registration-block__sub-title">{configAuxiliary.titlesReg[currentStage].title}</h2>
-					{configAuxiliary.messagesReg[currentStage] && <p className="registration-block__message">{configAuxiliary.messagesReg[currentStage].value}</p>}
+					<h2 className="registration-block__sub-title">{registrationModals.titlesReg[currentStage].title}</h2>
+					{registrationModals.messagesReg[currentStage] && <p className="registration-block__message">{registrationModals.messagesReg[currentStage].value}</p>}
 					{additionalConfig &&
 						<div className="registration-block__additional-wrapper wrapper-additional-registration">
 							<p onMouseOver={handlerUpdateQuestion} onMouseLeave={handlerUpdateQuestion} className="wrapper-additional-registration__question">{additionalConfig.text}</p>
@@ -77,7 +77,7 @@ const RegistrationPage = () => {
 					}
 					<div className="registration-block__slider slider-registration">
 						<div ref={wrapperSlides} style={styleWrapper} className="slider-registration__wrapper">
-							{configAuxiliary.titlesReg.map((_, i) => <SlideForRegistrationSlider currentStage={currentStage} key={i} index={i} pullData={[data, data1, data2, data3, data4, data5]} onSubmitForm={handlerSubmit} onUpdateStage={handlerUpdateStage} />)}
+							{registrationModals.titlesReg.map((_, i) => <SlideForRegistrationSlider currentStage={currentStage} key={i} index={i} pullData={[data, data1, data2, data3, data4, data5]} onSubmitForm={handlerSubmit} onUpdateStage={handlerUpdateStage} />)}
 						</div>
 					</div>
 				</div>

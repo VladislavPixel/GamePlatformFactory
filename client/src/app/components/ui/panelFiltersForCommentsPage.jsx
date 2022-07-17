@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 
 // Auxiliary
-import configAuxiliary from "../../configAuxiliary.json"
+import filtersDataForCommentsGamePage from "../../configAuxiliary/filtersDataForCommentsGamePage.json"
 // Components
 import ColumnPanelFilterForCommentsPage from "./columnPanelFilterForCommentsPage"
 
@@ -18,7 +18,7 @@ const PanelFiltersForCommentsPage = ({ onUpdateFilter, selectedTimeFilter, selec
 		setTargetColumn(index)
 	}
 	// AUXILIARY
-	const FILTERS_OBJECT = configAuxiliary.filtersDataForCommentsGamePage
+	const FILTERS_OBJECT = filtersDataForCommentsGamePage
 	const columnsFilters = Object.keys(FILTERS_OBJECT)
 	return (
 		<div className="comments-page-game-block__panel-filters filters-panel-comments">

@@ -3,13 +3,33 @@ import PropTypes from "prop-types"
 
 // Components
 import CommentActivityPanel from "./commentActivityPanel"
+import AddComment from "./addComment"
+import DiscussionsBlock from "./discussionsBlock"
+import withMessage from "../HOC/withMessage"
+import MiddleMessage from "./middleMessage"
 // Auxiliary
-import configAuxiliary from "../../configAuxiliary.json"
+import statusNewComment from "../../configAuxiliary/statusNewComment.json"
+import dynamicStatisticsForComment from "../../utils/dynamicStructures"
 
 const BigComment = ({ user, comment, classesParent }) => {
+	// AUXILIARY
 	const { hisReviews, hisComments } = user
-	const { status, text, date, funnyStatus, awards, consonants, disagree, sucks, likes, dislikes, hisDiscussions } = comment
-	const { text:textStatus, icon } = configAuxiliary.statusNewComment.find(item => item.value === status)
+	const { status, text, date, funnyStatus, awards, consonants, disagree, sucks, likes, dislikes, hisDiscussions, _id } = comment
+	const { text:textStatus, icon } = statusNewComment.find(item => item.value === status)
+	const elementsStatistics = dynamicStatisticsForComment.getStructureForStatistics(date, funnyStatus.length, awards.length, consonants.length, disagree.length)
+	const elementsWithIcons = dynamicStatisticsForComment.getStructureWithIcons(sucks.length, likes.length, dislikes.length, "big-comment-container")
+	// HANDLERS
+	const handlerClickMiddleMessage = () => {
+		console.log("Клик, таргет на форму добавления комментария")
+	}
+	const handlerClickReaction = (data) => {
+		console.log(`Ваша реакция на комментарий:`, data)
+	}
+	const DiscussionsBlockWithMessage = withMessage(
+		<DiscussionsBlock classesParent="comment-big" />,
+		<MiddleMessage altIcon="Довольный смайлик" iconPath="smile.svg" onCallback={handlerClickMiddleMessage} classesParent="comment-big" title="У этого комментария на данный момент нет дискуссий" offer="Вы можете быть первым) Напишите что-нибудь автору данного комментария" textBtn="Написать" />,
+		hisDiscussions.length
+	)
 	return (
 		<div className={`${classesParent}big-comment comment-big`}>
 			<div className="comment-big__statistics-author">
@@ -25,8 +45,18 @@ const BigComment = ({ user, comment, classesParent }) => {
 						<p className="big-comment-container__status-name">{textStatus}</p>
 					</div>
 				</div>
+				<div className="big-comment-container__container-basic-info">
+					{elementsStatistics.map((element, index) => <p key={index} className={`big-comment-container__${element.class}`}>{element.text}<span>{element.value}</span></p>)}
+					{elementsWithIcons.map((item, index) => <p key={index} className={`big-comment-container__${item.class}`}>{item.icon}{item.text}<span>{item.value}</span></p>)}
+				</div>
+				<div className="big-comment-container__text-block">
+					<h4 className="big-comment-container__title-message">Содержимое комментария:</h4>
+					<p className="big-comment-container__message-comment">"{text}"</p>
+				</div>
 			</div>
-			<CommentActivityPanel />
+			<CommentActivityPanel idComment={_id} onClickReaction={handlerClickReaction} parentClass="comment-big" />
+			<AddComment parentClass="comment-big" isStatus={false} idCommentTarget={_id} />
+			<DiscussionsBlockWithMessage />
 		</div>
 	)
 }

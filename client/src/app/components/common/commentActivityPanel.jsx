@@ -2,15 +2,15 @@ import React from "react"
 import PropTypes from "prop-types"
 
 // Auxiliary
-import configAuxiliary from "../../configAuxiliary.json"
+import activityComment from "../../configAuxiliary/activityComment.json"
 
 const CommentActivityPanel = ({ parentClass, onClickReaction, idComment }) => {
 	return (
 		<div className={`${parentClass}__activity block-activity-comment`}>
-			{Object.keys(configAuxiliary.activityComment).map((key, index) => {
+			{Object.keys(activityComment).map((key, index) => {
 				return (
 					<div key={index} className="block-activity-comment__line">
-						{configAuxiliary.activityComment[key].map(item => {
+						{activityComment[key].map(item => {
 							const { _id, title, icon, titleBtn } = item
 							return (
 								<button title={titleBtn} onClick={() => onClickReaction(item, idComment)} className="block-activity-comment__reaction" key={_id} type="button">

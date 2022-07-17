@@ -8,7 +8,7 @@ import StoreGamesBlock from "../../ui/storeGamesBlock"
 import ScopeSlider from "../../common/scopeSlider"
 import StoreTop5 from "../../common/storeTop5"
 // Auxiliary
-import configAuxiliary from "../../../configAuxiliary.json"
+import storeTop5 from "../../../configAuxiliary/storeTop5.json"
 import {
 	getSelectedCategoryStore,
 	updateCategoryStoreSelected,
@@ -43,7 +43,7 @@ const StorePage = () => {
 				<button onClick={handlerBtnReset} className="store__reset-category-btn" type="button">Сброс категории</button>
 			</div>
 			<ScopeSlider classesParent="store" />
-			<StoreTop5 classesParent="store" config={configAuxiliary.storeTop5} />
+			<StoreTop5 classesParent="store" config={storeTop5} />
 		</div>
 	)
 }

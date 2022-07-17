@@ -144,6 +144,11 @@
 				&.active{
 					color: rgb(202, 148, 0);
 				}
+				&.menu-header__item-last{
+					background: rgb(170, 0, 0);
+					padding: 4px;
+					border-radius: 10px !important;
+				}
 			}
 		}
 		@media(max-width: 700px) {

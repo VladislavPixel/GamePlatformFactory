@@ -10,7 +10,7 @@ import BirthdayBlockField from "./birthdayBlockField"
 import getValidatorConfigForRegistration from "../../utils/getValidatorConfigForRegistration"
 import { getDataCountries } from "../../store/countries"
 import getArrayByNumber from "../../utils/getArrayByNumber"
-import configAuxiliary from "../../configAuxiliary.json"
+import registrationModals from "../../configAuxiliary/registrationModals.json"
 
 const SlideForRegistrationSlider = ({ index, onUpdateStage, onSubmitForm, pullData, currentStage }) => {
 	// REDUX
@@ -19,7 +19,7 @@ const SlideForRegistrationSlider = ({ index, onUpdateStage, onSubmitForm, pullDa
 	const [isShowPhantom, setShowPhantom] = useState(true)
 	// AUXILIARY
 	const navigate = useNavigate()
-	const arrayPagesRegistration = getArrayByNumber(configAuxiliary.titlesReg.length)
+	const arrayPagesRegistration = getArrayByNumber(registrationModals.titlesReg.length)
 	// HANDLERS
 	const handlerCallbackField = () => setShowPhantom(prevState => !prevState)
 	const handlerLastPageBtn = () => navigate("/")

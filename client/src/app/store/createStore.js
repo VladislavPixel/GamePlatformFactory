@@ -28,7 +28,7 @@ const rootReducer = combineReducers({
 	commentsForGamePage: commentsForGamePageReducer,
 	users: usersReducer,
 	commentsForCommentsPage: commentsForCommentsPageReducer,
-	commentPage: commentPageReducer
+	commentPage: commentPageReducer,
 })
 
 export default function createStore() {

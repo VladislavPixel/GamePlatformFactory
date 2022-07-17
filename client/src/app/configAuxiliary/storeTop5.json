@@ -1,0 +1,7 @@
+[
+	{"_id": "43534top5", "title": "Популярное", "target": "rate", "config": "maxMin"},
+	{"_id": "76868top5", "title": "Низкая цена", "target": "price", "config": "minMax"},
+	{"_id": "234234top5", "title": "Бесплатные", "target": "rate", "config": "maxMin"},
+	{"_id": "46456769top5", "title": "Топовая скидка", "target": "sale", "config": "maxMin"},
+	{"_id": "112313top5", "title": "Недооцененные", "target": "rate", "config": "minMax"}
+]

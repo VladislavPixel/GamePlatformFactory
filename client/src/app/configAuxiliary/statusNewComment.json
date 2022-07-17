@@ -1,0 +1,5 @@
+[
+	{"_id": "status777", "text": "Положительный", "value": "positive", "icon": "likeGreen.svg"},
+	{"_id": "status999", "text": "Нейтральный", "value": "neutral", "icon": "neutralEmotion.svg"},
+	{"_id": "status888", "text": "Негативный", "value": "negative", "icon": "negativeEmotion.svg"}
+]

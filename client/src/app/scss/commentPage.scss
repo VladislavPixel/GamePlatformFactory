@@ -75,10 +75,10 @@
 	background: #1119239f;
 	box-shadow: 0 0 3px 0px #000;
 	&__column{
-		flex: 0 1 70%;
+		flex: 0 1 65%;
 		padding: 10px;
 		&:last-child{
-			flex: 0 1 30%;
+			flex: 0 1 35%;
 			padding: 15px;
 		}
 	}
@@ -108,6 +108,7 @@
 		background: #0b1016;
 		padding: 10px;
 		box-shadow: 0 0 3px 0px #000;
+		margin-bottom: 25px;
 	}
 	&__link{
 		display: flex;

@@ -12,12 +12,12 @@ import {
 	getTargetIdGameForCommentsPage,
 	setDataCommentsOnFirstDownload
 } from "../../store/commentsForCommentsPage"
-import configAuxiliary from "../../configAuxiliary.json"
+import filtersDataForCommentsGamePage from "../../configAuxiliary/filtersDataForCommentsGamePage.json"
 
 const CommentsForCommentsPageLoaderGlobal = ({ children }) => {
 	// AUXILIARY
 	const { idGame } = useParams()
-	const { timeFilter, indicatorFilter } = configAuxiliary.filtersDataForCommentsGamePage
+	const { timeFilter, indicatorFilter } = filtersDataForCommentsGamePage
 	// REDUX
 	const dispatch = useDispatch()
 	const statusLoaderGlobal = useSelector(getStatusGlobalLoaderForCommentsPage())

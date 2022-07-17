@@ -4,10 +4,10 @@ import { Link } from "react-router-dom"
 
 // Components
 import CommentActivityPanel from "../common/commentActivityPanel"
-
 // Auxiliary
-import configAuxiliary from "../../configAuxiliary.json"
-import getDateInStringFormat from "../../utils/getDateInStringFormat"
+import ranks from "../../configAuxiliary/ranks.json"
+import statusNewComment from "../../configAuxiliary/statusNewComment.json"
+import dynamicStatisticsForComment from "../../utils/dynamicStructures"
 
 const ExtendedComment = ({ avatar, nickName, rank, hisComments, hisReviews, status, date, funnyStatus, awards, consonants, sucks, likes, dislikes, hisDiscussions, userId, disagree, text:textComment, onClickReaction, _id, classesParent, isDiscussionSection }) => {
 	// STATE
@@ -17,35 +17,10 @@ const ExtendedComment = ({ avatar, nickName, rank, hisComments, hisReviews, stat
 	// AUXILIARY
 	const MAX_HEIGHT_COMMENT = 230
 	const commentText = useRef(null)
-	const { title, color } = configAuxiliary.ranks[rank._id]
-	const { text, icon } = configAuxiliary.statusNewComment.find(item => item.value === status)
-	const elementsStatistics = [
-		{value: getDateInStringFormat(date), class: "date", text: "Опубликовано: "},
-		{value: funnyStatus.length, class: "funny", text: "Признали смешным: " },
-		{value: awards.length, class: "awards", text: "Наград: "},
-		{value: consonants.length, class: "consonants", text: "Пользователей согласились: "},
-		{value: disagree.length, class: "disagree", text: "Не согласились: "}
-	]
-	const elementsWithIcons = [
-		{
-			icon: <img title="Иконка символизирующая полный bullshit" className="extended-comment__poo" src="/images/icons/poo2.svg" alt="Иконка какашки с глазами" />,
-			text: "Посчитали полным отстоем:",
-			value: sucks.length,
-			class: "sucks"
-		},
-		{
-			icon: <img title="Иконка палец вверх!" className="extended-comment__like" src="/images/icons/heartRead.svg" alt="Иконка сердца в красном круге" />,
-			text: "Лайков:",
-			value: likes.length,
-			class: "like-block"
-		},
-		{
-			icon: <img title="Палец вниз, дизлайк" className="extended-comment__dislike" src="/images/icons/dislikeRead.svg" alt={`Иконка "Дизлайк" в красном круге`} />,
-			text: "Дизлайков:",
-			value: dislikes.length,
-			class: "dislike-block"
-		}
-	]
+	const { title, color } = ranks[rank._id]
+	const { text, icon } = statusNewComment.find(item => item.value === status)
+	const elementsStatistics = dynamicStatisticsForComment.getStructureForStatistics(date, funnyStatus.length, awards.length, consonants.length, disagree.length)
+	const elementsWithIcons = dynamicStatisticsForComment.getStructureWithIcons(sucks.length, likes.length, dislikes.length, "extended-comment")
 	// HANDLERS
 	const handlerClickBtnMore = () => setShowComment(true)
 	useEffect(() => {

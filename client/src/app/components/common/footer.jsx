@@ -2,7 +2,7 @@ import React from "react"
 import { Link, NavLink } from "react-router-dom"
 
 // Auxiliary
-import configAuxiliary from "../../configAuxiliary.json"
+import menuHeaderRoutes from "../../configAuxiliary/menuHeaderRoutes.json"
 
 const Footer = () => {
 	return (
@@ -13,7 +13,7 @@ const Footer = () => {
 					<Link to="/">Factory.inc</Link>
 				</div>
 				<ul className="footer__list">
-					{configAuxiliary.menuHeaderRoutes.map((item, index) => <li key={index}><NavLink to={item.path}>{item.text}</NavLink></li>)}
+					{menuHeaderRoutes.map((item, index) => <li key={index}><NavLink className={index === menuHeaderRoutes.length - 1 ? "footer__item-last" : ""} to={item.path}>{item.text}</NavLink></li>)}
 				</ul>
 				<button title="У нас много интересно, не пропусти" className="footer__subscription" type="button">Подписаться на рассылку</button>
 				<p className="footer__copyright">© FACTORY, INC., 2022 / Права защищены</p>

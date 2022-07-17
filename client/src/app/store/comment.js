@@ -50,17 +50,28 @@ export function fetchDataComment(idComment) {
 	return async(dispatch, getState) => {
 		dispatch(commentPageRequested())
 		try {
+			// Получаем сам комментарий (самый главный, чья страница)
 			const dataComment = await fakeApi.getCommentById(idComment)
 			if (dataComment) {
+				// Получаем автора этого комментария
 				const authorComment = await fakeApi.getUserById(dataComment.userId)
 				const arrGamesMiddleData = getState().games.entities
+				// Получаем игру, на которую был оставлен главный комментарий
 				let targetGame
 				if (arrGamesMiddleData.length) {
 					targetGame = arrGamesMiddleData.find(game => game._id === dataComment.idGame)
 				} else {
 					targetGame = await fakeApi.getGameById(dataComment.idGame)
 				}
-				const discussions = await fakeApi.getAllDiscussionsById(dataComment._id)
+				// Получаем сущности дискуссий на главный комментарий
+				const discussionsIntermediate = await fakeApi.getAllDiscussionsById(dataComment._id)
+				// Склеиваем дискуссии с данными их авторов
+				const discussions = await Promise.all(
+					discussionsIntermediate.map(async (discus) => {
+					const user = await fakeApi.getUserById(discus.userId)
+					return { ...user, ...discus }
+				}))
+				// Записываем все в store
 				dispatch(commentPageReceived({
 					id: dataComment._id,
 					discussions,

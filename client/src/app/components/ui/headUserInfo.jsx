@@ -13,7 +13,7 @@ const HeadUserInfo = () => {
 			<div className="user-head-comment__row">
 				<div className="user-head-comment__img-wrap">
 					{idComment ? 
-						<Link title="Нажмите для перехода на страницу пользователя" to={`/images/users/avatar/${data.authorData.avatar}`}><img src={`/images/users/avatar/${data.authorData.avatar}`} alt={`Аватар пользователя: ${data.authorData.avatar}`} className="user-head-comment__avatar" /></Link> :
+						<Link title="Нажмите для перехода на страницу пользователя" to={`/profile/${data.authorData._id}`}><img src={`/images/users/avatar/${data.authorData.avatar}`} alt={`Аватар пользователя: ${data.authorData.avatar}`} className="user-head-comment__avatar" /></Link> :
 						<img className="user-head-comment__avatar" alt="Аватар несуществующего пользователя" src="/images/users/notAvatar.jpg" />
 					}
 				</div>

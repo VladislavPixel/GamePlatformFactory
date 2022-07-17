@@ -1,7 +1,7 @@
 import React from "react"
 
 // Auxiliary
-import configAuxiliary from "../../configAuxiliary.json"
+import platforms from "../../configAuxiliary/platforms.json"
 
 const AboutUsHead = () => {
 	return (
@@ -17,7 +17,7 @@ const AboutUsHead = () => {
 						<div className="head-about-us-block__platform">
 							<span>Мы работаем с такими платформами как:</span>
 							<div className="head-about-us-block__platform-list">
-								{configAuxiliary.platforms.map((item, index) => <img key={index} title={item.title} src={`/images/platformsIcon/${item.path}`} alt={item.name} />)}
+								{platforms.map((item, index) => <img key={index} title={item.title} src={`/images/platformsIcon/${item.path}`} alt={item.name} />)}
 							</div>
 						</div>
 					</div>

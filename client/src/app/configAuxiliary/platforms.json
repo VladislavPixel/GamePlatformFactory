@@ -1,0 +1,8 @@
+[
+	{"path": "apple.svg", "name": "Apple", "title": "Платформа Apple"},
+	{"path": "playstation.svg", "name": "Playstation", "title": "Платформа PS"},
+	{"path": "vr.svg", "name": "VR", "title": "VR аппаратное обеспечение"},
+	{"path": "windows.svg", "name": "Windows", "title": "Платформа - операционная система Windows"},
+	{"path": "xboxOne.svg", "name": "XboxOne", "title": "XboxOne платформа"},
+	{"path": "linux.svg", "name": "Linux", "title": "Платформа - операционная система Linux"}
+]

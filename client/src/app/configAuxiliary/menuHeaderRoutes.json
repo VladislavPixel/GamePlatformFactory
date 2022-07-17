@@ -1,0 +1,9 @@
+[
+	{"text": "Магазин", "path": "/store"},
+	{"text": "Новости", "path": "/news"},
+	{"text": "O Factory", "path": "/aboutUs"},
+	{"text": "Акции", "path": "/stock"},
+	{"text": "Поддержка", "path": "/support"},
+	{"text": "Доска почета", "path": "/honor-board"},
+	{"text": "Эфиры", "path": "/stream"}
+]

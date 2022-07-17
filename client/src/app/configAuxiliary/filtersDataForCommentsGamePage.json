@@ -1,0 +1,26 @@
+{
+	"timeFilter": [
+		{"_id": "tf1", "title": "За все время", "key": "allTime"},
+		{"_id": "tf2", "title": "За сегодня", "key": "forToDay"},
+		{"_id": "tf3", "title": "За сутки", "key": "perDay"},
+		{"_id": "tf4", "title": "За неделю", "key": "inAWeek"},
+		{"_id": "tf5", "title": "За текущий месяц", "key": "perMouth"},
+		{"_id": "tf6", "title": "За 3 месяца", "key": "inThreeMonths"},
+		{"_id": "tf7", "title": "За 6 месяцев", "key": "inSixMonths"},
+		{"_id": "tf8", "title": "За предыдущий год", "key": "perYear"}
+	],
+	"indicatorFilter": [
+		{"_id": "if1", "title": "Забавный", "key": "funnyStatus"},
+		{"_id": "if2", "title": "С наградой", "key": "awards"},
+		{"_id": "if3", "title": "С лайками", "key": "likes"},
+		{"_id": "if4", "title": "С дизлайками", "key": "dislikes"},
+		{"_id": "if5", "title": "С которыми согласны", "key": "consonants"},
+		{"_id": "if6", "title": "С которыми несогласны", "key": "disagree"},
+		{"_id": "if7", "title": "Ну полный отстой (сильно несогласны)", "key": "sucks"}
+	],
+	"statusFilter": [
+		{"_id": "sf1", "title": "Положительные", "key": "positive"},
+		{"_id": "sf2", "title": "Нейтральный", "key": "neutral"},
+		{"_id": "sf3", "title": "Отрицательный", "key": "negative"}
+	]
+}

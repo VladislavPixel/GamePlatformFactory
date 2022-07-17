@@ -82,6 +82,11 @@
 				&.active{
 					color: #0044e2;
 				}
+				&.footer__item-last{
+					background: rgb(170, 0, 0);
+					padding: 4px;
+					border-radius: 10px !important;
+				}
 			}
 		}
 	}

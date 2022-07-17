@@ -7,9 +7,9 @@ const currentYearStart = new Date(new Date().getFullYear(), 0, 1).getTime()
 const currentNumberMonth = new Date().getMonth()
 
 export {
-   oneDayInMilliseconds,
-   midnightForCurrentTime,
-   prevYearStart,
-   currentYearStart,
+	oneDayInMilliseconds,
+	midnightForCurrentTime,
+	prevYearStart,
+	currentYearStart,
 	currentNumberMonth
 }

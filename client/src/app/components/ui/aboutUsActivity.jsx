@@ -3,7 +3,7 @@ import React from "react"
 // Components
 import AboutUsActivityElement from "./aboutUsActivityElement"
 // Auxiliary
-import configAuxiliary from "../../configAuxiliary.json"
+import aboutUsActivity from "../../configAuxiliary/aboutUsActivity.json"
 
 const AboutUsActivity = () => {
 	return (
@@ -14,7 +14,7 @@ const AboutUsActivity = () => {
 					<p className="activity-about-us__sub-caption">Каждый день мы стараемся придумать что-то новое, чтобы улучшить опыт пользовательского взаимодействия с нашей игровой платформой.</p>
 				</div>
 				<div className="activity-about-us__list">
-					{configAuxiliary.aboutUsActivity.map((item, index) => <AboutUsActivityElement key={index} {...item} />)}
+					{aboutUsActivity.map((item, index) => <AboutUsActivityElement key={index} {...item} />)}
 				</div>
 			</div>
 		</div>

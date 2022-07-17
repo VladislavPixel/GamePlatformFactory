@@ -8,12 +8,12 @@ import FormComponent, { TextAreaField } from "../common/form"
 const AddCommentRow = ({ avatar, nickName, onSubmit, defaultStateForm, _id }) => {
 	// AUXILIARY
 	const validatorConfig = {
-		text: { isRequired: { message: `Поле обязаельно для заполнения` } }
+		text: { isRequired: { message: `Поле обязательно для заполнения` } }
 	}
 	return (
 		<div className="block-add-comment__row">
 			<div className="block-add-comment__column">
-				<Link to={`/user/${_id}`}>
+				<Link to={`/profile/${_id}`}>
 					<img title="Перейти к себе (на страницу профиля)" className="block-add-comment__avatar-user" src={`/images/users/avatar/${avatar}`} alt={`Аватар пользователя с ником: ${nickName}`} />
 				</Link>
 			</div>

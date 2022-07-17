@@ -2,6 +2,8 @@ import React from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
+// Components
+import ChatRules from "../common/chatRules"
 // Auxiliary
 import { getIdCommentForCommentPage, getDataForCommentPage } from "../../store/comment"
 
@@ -22,8 +24,9 @@ const GameBlockForCommentPage = () => {
 						<img className="blocks-comment__basket" src="/images/icons/basket.svg" alt="Иконка корзины-тележки" />
 						<Link title={idComment ? `Перейти на страницу игры: ${data.gameData.title}` : "Перейти в магазин Factory.inc"} to={idComment ? `/game/${data.gameData._id}` : "/store"}>{idComment ? "Открыть страницу продукта" : "Перейти в магазин"}</Link>
 					</div>
-					<p className="blocks-comment__message">{idComment ? "Поддержите беседу, отреагируйте на комментарий пользователя платформы Factory.inc. Бывает, люди здесь находят себе друзей) Ваши обсуждения бывают очень занимательными)" : "Кажется такого комментарий еще нет на нашей платформе. Возможно что-то пошло не так, для проверки попробуйте обновить страницу. Если Вы все еще видите эту страницу, перейдите по ссылкам в наш магазин."}</p>
+					<p className="blocks-comment__message">{idComment ? "Поддержите беседу, отреагируйте на комментарий пользователя платформы Factory.inc. Бывает, люди здесь находят себе друзей) Как правило беседа получается увлекательной и оригинальной. У нас самое лучшее community <3" : "Кажется такого комментарий еще нет на нашей платформе. Возможно что-то пошло не так, для проверки попробуйте обновить страницу. Если Вы все еще видите эту страницу, перейдите по ссылкам в наш магазин."}</p>
 				</div>
+				<ChatRules classesParent="blocks-comment" />
 			</div>
 		</div>
 	)

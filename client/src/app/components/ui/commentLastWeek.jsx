@@ -3,7 +3,8 @@ import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
 // Auxiliary
-import configAuxiliary from "../../configAuxiliary.json"
+import ranks from "../../configAuxiliary/ranks.json"
+import statusNewComment from "../../configAuxiliary/statusNewComment.json"
 import getDateInStringFormat from "../../utils/getDateInStringFormat"
 // Components
 import CommentActivityPanel from "../common/commentActivityPanel"
@@ -16,7 +17,7 @@ const CommentLastWeek = ({ status, date, nickName, rank, userId, text:textCommen
 	// AUXILIARY
 	const MAX_HEIGHT_COMMENT = 160
 	const textBlock = useRef(null)
-	const { text, icon } = configAuxiliary.statusNewComment.find(item => item.value === status)
+	const { text, icon } = statusNewComment.find(item => item.value === status)
 	// HANDLERS
 	const handlerClickBtnMore = () => setShowContainerComment(true)
 	useEffect(() => {
@@ -40,7 +41,7 @@ const CommentLastWeek = ({ status, date, nickName, rank, userId, text:textCommen
 			</div>
 			<div className="block-last-week__content">
 				<p className="block-last-week__nickname">Оставил(-a): <Link title={`Перейти на страницу профиля --> ${nickName}`} to={`/profile/${userId}`}>{nickName}</Link></p>
-				<p style={{ color: configAuxiliary.ranks[rank._id].color }} className="block-last-week__rank-user">{rank.title}</p>
+				<p style={{ color: ranks[rank._id].color }} className="block-last-week__rank-user">{rank.title}</p>
 				<div style={configContainerComment} className="block-last-week__container-text-comment">
 					<p ref={textBlock} className="block-last-week__text-comment">"{textComment}"</p>
 				</div>

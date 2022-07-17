@@ -2,7 +2,7 @@ import React from "react"
 import { NavLink, Link } from "react-router-dom"
 
 // Auxiliary
-import configAuxiliary from "../../configAuxiliary.json"
+import menuHeaderRoutes from "../../configAuxiliary/menuHeaderRoutes.json"
 
 const Header = () => {
 	return (
@@ -18,7 +18,7 @@ const Header = () => {
 						<Link title="При нажатии, Вы будете перенаправлены на Домашнюю страницу" to="/">Factory.inc</Link>
 					</div>
 					<ul className="menu-header__list">
-						{configAuxiliary.menuHeaderRoutes.map((item, index) => <li key={index}><NavLink to={item.path}>{item.text}</NavLink></li>)}
+						{menuHeaderRoutes.map((item, index) => <li key={index}><NavLink className={index === menuHeaderRoutes.length - 1 ? "menu-header__item-last" : ""} to={item.path}>{item.text}</NavLink></li>)}
 					</ul>
 				</div>
 			</div>
