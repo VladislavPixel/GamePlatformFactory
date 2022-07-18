@@ -7,6 +7,7 @@ import DiscussionsHeadPanel from "./discussionsHeadPanel"
 import DiscussionsList from "./discussionsList"
 // Auxiliary
 import { getEntitiesDiscussionsForCommentPage } from "../../store/comment"
+import getArrayByDelimiter from "../../utils/getArrayByDelimiter"
 
 const DiscussionsBlock = ({ classesParent, headPanelText }) => {
 	// REDUX
@@ -19,10 +20,11 @@ const DiscussionsBlock = ({ classesParent, headPanelText }) => {
 	const handlerChangePagins = (newValuePagin) => {
 		if (currentPagin !== newValuePagin) setCurrentPagin(newValuePagin)
 	}
+	const dataDiscussionsForCurrentPage = getArrayByDelimiter(currentPagin, MAX_DISCUSSIONS_ON_PAGE, data)
 	return (
 		<div className={`${classesParent}__discussions-wrap wrap-discussions`}>
 			<DiscussionsHeadPanel onChangePagination={handlerChangePagins} text={headPanelText} valueAll={data.length} pagesNumber={pagesNumber} currentPagin={currentPagin} />
-			<DiscussionsList discussionsData={data} />
+			<DiscussionsList discussionsData={dataDiscussionsForCurrentPage} />
 		</div>
 	)
 }

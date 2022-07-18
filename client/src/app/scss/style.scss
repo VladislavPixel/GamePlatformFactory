@@ -125,6 +125,7 @@ $fontFamily: "Montserrat", sans-serif;
 
 // Imports ФАЙЛОВ ДРУГИХ СУЩНОСТЕЙ ==============================================================================
 @import "spinner";
+@import "spinnerText";
 @import "header";
 @import "footer";
 @import "homePage";
@@ -153,3 +154,4 @@ $fontFamily: "Montserrat", sans-serif;
 @import "commentPage";
 @import "commentBig";
 @import "chatRules";
+@import "discussionsSmallItem";

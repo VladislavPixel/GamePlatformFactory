@@ -9,7 +9,7 @@ const Pagination = ({ classes, pagesNumber, currentPagin, onChangePagination }) 
 	return (
 		<div className={`${classes}__pagination pagination-block`}>
 			<ul className="pagination-block__list">
-				{arrayPagins.map((item, index) => <li onClick={() => onChangePagination(index)} key={item._id} className={`pagination-block__element${currentPagin === index ? " active" : ""}`}><span>{item.value}</span></li>)}
+				{arrayPagins.map((item, index) => <li title="Нажмите для переключения страницы" onClick={() => onChangePagination(index)} key={item._id} className={`pagination-block__element${currentPagin === index ? " active" : ""}`}><span>{item.value}</span></li>)}
 			</ul>
 		</div>
 	)

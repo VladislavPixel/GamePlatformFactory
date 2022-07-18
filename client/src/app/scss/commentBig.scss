@@ -276,6 +276,29 @@
 			}
 		}
 	}
+	&__message-error{
+		padding: 10px;
+		img{
+			width: 50px;
+			height: 50px;
+		}
+		h3,p{
+			font-size: 13px;
+			line-height: 110%;
+		}
+		h3{
+			margin-bottom: 5px;
+		}
+	}
+	&__list-sub-disc{
+		padding: 16px 0;
+	}
+	&__small-item{
+		margin-bottom: 17px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
 }
 .panel-head-discussions{
 	&__statistics-block{
@@ -301,5 +324,9 @@
 	&__pagination{
 		margin-top: 15px;
 		justify-content: flex-end;
+		li{
+			width: 26px;
+			height: 26px;
+		}
 	}
 }
