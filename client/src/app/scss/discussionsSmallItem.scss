@@ -27,6 +27,18 @@
          }
       }
    }
+   @media(max-width: 360px) {
+      flex-direction: column;
+      &__small-column{
+         &:first-child{
+            flex: 0 1 100%;
+            margin: 0px 0px 7px 0px;
+         }
+         &:last-child{
+            flex: 0 1 100%;
+         }
+      }
+   }
    &__small-img{
       position: absolute;
       top: 0;

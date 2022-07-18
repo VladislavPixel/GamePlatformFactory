@@ -47,6 +47,11 @@ const DiscussionItem = ({ nickName, text, avatar, date, rank, userId, hisDiscuss
 				const user = await fakeApi.getUserById(discusSub.userId)
 				return { ...user, ...discusSub }
 			}))
+			discussionsSubWithUsers.sort((disSub1, disSub2) => {
+				if (disSub1.date > disSub2.date) return -1
+				if (disSub1.date < disSub2.date) return 1
+				return 0
+			})
 			setArrSubComments(discussionsSubWithUsers)
 		} catch (err) {
 			setError(true)
@@ -54,7 +59,7 @@ const DiscussionItem = ({ nickName, text, avatar, date, rank, userId, hisDiscuss
 	}
 	useEffect(() => {
 		if (isSubList && valueDiscSub > 0 && !arrSubComments) fetchDataSubDisc(_id)
-	}, [isSubList, valueDiscSub, arrSubComments])
+	}, [isSubList, valueDiscSub, arrSubComments, _id])
 	return (
 		<div className="wrap-discussions__element">
 			<div className="wrap-discussions__column-el">

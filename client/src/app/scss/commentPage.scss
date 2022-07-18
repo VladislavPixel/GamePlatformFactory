@@ -68,6 +68,23 @@
 		font-size: 17px;
 		color: #8AF9AD;
 	}
+	@media(max-width: 425px) {
+		&__info{
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			justify-content: flex-start;
+		}
+		&__icon{
+			margin-bottom: 7px;
+		}
+		&__sub-text{
+			font-size: 15px;
+		}
+		&__text{
+			font-size: 16px;
+			font-weight: 400;
+		}
+	}
 }
 
 .blocks-comment{
@@ -93,6 +110,20 @@
 			&:hover{
 				border: 2px solid #2EBFFF;
 			}
+		}
+	}
+	@media(max-width: 1000px) {
+		flex-direction: column-reverse;
+		&__column{
+			flex: 0 1 100%;
+		}
+		&__img-game-container{
+			height: 350px;
+		}
+	}
+	@media(max-width: 650px) {
+		&__img-game-container{
+			height: 170px;
 		}
 	}
 	&__game-img{
@@ -141,6 +172,22 @@
 		img{
 			width: 120px;
 			height: 120px;
+		}
+	}
+	@media(max-width: 425px) {
+		&__column{
+			&:last-child{
+				padding: 5px;
+			}
+		}
+		&__message{
+			font-size: 14px;
+			line-height: 110%;
+		}
+		&__link{
+			a{
+				font-size: 14px;
+			}
 		}
 	}
 }

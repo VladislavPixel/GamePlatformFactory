@@ -71,6 +71,12 @@ export function fetchDataComment(idComment) {
 					const user = await fakeApi.getUserById(discus.userId)
 					return { ...user, ...discus }
 				}))
+				discussions.sort((dis1, dis2) => {
+					// Сортируем дискуссии, те, которые позже - выше
+					if (dis1.date > dis2.date) return -1
+					if (dis1.date < dis2.date) return 1
+					return 0
+				})
 				// Записываем все в store
 				dispatch(commentPageReceived({
 					id: dataComment._id,

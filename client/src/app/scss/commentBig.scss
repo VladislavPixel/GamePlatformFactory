@@ -18,6 +18,15 @@
 				font-weight: 600;
 			}
 		}
+		@media(max-width: 425px) {
+			p{
+				font-size: 14px;
+				span{
+					font-size: 16px;
+					font-weight: 400;
+				}
+			}
+		}
 	}
 	&__comments-statistics{
 		margin-bottom: 5px;
@@ -92,6 +101,17 @@
 			font-weight: 700;
 			margin-left: 7px;
 		}
+		@media(max-width: 500px) {
+			font-size: 16px;
+			img{
+				flex: 0 0 30px;
+				width: 30px;
+				height: 30px;
+			}
+			span{
+				font-weight: 500;
+			}
+		}
 	}
 	&__sucks,&__like-block{
 		margin-bottom: 15px;
@@ -116,6 +136,24 @@
 	}
 	&__text-block{
 		margin-bottom: 15px;
+	}
+	@media(max-width: 425px) {
+		&__message-comment{
+			font-size: 16px;
+			line-height: 110%;
+		}
+		&__status-block{
+			font-size: 15px;
+		}
+		&__title-message{
+			font-size: 17px;
+		}
+		&__date,&__funny,&__awards,&__consonants,&__disagree{
+			font-size: 15px;
+			span{
+				font-weight: 400;
+			}
+		}
 	}
 }
 
@@ -159,6 +197,21 @@
 		}
 		&:last-child{
 			flex: 0 1 92%;
+		}
+	}
+	@media(max-width: 425px) {
+		&__element{
+			flex-direction: column;
+			align-items: stretch;
+		}
+		&__column-el{
+			&:first-child{
+				margin: 0px 0px 7px 0px;
+				flex: 0 1 100%;
+			}
+			&:last-child{
+				flex: 0 1 100%;
+			}
 		}
 	}
 	&__image-el{
