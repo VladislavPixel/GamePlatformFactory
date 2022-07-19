@@ -20,6 +20,7 @@ import getArrayRussianGames from "./russianGames"
 import getVideoGamesCollectionLite from "./videoGamesCollectionLite"
 import getAllDiscussionsById from "./commentDiscussions"
 import getAllDiscussionsSubById from "./commentDiscussionsSub"
+import getRankByPoints from "./ranks"
 
 const fakeApi = {
 	getHomeCategory,
@@ -44,7 +45,8 @@ const fakeApi = {
 	getCommentById,
 	getGameById,
 	getAllDiscussionsById,
-	getAllDiscussionsSubById
+	getAllDiscussionsSubById,
+	getRankByPoints
 }
 
 export default fakeApi
