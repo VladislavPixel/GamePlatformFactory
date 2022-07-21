@@ -21,7 +21,9 @@ function getRankByPoints(numberPoints) {
 			}
 			if (m === ranks.length - 1) break
 		}
-		resolve(ranks[m])
+		setTimeout(() => {
+			resolve(ranks[m])
+		}, 100)
 	})
 }
 

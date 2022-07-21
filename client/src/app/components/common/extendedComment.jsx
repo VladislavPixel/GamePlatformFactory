@@ -5,7 +5,6 @@ import { Link } from "react-router-dom"
 // Components
 import CommentActivityPanel from "../common/commentActivityPanel"
 // Auxiliary
-import ranks from "../../configAuxiliary/ranks.json"
 import statusNewComment from "../../configAuxiliary/statusNewComment.json"
 import dynamicStatisticsForComment from "../../utils/dynamicStructures"
 
@@ -17,7 +16,7 @@ const ExtendedComment = ({ avatar, nickName, rank, hisComments, hisReviews, stat
 	// AUXILIARY
 	const MAX_HEIGHT_COMMENT = 230
 	const commentText = useRef(null)
-	const { title, color } = ranks[rank._id]
+	const { title, color } = rank
 	const { text, icon } = statusNewComment.find(item => item.value === status)
 	const elementsStatistics = dynamicStatisticsForComment.getStructureForStatistics(date, funnyStatus.length, awards.length, consonants.length, disagree.length)
 	const elementsWithIcons = dynamicStatisticsForComment.getStructureWithIcons(sucks.length, likes.length, dislikes.length, "extended-comment")

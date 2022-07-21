@@ -62,8 +62,8 @@ const BigComment = ({ user, comment, classesParent }) => {
 }
 
 BigComment.propTypes = {
-	user: PropTypes.object.isRequired,
-	comment: PropTypes.object.isRequired,
+	user: PropTypes.object,
+	comment: PropTypes.object,
 	classesParent: PropTypes.string.isRequired
 }
 

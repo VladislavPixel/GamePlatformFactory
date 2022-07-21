@@ -12,11 +12,8 @@ const CommentBlockForCommentPage = () => {
 	// REDUX
 	const idComment = useSelector(getIdCommentForCommentPage())
 	const data = useSelector(getDataForCommentPage())
-	const ELEMENT = (
-		<React.Fragment>
-			<BigComment user={data.authorData} comment={data.commentData} classesParent="blocks-comment__" />
-		</React.Fragment>
-	)
+	// AUXILIARY
+	const ELEMENT = <BigComment user={data.authorData} comment={data.commentData} classesParent="blocks-comment__" />
 	const ElementWithMessage = withMessage(
 		ELEMENT,
 		<LiteMessage iconPath="sadIcon.svg" altIcon="Грустный смайлик" classes="blocks-comment__message-not-found" title="Запрошенный комментарий не найден на нашей платформе." offer="Вы можете перейти в магазин платформы Factory.inc, найти интересующую Вас игру и ознакомиться с ее комментариями." />,

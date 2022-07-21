@@ -6,8 +6,11 @@ import { Link } from "react-router-dom"
 import { getIdCommentForCommentPage, getDataForCommentPage } from "../../store/comment"
 
 const HeadUserInfo = () => {
+	// REDUX
 	const idComment = useSelector(getIdCommentForCommentPage())
 	const data = useSelector(getDataForCommentPage())
+	// AUXILIARY
+	const colorSubText = idComment ? data.authorData.rank.color : "#8AF9AD"
 	return (
 		<div className="comment-wrapper__head-user user-head-comment">
 			<div className="user-head-comment__row">
@@ -20,7 +23,7 @@ const HeadUserInfo = () => {
 				<div className="user-head-comment__info">
 					<div className="user-head-comment__left-element">
 						<p className="user-head-comment__text">{idComment ? <Link title="Нажмите для перехода на страницу пользователя" to={`/profile/${data.authorData._id}`}>{data.authorData.nickName}</Link> : "Пользователь не найден..."}</p>
-						<p className="user-head-comment__sub-text">{idComment ? data.authorData.rank.title : "- / -"}</p>
+						<p style={{ color: colorSubText }} className="user-head-comment__sub-text">{idComment ? data.authorData.rank.title : "- / -"}</p>
 					</div>
 					<Link title="Перейти на страницу о платформе Factory.inc" to="/aboutUs"><img className="user-head-comment__icon" alt="Логотип платформы Factory.inc" src="/images/icons/logoFactory.svg" /></Link>
 				</div>

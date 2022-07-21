@@ -118,7 +118,13 @@ export function fetchDataCommentsForCommentsPage(config, messageQuerySequence, i
 			const data = await fakeApi.fetchCommentsForCommentsPage(config, idGame, groupConfig.valueGroup)
 
 			if (data.length) { // Если пачка пришла, значит по указанным фильтрам данные есть
-				dispatch(commentsForCommentsPageReceived({ data, messageQuerySequence, idGame, groupConfig }))
+				const updateData = await Promise.all(
+					data.map(async (item) => {
+						const rank = await fakeApi.getRankByPoints(item.rankPoints)
+						return { ...item, rank }
+					})
+				)
+				dispatch(commentsForCommentsPageReceived({ data: updateData, messageQuerySequence, idGame, groupConfig }))
 
 				// на случай, если мы получили данные и их меньше 15 (это максимальный размер пачки), получается, что нет смысла уже запрашивать еще
 				if (data.length < 15) dispatch(commentsForCommentsPageUpdatedReachedBottom(messageQuerySequence))

@@ -19,7 +19,7 @@ const DiscussionItem = ({ nickName, text, avatar, date, rank, userId, hisDiscuss
 	const [isAnswerBtn, setIsAnswerBtn] = useState(true)
 	const [isSubList, setIsSubList] = useState(false)
 	const [arrSubComments, setArrSubComments] = useState(null)
-	const { title } = rank
+	const { title, color } = rank
 	const valueDiscSub = hisDiscussionsSub.length
 	const validatorConfig = { text: { isRequired: { message: `Поле обязательно для заполнения` } } }
 	// HANDLERS
@@ -70,7 +70,7 @@ const DiscussionItem = ({ nickName, text, avatar, date, rank, userId, hisDiscuss
 					<Link className="wrap-discussions__nick-link" title={`Нажмите для перехода на страницу пользователя: ${nickName}`} to={`/profile/${userId}`}>{nickName}</Link>
 					<p className="wrap-discussions__date-el">{getDateInStringFormat(date)}</p>
 				</div>
-				<p className="wrap-discussions__rank-el">{title}</p>
+				<p style={{ color }} className="wrap-discussions__rank-el">{title}</p>
 				<p className="wrap-discussions__text-el">{text}</p>
 				{
 					isAnswerBtn &&

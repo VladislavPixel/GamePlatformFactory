@@ -66,7 +66,11 @@ export function fetchDataCommentsForTheLastWeek(idGame) {
 		dispatch(commentsForTheLastWeekRequested(idGame))
 		try {
 			const commentsArr = await fakeApi.getCommentsForTheLastWeek(idGame)
-			dispatch(commentsForTheLastWeekReceived({ data: commentsArr, id: idGame }))
+			const updateComments = await Promise.all(commentsArr.map(async (item) => {
+				const rank = await fakeApi.getRankByPoints(item.rankPoints)
+				return { ...item, rank }
+			}))
+			dispatch(commentsForTheLastWeekReceived({ data: updateComments, id: idGame }))
 		} catch(err) {
 			const { message } = err
 			dispatch(commentsForTheLastWeekRequestField(message))
@@ -78,7 +82,11 @@ export function fetchDataCommentsForTheMainWall(idGame) {
 		dispatch(commentsForTheMainWallRequested(idGame))
 		try {
 			const comments = await fakeApi.getCommentsForTheMainWallByIdNoLastWeek(idGame)
-			dispatch(commentsForTheMainWallReceived({ data: comments, id: idGame }))
+			const updateComments = await Promise.all(comments.map(async (item) => {
+				const rank = await fakeApi.getRankByPoints(item.rankPoints)
+				return { ...item, rank }
+			}))
+			dispatch(commentsForTheMainWallReceived({ data: updateComments, id: idGame }))
 		} catch(err) {
 			const { message } = err
 			dispatch(commentsForTheMainWallRequestField(message))

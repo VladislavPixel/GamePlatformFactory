@@ -55,6 +55,7 @@ export function fetchDataComment(idComment) {
 			if (dataComment) {
 				// Получаем автора этого комментария
 				const authorComment = await fakeApi.getUserById(dataComment.userId)
+				const rankForAuthorComment = await fakeApi.getRankByPoints(authorComment.rankPoints)
 				const arrGamesMiddleData = getState().games.entities
 				// Получаем игру, на которую был оставлен главный комментарий
 				let targetGame
@@ -69,7 +70,9 @@ export function fetchDataComment(idComment) {
 				const discussions = await Promise.all(
 					discussionsIntermediate.map(async (discus) => {
 					const user = await fakeApi.getUserById(discus.userId)
-					return { ...user, ...discus }
+					// к каждой дискуссии мы получаем также ранг ее автора
+					const rank = await fakeApi.getRankByPoints(user.rankPoints)
+					return { ...user, ...discus, rank }
 				}))
 				discussions.sort((dis1, dis2) => {
 					// Сортируем дискуссии, те, которые позже - выше
@@ -81,7 +84,7 @@ export function fetchDataComment(idComment) {
 				dispatch(commentPageReceived({
 					id: dataComment._id,
 					discussions,
-					data: { commentData: dataComment, authorData: authorComment, gameData: targetGame }
+					data: { commentData: dataComment, authorData: {...authorComment, rank: rankForAuthorComment }, gameData: targetGame }
 				}))
 			} else {
 				dispatch(commentPageDisablingLoader())
