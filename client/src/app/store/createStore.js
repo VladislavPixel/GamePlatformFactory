@@ -14,6 +14,7 @@ import commentsForGamePageReducer from "./commentsForGamePage"
 import usersReducer from "./users"
 import commentsForCommentsPageReducer from "./commentsForCommentsPage"
 import commentPageReducer from "./comment"
+import usersTop100DataReducer from "./usersTop100Data"
 
 const rootReducer = combineReducers({
 	games: gamesReducer,
@@ -29,6 +30,7 @@ const rootReducer = combineReducers({
 	users: usersReducer,
 	commentsForCommentsPage: commentsForCommentsPageReducer,
 	commentPage: commentPageReducer,
+	usersTop100Data: usersTop100DataReducer
 })
 
 export default function createStore() {
