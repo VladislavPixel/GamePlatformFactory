@@ -1,4 +1,5 @@
 .board-honor-wrapper{
+	padding: 50px 0px;
 	&__message-middle{
 		padding: 15px 15px 25px 15px;
 		img{
@@ -7,6 +8,26 @@
 		}
 		p{
 			max-width: 850px;
+		}
+	}
+}
+
+.slider-board-honor{
+	&__title{
+		text-transform: uppercase;
+		font-size: 60px;
+		line-height: 115%;
+		color: #fff;
+		font-weight: 600;
+		margin-bottom: 35px;
+	}
+	&__wrapper{
+		display: flex;
+	}
+	&__column{
+		flex: 0 1 50%;
+		&_first{
+			background: url("../img/backgroundScrinBlock.jpg") 0 0/cover repeat;
 		}
 	}
 }
