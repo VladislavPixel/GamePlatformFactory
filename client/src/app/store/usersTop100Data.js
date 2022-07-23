@@ -41,7 +41,11 @@ export function fetchDataUsersTop100() {
 		dispatch(usersTop100DataRequested())
 		try {
 			const dataUsers = await fakeApi.getUsersSortedTop100()
-			dispatch(usersTop100DataReceived(dataUsers))
+			const updateDataUsers = await Promise.all(dataUsers.map(async (user) => {
+				const rank = await fakeApi.getRankByPoints(user.rankPoints)
+				return { ...user, rank }
+			}))
+			dispatch(usersTop100DataReceived(updateDataUsers))
 		} catch (err) {
 			const { message } = err
 			dispatch(usersTop100DataRequestFailed(message))
