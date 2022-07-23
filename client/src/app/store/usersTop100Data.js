@@ -17,6 +17,10 @@ const usersTop100DataSlice = createSlice({
 			state.error = null
 			state.isLoading = true
 		},
+		usersTop100DataReceived(state, action) {
+			state.entities = action.payload
+			state.isLoading = false
+		},
 		usersTop100DataRequestFailed(state, action) {
 			state.error = action.payload
 			state.isLoading = false
@@ -27,15 +31,17 @@ const usersTop100DataSlice = createSlice({
 const { actions, reducer:usersTop100DataReducer } = usersTop100DataSlice
 const {
 	usersTop100DataRequested,
+	usersTop100DataReceived,
 	usersTop100DataRequestFailed
 } = actions
 
 // Actions
 export function fetchDataUsersTop100() {
-	return (dispatch) => {
+	return async (dispatch) => {
 		dispatch(usersTop100DataRequested())
 		try {
-			// Логика запроса
+			const dataUsers = await fakeApi.getUsersSortedTop100()
+			dispatch(usersTop100DataReceived(dataUsers))
 		} catch (err) {
 			const { message } = err
 			dispatch(usersTop100DataRequestFailed(message))

@@ -44,5 +44,20 @@ function getValueAllUsers() {
 	})
 }
 
-export { usersData, getUserById, getValueAllUsers }
+function getUsersSortedTop100() {
+	return new Promise((resolve, reject) => {
+		const dataUsersAux = [...usersData]
+		dataUsersAux.sort((user1, user2) => {
+			if (user1.rankPoints < user2.rankPoints) return 1
+			if (user1.rankPoints > user2.rankPoints) return -1
+			return 0
+		})
+		const result = dataUsersAux.slice(0, 100)
+		setTimeout(() => {
+			resolve(result)
+		}, 100)
+	})
+}
+
+export { usersData, getUserById, getValueAllUsers, getUsersSortedTop100 }
 export default getUsersObjectForSliderStoreComments

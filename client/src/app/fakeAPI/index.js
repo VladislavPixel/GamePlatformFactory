@@ -12,7 +12,7 @@ import getCommentsGamesForSliderStore,
 	fetchCommentsForCommentsPage,
 	getCommentById
 } from "./commentsGamesForSliderStore"
-import getUsersObjectForSliderStoreComments, { getUserById, getValueAllUsers } from "./users"
+import getUsersObjectForSliderStoreComments, { getUserById, getValueAllUsers, getUsersSortedTop100 } from "./users"
 import getScopeSliderData from "./scopeSliderStoreData"
 import getCountries from "./countries"
 import getBigDataGameById from "./gamePage"
@@ -46,7 +46,8 @@ const fakeApi = {
 	getGameById,
 	getAllDiscussionsById,
 	getAllDiscussionsSubById,
-	getRankByPoints
+	getRankByPoints,
+	getUsersSortedTop100
 }
 
 export default fakeApi
