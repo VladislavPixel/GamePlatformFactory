@@ -1,5 +1,4 @@
 .board-honor-wrapper{
-	padding: 50px 0px;
 	&__message-middle{
 		padding: 15px 15px 25px 15px;
 		img{
@@ -10,9 +9,25 @@
 			max-width: 850px;
 		}
 	}
+	&__slider-container{
+		padding: 120px 0px;
+		position: relative;
+		&:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			background: rgba(0, 0, 0, 0.115);
+			z-index: 3;
+		}
+	}
 }
 
 .slider-board-honor{
+	background: url("../img/confetti.jpg") 0 0/cover fixed;
 	&__title{
 		text-transform: uppercase;
 		font-size: 60px;
@@ -20,6 +35,7 @@
 		color: #fff;
 		font-weight: 600;
 		margin-bottom: 35px;
+		text-shadow: 1px 1px 1px #000;
 	}
 	&__wrapper{
 		display: flex;
@@ -28,6 +44,182 @@
 		flex: 0 1 50%;
 		&_first{
 			background: url("../img/backgroundScrinBlock.jpg") 0 0/cover repeat;
+		}
+	}
+	&__container{
+		position: relative;
+		z-index: 50;
+	}
+}
+
+.column-first-slider-board{
+	padding: 35px;
+	box-shadow: 0 0 8px 0px #000;
+	position: relative;
+	&__element1,&__element2{
+		position: absolute;
+		z-index: 20;
+	}
+	&__element1{
+		top: 0;
+		left: 0;
+		&:before,&:after{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: #8AF9AD;
+		}
+		&:before{
+			height: 5px;
+			width: 0px;
+		}
+		&:after{
+			height: 0px;
+			width: 5px;
+		}
+	}
+	&__element2{
+		bottom: 0;
+		right: 0;
+	}
+	&__head{
+		display: flex;
+		align-items: center;
+		margin-bottom: 15px;
+		justify-content: space-between;
+	}
+	&__icon{
+		width: 90px;
+		height: 90px;
+	}
+	&__title{
+		font-size: 20px;
+		color: #fff;
+		margin-bottom: 15px;
+		font-weight: 600;
+		margin-right: 15px;
+	}
+	&__row{
+		display: flex;
+	}
+	&__column{
+		&:first-child{
+			flex: 0 1 35%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			margin-right: 10px;
+		}
+		&:last-child{
+			flex: 0 1 65%;
+		}
+	}
+	&__container-avatar{
+		position: relative;
+		border-radius: 50%;
+		overflow: hidden;
+		width: 200px;
+		height: 200px;
+		box-shadow: 0 0 8px 0px #000;
+		transition: box-shadow 0.3s ease 0s;
+		@media(min-width: 992px) {
+			&:hover{
+				box-shadow: 0 0 8px 0px #8AF9AD;
+			}
+		}
+	}
+	&__avatar{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 30;
+	}
+	&__link-nick{
+		color: #ffb400;
+		font-size: 16px;
+		font-weight: 500;
+		margin-bottom: 15px;
+		transition: color 0.3s ease 0s;
+		@media(min-width: 992px) {
+			&:hover{
+				color: #c68a00;
+			}
+		}
+	}
+	&__date-reg{
+		font-size: 17px;
+		color: #fff;
+		margin-bottom: 10px;
+		span{
+			color: #8AF9AD;
+		}
+	}
+	&__rank-title{
+		font-size: 16px;
+		margin-bottom: 15px;
+		font-weight: 500;
+	}
+	&__lvl{
+		color: #ffb400;
+		font-size: 18px;
+		margin-bottom: 10px;
+		text-align: right;
+	}
+	&__statistics-block{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+	}
+	&__title-statistics{
+		color: #fff;
+		font-size: 20px;
+		margin-bottom: 15px;
+		font-weight: 600;
+	}
+	&__comments,&__reviews{
+		font-size: 16px;
+		color: #fff;
+		margin-bottom: 10px;
+		line-height: 107%;
+		span{
+			color: #8AF9AD;
+		}
+	}
+	&__container-points{
+		display: flex;
+		justify-content: flex-end;
+	}
+	&__points{
+		background: #8af9ad1c;
+		color: #fff;
+		span{
+			color: #ffb400;
+		}
+		font-size: 18px;
+		font-weight: 500;
+		text-align: center;
+		padding: 7px;
+		box-shadow: 0 0 8px 0px #000;
+	}
+	&__link-profile{
+		color: #8AF9AD;
+		font-size: 16px;
+		margin-bottom: 10px;
+		display: inline-block;
+		transition: color 0.3s ease 0s;
+		@media(min-width: 992px) {
+			&:hover{
+				text-decoration: underline;
+				color: #68b781;
+			}
 		}
 	}
 }
