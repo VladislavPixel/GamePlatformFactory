@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
@@ -12,10 +12,13 @@ const HonorBoardVerticalSlider = () => {
 	// AUXILIARY
 	const fiveElements = entities.slice(0, 5)
 	const isLessFive = fiveElements.length < 5
-	const [cloneDataSliderHead, setCloneDataSliderHead] = useState(isLessFive ? [] : fiveElements.slice(-3, fiveElements.length))
-	const [dataSlider, setDataSlider] = useState(fiveElements)
-	const [cloneDataSliderBottom, setCloneDataSliderBottom] = useState(isLessFive ? [] : fiveElements.slice(0, 3))
+	const [cloneDataSliderHead] = useState(isLessFive ? [] : fiveElements.slice(-3, fiveElements.length))
+	const [dataSlider] = useState(fiveElements)
+	const [cloneDataSliderBottom] = useState(isLessFive ? [] : fiveElements.slice(0, 3))
 	const [currentIndexUser, setCurrentIndexUser] = useState(0)
+	const [containerOffset, setContainerOffset] = useState({ transform: "translateY(0)" })
+	const slideRef = useRef(null)
+	const heightSlide = useRef(0)
 	const {
 		avatar,
 		hisComments,
@@ -28,6 +31,12 @@ const HonorBoardVerticalSlider = () => {
 		_id
 	} = dataSlider[currentIndexUser]
 	const { color, text, title } = rank
+	useEffect(() => {
+		if (slideRef.current) {
+			heightSlide.current = slideRef.current.clientHeight
+			if (!isLessFive) setContainerOffset({ transform: `translateY(-${heightSlide.current * cloneDataSliderHead.length / 2}px)` })
+		}
+	}, [isLessFive, cloneDataSliderHead.length])
 	return (
 		<div className="board-honor-wrapper__slider-container slider-board-honor">
 			<div className="slider-board-honor__container _container">
@@ -44,7 +53,7 @@ const HonorBoardVerticalSlider = () => {
 							<div className="column-first-slider-board__column">
 								<Link className="column-first-slider-board__link-nick" to={`/profile/${_id}`} title={`Перейти на страницу пользователя --> ${nickName}`}>{nickName}</Link>
 								<Link className="column-first-slider-board__container-avatar" to={`/profile/${_id}`} title={`Перейти на страницу пользователя --> ${nickName}`}>
-									<img className="column-first-slider-board__avatar" src={`/images/users/avatar/${avatar}`} />
+									<img alt={`Аватарка профиля ${nickName}`} className="column-first-slider-board__avatar" src={`/images/users/avatar/${avatar}`} />
 								</Link>
 							</div>
 							<div className="column-first-slider-board__column">
@@ -58,12 +67,35 @@ const HonorBoardVerticalSlider = () => {
 									<p className="column-first-slider-board__reviews">Рецензии: <span>{hisReviews.length}</span></p>
 								</div>
 								<div className="column-first-slider-board__container-points">
-									<div className="column-first-slider-board__points">Очки: <span>{rankPoints}</span></div>
+									<div className="column-first-slider-board__points">Ресурсов: <span>{rankPoints}</span></div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div className="slider-board-honor__column"></div>
+					<div className="slider-board-honor__column">
+						<div style={containerOffset} className="slider-board-honor__container-block honor-board-slider">
+							{[...cloneDataSliderHead, ...dataSlider, ...cloneDataSliderBottom].map((slide, index) => {
+								const isActive = isLessFive && index === currentIndexUser ? true :
+									!isLessFive && index - cloneDataSliderHead.length === currentIndexUser ? true :
+									false
+								return (
+									<div ref={slideRef} key={index} className={`honor-board-slider__slide${isActive ? " active" : ""}`}>
+										<div className="honor-board-slider__tagline-die">
+											<p className="honor-board-slider__slogan-txt">{slogan}</p>
+										</div>
+										<div className="honor-board-slider__image-wrapper">
+											<span className="honor-board-slider__flag1"></span>
+											<span className="honor-board-slider__flag2"></span>
+											<span className="honor-board-slider__flag3"></span>
+											<span className="honor-board-slider__flag4"></span>
+											<img src={`/images/users/avatar/${slide.avatar}`} className="honor-board-slider__image" alt="Аватарка пользователя платформы Factory.inc" />
+										</div>
+										<div className="honor-board-slider__close-el"></div>
+									</div>
+								)
+							})}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
