@@ -89,8 +89,10 @@ const HonorBoardVerticalSlider = () => {
 											<span className="honor-board-slider__flag3"></span>
 											<span className="honor-board-slider__flag4"></span>
 											<img src={`/images/users/avatar/${slide.avatar}`} className="honor-board-slider__image" alt="Аватарка пользователя платформы Factory.inc" />
+											<div className="honor-board-slider__close-el">
+												<span></span>
+											</div>
 										</div>
-										<div className="honor-board-slider__close-el"></div>
 									</div>
 								)
 							})}
