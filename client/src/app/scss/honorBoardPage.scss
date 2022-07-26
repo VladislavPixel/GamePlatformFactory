@@ -39,29 +39,37 @@
 	}
 	&__wrapper{
 		display: flex;
-		height: 550px;
 		overflow: hidden;
+		align-items: center;
 	}
 	&__column{
-		flex: 0 1 50%;
 		&_first{
+			flex: 0 1 55%;
 			background: url("../img/backgroundScrinBlock.jpg") 0 0/cover repeat;
-			margin-right: 40px;
+			margin-right: 20px;
+			height: 550px;
 		}
 		&:last-child{
-			padding-right: 110px;
+			flex: 0 1 45%;
+			padding-right: 115px;
+			height: 700px;
 		}
 	}
 	&__container{
 		position: relative;
 		z-index: 50;
+		max-width: 1450px;
+		margin: 0 auto;
+		padding: 0px 10px;
 	}
 }
 
 .column-first-slider-board{
-	padding: 35px;
+	padding: 25px;
 	box-shadow: 0 0 8px 0px #000;
 	position: relative;
+	display: flex;
+	flex-direction: column;
 	&__element1,&__element2{
 		position: absolute;
 		z-index: 20;
@@ -125,6 +133,7 @@
 	}
 	&__row{
 		display: flex;
+		flex: 1 1 auto;
 	}
 	&__column{
 		&:first-child{
@@ -132,22 +141,23 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
 			text-align: center;
 			margin-right: 10px;
 		}
 		&:last-child{
 			flex: 0 1 65%;
+			display: flex;
+			flex-direction: column;
 		}
 	}
 	&__container-avatar{
 		position: relative;
-		border-radius: 50%;
 		overflow: hidden;
 		width: 200px;
 		height: 200px;
 		box-shadow: 0 0 8px 0px #000;
 		transition: box-shadow 0.3s ease 0s;
+		margin-bottom: 15px;
 		@media(min-width: 992px) {
 			&:hover{
 				box-shadow: 0 0 8px 0px #8AF9AD;
@@ -165,9 +175,8 @@
 	}
 	&__link-nick{
 		color: #ffb400;
-		font-size: 16px;
+		font-size: 18px;
 		font-weight: 500;
-		margin-bottom: 15px;
 		transition: color 0.3s ease 0s;
 		@media(min-width: 992px) {
 			&:hover{
@@ -189,7 +198,7 @@
 		font-weight: 500;
 	}
 	&__lvl{
-		color: #ffb400;
+		color: #8AF9AD;
 		font-size: 18px;
 		margin-bottom: 10px;
 		text-align: right;
@@ -207,10 +216,12 @@
 		margin-bottom: 15px;
 		font-weight: 600;
 	}
+	&__comments{
+		margin-bottom: 10px;
+	}
 	&__comments,&__reviews{
 		font-size: 16px;
 		color: #fff;
-		margin-bottom: 10px;
 		line-height: 107%;
 		span{
 			color: #8AF9AD;
@@ -229,7 +240,7 @@
 		font-size: 18px;
 		font-weight: 500;
 		text-align: center;
-		padding: 7px;
+		padding: 15px;
 		box-shadow: 0 0 8px 0px #000;
 	}
 	&__link-profile{
@@ -244,6 +255,10 @@
 				color: #68b781;
 			}
 		}
+	}
+	&__content{
+		flex: 1 1 auto;
+		margin-bottom: 15px;
 	}
 }
 
@@ -279,12 +294,16 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		padding: 7px 0px;
+		padding: 32px 0px;
+		transition: all 0.4s ease 0s;
+		&.half{
+			opacity: 0.6;
+		}
 	}
 	&__image-wrapper{
 		position: relative;
 		height: 100%;
-		flex: 0 0 170px;
+		flex: 0 0 150px;
 		box-shadow: 0 0 8px 0px #000;
 		cursor: pointer;
 	}
@@ -295,11 +314,11 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		z-index: 10;
+		z-index: 20;
 	}
 	&__flag1,&__flag2,&__flag3,&__flag4{
 		position: absolute;
-		z-index: 20;
+		z-index: 22;
 		height: 100%;
 	}
 	&__flag1{
@@ -311,14 +330,14 @@
 			top: 0;
 			left: 0;
 			background: #ffb400;
-			z-index: 15;
-			transition: all 0.3s ease 0s;
+			z-index: 22;
+			transition: width 0.4s ease 0s, height 0.4s ease 0s;
 		}
 		&:after{
-			height: 6px;
+			height: 5px;
 		}
 		&:before{
-			width: 6px;
+			height: 100%;
 		}
 	}
 	&__flag2{
@@ -330,20 +349,20 @@
 			bottom: 0;
 			right: 0;
 			background: #ffb400;
-			z-index: 15;
-			transition: all 0.3s ease 0s;
+			z-index: 22;
+			transition: width 0.4s ease 0s, height 0.4s ease 0s;
 		}
 		&:after{
-			height: 6px;
+			height: 5px;
 		}
 		&:before{
-			width: 6px;
+			height: 100%;
 		}
 	}
 	&__flag3,&__flag4{
 		background: #ffb400;
 		transition: all 0.3s ease 0s;
-		height: 6px;
+		height: 5px;
 	}
 	&__flag3{
 		bottom: 0;
@@ -354,22 +373,38 @@
 		right: 0;
 	}
 	&__tagline-die{
-		display: none;
 		background: #ffb400;
 		height: 70px;
-		flex: 1 1 auto;
+		width: 0;
 		padding: 15px;
+		position: relative;
+		left: 35px;
+		opacity: 0;
+		transition: width 1.2s ease 0s;
+		overflow: hidden;
+		&:before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 0;
+			border-top: 70px solid transparent;
+			border-left: 208px solid #d19200e5;
+			border-bottom: 1px solid transparent;
+		}
 	}
 	&__close-el{
-		display: none;
 		position: absolute;
 		height: 70px;
 		width: 80px;
 		background: #ffb400;
-		z-index: 40;
+		z-index: 10;
 		top: 50%;
 		right: 0;
-		transform: translate(100%, -50%);
+		transition: transform 0.6s ease 0s;
+		opacity: 0;
+		transform: translate(-50%, -50%);
 		span{
 			display: inline-block;
 			width: 0;
@@ -381,44 +416,37 @@
 	}
 	&__slogan-txt{
 		color: #fff;
-		font-size: 15px;
-		font-weight: 600;
+		font-size: 13px;
+		font-weight: 700;
 		text-transform: uppercase;
+		position: relative;
+		z-index: 5;
 	}
 }
 
 .honor-board-slider__slide.active{
 	.honor-board-slider__image-wrapper{
-		flex: 0 0 215px;
-		left: 25px;
+		flex: 0 0 205px;
+		left: 35px;
 		box-shadow: none;
 	}
-	.honor-board-slider__flag1{
+	.honor-board-slider__flag1,.honor-board-slider__flag2{
 		&:after{
-			width: 60px;
+			width: 50px;
 		}
 		&:before{
-			height: 100%;
-		}
-	}
-	.honor-board-slider__flag2{
-		&:after{
-			width: 60px;
-		}
-		&:before{
-			height: 100%;
+			width: 5px;
 		}
 	}
 	.honor-board-slider__flag3,.honor-board-slider__flag4{
-		width: 60px;
+		width: 50px;
 	}
 	.honor-board-slider__tagline-die{
-		position: relative;
-		display: flex;
-		align-items: center;
-		left: 25px;
+		width: 100%;
+		opacity: 1;
 	}
 	.honor-board-slider__close-el{
-		display: block;
+		opacity: 1;
+		transform: translate(100%, -50%);
 	}
 }
